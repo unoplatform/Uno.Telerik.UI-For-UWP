@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// Represents a control that enables the user to select date values from a range by tapping on a picker box containing the current value and opening a date selector to select a new value.
     /// </summary>
     [TemplatePart(Name = "PART_PickerButton", Type = typeof(DateTimePickerButton))]
-    [TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
+    [TemplatePart(Name = "PART_Popup", Type = typeof(Windows.UI.Xaml.Controls.Popup))] // UNO TODO
     [TemplatePart(Name = "PART_SelectorLayoutRoot", Type = typeof(Border))]
     [TemplatePart(Name = "PART_SelectorHeader", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "PART_MonthList", Type = typeof(DateTimeList))]
@@ -23,7 +23,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     [TemplatePart(Name = "PART_SelectorButtonsPanel", Type = typeof(StackPanel))]
     [TemplatePart(Name = "PART_SelectorOKButton", Type = typeof(Button))]
     [TemplatePart(Name = "PART_SelectorCancelButton", Type = typeof(Button))]
-    public class RadDatePicker : DateTimePicker
+    public partial class RadDatePicker : DateTimePicker
     {
         /// <summary>
         /// Identifies the <see cref="DayStepBehavior"/> dependency property.

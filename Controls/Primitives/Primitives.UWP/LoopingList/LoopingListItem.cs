@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.LoopingList
     /// <summary>
     /// Represents a visual item that resides within a <see cref="LoopingPanel"/> instance.
     /// </summary>
-    public class LoopingListItem : RadContentControl
+    public partial class LoopingListItem : RadContentControl
     {
         /// <summary>
         /// Specifies the <see cref="LoopingListItem.IsSelected"/> property.

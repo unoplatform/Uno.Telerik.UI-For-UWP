@@ -1,4 +1,5 @@
-﻿using Telerik.Core;
+﻿using System;
+using Telerik.Core;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -51,15 +52,19 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         internal static void PrepareDefaultVisual(TextBlock visual, CalendarNode cell)
         {
-            visual.Tag = cell;
-            visual.Text = cell.Label;
+            //visual.Tag = cell;
+            //visual.Text = cell.Label;
 
-            ApplyStyleToDefaultVisual(visual, cell);
+            //ApplyStyleToDefaultVisual(visual, cell);
 
-            MeasureVisual(visual);
-        }
+            //MeasureVisual(visual);   
+			
+			// TODO UNO
+			throw new NotSupportedException();
 
-        internal static void ApplyStyleToDefaultVisual(TextBlock visual, CalendarNode cell)
+		}
+
+		internal static void ApplyStyleToDefaultVisual(TextBlock visual, CalendarNode cell)
         {
             if (cell.Context == null)
             {

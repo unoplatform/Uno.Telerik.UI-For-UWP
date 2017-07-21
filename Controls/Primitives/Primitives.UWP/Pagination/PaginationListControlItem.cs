@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Pagination
     /// <summary>
     /// Represents visual container, used within a <see cref="PaginationListControl"/> to visualize thumbnail items.
     /// </summary>
-    public class PaginationListControlItem : ListBoxItem
+    public partial class PaginationListControlItem : ListBoxItem
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PaginationListControlItem"/> class.

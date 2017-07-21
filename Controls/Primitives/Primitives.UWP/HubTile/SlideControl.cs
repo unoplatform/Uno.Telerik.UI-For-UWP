@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
     [TemplateVisualState(Name = "Normal")]
     [TemplateVisualState(Name = "SemiExpanded")]
     [TemplateVisualState(Name = "Expanded")]
-    public class SlideControl : RadControl
+    public partial class SlideControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="TopContent"/> dependency property.

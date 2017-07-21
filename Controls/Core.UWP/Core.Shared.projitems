@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>19ac954d-2617-4b66-a8b5-c151c974edf4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Core.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationEndedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationFillBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationSelectorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\EmptyAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\FadeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\Helpers\ElementScreenShotInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\MoveAndFadeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\MoveAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\MoveAnimationBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\MoveAnimationPointMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\MoveDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\MoveXAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\MoveYAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\PlaneProjectionAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\RadContinuumAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\RadTileAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ResizeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ResizeHeightAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ResizeWidthAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ScaleAndFadeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ScaleAndMoveAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ScaleAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ScaleMoveAndFadeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ScaleMoveAndRotateAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ScaleXAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\ScaleYAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\SlideAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animations\SlideContinuumAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Easings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\IInOutAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\InOutAnimationMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\MotionParameters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\PlayAnimationInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\RadAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\RadAnimationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\SequentialMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Appointments\AppointmentSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Appointments\DateTimeAppointment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Appointments\IAppointment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BindingExpressionHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommonExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommonStrings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\BaseCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\BitStateChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\BitVector32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\DisposableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ElementTreeHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ExportHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\HslColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\IAsyncDataErrorInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ICloneable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\IItemsContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ItemPropertyChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NotifyCurrentItemChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Pair.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Range.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SkipAutoGenerateAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\StreamHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspendableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ValidateViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Convertes\BoolToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Convertes\IFormatSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Convertes\NumericConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Convertes\StringToUpperConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\PropertyValueLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ValueLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DynamicHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\Element.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\ElementCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\Events\RadPropertyEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\FastPropertyStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\IElementPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\IView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\Messaging\Message.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\Messaging\MessageDispatchMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\Messaging\MessageDispatchPhase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\ModifyChildrenResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\NodeCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\NodeState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\PropertyBagObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\PropertyKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\RootElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ElementTree\TreeTraversalMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Localization\LocalizationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Localization\StringResourceLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\RadCircle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\RadLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\RadMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\RadPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\RadRect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\RadSize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\RadThickness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Math\ValueRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Reflection\ReflectionHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WeakEvents\KnownEvents.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WeakEvents\WeakEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WeakEvents\WeakEventHandlerList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WeakEvents\WeakEventListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WeakEvents\WeakReferenceList.cs" />
+  </ItemGroup>
+</Project>

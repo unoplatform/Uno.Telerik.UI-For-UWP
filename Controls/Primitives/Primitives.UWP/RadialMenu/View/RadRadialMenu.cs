@@ -490,7 +490,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             this.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             var adjustedPosition = new Point(position.X, position.Y - this.DesiredSize.Height / 2);
 
-            var windowBounds = Window.Current.Bounds;
+			// UNO TODO
+            var windowBounds = Windows.UI.Xaml.Window.Current.Bounds;
 
             var x = Math.Min(adjustedPosition.X + this.DesiredSize.Width, windowBounds.Width) - this.DesiredSize.Width;
 

@@ -40,7 +40,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             DependencyProperty.Register(nameof(SelectionMiddleThumbStyle), typeof(Style), typeof(RangeSliderPrimitive), null);
 
         internal double coeficient;
-        internal Popup rangeToolTip;
+		//UNO TODO
+        internal Windows.UI.Xaml.Controls.Popup rangeToolTip;
         internal RangeToolTip rangeToolTipContent;
         internal Point toolTipPosition;
         internal ToolTip valueToolTip;
@@ -67,8 +68,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Initializes a new instance of the <see cref="RangeSliderPrimitive"/> class.
         /// </summary>
         public RangeSliderPrimitive()
-        {
-            this.rangeToolTip = new Popup();
+		{              
+			// TODO UNO
+			this.rangeToolTip = new Windows.UI.Xaml.Controls.Popup();
 
             this.rangeToolTipContent = new RangeToolTip();
 

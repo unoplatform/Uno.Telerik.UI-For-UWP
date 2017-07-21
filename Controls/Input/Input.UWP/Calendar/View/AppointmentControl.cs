@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
     /// <summary>
     /// Represents the custom <see cref="AppointmentControl"/> implementation used to visualize the UI of the appointments in a cell.
     /// </summary>
-    public class AppointmentControl : RadHeaderedContentControl
+    public partial class AppointmentControl : RadContentControl
     {
         /// <summary>
         /// Identifies the <see cref="LeftIndicatorVisibility"/> dependency property.

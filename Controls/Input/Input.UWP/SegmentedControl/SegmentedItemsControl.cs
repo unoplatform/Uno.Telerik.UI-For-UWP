@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// Represents the list control that holds the <see cref="Segment"/>.
     /// </summary>
     [TemplatePart(Name = "DecorationLayerTemplatePartName", Type = typeof(Canvas))]
-    public class SegmentedItemsControl : ItemsControl
+    public partial class SegmentedItemsControl : ItemsControl
     {
         /// <summary>
         /// Identifies the <see cref="CornerRadius" /> dependency property. 
@@ -144,9 +144,13 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         internal void PrepareContainers()
         {
-            foreach (var segment in this.ItemsPanelRoot.Children)
+            foreach (var nativeSegment in this.ItemsPanelRoot.Children)
             {
-                this.ItemContainerGenerator.PrepareItemContainer(segment);
+				// UNO TODO
+				if (nativeSegment is FrameworkElement segment)
+				{
+					this.ItemContainerGenerator.PrepareItemContainer(segment);
+				}
             }
         }
 
@@ -171,7 +175,8 @@ namespace Telerik.UI.Xaml.Controls.Input
             {
                 segment.Group = string.Empty;
 
-                segment.ClearValue(Segment.DataContextProperty);
+				// UNO TODO
+                // segment.ClearValue(Segment.DataContextProperty);
                 segment.ClearValue(Segment.ContentProperty);
                 segment.ClearValue(Segment.ContentTemplateProperty);
                 segment.ClearValue(Segment.StyleProperty);

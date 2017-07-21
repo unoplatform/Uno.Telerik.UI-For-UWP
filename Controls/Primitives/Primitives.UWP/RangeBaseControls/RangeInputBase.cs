@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// Defines a logical steps for manipulations for its descendants.
     /// </summary>
-    public abstract class RangeInputBase : RangeControlBase
+    public abstract partial class RangeInputBase : RangeControlBase
     {
         /// <summary>
         /// Identifies the <see cref="SmallChange"/> dependency property.

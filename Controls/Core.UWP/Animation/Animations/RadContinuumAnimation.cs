@@ -196,14 +196,15 @@ namespace Telerik.Core
                 return;
             }
 
-            if (!(this.continuumElement is TextBlock))
-            {
-                TextBlock textBlock = ElementTreeHelper.FindVisualDescendant<TextBlock>(this.continuumElement);
-                if (textBlock != null)
-                {
-                    this.continuumElement = textBlock;
-                }
-            }
+			// TODO UNO
+            //if (!(this.continuumElement is TextBlock))
+            //{
+            //    TextBlock textBlock = ElementTreeHelper.FindVisualDescendant<TextBlock>(this.continuumElement);
+            //    if (textBlock != null)
+            //    {
+            //        this.continuumElement = textBlock;
+            //    }
+            //}
 
             /////context.Storyboard.Duration = new Duration(TimeSpan.FromMilliseconds(500));
             this.headerElement = RadContinuumAnimation.GetHeaderElement(context.Target);

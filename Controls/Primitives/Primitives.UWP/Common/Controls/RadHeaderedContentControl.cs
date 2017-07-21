@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls
     /// Defines a <see cref="RadContentControl"/> class that adds notation for a header.
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Headered")]
-    public abstract class RadHeaderedContentControl : RadContentControl
+    public abstract partial class RadHeaderedContentControl : RadContentControl
     {
         /// <summary>
         /// Identifies the <see cref="Header"/> property.

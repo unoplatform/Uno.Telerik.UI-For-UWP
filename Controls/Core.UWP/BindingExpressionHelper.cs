@@ -11,7 +11,7 @@ namespace Telerik.Core
     /// <summary>
     /// Provides methods that allow getting property values without reflection.
     /// </summary>
-    public sealed class BindingExpressionHelper : FrameworkElement
+    public sealed partial class BindingExpressionHelper : FrameworkElement
     {
         private static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(object), typeof(BindingExpressionHelper), null);
 

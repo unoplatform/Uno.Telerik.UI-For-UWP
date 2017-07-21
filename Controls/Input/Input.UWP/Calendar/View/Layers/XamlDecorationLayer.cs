@@ -109,6 +109,23 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
 
+        private static bool IsStrokeThicknessExplicitlySet(Style style)
+        {
+            if (style != null)
+            {
+                foreach (Setter setter in style.Setters)
+                {
+					// TODO UNO
+                    //if (setter.Property == Border.BorderThicknessProperty)
+                    //{
+                    //    return true;
+                    //}
+                }
+            }
+
+            return false;
+        }
+
         private static bool ShouldRenderPrimaryCellDecorationVisual(CalendarNode cell)
         {
             Style effectiveStyle = cell.Context.GetEffectiveCellDecorationStyle();

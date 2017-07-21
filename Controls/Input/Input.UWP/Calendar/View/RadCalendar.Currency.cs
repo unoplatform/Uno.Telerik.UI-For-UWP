@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// <summary>
         /// Occurs when a property of the <see cref="RadCalendar"/> changes.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged; // UNO TODO
 
         /// <summary>
         /// Occurs when the <see cref="CurrentDate"/> property is about to change. The event may be canceled to prevent the actual change.

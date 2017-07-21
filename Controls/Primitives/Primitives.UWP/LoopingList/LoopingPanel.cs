@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.LoopingList
     /// <summary>
     /// Represents a light-weight virtualized stack panel with vertical orientation with endless looping among logical items.
     /// </summary>
-    public class LoopingPanel : Panel
+    public partial class LoopingPanel : Panel
     {
         internal double visualOffset;
         private const int OffScreenItemCount = 2;

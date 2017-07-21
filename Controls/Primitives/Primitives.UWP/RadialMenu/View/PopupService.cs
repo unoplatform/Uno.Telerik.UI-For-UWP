@@ -14,7 +14,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
     internal static class PopupService
     {
-        private static Popup popup;
+		//TODO UNO
+        private static Windows.UI.Xaml.Controls.Popup popup;
 
         private static Panel overlay;
 
@@ -30,7 +31,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         {
             if (popup == null)
             {
-                popup = new Popup();
+				// TODO UNO
+                popup = new Windows.UI.Xaml.Controls.Popup();
                 overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
                 popup.Child = overlay;
             }
@@ -53,8 +55,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         {
             if (popup == null)
             {
-                popup = new Popup();
-                overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
+				// TODO UNO
+				popup = new Windows.UI.Xaml.Controls.Popup();
+				overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
                 popup.Child = overlay;
             }
 

@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Input.DateTimePickers
     [TemplateVisualState(Name = "Disabled", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "NotFocused", GroupName = "FocusedStates")]
     [TemplateVisualState(Name = "Focused", GroupName = "FocusedStates")]
-    public class DateTimeListItem : LoopingListItem
+    public partial class DateTimeListItem : LoopingListItem
     {
         /// <summary>
         /// Identifies the <see cref="SelectedBackground"/> dependency property. 

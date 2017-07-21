@@ -19,7 +19,7 @@
         <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Input.UWP/Themes/Calendar.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <primitives:ContentToVisibilityConverter x:Key="ContentToVisibilityConverter" />
+    <!-- UNO TODO <primitives:ContentToVisibilityConverter x:Key="ContentToVisibilityConverter" />-->
 
     <!--#region SegmentedControl-->
 

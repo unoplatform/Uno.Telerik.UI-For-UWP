@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Pagination
     /// <summary>
     /// A List control, used to visualize thumbnail data of <see cref="RadPaginationControl"/>.
     /// </summary>
-    public class PaginationListControl : ListBox
+    public partial class PaginationListControl : ListBox
     {
         private RadPaginationControl owner;
 

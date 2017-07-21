@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
     /// <summary>
     /// Represents the header panel of the calendar control that is responsible for the control navigation.
     /// </summary>
-    public class CalendarNavigationControl : RadControl
+    public partial class CalendarNavigationControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="HeaderContent"/> dependency property.

@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
     /// <summary>
     /// Represents the topmost panel that holds the calendar view cells.
     /// </summary>
-    public class CalendarViewHost : Canvas
+    public partial class CalendarViewHost : Canvas
     {
         /// <inheritdoc />
         protected override AutomationPeer OnCreateAutomationPeer()

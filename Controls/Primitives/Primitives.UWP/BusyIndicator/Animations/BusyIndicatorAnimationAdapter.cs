@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.BusyIndicator
     /// A utility class that is used to adapt an animation in arbitrary ways.
     /// </summary>
    [Windows.UI.Xaml.Data.Bindable]
-    public class BusyIndicatorAnimationAdapter : FrameworkElement
+    public partial class BusyIndicatorAnimationAdapter : FrameworkElement
     {
         /// <summary>
         /// Identifies the Animation dependency property.

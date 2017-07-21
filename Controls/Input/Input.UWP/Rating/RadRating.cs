@@ -21,7 +21,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// Represents a control that allows for giving a rating by tapping on a RatingItem.
     /// </summary>
     [ContentProperty(Name = "Items")]
-    public class RadRating : RadControl, IWeakEventListener
+    public partial class RadRating : RadControl, IWeakEventListener
     {
         /// <summary>
         /// Identifies the <see cref="Value"/> dependency property.

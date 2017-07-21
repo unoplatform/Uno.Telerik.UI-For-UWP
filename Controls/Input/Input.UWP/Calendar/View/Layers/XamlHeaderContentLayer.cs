@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Telerik.Core;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -109,10 +110,13 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
                 this.measurementPresenter.Text = content.ToString();
 
-                return XamlContentLayerHelper.MeasureVisual(this.measurementPresenter);
-            }
+               // return XamlContentLayerHelper.MeasureVisual(this.measurementPresenter);  
+				
+				// TODO UNO
+				throw new NotSupportedException();
+			}
 
-            return RadSize.Empty;
+			return RadSize.Empty;
         }
 
         private static void ApplyStyleToDefaultVisual(TextBlock visual, CalendarCellModel cell)
@@ -128,36 +132,43 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         private FrameworkElement GetDefaultVisual(CalendarNode cell, int virtualIndex)
         {
-            TextBlock visual;
+            //TextBlock visual;
 
-            if (virtualIndex < this.realizedCalendarCellDefaultPresenters.Count)
-            {
-                visual = this.realizedCalendarCellDefaultPresenters[virtualIndex];
+            //if (virtualIndex < this.realizedCalendarCellDefaultPresenters.Count)
+            //{
+            //    visual = this.realizedCalendarCellDefaultPresenters[virtualIndex];
 
-                visual.ClearValue(TextBlock.VisibilityProperty);
-                visual.ClearValue(TextBlock.StyleProperty);
-            }
-            else
-            {
-                visual = this.CreateDefaultVisual();
-            }
+            //    visual.ClearValue(TextBlock.VisibilityProperty);
+            //    visual.ClearValue(TextBlock.StyleProperty);
+            //}
+            //else
+            //{
+            //    visual = this.CreateDefaultVisual();
+            //}
 
-            XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
+            //XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
 
-            return visual;
-        }
+            //return visual;   
+			
+			// TODO UNO
+			throw new NotSupportedException();
+		}
 
-        private TextBlock CreateDefaultVisual()
+		private TextBlock CreateDefaultVisual()
         {
-            TextBlock textBlock = new TextBlock();
+            //TextBlock textBlock = new TextBlock();
 
-            this.AddVisualChild(textBlock);
-            this.realizedCalendarCellDefaultPresenters.Add(textBlock);
+            //this.AddVisualChild(textBlock);
+            //this.realizedCalendarCellDefaultPresenters.Add(textBlock);
 
-            return textBlock;
-        }
+            //return textBlock;  
+			
+			// TODO UNO
+			throw new NotSupportedException();
 
-        private void EnsureMeasurementPresenter()
+		}
+
+		private void EnsureMeasurementPresenter()
         {
             if (this.measurementPresenter == null)
             {
@@ -165,7 +176,8 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 this.measurementPresenter.Opacity = 0;
                 this.measurementPresenter.IsHitTestVisible = false;
 
-                this.AddVisualChild(this.measurementPresenter);
+				// TODO UNO
+                // this.AddVisualChild(this.measurementPresenter);
             }
         }
     }

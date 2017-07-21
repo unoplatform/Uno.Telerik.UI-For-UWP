@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
     /// <summary>
     /// Represents the button control used to open the <see cref="RadRadialMenu"/> component. It is also used as a back button when navigating through the item childs.
     /// </summary>
-    public class RadialMenuButton : Button
+    public partial class RadialMenuButton : Button
     {
         private bool displayBackContent;
 

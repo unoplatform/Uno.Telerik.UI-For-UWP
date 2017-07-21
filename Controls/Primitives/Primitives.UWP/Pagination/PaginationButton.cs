@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Pagination
     /// <summary>
     /// Represents a templated button control used in a <see cref="RadPaginationControl"/> for navigation.
     /// </summary>
-    public class PaginationButton : Button
+    public partial class PaginationButton : Button
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PaginationButton"/> class.

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <!--<TargetFrameworks>uap10.0;Xamarin.iOS10</TargetFrameworks>-->
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <DefaultLanguage>en-US</DefaultLanguage>
+  </PropertyGroup>
+
+  <Import Project="..\..\CrossTargetting.props" />
+
+  <ItemGroup>
+    <None Remove="Themes\Generic.xaml" />
+    <None Remove="Themes\Resources.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml" />
+    <Page Include="Themes\Resources.xaml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
+    <ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
+    <PackageReference Include="Uno.UI">
+			<Version>1.16.1-dev.562.clear</Version>
+		</PackageReference>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>

@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// </summary>
     [TemplatePart(Name = "PART_LayoutRoot", Type = typeof(Grid))]
     [TemplatePart(Name = "PART_FlipControl", Type = typeof(FlipControl))]
-    public class RadCustomHubTile : HubTileBase
+    public partial class RadCustomHubTile : HubTileBase
     {
         /// <summary>
         /// Identifies the FrontContent dependency property.

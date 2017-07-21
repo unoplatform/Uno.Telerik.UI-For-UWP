@@ -10,8 +10,13 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// <summary>
     /// A custom panel that holds the elements in a <see cref="SegmentedItemsControl"/> control.
     /// </summary>
-    public class SegmentedPanel : Panel
+    public partial class SegmentedPanel : Panel
     {
+		public SegmentedPanel()
+		{
+			// UNO TODO
+		}
+
         /// <summary>
         /// Gets the parent <see cref="SegmentedItemsControl"/>.
         /// </summary>
@@ -111,11 +116,15 @@ namespace Telerik.UI.Xaml.Controls.Input
                 itemWidth = Math.Max((availableWidth - separatorsTotalWidth) / this.Children.Count, 0);
             }
 
-            foreach (var child in this.Children)
+            foreach (var nativeChild in this.Children)
             {
-                child.Measure(new Size(itemWidth, double.PositiveInfinity));
-                accumulatedWidth += itemsWidthMode == SegmentWidthMode.Equal ? itemWidth : child.DesiredSize.Width;
-                accumulatedHeight = Math.Max(accumulatedHeight, child.DesiredSize.Height);
+				// UNO TODO
+				if (nativeChild is FrameworkElement child)
+				{
+					child.Measure(new Size(itemWidth, double.PositiveInfinity));
+					accumulatedWidth += itemsWidthMode == SegmentWidthMode.Equal ? itemWidth : child.DesiredSize.Width;
+					accumulatedHeight = Math.Max(accumulatedHeight, child.DesiredSize.Height);
+				}
             }
 
             var size = new Size(accumulatedWidth + separatorsTotalWidth, accumulatedHeight);

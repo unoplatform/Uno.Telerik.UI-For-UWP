@@ -8,6 +8,32 @@
     xmlns:localRangeSlider="using:Telerik.UI.Xaml.Controls.Primitives.RangeSlider"
     xmlns:localRadialMenu="using:Telerik.UI.Xaml.Controls.Primitives.Menu"
     >
+    
+    <ResourceDictionary.ThemeDictionaries>
+        <!--
+				// TODO UNO
+				<ResourceDictionary x:Key="Default">
+            <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesDark.xaml"/>
+                <ResourceDictionary Source="{CustomResource DarkResourcesPath}"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+        <ResourceDictionary x:Key="Light">
+            <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xaml"/>
+                <ResourceDictionary Source="{CustomResource LightResourcesPath}"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+            <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesHighContrast.xaml"/>
+                <ResourceDictionary Source="{CustomResource HighContrastResourcesPath}"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
@@ -539,22 +565,24 @@
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal"/>
                                     <VisualState x:Name="Disabled">
-                                        <Storyboard>
+                                        <!--UNO TODO 
+																				<Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="TrackBar">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRangeSliderPrimitiveTrackDisabledBackgroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
+                                        </Storyboard>-->
                                     </VisualState>
                                     <VisualState x:Name="PointerOver">
-                                        <Storyboard>
+                                        <!--UNO TODO 
+																				<Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="TrackBar">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRangeSliderPrimitiveTrackPointerOverBackgroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
+                                        </Storyboard>-->
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <localRangeSlider:RangeTrackPrimitive x:Name="PART_TrackBar" IsTabStop="False"/>
+                            <!-- UNO TODO <localRangeSlider:RangeTrackPrimitive x:Name="PART_TrackBar" IsTabStop="False"/> -->
                             <Thumb x:Name="PART_SelectionStartThumb" Style="{TemplateBinding SelectionStartThumbStyle}" AutomationProperties.Name="SelectionStartThumb"/>
                             <Thumb x:Name="PART_SelectionMiddleThumb" Style="{TemplateBinding SelectionMiddleThumbStyle}" AutomationProperties.Name="SelectionMiddleThumb"/>
                             <Thumb x:Name="PART_SelectionEndThumb" Style="{TemplateBinding SelectionEndThumbStyle}" AutomationProperties.Name="SelectionEndThumb"/>

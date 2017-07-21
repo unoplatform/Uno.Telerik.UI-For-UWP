@@ -26,7 +26,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     [TemplatePart(Name = "PART_DecreaseButton", Type = typeof(Button))]
     [TemplateVisualState(Name = "WatermarkHidden", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "WatermarkVisible", GroupName = "CommonStates")]
-    public class RadNumericBox : RangeInputBase, ICultureAware
+    public partial class RadNumericBox : RangeInputBase, ICultureAware
     {
         /// <summary>
         /// Identifies the <see cref="Value"/> dependency property.
@@ -958,10 +958,11 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             if (this.IsTemplateApplied)
             {
-                var scope = new InputScope();
-                scope.Names.Add(new InputScopeName(inputScopeName));
+				// TODO UNO
+                //var scope = new InputScope();
+                //scope.Names.Add(new InputScopeName(inputScopeName));
 
-                this.textBox.InputScope = scope;
+                //this.textBox.InputScope = scope;
             }
         }
 

@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
     [TemplateVisualState(Name = "Front", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Back", GroupName = "CommonStates")]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public class CustomMosaicTilePart : MosaicTilePart
+    public partial class CustomMosaicTilePart : MosaicTilePart
     {
         private Canvas frontCanvas;
         private Canvas backCanvas;
