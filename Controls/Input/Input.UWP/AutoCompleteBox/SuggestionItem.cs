@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Input.AutoCompleteBox
     /// <summary>
     /// Represents the visual suggestion item displayed in the <see cref="SuggestionItemsControl"/> of a <see cref="RadAutoCompleteBox"/>.
     /// </summary>
-    public class SuggestionItem : ListBoxItem
+    public partial class SuggestionItem : ListBoxItem
     {
         internal object DataItem;
 

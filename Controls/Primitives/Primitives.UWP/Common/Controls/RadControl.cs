@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls
     /// <summary>
     /// Defines the base class for all Telerik-specific controls. Encapsulates common routines and properties.
     /// </summary>
-    public abstract class RadControl : Control
+    public abstract partial class RadControl : Control
     {
         internal const char VisualStateDelimiter = ',';
 
@@ -61,8 +61,9 @@ namespace Telerik.UI.Xaml.Controls
         /// <summary>
         /// Gets a value indicating whether the <see cref="E:Loaded"/> event is handled and the <see cref="LoadCore"/> routine is passed.
         /// </summary>
-        protected internal bool IsLoaded
+        protected new internal bool IsLoaded
         {
+			//TODO UNO
             get
             {
                 return this.isLoaded || IsInTestMode;
@@ -145,7 +146,8 @@ namespace Telerik.UI.Xaml.Controls
 
         internal T GetTemplatePartField<T>(string name) where T : DependencyObject
         {
-            T part = this.GetTemplateChild(name) as T;
+			// UNO TODO
+            T part = (T)this.GetTemplateChild(name);
             if (part == null && !DesignMode.DesignModeEnabled)
             {
                 throw new MissingTemplatePartException(name, typeof(T));

@@ -636,9 +636,11 @@
                                               Margin="{TemplateBinding Padding}"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
-                                <ContentPresenter.RenderTransform>
+                                <!--
+																TODO UNO
+																<ContentPresenter.RenderTransform>
                                     <MatrixTransform Matrix="1, 0, 0, -1, 0, 0" />
-                                </ContentPresenter.RenderTransform>
+                                </ContentPresenter.RenderTransform>-->
                             </ContentPresenter>
 
                             <Path Data="{Binding Orientation, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource OrientationToPathDataConverter}}"

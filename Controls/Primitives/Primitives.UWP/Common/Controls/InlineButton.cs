@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Common
     /// <summary>
     /// Represents a custom Button control that is part of a composite UI.  This type supports Telerik's infrastructure and is not intended to be used outside the composite UI.
     /// </summary>
-    public class InlineButton : Button
+    public partial class InlineButton : Button
     {
         /// <summary>
         /// Identifies the <see cref="PressedBackgroundBrush"/> dependency property.

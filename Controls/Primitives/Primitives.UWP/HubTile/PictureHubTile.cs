@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// An abstract class that provides a PictureNeeded event and a method to raise it.
     /// </summary>
-    public abstract class PictureHubTile : HubTileBase, IWeakEventListener
+    public abstract partial class PictureHubTile : HubTileBase, IWeakEventListener
     {
         /// <summary>
         /// Identifies the PicturesSource dependency property.

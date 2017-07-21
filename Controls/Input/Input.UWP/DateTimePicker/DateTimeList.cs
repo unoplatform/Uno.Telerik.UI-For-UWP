@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Input.DateTimePickers
     /// A special <see cref="RadLoopingList"/> instance that visualizes DateTime values.
     /// </summary>
     [TemplatePart(Name = "PART_Panel", Type = typeof(LoopingPanel))]
-    public class DateTimeList : RadLoopingList
+    public partial class DateTimeList : RadLoopingList
     {
         /// <summary>
         /// Identifies the <see cref="Step"/> dependency property.

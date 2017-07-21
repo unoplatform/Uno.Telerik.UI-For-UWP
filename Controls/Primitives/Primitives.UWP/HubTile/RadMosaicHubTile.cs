@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     [TemplatePart(Name = "PART_LayoutRoot", Type = typeof(Grid))]
     [TemplatePart(Name = "PART_FlipControl", Type = typeof(FlipControl))]
     [TemplatePart(Name = "PART_MosaicTileContainer", Type = typeof(Grid))]
-    public class RadMosaicHubTile : PictureHubTile
+    public partial class RadMosaicHubTile : PictureHubTile
     {
         /// <summary>
         /// Identifies the FlipMode dependency property.

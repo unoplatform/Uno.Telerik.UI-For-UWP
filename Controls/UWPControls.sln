@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26711.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.UWP", "Core.UWP\Core.UWP.csproj", "{1652093C-B541-48C9-BCB6-BBE7CE7C7FFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telerik.Core", "Core.UWP\Telerik.Core.csproj", "{1652093C-B541-48C9-BCB6-BBE7CE7C7FFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.UWP", "Data.UWP\Data.UWP.csproj", "{453EDD2C-5B29-4D4E-B4DA-578D0BDCA06F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telerik.Data", "Data.UWP\Telerik.Data.csproj", "{453EDD2C-5B29-4D4E-B4DA-578D0BDCA06F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Primitives", "Primitives", "{1535A007-5BC4-41B6-B9CA-FDC7AAFA75F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primitives.UWP", "Primitives\Primitives.UWP\Primitives.UWP.csproj", "{BF14F352-F1B9-4CDE-854B-0339259A4CFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telerik.Primitives", "Primitives\Primitives.UWP\Telerik.Primitives.csproj", "{BF14F352-F1B9-4CDE-854B-0339259A4CFD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chart", "Chart", "{AC00B3FD-1033-4E91-99ED-768191AF090C}"
 EndProject
@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataVisualization.UWP", "Da
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Input", "Input", "{9DEA169A-8E03-47A5-82C4-EB239B686252}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Input.UWP", "Input\Input.UWP\Input.UWP.csproj", "{5DB497CD-B469-42A8-AE39-41B8465710A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telerik.Input", "Input\Input.UWP\Telerik.Input.csproj", "{5DB497CD-B469-42A8-AE39-41B8465710A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataControls", "DataControls", "{FEE19EE0-392E-41B9-9D37-2D77826B5647}"
 EndProject
@@ -110,5 +110,8 @@ Global
 		{0F3F9F46-C25C-4D12-A438-2A7E74007CD7} = {BBA7198B-6778-4AE3-9172-0D1314D997D1}
 		{C8CB27F6-1CC5-46C2-BC75-46C915B558D4} = {BBA7198B-6778-4AE3-9172-0D1314D997D1}
 		{A4F4348C-2E3E-4674-BCE0-4BB6E2DE32FB} = {BBA7198B-6778-4AE3-9172-0D1314D997D1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8DC09CD-F614-4A5A-A658-D6210015CABB}
 	EndGlobalSection
 EndGlobal

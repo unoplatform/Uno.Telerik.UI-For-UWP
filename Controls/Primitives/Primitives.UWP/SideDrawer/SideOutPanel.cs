@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// A custom panel that holds the elements in a <see cref="RadSideDrawer"/> control.
     /// </summary>
-    public class SideOutPanel : Panel
+    public partial class SideOutPanel : Panel
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SideOutPanel"/> class.

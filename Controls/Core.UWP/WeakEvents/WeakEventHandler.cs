@@ -72,15 +72,17 @@ namespace Telerik.Core
                     }
 
                     break;
-                case KnownEvents.CurrentItemChanged:
-                    if (subscribe)
-                    {
-                        (sender as ICollectionView).CurrentChanged += this.OnCurrentChanged;
-                    }
-                    else
-                    {
-                        (sender as ICollectionView).CurrentChanged -= this.OnCurrentChanged;
-                    }
+
+				// UNO TODO
+                //case KnownEvents.CurrentItemChanged:
+                //    if (subscribe)
+                //    {
+                //        (sender as ICollectionView).CurrentChanged += this.OnCurrentChanged;
+                //    }
+                //    else
+                //    {
+                //        (sender as ICollectionView).CurrentChanged -= this.OnCurrentChanged;
+                //    }
 
                     break;
                 case KnownEvents.CanExecuteChanged:

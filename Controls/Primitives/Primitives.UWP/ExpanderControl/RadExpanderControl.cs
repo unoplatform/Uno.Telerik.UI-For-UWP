@@ -19,7 +19,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// Represents a content control that consists of a main content presenter and
     /// an expandable content presenter that can be collapsed/expanded by the end users.
     /// </summary>
-    public class RadExpanderControl : RadContentControl
+    public partial class RadExpanderControl : RadContentControl
     {
         /// <summary>
         /// Identifies the <see cref="AnimatedIndicatorContent"/> dependency property.

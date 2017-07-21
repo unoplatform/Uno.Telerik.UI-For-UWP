@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
     /// <summary>
     /// This class represents the tool tip for <see cref="RadRadialMenu"/>.
     /// </summary>
-    public class MenuToolTip : ContentControl
+    public partial class MenuToolTip : ContentControl
     {
         private RadRadialMenu owner;
         private DispatcherTimer delayTimer;
@@ -79,14 +79,16 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 
         private void MenuToolTipSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            var parent = this.Parent as Popup;
+			// UNO TODO
+			var parent = this.Parent as Windows.UI.Xaml.Controls.Popup;
 
             if (parent == null || this.Owner == null)
             {
                 return;
             }
 
-            var radialMenuTransformed = this.Owner.TransformToVisual(Window.Current.Content);
+			// UNO TODO
+			var radialMenuTransformed = this.Owner.TransformToVisual(Windows.UI.Xaml.Window.Current.Content);
             Point radialMenuPosition = radialMenuTransformed.TransformPoint(new Point(0, 0));
 
             if (radialMenuPosition.Y - this.DesiredSize.Height < 0)

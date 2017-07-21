@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// <summary>
     /// Represents an input control that can be used for visual selection of a logical range. The selection range is visualized with scaled axes.
     /// </summary>
-    public class RadRangeSlider : SliderBase
+    public partial class RadRangeSlider : SliderBase
     {
         /// <summary>
         /// Identifies the <see cref="TopLeftScaleStyle"/> dependency property.

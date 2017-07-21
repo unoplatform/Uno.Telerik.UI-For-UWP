@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Scale
     /// <summary>
     /// Represents a custom panel which hosts scale control ticks and axis. It is used to arrange and measure all its children in a specific way.
     /// </summary>
-    public sealed class ScalePanel : Panel, IView
+    public partial sealed class ScalePanel : Panel, IView
     {
         private static readonly Size InfinitySize = new Size(double.PositiveInfinity, double.PositiveInfinity);
 
@@ -217,21 +217,22 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Scale
 
         private static void SetLabelContent(FrameworkElement presenter, AxisLabelModel label)
         {
-            var contentPresetner = presenter as ContentPresenter;
-            var textBlock = presenter as TextBlock;
+			//TODO UNO
+            //var contentPresetner = presenter as ContentPresenter;
+            //var textBlock = presenter as TextBlock;
 
-            if (contentPresetner != null)
-            {
-                contentPresetner.Content = label.Content;
-            }
-            else if (textBlock != null)
-            {
-                textBlock.Text = label.Content == null ? string.Empty : label.Content.ToString();
-            }
-            else
-            {
-                // TODO: consider throwing exception
-            }
+            //if (contentPresetner != null)
+            //{
+            //    contentPresetner.Content = label.Content;
+            //}
+            //else if (textBlock != null)
+            //{
+            //    textBlock.Text = label.Content == null ? string.Empty : label.Content.ToString();
+            //}
+            //else
+            //{
+            //    // TODO: consider throwing exception
+            //}
         }
 
         private RadSize MeasureLabel(AxisLabelModel label)
@@ -367,13 +368,15 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Scale
                 template = this.owner.LabelTemplate;
             }
 
-            FrameworkElement visual;
-            if (template == null)
-            {
-                // creating a TextBlock directly gives huge performance boost - about 10 frames per second!!!
-                visual = this.CreateLabelTextBlock();
-            }
-            else
+            FrameworkElement visual = null;
+    //        if (template == null)
+    //        {
+    //            // creating a TextBlock directly gives huge performance boost - about 10 frames per second!!!
+
+				//// TODO UNO
+    //            // visual = this.CreateLabelTextBlock();
+    //        }
+    //        else
             {
                 visual = CreateContentPresenter(label.Content, template);
             }

@@ -22,7 +22,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     [TemplatePart(Name = "PART_Panel", Type = typeof(Grid))]
     [TemplatePart(Name = "PART_FirstItem", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "PART_SecondItem", Type = typeof(ContentPresenter))]
-    public class RadCycleHubTile : HubTileBase, IWeakEventListener
+    public partial class RadCycleHubTile : HubTileBase, IWeakEventListener
     {
         /// <summary>
         /// Identifies the <see cref="ItemsSource"/> dependency property.

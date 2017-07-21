@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// Visual representation of errors provided through <see cref="INotifyDataErrorInfo"/> interface.
     /// </summary>
     [TemplatePart(Name = "PART_ErrorMessages", Type = typeof(Popup))]
-    public class ValidationControl : RadControl
+    public partial class ValidationControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="RelativePositionOffset"/> dependency property.

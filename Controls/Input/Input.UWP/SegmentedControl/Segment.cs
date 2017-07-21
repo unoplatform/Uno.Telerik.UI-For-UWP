@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// <summary>
     /// Represents a item in a <see cref="SegmentedItemsControl"/>.
     /// </summary>
-    public class Segment : ButtonBase
+    public partial class Segment : ButtonBase
     {
         /// <summary>
         /// Identifies the <see cref="CornerRadius"/> dependency property.

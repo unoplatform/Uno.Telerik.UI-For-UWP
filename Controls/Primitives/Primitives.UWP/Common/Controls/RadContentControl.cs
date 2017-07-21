@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls
     /// Extends the base <see cref="Windows.UI.Xaml.Controls.ContentControl"/>.
     /// Wraps basic routed events like Loaded and Unloaded in virtual methods and expose common properties like IsLoaded and IsFocused.
     /// </summary>
-    public class RadContentControl : ContentControl
+    public partial class RadContentControl : ContentControl
     {
         /// <summary>
         /// Defines the IsFocused property.
@@ -48,8 +48,9 @@ namespace Telerik.UI.Xaml.Controls
         /// <summary>
         /// Gets a value indicating whether the control is currently loaded.
         /// </summary>
-        public bool IsLoaded
+        public new bool IsLoaded
         {
+			//TODO UNO
             get
             {
                 return this.isLoaded;

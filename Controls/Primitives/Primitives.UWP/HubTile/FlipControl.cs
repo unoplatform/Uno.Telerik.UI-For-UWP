@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
     /// </summary>
     [TemplateVisualState(Name = "NotFlipped")]
     [TemplateVisualState(Name = "Flipped")]
-    public class FlipControl : RadControl
+    public partial class FlipControl : RadControl
     {
         /// <summary>
         /// Identifies the FrontContent dependency property.

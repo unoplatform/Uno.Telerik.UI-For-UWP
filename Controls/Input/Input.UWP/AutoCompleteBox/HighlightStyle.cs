@@ -9,8 +9,8 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// <summary>
     /// Defines the style settings used to highlight portion of a TextBlock within a suggestion item.
     /// </summary>
-    [Bindable]
-    public class HighlightStyle : DependencyObject
+    // [Bindable] UNO TODO
+    public partial class HighlightStyle : DependencyObject
     {
         /// <summary>
         /// Identifies the <see cref="FontStyle"/> dependency property.

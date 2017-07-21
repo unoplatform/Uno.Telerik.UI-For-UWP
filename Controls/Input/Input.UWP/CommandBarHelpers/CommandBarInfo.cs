@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Input.DateTimePickers
     /// <summary>
     /// This class holds information about the command bar of the <see cref="DateTimePicker"/>.
     /// </summary>
-    public class CommandBarInfo : Control
+    public partial class CommandBarInfo : Control
     {
         /// <summary>
         /// Identifies the <see cref="PickerCommandBar"/> dependency property.

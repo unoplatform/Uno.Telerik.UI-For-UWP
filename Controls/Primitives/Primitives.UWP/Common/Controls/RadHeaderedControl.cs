@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls
     /// Represents an extended <see cref="RadControl"/> class that adds the "Header" notation.
     /// Typically header is considered a label on top of the control that hints for the control's purpose in the UI.
     /// </summary>
-    public abstract class RadHeaderedControl : RadControl
+    public abstract partial class RadHeaderedControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Header"/> property.

@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// </summary>
     [TemplatePart(Name = "PART_LegendPresenter", Type = typeof(ItemsControl))]
     [ContentProperty(Name = "LegendItems")]
-    public class RadLegendControl : RadControl
+    public partial class RadLegendControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="LegendProvider"/> property.

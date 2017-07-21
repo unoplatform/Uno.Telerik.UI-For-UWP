@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Input.AutoCompleteBox
     /// is integrated with <see cref="RadAutoCompleteBox"/> to display
     /// available auto-complete suggestions.
     /// </summary>
-    public class SuggestionItemsControl : ListBox
+    public partial class SuggestionItemsControl : ListBox
     {
         internal RadAutoCompleteBox owner;
 

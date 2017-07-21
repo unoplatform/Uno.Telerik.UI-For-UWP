@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// Base class for all hub tiles.
     /// </summary>
-    public abstract class HubTileBase : RadControl
+    public abstract partial class HubTileBase : RadControl
     {
         /// <summary>
         /// Identifies the Title dependency property.

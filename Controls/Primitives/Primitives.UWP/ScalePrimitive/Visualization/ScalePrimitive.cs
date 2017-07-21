@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// Represents a component which visualize a line scale with ticks and labels.
     /// </summary>
-    public class ScalePrimitive : RangeControlBase
+    public partial class ScalePrimitive : RangeControlBase
     {
         /// <summary>
         /// Identifies the <see cref="TickFrequency"/> property.

@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.BusyIndicator
     /// <summary>
     /// Represents an animation displayed in the <see cref="RadBusyIndicator"/> control.
     /// </summary>
-    public sealed class BusyIndicatorAnimation : RadControl
+    public sealed partial class BusyIndicatorAnimation : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="IsActive"/> dependency property.

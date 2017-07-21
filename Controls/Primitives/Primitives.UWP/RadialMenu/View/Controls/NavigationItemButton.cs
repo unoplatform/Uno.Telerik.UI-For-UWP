@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
     /// <summary>
     /// Represents custom control that is used to navigate to the specific <see cref="RadialMenuItem" /> children.
     /// </summary>
-    public class NavigationItemButton : RadControl
+    public partial class NavigationItemButton : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="ContentGlyph"/> dependency property.

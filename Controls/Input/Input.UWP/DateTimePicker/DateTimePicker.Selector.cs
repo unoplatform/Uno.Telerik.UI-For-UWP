@@ -76,7 +76,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             DependencyProperty.Register(nameof(SelectorBackgroundStyle), typeof(Style), typeof(DateTimePicker), new PropertyMetadata(null));
 
         internal int availableListsCount;
-        internal Popup popup;
+        internal Windows.UI.Xaml.Controls.Popup popup; // UNO TODO
         internal List<DateTimeList> dateTimeLists = new List<DateTimeList>();
 
         private const string PickerButtonPartName = "PART_PickerButton";
@@ -386,8 +386,9 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// <summary>
         /// Gets the Popup instance used to display the component when its DisplayMode is Standard.
         /// </summary>
-        internal Popup Popup
+        internal Windows.UI.Xaml.Controls.Popup Popup
         {
+			//UNO TODO
             get
             {
                 return this.popup;
@@ -851,7 +852,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.pickerButton = this.GetTemplatePartField<Button>(PickerButtonPartName);
             applied = applied && this.pickerButton != null;
 
-            this.popup = this.GetTemplatePartField<Popup>(PopupPartName);
+            this.popup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(PopupPartName); // TODO UNO
             applied = applied && this.popup != null;
 
 #if WINDOWS_PHONE_APP
@@ -1014,7 +1015,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             int itemCount = this.ItemCount;
             Thickness padding = this.selectorLayoutRoot.Padding;
             Thickness borderThickness = this.selectorLayoutRoot.BorderThickness;
-            Rect windowBounds = Window.Current.Bounds;
+            Rect windowBounds = /* TODO UNO */Windows.UI.Xaml.Window.Current.Bounds;
             double height;
             if (itemCount <= 0)
             {
@@ -1057,13 +1058,13 @@ namespace Telerik.UI.Xaml.Controls.Input
         }
         private FrameworkElement FindPage()
         {
-            Frame frame = Window.Current.Content as Frame;
+            Frame frame = /* TODO UNO */Windows.UI.Xaml.Window.Current.Content as Frame;
             if (frame != null && frame.Content is Page)
             {
                 return frame.Content as Page;
             }
 
-            return ElementTreeHelper.FindVisualDescendant<Page>(Window.Current.Content);
+            return ElementTreeHelper.FindVisualDescendant<Page>(/* TODO UNO */Windows.UI.Xaml.Window.Current.Content);
         }
 
         private void PrepareSelector()
@@ -1114,7 +1115,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void HookCoreWindowEvents()
         {
-            CoreWindow root = Window.Current.CoreWindow;
+            CoreWindow root = /* TODO UNO */Windows.UI.Xaml.Window.Current.CoreWindow;
 
             if (root != null)
             {
@@ -1124,7 +1125,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void UnhookCoreWindowEvents()
         {
-            CoreWindow root = Window.Current.CoreWindow;
+            CoreWindow root = /* TODO UNO */Windows.UI.Xaml.Window.Current.CoreWindow;
 
             if (root != null)
             {
@@ -1251,7 +1252,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             double width = itemLength * 3 + 6 * itemSpacing + padding.Left + padding.Right + borderThickness.Left + borderThickness.Right;
             if (clampToWindow)
             {
-                Window current = Window.Current;
+                Window current = /* TODO UNO */Windows.UI.Xaml.Window.Current;
                 if (current != null)
                 {
                     width = Math.Min(current.Bounds.Width, width);
@@ -1263,7 +1264,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void UpdateSelectorPosition(Size popupSize)
         {
-            Point location = this.TransformToVisual(Window.Current.Content).TransformPoint(new Point(0, 0));
+            Point location = this.TransformToVisual(/* TODO UNO */Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
 
             var view = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
             if (view != null && view.VisibleBounds.Width < 720)
@@ -1432,7 +1433,7 @@ namespace Telerik.UI.Xaml.Controls.Input
                 Binding b = new Binding();
                 b.Source = this;
                 b.Path = new PropertyPath("IsOpen");
-                this.popup.SetBinding(Popup.IsOpenProperty, b);
+                this.popup.SetBinding(/* TODO UNO */Windows.UI.Xaml.Controls.Popup.IsOpenProperty, b);
 
                 this.CloseSelector(false, false);
             }

@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
     /// <summary>
     /// This class represents the tool tip for RangeSliderPrimitive.
     /// </summary>
-    public class RangeToolTip : RadControl
+    public partial class RangeToolTip : RadControl
     {
         private RangeSliderPrimitive owner;
         private ToolTipContext context;
@@ -46,7 +46,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 
         internal void UpdateTooltipPosition(Point position)
         {
-            var parent = this.Parent as Popup;
+			// TODO UNO
+			var parent = this.Parent as Windows.UI.Xaml.Controls.Popup;
 
             if (this.Owner == null || this.Parent == null || parent == null || !this.Owner.ShowRangeToolTip)
             {
@@ -105,7 +106,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             }
         }
 
-        private void TruncateToBoundsVertical(Popup parent, Point position)
+		//TODO UNO
+        private void TruncateToBoundsVertical(Windows.UI.Xaml.Controls.Popup parent, Point position)
         {
             if (this.Owner.sliderPrimitivePosition.X < Math.Abs(position.X))
             {
@@ -120,9 +122,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             {
                 parent.VerticalOffset = -this.Owner.sliderPrimitivePosition.Y;
             }
-            else if (position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y > Window.Current.Bounds.Height)
+            else if (position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y > /* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Height)
             {
-                double newOffset = position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y - Window.Current.Bounds.Height;
+                double newOffset = position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y - /* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Height;
                 parent.VerticalOffset = position.Y - newOffset;
             }
             else
@@ -131,7 +133,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             }
         }
 
-        private void TruncateToBoundsHorizontal(Popup parent, Point position)
+		//TODO UNO
+        private void TruncateToBoundsHorizontal(Windows.UI.Xaml.Controls.Popup parent, Point position)
         {
             if (this.Owner.sliderPrimitivePosition.Y < Math.Abs(position.Y))
             {
@@ -146,9 +149,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             {
                 parent.HorizontalOffset = -this.Owner.sliderPrimitivePosition.X;
             }
-            else if (position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X > Window.Current.Bounds.Width)
+            else if (position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X > /* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Width)
             {
-                double newOffset = position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X - Window.Current.Bounds.Width;
+                double newOffset = position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X -/* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Width;
                 parent.HorizontalOffset = position.X - newOffset;
             }
             else

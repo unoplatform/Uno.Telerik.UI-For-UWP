@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
@@ -11,17 +12,27 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
     /// <summary>
     /// Represents a custom RadialMenu panel which hosts all the visual rings along with their children controls.
     /// </summary>
-    public class RadialPanel : Panel
+    public partial class RadialPanel : Panel
     {
+		// UNO TODO
+		public RadialPanel()
+		{
+
+		}
+
         /// <summary>
         /// Called in the measure layout pass to determine the desired size.
         /// </summary>
         /// <param name="availableSize">The available size that was given by the layout system.</param>
         protected override Windows.Foundation.Size MeasureOverride(Windows.Foundation.Size availableSize)
         {
-            foreach (var child in this.Children)
-            {
-                child.Measure(availableSize);
+            foreach (var nativechild in this.Children)
+			{ 
+				// UNO TODO
+				if (nativechild is FrameworkElement child)
+				{
+					child.Measure(availableSize);
+				}
             }
             return base.MeasureOverride(availableSize);
         }
@@ -35,16 +46,20 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         /// </returns>
         protected override Windows.Foundation.Size ArrangeOverride(Windows.Foundation.Size finalSize)
         {
-            foreach (var child in this.Children)
+            foreach (var nativechild in this.Children)
             {
-                if (child.DesiredSize.IsEmpty)
-                {
-                    child.Arrange(new Rect(0, 0, child.DesiredSize.Width, child.DesiredSize.Height));
-                }
-                else
-                {
-                    child.Arrange(new Rect(Math.Round((finalSize.Width - child.DesiredSize.Width) / 2.0), Math.Round((finalSize.Height - child.DesiredSize.Height) / 2.0), child.DesiredSize.Width, child.DesiredSize.Height));
-                }
+				// UNO TODO
+				if (nativechild is FrameworkElement child)
+				{
+					if (child.DesiredSize.IsEmpty)
+					{
+						child.Arrange(new Rect(0, 0, child.DesiredSize.Width, child.DesiredSize.Height));
+					}
+					else
+					{
+						child.Arrange(new Rect(Math.Round((finalSize.Width - child.DesiredSize.Width) / 2.0), Math.Round((finalSize.Height - child.DesiredSize.Height) / 2.0), child.DesiredSize.Width, child.DesiredSize.Height));
+					}
+				}
             }
 
             return base.ArrangeOverride(finalSize);

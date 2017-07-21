@@ -213,8 +213,9 @@ namespace Telerik.Core.Data
                 return;
             }
 
-            IDataSourceItem current = this.FindItem(this.sourceCollectionAsCollectionView.CurrentItem);
-            this.SetCurrentItemCore(current, false);
+			// TODO UNO
+            //IDataSourceItem current = this.FindItem(this.sourceCollectionAsCollectionView.CurrentItem);
+            //this.SetCurrentItemCore(current, false);
         }
 
         /// <summary>
@@ -250,7 +251,8 @@ namespace Telerik.Core.Data
                 this.currencyMode == CurrencyManagementMode.LocalAndExternal &&
                 this.sourceCollectionAsCollectionView != null)
             {
-                success = this.sourceCollectionAsCollectionView.MoveCurrentTo(item == null ? null : item.Value);
+				// TODO UNO
+				// success = this.sourceCollectionAsCollectionView.MoveCurrentTo(item == null ? null : item.Value);
             }
 
             if (success)

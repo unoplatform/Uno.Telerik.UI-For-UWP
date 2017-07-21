@@ -104,15 +104,16 @@ namespace Telerik.UI.Xaml.Controls
             return null;
         }
 
-        /// <summary>
-        /// Returns a lazily evaluated iterator that allows linear iteration over a tree of DependencyObjects.
-        /// </summary>
-        /// <param name="parent">The root element of the tree to iterate over.</param>
-        /// <returns>
-        /// A lazily evaluated iterator that allows linear iteration
-        /// over a tree of DependencyObjects.
-        /// </returns>
-        public static IEnumerable<T> EnumVisualDescendants<T>(DependencyObject parent) where T : DependencyObject
+		/// <summary>
+		/// Returns a lazily evaluated iterator that allows linear iteration over a tree of DependencyObjects.
+		/// </summary>
+		/// <param name="parent">The root element of the tree to iterate over.</param>
+		/// <returns>
+		/// A lazily evaluated iterator that allows linear iteration
+		/// over a tree of DependencyObjects.
+		/// </returns>
+		// UNO TODO
+		public static IEnumerable<T> EnumVisualDescendants<T>(DependencyObject parent) where T : class, DependencyObject
         {
             if (parent == null)
             {
