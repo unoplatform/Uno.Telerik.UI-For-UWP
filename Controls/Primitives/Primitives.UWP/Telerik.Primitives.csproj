@@ -8,11 +8,18 @@
     <AssemblyName>Telerik.UI.Xaml.Primitives.UWP</AssemblyName>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
-		<Reference Include="Microsoft.CSharp" />
-	</ItemGroup>
+  <Import Project="..\..\CrossTargetting.props" />
 
-	<ItemGroup>
+  <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
+    <PackageReference Include="Uno.UI">
+			<Version>1.16.1-dev.562.clear</Version>
+		</PackageReference>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Themes\Generic.xaml" />
+    <None Remove="Themes\Resources.xaml" />
     <None Remove="Themes\SharedResources.xaml" />
     <None Remove="Themes\ThemeColorsLight.xaml" />
     <None Remove="Themes\ThemeResourcesLight.xaml" />

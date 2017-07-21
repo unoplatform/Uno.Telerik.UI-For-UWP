@@ -1,11 +1,15 @@
 <Project ToolsVersion="15.0">
   <PropertyGroup>
 		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
-
-		<Product>$(AssemblyName) ($(TargetFramework))</Product>
+    
+    
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefaultLanguage>en-US</DefaultLanguage>
     <Version>10.0.0.0</Version>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
+    
+    <!--<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>-->
   </PropertyGroup>
 
   <!--<PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0'">
@@ -58,16 +62,16 @@
     <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
   </PropertyGroup>
-	<PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid70'">
-		<TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
-		<TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
-		<AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-		<DebugType>full</DebugType>
-		<DefineConstants>$(DefineConstants);</DefineConstants>
-		<LanguageTargets>$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets</LanguageTargets>
-		<AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
-		<AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
-	</PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid70'">
+    <TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <DebugType>full</DebugType>
+    <DefineConstants>$(DefineConstants);</DefineConstants>
+    <LanguageTargets>$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets</LanguageTargets>
+    <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+  </PropertyGroup>
 	<PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid90'">
 		<TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
 		<TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
@@ -79,7 +83,7 @@
 		<AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
 	</PropertyGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform " Version="5.2.2" />
   </ItemGroup>
   
@@ -128,8 +132,8 @@
 		<ContinueOnDisconnected>true</ContinueOnDisconnected>
   </PropertyGroup>
 
-	<Target Name="GetPackagingOutputs" Condition=" '$(TargetFramework)' == 'uap10.0' "/>
-
+  <Target Name="GetPackagingOutputs" Condition=" '$(TargetFramework)' == 'uap10.0' "/>
+  
 	<Target Name="GetBuiltProjectOutputRecursive" Condition=" '$(TargetFramework)' == 'xamarinios10' "/>
 
 	<Target Name="RemoveSayGoodBye" BeforeTargets="Build">
@@ -138,7 +142,7 @@
 		</CreateProperty>
 	</Target>
 
-	<Target Name="_WorkaroundRegisterMdbFilesWithFileWrites" 
+  <Target Name="_WorkaroundRegisterMdbFilesWithFileWrites" 
           BeforeTargets="IncrementalClean" 
           Condition=" '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'MonoAndroid' ">
     <CreateItem Include="$(OutDir)*.mdb;$(MonoAndroidIntermediateAssemblyDir)*.mdb">
