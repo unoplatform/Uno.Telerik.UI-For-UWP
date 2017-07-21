@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// Defines a basic slider control properties.
     /// </summary>
-    public abstract class SliderBase : RangeInputBase
+    public abstract partial class SliderBase : RangeInputBase
     {
         /// <summary>
         /// Identifies the <see cref="TickFrequency"/> dependency property.

@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
     /// <summary>
     /// Represents a custom panel which contains a specific range slider components. It is used to custom measure and arrange its children controls.
     /// </summary>
-    public class ThumbsPanel : Panel
+    public partial class ThumbsPanel : Panel
     {
         private const int MiddleThumbIndex = 2;
 
@@ -93,7 +93,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
         {
             if (!DesignMode.DesignModeEnabled)
             {
-                var sliderPrimitiveTransformed = this.TransformToVisual(Window.Current.Content);
+                var sliderPrimitiveTransformed = this.TransformToVisual(/* TODO UNO */ Windows.UI.Xaml.Window.Current.Content);
                 this.Owner.sliderPrimitivePosition = sliderPrimitiveTransformed.TransformPoint(new Point(0, 0));
             }
             else

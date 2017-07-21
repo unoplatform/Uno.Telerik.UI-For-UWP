@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Input.RangeSlider
     /// <summary>
     /// Represents a custom panel which hosts the RadRangeSlider controls (ScalePrimitive/RangeSliderPrimitive) and arranges them in the desired layout.
     /// </summary>
-    public class RangeSliderPanel : Panel
+    public partial class RangeSliderPanel : Panel
     {
         private RadRangeSlider owner;
 

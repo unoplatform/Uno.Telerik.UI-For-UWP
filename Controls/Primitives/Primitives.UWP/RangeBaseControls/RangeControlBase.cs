@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// Represents a control that defines a <see cref="System.Double"/> value that is constrained within a specified range.
     /// </summary>
-    public abstract class RangeControlBase : RadHeaderedControl
+    public abstract partial class RangeControlBase : RadHeaderedControl
     {
         /// <summary>
         /// Identifies the <see cref="Minimum"/> dependency property.

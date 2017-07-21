@@ -449,11 +449,12 @@ namespace Telerik.Core.Data
 
                     if (this.currencyMode != CurrencyManagementMode.None)
                     {
-                        if (this.sourceCollectionAsCollectionView != null &&
-                            object.Equals(this.sourceCollectionAsCollectionView.CurrentItem, dataItem))
-                        {
-                            newCurrentItem = dataSourceItem;
-                        }
+						// TODO UNO
+						//if (this.sourceCollectionAsCollectionView != null &&
+      //                      object.Equals(this.sourceCollectionAsCollectionView.CurrentItem, dataItem))
+      //                  {
+      //                      newCurrentItem = dataSourceItem;
+      //                  }
                     }
 
                     index++;

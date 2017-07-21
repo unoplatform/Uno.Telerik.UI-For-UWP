@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// on a picker box containing the current value and opening a time selector to select a new value.
     /// </summary>
     [TemplatePart(Name = "PART_PickerButton", Type = typeof(DateTimePickerButton))]
-    [TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
+    [TemplatePart(Name = "PART_Popup", Type = typeof(Windows.UI.Xaml.Controls.Popup))] // UNO TODO
     [TemplatePart(Name = "PART_SelectorLayoutRoot", Type = typeof(Border))]
     [TemplatePart(Name = "PART_SelectorHeader", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "PART_MonthList", Type = typeof(DateTimeList))]
@@ -24,7 +24,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     [TemplatePart(Name = "PART_SelectorButtonsPanel", Type = typeof(StackPanel))]
     [TemplatePart(Name = "PART_SelectorOKButton", Type = typeof(Button))]
     [TemplatePart(Name = "PART_SelectorCancelButton", Type = typeof(Button))]
-    public class RadTimePicker : DateTimePicker
+    public partial class RadTimePicker : DateTimePicker
     {
         /// <summary>
         /// Gets or sets a value that specifies whether the clock will be 12 or 24-hour. The value should be taken from <see cref="Windows.Globalization.ClockIdentifiers"/>.

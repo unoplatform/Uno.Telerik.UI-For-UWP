@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// Represents a base class for all interaction effects that can be applied to an element.
     /// </summary>
-    public abstract class InteractionEffectBase : DependencyObject
+    public abstract partial class InteractionEffectBase : DependencyObject
     {
         /// <summary>
         /// Cancels the current interaction effect.

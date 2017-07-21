@@ -118,7 +118,8 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.calendarValidator = new CalendarValidator(calendar);
             this.selectorUtcValue = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             this.utcValue = this.selectorUtcValue;
-            Window.Current.SizeChanged += this.Current_SizeChanged;
+			// TODO UNO
+			Windows.UI.Xaml.Window.Current.SizeChanged += this.Current_SizeChanged;
         }
 
         /// <summary>

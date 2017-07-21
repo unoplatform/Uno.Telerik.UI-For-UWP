@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
     /// </summary>
     [TemplateVisualState(Name = "Front", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Back", GroupName = "CommonStates")]
-    public class MosaicTilePart : RadControl
+    public partial class MosaicTilePart : RadControl
     {
         /// <summary>
         /// Identifies the FrontContent dependency property.

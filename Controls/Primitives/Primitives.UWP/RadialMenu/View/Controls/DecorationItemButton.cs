@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
     /// <summary>
     /// Represents the custom Control implementation used to visualize the hover and selected state over <see cref="RadialMenuItem"/>.
     /// </summary>
-    public class DecorationItemButton : RadControl
+    public partial class DecorationItemButton : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="ThicknessFactor"/> dependency property.

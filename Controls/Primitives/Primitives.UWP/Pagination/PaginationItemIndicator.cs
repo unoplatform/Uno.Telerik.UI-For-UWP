@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Pagination
     /// <summary>
     /// A special control, use to indicate item in a <see cref="RadPaginationControl"/> when no suitable content is provided.
     /// </summary>
-    public class PaginationItemIndicator : RadControl
+    public partial class PaginationItemIndicator : RadControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PaginationItemIndicator"/> class.

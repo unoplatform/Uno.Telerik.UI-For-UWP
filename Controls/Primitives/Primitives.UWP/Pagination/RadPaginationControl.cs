@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     [TemplatePart(Name = "PART_LeftArrow", Type = typeof(PaginationButton))]
     [TemplatePart(Name = "PART_RightArrow", Type = typeof(PaginationButton))]
     [TemplatePart(Name = "PART_LayoutRoot", Type = typeof(Grid))]
-    public class RadPaginationControl : RadControl
+    public partial class RadPaginationControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="ListItemTemplate"/> dependency property.

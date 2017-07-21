@@ -19,12 +19,14 @@
         </ResourceDictionary>
 
         <ResourceDictionary>
-            <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+           <!-- 
+			<theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Dark" Source="{CustomResource DarkResourcesPath}"/>
                 <ResourceDictionary x:Key="Light" Source="{CustomResource LightResourcesPath}"/>
                 <ResourceDictionary x:Key="HighContrast" Source="{CustomResource HighContrastResourcesPath}"/>
             </ResourceDictionary.ThemeDictionaries>
+			-->
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
@@ -539,22 +541,24 @@
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal"/>
                                     <VisualState x:Name="Disabled">
-                                        <Storyboard>
+                                        <!--UNO TODO 
+																				<Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="TrackBar">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRangeSliderPrimitiveTrackDisabledBackgroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
+                                        </Storyboard>-->
                                     </VisualState>
                                     <VisualState x:Name="PointerOver">
-                                        <Storyboard>
+                                        <!--UNO TODO 
+																				<Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="TrackBar">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TelerikRangeSliderPrimitiveTrackPointerOverBackgroundBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
+                                        </Storyboard>-->
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <localRangeSlider:RangeTrackPrimitive x:Name="PART_TrackBar" IsTabStop="False"/>
+                            <!-- UNO TODO <localRangeSlider:RangeTrackPrimitive x:Name="PART_TrackBar" IsTabStop="False"/> -->
                             <Thumb x:Name="PART_SelectionStartThumb" Style="{TemplateBinding SelectionStartThumbStyle}" AutomationProperties.Name="SelectionStartThumb"/>
                             <Thumb x:Name="PART_SelectionMiddleThumb" Style="{TemplateBinding SelectionMiddleThumbStyle}" AutomationProperties.Name="SelectionMiddleThumb"/>
                             <Thumb x:Name="PART_SelectionEndThumb" Style="{TemplateBinding SelectionEndThumbStyle}" AutomationProperties.Name="SelectionEndThumb"/>

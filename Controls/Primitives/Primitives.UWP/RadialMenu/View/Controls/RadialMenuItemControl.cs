@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
     /// <summary>
     /// Represents the custom Control implementation used to visualize a <see cref="RadialMenuItem"/> and its children.
     /// </summary>
-    public class RadialMenuItemControl : RadControl
+    public partial class RadialMenuItemControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Header"/> dependency property.

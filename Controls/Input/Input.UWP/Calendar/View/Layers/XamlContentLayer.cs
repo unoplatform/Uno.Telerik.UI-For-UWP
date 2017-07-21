@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Telerik.Core;
 using Windows.Foundation;
@@ -88,7 +89,8 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 }
             }
 
-            foreach (FrameworkElement visual in this.recycledContainers)
+			// TODO UNO
+            foreach (IFrameworkElement visual in this.recycledContainers)
             {
                 visual.Visibility = Visibility.Collapsed;
             }
@@ -218,32 +220,38 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         private FrameworkElement GetDefaultVisual(CalendarCellModel cell)
         {
-            TextBlock visual;
+			//TextBlock visual;
 
-            if (this.recycledContainers.Count > 0)
-            {
-                visual = this.recycledContainers.Dequeue();
-                visual.ClearValue(TextBlock.VisibilityProperty);
-                this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
-            }
-            else
-            {
-                visual = this.CreateDefaultVisual();
-                this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
-            }
+			//if (this.recycledContainers.Count > 0)
+			//{
+			//    visual = this.recycledContainers.Dequeue();
+			//    visual.ClearValue(TextBlock.VisibilityProperty);
+			//    this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
+			//}
+			//else
+			//{
+			//    visual = this.CreateDefaultVisual();
+			//    this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
+			//}
 
-            XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
+			//XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
 
-            return visual;
+			// return visual;
+
+			// TODO UNO
+			throw new NotSupportedException();
         }
 
         private TextBlock CreateDefaultVisual()
         {
-            TextBlock textBlock = new TextBlock();
+            //TextBlock textBlock = new TextBlock();
 
-            this.AddVisualChild(textBlock);
+            //this.AddVisualChild(textBlock);
 
-            return textBlock;
-        }
-    }
+            //return textBlock;
+
+			// TODO UNO
+			throw new NotSupportedException();
+		}
+	}
 }

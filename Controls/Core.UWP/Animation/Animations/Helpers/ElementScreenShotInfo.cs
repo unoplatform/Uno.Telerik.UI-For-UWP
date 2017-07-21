@@ -19,7 +19,8 @@ namespace Telerik.Core
         public ElementScreenShotInfo(FrameworkElement targetElement)
         {
             FrameworkElement rootVisual = Window.Current.Content as FrameworkElement;
-            this.Popup = new Popup();
+			// TODO UNO
+			this.Popup = new Windows.UI.Xaml.Controls.Popup();
             Canvas popupChild = new Canvas()
             {
                 Width = rootVisual.ActualWidth,
@@ -101,7 +102,7 @@ namespace Telerik.Core
         /// Gets or sets the popup.
         /// </summary>
         /// <value>The popup.</value>
-        public Popup Popup { get; set; }
+        public Windows.UI.Xaml.Controls.Popup Popup { get; set; }
 
         /// <summary>
         /// Gets or sets the screen shot container.

@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
     /// <summary>
     /// Represents a custom <see cref="IValueConverter"/> implementation that takes a double value and multiplies it by a given scale factor.
     /// </summary>
-    public class DoubleScaleConverter : IValueConverter
+    public partial class DoubleScaleConverter : IValueConverter
     {
         /// <summary>
         /// Gets or sets the scale used to multiply the provided System.Double value.

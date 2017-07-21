@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// <summary>
     /// Defines a hexagonal tile with a picture, title, message and notification count. Similar to Mail, Messaging or Internet Explorer.
     /// </summary>
-    public class RadHexHubTile : HubTileBase
+    public partial class RadHexHubTile : HubTileBase
     {
         /// <summary>
         /// Identifies the <see cref="Length"/> dependency property.

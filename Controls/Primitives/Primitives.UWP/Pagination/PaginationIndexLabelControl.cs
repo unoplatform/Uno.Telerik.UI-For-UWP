@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Pagination
     /// </summary>
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Disabled", GroupName = "CommonStates")]
-    public class PaginationIndexLabelControl : RadControl
+    public partial class PaginationIndexLabelControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Separator"/> dependency property.

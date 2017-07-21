@@ -8,8 +8,8 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// <summary>
     /// Defines the appearance settings applied to a calendar cell instance.
     /// </summary>
-    [Bindable]
-    public class CalendarCellStyle : DependencyObject
+    // [Bindable] UNO TODO
+    public partial class CalendarCellStyle : DependencyObject
     {
         //// TODO: Consider supporting runtime changes of these properties?
 

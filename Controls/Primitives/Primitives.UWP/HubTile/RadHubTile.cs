@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     [TemplatePart(Name = "PART_LayoutRoot", Type = typeof(Grid))]
     [TemplatePart(Name = "PART_FlipControl", Type = typeof(FlipControl))]
     [TemplatePart(Name = "PART_Notification", Type = typeof(ContentControl))]
-    public class RadHubTile : HubTileBase
+    public partial class RadHubTile : HubTileBase
     {
         /// <summary>
         /// Identifies the ImageSource dependency property.

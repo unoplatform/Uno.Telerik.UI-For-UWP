@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// </summary>
     [TemplatePart(Name = "PART_Animation", Type = typeof(BusyIndicatorAnimation))]
     [TemplatePart(Name = "PART_InfoContent", Type = typeof(ContentPresenter))]
-    public class RadBusyIndicator : RadContentControl
+    public partial class RadBusyIndicator : RadContentControl
     {
         /// <summary>
         /// Identifies the <see cref="InitialDelay"/> dependency property.

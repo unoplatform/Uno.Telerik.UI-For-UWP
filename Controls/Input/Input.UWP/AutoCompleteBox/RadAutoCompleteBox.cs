@@ -21,13 +21,13 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// a text box control with extended functionality to support customized suggestion items.
     /// </summary>
     [TemplatePart(Name = "PART_TextBox", Type = typeof(AutoCompleteTextBox))]
-    [TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
+    [TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Windows.UI.Xaml.Controls.Popup))]
     [TemplatePart(Name = "PART_SuggestionsControl", Type = typeof(SuggestionItemsControl))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Disabled", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "WatermarkUnfocused", GroupName = "FocusStates")]
     [TemplateVisualState(Name = "WatermarkFocused", GroupName = "FocusStates")]
-    public class RadAutoCompleteBox : RadHeaderedControl, INotifyPropertyChanged
+    public partial class RadAutoCompleteBox : RadHeaderedControl, INotifyPropertyChanged
     {
         /// <summary>
         /// Identifies the <see cref="Text"/> property.
@@ -175,7 +175,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         internal const double PopupOffsetFromTextBox = 2.0;
 
-        internal Popup suggestionsPopup;
+        internal Windows.UI.Xaml.Controls.Popup suggestionsPopup;// UNO TODO
         internal SuggestionItemsControl suggestionsControl;
         internal TextBox textbox;
         internal ContentControl noResultsControl;
@@ -223,7 +223,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// <summary>
         /// Occurs when a property of the <see cref="RadAutoCompleteBox"/> changes.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged; // UNO TODO
 
         /// <summary>
         /// Occurs when the end user selects a suggestion item from the drop-down list of items.
@@ -1041,7 +1041,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.textbox = this.GetTemplatePartField<TextBox>(TextBoxPartName);
             applied = applied && this.textbox != null;
 
-            this.suggestionsPopup = this.GetTemplatePartField<Popup>(SuggestionsPopupPartName);
+            this.suggestionsPopup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(SuggestionsPopupPartName); // UNO TODO
             applied = applied && this.suggestionsPopup != null;
 
             this.suggestionsControl = this.GetTemplatePartField<SuggestionItemsControl>(SuggestionsControlPartName);
@@ -1507,7 +1507,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void PositionPopup()
         {
-            Point originLocation = this.textbox.TransformToVisual(Window.Current.Content).TransformPoint(new Point(0, 0));
+            Point originLocation = this.textbox.TransformToVisual(/* UNO TODO*/Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
 
             this.AdjustPopupHorizontalOffset(originLocation);
             this.AdjustPopupVerticalOffset(originLocation);
@@ -1529,12 +1529,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             if (this.FlowDirection == FlowDirection.LeftToRight)
             {
                 availableOffsetWidth = originLocation.X;
-                availablePopupWidth = Window.Current.Bounds.Width - availableOffsetWidth;
+                availablePopupWidth = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width - availableOffsetWidth;
             }
             else
             {
                 availablePopupWidth = originLocation.X;
-                availableOffsetWidth = Window.Current.Bounds.Width - availablePopupWidth;
+                availableOffsetWidth = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width - availablePopupWidth;
             }
 
             double horizontalOffset = child.Width - availablePopupWidth;
@@ -1554,7 +1554,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             FrameworkElement child = this.noResultsFound ? (FrameworkElement)this.noResultsControl : this.suggestionsControl;
 
             Rect occludedRect = Windows.UI.ViewManagement.InputPane.GetForCurrentView().OccludedRect;
-            double occludedRectStartY = Window.Current.Bounds.Bottom;
+            double occludedRectStartY = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Bottom;
             if (occludedRect.Y > 0)
             {
                 occludedRectStartY = occludedRect.Y;

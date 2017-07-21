@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// Represents an item from the <see cref="RadRating"/> control.
     /// </summary>
     [ContentProperty(Name = "Content")]
-    public class RadRatingItem : RadContentControl
+    public partial class RadRatingItem : RadContentControl
     {
         /// <summary>
         /// Identifies the <see cref="EmptyIconContent"/> dependency property.

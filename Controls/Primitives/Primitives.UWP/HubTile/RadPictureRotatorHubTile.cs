@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     [TemplatePart(Name = "PART_FirstContent", Type = typeof(Grid))]
     [TemplatePart(Name = "PART_FirstImage", Type = typeof(Image))]
     [TemplatePart(Name = "PART_SecondImage", Type = typeof(Image))]
-    public class RadPictureRotatorHubTile : PictureHubTile
+    public partial class RadPictureRotatorHubTile : PictureHubTile
     {
         private UIElement panel;
         private FrameworkElement firstContentContainer;
