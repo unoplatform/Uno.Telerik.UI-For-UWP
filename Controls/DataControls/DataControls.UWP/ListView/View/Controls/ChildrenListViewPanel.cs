@@ -1,4 +1,5 @@
 ﻿using Windows.Foundation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
@@ -11,18 +12,22 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         /// <inheritdoc/>
         protected override Size ArrangeOverride(Size finalSize)
         {
-            foreach (var item in this.Children)
+            foreach (var nativeItem in this.Children)
             {
-                var arrangeRect = new Windows.Foundation.Rect(0, 0, item.DesiredSize.Width, item.DesiredSize.Height);
+				// UNO TODO
+				if (nativeItem is FrameworkElement item)
+				{
+					var arrangeRect = new Windows.Foundation.Rect(0, 0, item.DesiredSize.Width, item.DesiredSize.Height);
 
-                var child = item as IArrangeChild;
-                if (child != null)
-                {
-                    child.TryInvalidateOwner();
-                    arrangeRect = child.LayoutSlot;
-                }
+					var child = item as IArrangeChild;
+					if (child != null)
+					{
+						child.TryInvalidateOwner();
+						arrangeRect = child.LayoutSlot;
+					}
 
-                item.Arrange(arrangeRect);
+					item.Arrange(arrangeRect);
+				}
             }
 
             return finalSize;

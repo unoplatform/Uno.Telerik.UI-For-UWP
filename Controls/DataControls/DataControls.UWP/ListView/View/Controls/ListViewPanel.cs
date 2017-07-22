@@ -1,5 +1,6 @@
 ﻿using Telerik.Core;
 using Windows.Foundation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
@@ -7,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// <summary>
     /// This is a custom panel that contains all elements in a <see cref="RadListView"/>.
     /// </summary>
-    public class ListViewPanel : Panel
+    public partial class ListViewPanel : Panel
     {
         internal bool isInArrange;
 
@@ -90,9 +91,13 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 // TODO: Refactor:
                 this.Owner.Model.pendingMeasure = false;
                 this.desiredSize = this.Owner.OnContentPanelMeasure(this.Owner.panelAvailableSize).ToSize();
-                foreach (var child in this.Children)
+                foreach (var nativeChild in this.Children)
                 {
-                    child.Measure(availableSize);
+					// UNO TODO
+					if (nativeChild is FrameworkElement child)
+					{
+						child.Measure(availableSize);
+					}
                 }
 
                 this.isInMeasure = false;
@@ -115,9 +120,13 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         protected override Size ArrangeOverride(Size finalSize)
         {
             // NOTE: We cannot skip arrange pass else containers won't show at all.
-            foreach (var child in this.Children)
-            {
-                child.Arrange(new Rect(0, 0, finalSize.Width, finalSize.Height));
+            foreach (var nativeChild in this.Children)
+			{
+				// UNO TODO
+				if (nativeChild is FrameworkElement child)
+				{
+					child.Arrange(new Rect(0, 0, finalSize.Width, finalSize.Height));
+				}
             }
 
             this.lastArrangeSize = finalSize;

@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents an AutoCompleteEditor control.
     /// </summary>
-    public class AutoCompleteEditor : RadAutoCompleteBox, ITypeEditor, IEditor
+    public partial class AutoCompleteEditor : RadAutoCompleteBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="LabelIconStyle"/> dependency property. 

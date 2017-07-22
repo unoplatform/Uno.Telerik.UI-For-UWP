@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Base class for data-bound controls.
     /// </summary>
-    public abstract class DataControlBase : TemplateProviderControl, IListSourceProvider
+    public abstract partial class DataControlBase : TemplateProviderControl, IListSourceProvider
     {
         /// <summary>
         /// Identifies the ItemsSource dependency property.

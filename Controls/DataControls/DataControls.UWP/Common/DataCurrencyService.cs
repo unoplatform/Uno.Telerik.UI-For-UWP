@@ -117,15 +117,17 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             if (this.itemsSourceAsCollectionView != null)
             {
-                this.itemsSourceAsCollectionView.CurrentChanged -= this.OnItemsSourceCurrentChanged;
-            }
+				// UNO TODO
+				//this.itemsSourceAsCollectionView.CurrentChanged -= this.OnItemsSourceCurrentChanged;
+			}
 
-            this.itemsSourceAsCollectionView = newSource as ICollectionView;
+			this.itemsSourceAsCollectionView = newSource as ICollectionView;
 
             if (this.itemsSourceAsCollectionView != null)
             {
-                this.itemsSourceAsCollectionView.CurrentChanged += this.OnItemsSourceCurrentChanged;
-                this.ChangeCurrentItem(this.itemsSourceAsCollectionView.CurrentItem, false, false);
+				// UNO TODO
+				//this.itemsSourceAsCollectionView.CurrentChanged += this.OnItemsSourceCurrentChanged;
+				//this.ChangeCurrentItem(this.itemsSourceAsCollectionView.CurrentItem, false, false);
             }
             else
             {

@@ -26,9 +26,10 @@ namespace Telerik.UI.Xaml.Controls.Data
     [TemplatePart(Name = "PART_EmptyContentPresenter", Type = typeof(Canvas))]
     [TemplatePart(Name = "PART_CheckBoxesPressIndicator", Type = typeof(Rectangle))]
     [StyleTypedPropertyAttribute(Property = "ItemContainerStyle", StyleTargetType = typeof(RadDataBoundListBoxItem))]
-    [StyleTypedPropertyAttribute(Property = "PullToRefreshIndicatorStyle", StyleTargetType = typeof(PullToRefreshIndicatorControl))]
-    [StyleTypedPropertyAttribute(Property = "ItemReorderControlStyle", StyleTargetType = typeof(ItemReorderControl))]
-    [StyleTypedPropertyAttribute(Property = "CheckBoxStyle", StyleTargetType = typeof(ItemCheckBox))]
+	// UNO TODO
+    //[StyleTypedPropertyAttribute(Property = "PullToRefreshIndicatorStyle", StyleTargetType = typeof(PullToRefreshIndicatorControl))]
+    //[StyleTypedPropertyAttribute(Property = "ItemReorderControlStyle", StyleTargetType = typeof(ItemReorderControl))]
+    //[StyleTypedPropertyAttribute(Property = "CheckBoxStyle", StyleTargetType = typeof(ItemCheckBox))]
     public partial class RadDataBoundListBox : RadVirtualizingDataControl
     {
         /// <summary>
@@ -1126,7 +1127,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.emptyContentPresenter = this.GetTemplateChild("PART_EmptyContentPresenter") as ContentPresenter;
 
             this.itemReorderControl = this.GetTemplateChild("PART_ItemReorderControl") as ItemReorderControl;
-            this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Popup;
+            this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Windows.UI.Xaml.Controls.Popup /* UNO TODO */;
 
             if (this.itemReorderControl != null && this.itemReorderPopup != null)
             {

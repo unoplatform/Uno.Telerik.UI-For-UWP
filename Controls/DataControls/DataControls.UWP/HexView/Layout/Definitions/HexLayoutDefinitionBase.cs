@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data.HexView
     /// <summary>
     /// A base class for all layout definitions of the <see cref="RadHexView"/> control.
     /// </summary>
-    public abstract class HexLayoutDefinitionBase : DependencyObject, INotifyPropertyChanged
+    public abstract partial class HexLayoutDefinitionBase : DependencyObject, INotifyPropertyChanged
     {
         /// <summary>
         /// Identifies the <see cref="Orientation"/> dependency property.

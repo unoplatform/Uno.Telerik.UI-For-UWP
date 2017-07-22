@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a TimeEditor control.
     /// </summary>
-    public class TimeEditor : RadTimePicker, ITypeEditor, IEditor
+    public partial class TimeEditor : RadTimePicker, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="IconDisplayMode"/> dependency property. 

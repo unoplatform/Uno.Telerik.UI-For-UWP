@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// <summary>
     /// Represents a panel that supports the layout of Table components.
     /// </summary>
-    public sealed class ListViewRootPanel : Panel
+    public sealed partial class ListViewRootPanel : Panel
     {
         internal RadListView Owner { get; set; }
 

@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// Represents the visual element that is displayed on top of the scrollable content in <see cref="RadListView"/>
     /// that indicates the user to pull down to refresh the content.
     /// </summary>
-    public class PullToRefreshIndicator : RadControl
+    public partial class PullToRefreshIndicator : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="CurrentPullOffset"/> dependency property.

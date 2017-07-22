@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
     /// <summary>
     /// Represents a DataFormDateTimePickerButton control.
     /// </summary>
-    public class DataFormDateTimePickerButton : DateTimePickerButton
+    public partial class DataFormDateTimePickerButton : DateTimePickerButton
     {
         /// <summary>
         /// Identifies the <see cref="ErrorIconStyle"/> dependency property. 

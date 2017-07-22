@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Data.DataBoundListBox
     /// Represents the visual element that is displayed on top of the scrollable content in <see cref="RadDataBoundListBox"/>
     /// that indicates the user to pull down to refresh the content.
     /// </summary>
-    public class PullToRefreshIndicatorControl : RadControl
+    public partial class PullToRefreshIndicatorControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="RefreshTimeLabelFormat"/> dependency property.

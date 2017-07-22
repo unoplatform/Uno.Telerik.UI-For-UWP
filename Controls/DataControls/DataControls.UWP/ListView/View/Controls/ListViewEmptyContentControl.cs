@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.Primitives
     /// <summary>
     /// Represents a ListViewEmptyContentControl control.
     /// </summary>
-    public class ListViewEmptyContentControl : RadContentControl, IArrangeChild
+    public partial class ListViewEmptyContentControl : RadContentControl, IArrangeChild
     {
         private Rect layoutSlot;
 

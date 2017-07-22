@@ -21,7 +21,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// A data control that arranges items in a honeycomb pattern.
     /// </summary>
-    public class RadHexView : RadControl, IHexViewListener
+    public partial class RadHexView : RadControl, IHexViewListener
     {
         /// <summary>
         /// Identifies the <see cref="ImageSourcePath"/> property.

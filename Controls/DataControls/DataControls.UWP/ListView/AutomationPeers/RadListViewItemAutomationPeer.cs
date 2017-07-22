@@ -67,10 +67,11 @@ namespace Telerik.UI.Automation.Peers
         {
             if (!this.IsEnabled())
             {
-                throw new ElementNotEnabledException();
-            }
+				// UNO TODO
+				//throw new ElementNotEnabledException();
+			}
 
-            var selector = this.ListViewItemOwner.ListView;
+			var selector = this.ListViewItemOwner.ListView;
             if ((selector == null) || (!this.CanParentSelectMultiple(selector) && selector.SelectedItem != null && selector.SelectedItem != this.ListViewItemOwner.Content))
             {
                 // Parent must exist and be multi-select
@@ -88,10 +89,11 @@ namespace Telerik.UI.Automation.Peers
         {
             if (!this.IsEnabled())
             {
-                throw new ElementNotEnabledException();
-            }
+				// UNO TODO
+				//throw new ElementNotEnabledException();
+			}
 
-            this.UnSelect();
+			this.UnSelect();
         }
 
         /// <summary>

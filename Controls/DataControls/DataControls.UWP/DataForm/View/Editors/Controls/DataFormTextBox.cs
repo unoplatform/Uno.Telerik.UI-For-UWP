@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
     /// <summary>
     /// Represents a DataFormTextBox control.
     /// </summary>
-    public class DataFormTextBox : TextBox
+    public partial class DataFormTextBox : TextBox
     {
         /// <summary>
         /// Identifies the <see cref="IconDisplayMode"/> dependency property. 

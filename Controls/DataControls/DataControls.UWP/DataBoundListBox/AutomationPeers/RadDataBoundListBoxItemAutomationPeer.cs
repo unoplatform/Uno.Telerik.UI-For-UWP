@@ -68,7 +68,8 @@ namespace Telerik.UI.Automation.Peers
         {
             if (!this.IsEnabled())
             {
-                throw new ElementNotEnabledException();
+				// UNO TODO
+                //throw new ElementNotEnabledException();
             }
 
             var selector = this.ListBoxItemOwner.typedOwner;
@@ -89,10 +90,11 @@ namespace Telerik.UI.Automation.Peers
         {
             if (!this.IsEnabled())
             {
-                throw new ElementNotEnabledException();
-            }
+				// UNO TODO
+				//throw new ElementNotEnabledException();
+			}
 
-            RadDataBoundListBox listbox = this.ListBoxItemOwner.typedOwner;
+			RadDataBoundListBox listbox = this.ListBoxItemOwner.typedOwner;
             if (listbox != null)
             {
                 this.SetSelection(listbox, true, false);

@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents an EnumEditor control.
     /// </summary>
-    public class EnumEditor : ComboBox, ITypeEditor, IEditor
+    public partial class EnumEditor : ComboBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EnumEditor"/> class.
@@ -50,8 +50,10 @@ namespace Telerik.UI.Xaml.Controls.Data
             Binding b4 = new Binding();
             b4.Path = new PropertyPath("PropertyValue");
             b4.Converter = new EnumToIndexConverter();
-            this.SetBinding(EnumEditor.SelectedIndexProperty, b4);
-        }
+
+			// UNO TODO
+			//this.SetBinding(EnumEditor.SelectedIndexProperty, b4);
+		}
 
         /// <summary>
         /// Creates or identifies the element that is used to display the given item.
