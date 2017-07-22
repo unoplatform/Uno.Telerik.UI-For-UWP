@@ -43,6 +43,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDKExamples.Wasm", "..\SDKE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKExamples.UWP", "..\SDKExamples.UWP\SDKExamples.UWP.csproj", "{91B9F816-5B05-4D94-A002-58973C02719B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKExamples.UWP", "..\SDKExamples.UWP\SDKExamples.UWP.csproj", "{91B9F816-5B05-4D94-A002-58973C02719B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SDKExamples", "SDKExamples", "{4172B62F-742F-4603-BC7C-0ADD75E68093}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKExamples.iOS", "..\SDKExamples.iOS\SDKExamples.iOS.csproj", "{136825C7-1F60-4E77-AB0C-1E524B6C5023}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\SDKExamples.Shared\SDKExamples.Shared.projitems*{0d2293d6-3c35-4e6f-b73f-2c8b7ba060ac}*SharedItemsImports = 5
