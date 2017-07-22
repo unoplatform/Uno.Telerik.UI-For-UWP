@@ -10,8 +10,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 			<StackPanel>
-				<TextBlock Text="Hello, world !" Margin="20" FontSize="30" />
-				<tInput:RadRangeSlider Background="Red" Height="100" Width="200" Header="My Slider" />
+				<TextBlock Text="Telerik Samples" Margin="20" FontSize="30" />
+				<tInput:RadRangeSlider Height="100" Header="RadRangeSlider Sample" />
 			</StackPanel>
     </Grid>
 </Page>
