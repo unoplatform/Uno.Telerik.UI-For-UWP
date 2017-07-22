@@ -138,7 +138,7 @@ namespace Telerik.Data.Core
 
         public void ChangeCurrentItem(object item)
         {
-            this.source.MoveCurrentTo(item);
+            // UNO TODO this.source.MoveCurrentTo(item);
         }
 
         void IWeakEventListener.ReceiveEvent(object sender, object args)

@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a NumericEditor control.
     /// </summary>
-    public class NumericEditor : RadNumericBox, ITypeEditor, IEditor
+    public partial class NumericEditor : RadNumericBox, ITypeEditor
     {
         /// <summary>
         /// Identifies the <see cref="ErrorIconStyle"/> dependency property. 
@@ -53,7 +53,6 @@ namespace Telerik.UI.Xaml.Controls.Data
         public NumericEditor()
         {
             this.DefaultStyleKey = typeof(NumericEditor);
-            this.UpdateValueTrigger = NumericBoxUpdateValueTrigger.Immediate;
         }
 
         /// <summary>
@@ -98,7 +97,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         public Brush ButtonsBackground
         {
             get { return (Brush)GetValue(ButtonsBackgroundProperty); }
-            set { this.SetValue(ButtonsBackgroundProperty, value); }
+            set { SetValue(ButtonsBackgroundProperty, value); }
         }
 
         /// <summary>
@@ -107,12 +106,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         public Brush ButtonsPointerOverBackgroundBrush
         {
             get { return (Brush)GetValue(ButtonsPointerOverBackgroundBrushProperty); }
-            set { this.SetValue(ButtonsPointerOverBackgroundBrushProperty, value); }
-        }
-
-        object IEditor.GetCurrentValue()
-        {
-            return this.Value;
+            set { SetValue(ButtonsPointerOverBackgroundBrushProperty, value); }
         }
 
         /// <summary>
@@ -121,7 +115,6 @@ namespace Telerik.UI.Xaml.Controls.Data
         public void BindEditor()
         {
             Binding b = new Binding() { Mode = BindingMode.TwoWay };
-            EditorsHelper.AddPropertyValueConverter(b, this);
             b.Path = new PropertyPath("PropertyValue");
             this.SetBinding(NumericEditor.ValueProperty, b);
 
@@ -142,12 +135,10 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             Binding rangeB = new Binding();
             rangeB.Path = new PropertyPath("Range.Min");
-            rangeB.FallbackValue = double.MinValue;
             this.SetBinding(NumericEditor.MinimumProperty, rangeB);
 
             rangeB = new Binding();
             rangeB.Path = new PropertyPath("Range.Max");
-            rangeB.FallbackValue = double.MaxValue;
             this.SetBinding(NumericEditor.MaximumProperty, rangeB);
         }
     }

@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Encapsulates common properties like <see cref="P:TemplateProviderControl.ItemTemplate"/> and adds support for notifications when some of these properties changes.
     /// </summary>
-    public abstract class TemplateProviderControl : RadControl
+    public abstract partial class TemplateProviderControl : RadControl
     {
         /// <summary>
         /// Identifies the ItemTemplate dependency property.

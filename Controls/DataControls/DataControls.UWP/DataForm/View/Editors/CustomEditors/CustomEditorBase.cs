@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a CustomEditorBase control.
     /// </summary>
-    public abstract class CustomEditorBase<T> : RadControl, ITypeEditor where T : FrameworkElement
+    public abstract partial class CustomEditorBase<T> : RadControl, ITypeEditor where T : FrameworkElement
     {
         /// <summary>
         /// Gets the inner control part name. Its default value is PART_EditorControl.

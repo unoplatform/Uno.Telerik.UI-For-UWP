@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.HexView
 {
-    internal abstract class HexLayoutStrategyBase : DependencyObject
+    internal abstract partial class HexLayoutStrategyBase : DependencyObject
     {
         private const double OppositeLengthFactor = 0.8660254037844386;
         private const double OppositeSpacingFactor = 1.154700538379252;

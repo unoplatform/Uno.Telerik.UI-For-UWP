@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// <summary>
     /// This control is used to explicitly load more data in the <see cref="RadListView"/> control.
     /// </summary>
-    public class ListViewLoadDataControl : ListViewLoadDataControlBase
+    public partial class ListViewLoadDataControl : ListViewLoadDataControlBase
     {
         /// <summary>
         /// Identifies the <see cref="Content"/> dependency property.

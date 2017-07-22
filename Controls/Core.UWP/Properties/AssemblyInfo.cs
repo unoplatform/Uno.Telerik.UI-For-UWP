@@ -23,3 +23,4 @@ using Telerik.Core;
 [assembly: InternalsVisibleTo("Telerik.Primitives")]
 [assembly: InternalsVisibleTo("Telerik.Data")]
 [assembly: InternalsVisibleTo("Telerik.Input")]
+[assembly: InternalsVisibleTo("Telerik.DataControls")]

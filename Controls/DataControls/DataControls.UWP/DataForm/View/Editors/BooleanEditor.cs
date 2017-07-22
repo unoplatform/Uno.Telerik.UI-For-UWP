@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a BooleanEditor control.
     /// </summary>
-    public class BooleanEditor : CheckBox, ITypeEditor, IEditor
+    public partial class BooleanEditor : CheckBox, ITypeEditor
     {
         /// <summary>
         /// Identifies the <see cref="CheckedStateBackgroundBrush"/> dependency property. 

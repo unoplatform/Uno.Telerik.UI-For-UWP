@@ -122,7 +122,8 @@ namespace Telerik.UI.Automation.Peers
         {
             if (!this.IsEnabled())
             {
-                throw new ElementNotEnabledException();
+				// UNO TODO
+                // throw new ElementNotEnabledException();
             }
 
             RadNumericBox owner = (RadNumericBox)this.Owner;

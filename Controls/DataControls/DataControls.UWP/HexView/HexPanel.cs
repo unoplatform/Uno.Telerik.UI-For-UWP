@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a custom panel that contains the elements of the <see cref="RadHexView"/> control.
     /// </summary>
-    public class HexPanel : Panel
+    public partial class HexPanel : Panel
     {
         internal bool measureRequested = true;
         private Size sizeCache;
