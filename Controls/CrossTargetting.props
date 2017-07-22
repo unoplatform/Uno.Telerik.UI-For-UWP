@@ -124,11 +124,11 @@
     <IsMacEnabled>false</IsMacEnabled>
   </PropertyGroup>
 
-  <Target Name="GetPackagingOutputs" Condition=" '$(TargetFramework)' == 'uap10.0' "/>
-  
-  <!--<Target Name="GetBuiltProjectOutputRecursive" Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' "/>-->
+	<Target Name="GetPackagingOutputs" Condition=" '$(TargetFramework)' == 'uap10.0' "/>
 
-  <Target Name="_WorkaroundRegisterMdbFilesWithFileWrites" 
+	<Target Name="GetBuiltProjectOutputRecursive" Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' "/>
+
+	<Target Name="_WorkaroundRegisterMdbFilesWithFileWrites" 
           BeforeTargets="IncrementalClean" 
           Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' or '$(TargetFrameworkIdentifier)' == 'MonoAndroid' ">
     <CreateItem Include="$(OutDir)*.mdb;$(MonoAndroidIntermediateAssemblyDir)*.mdb">

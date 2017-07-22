@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Themes\Generic.xaml" />
-    <None Remove="Themes\Resources.xaml" />
     <None Remove="Themes\SharedResources.xaml" />
     <None Remove="Themes\ThemeColorsLight.xaml" />
     <None Remove="Themes\ThemeResourcesLight.xaml" />

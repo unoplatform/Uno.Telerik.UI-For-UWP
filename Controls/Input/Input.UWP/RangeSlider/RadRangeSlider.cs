@@ -57,7 +57,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// </summary>
         public RadRangeSlider()
         {
-            this.DefaultStyleKey = typeof(RadRangeSlider);
+            this.DefaultStyleKey = typeof(RadRangeSlider); 
         }
 
         /// <summary>
