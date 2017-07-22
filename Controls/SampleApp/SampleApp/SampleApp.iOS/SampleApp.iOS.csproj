@@ -98,6 +98,12 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Filter">
+      <Version>1.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Uno.UI">
       <Version>1.16.1-dev.562.clear</Version>
     </PackageReference>
