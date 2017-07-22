@@ -96,7 +96,8 @@ namespace Telerik.UI.Automation.Peers
 				TextBlock matchingTextBlock = this.CalendarOwner.contentLayer.realizedCalendarCellDefaultPresenters[cellModel];
                 if (matchingTextBlock != null)
                 {
-                    peer.ChildTextBlockPeer = FrameworkElementAutomationPeer.FromElement(matchingTextBlock) as TextBlockAutomationPeer;
+					// UNO TODO
+                    // peer.ChildTextBlockPeer = FrameworkElementAutomationPeer.FromElement(matchingTextBlock) as TextBlockAutomationPeer;
                 }
 #endif
 
