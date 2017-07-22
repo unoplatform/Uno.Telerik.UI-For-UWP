@@ -9,20 +9,9 @@
 	<Import Project="..\..\CrossTargetting.props" />
 
 	<ItemGroup>
-		<Page Include="Themes\Generic.xaml" />
-		<Page Include="Themes\Resources.xaml" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj"/>
-		<ProjectReference Include="..\..\Data.UWP\Telerik.Data.csproj"/>
-		<ProjectReference Include="..\..\DataControls\DataControls.UWP\Telerik.DataControls.csproj"/>
-		<ProjectReference Include="..\..\Input\Input.UWP\Telerik.Input.csproj" />
-		<ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
+		<ProjectReference Include="..\..\Data.UWP\Telerik.Data.csproj" />
+		<ProjectReference Include="..\..\Input\Input.UWP\Telerik.Input.csproj" />
 		<ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
 	</ItemGroup>
 

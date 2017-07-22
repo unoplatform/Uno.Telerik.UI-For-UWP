@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents the visual container that us used in the <see cref="RadVirtualizingDataControl"/>'s virtualization mechanism.
     /// </summary>
-    public class RadVirtualizingDataControlItem : RadContentControl
+    public partial class RadVirtualizingDataControlItem : RadContentControl
     {
         // fields are internal for performance sake as they are accessed multiple times during balance
         internal double verticalOffsetCache = -1;
@@ -90,7 +90,12 @@ namespace Telerik.UI.Xaml.Controls.Data
         internal virtual void BindToDataItem(IDataSourceItem item)
         {
             this.associatedDataItem = item;
-            this.SetValue(FrameworkElement.DataContextProperty, item.Value);
+			// UNO TODO
+			// this.SetValue(FrameworkElement.DataContextProperty, item.Value);
+			if(item is FrameworkElement element)
+			{
+				element.DataContext = item.Value;
+			}
         }
 
         internal virtual void ResetDataItemBinding()

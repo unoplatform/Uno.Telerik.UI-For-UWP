@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// Represents an ItemCheckBoxControl control.
     /// </summary>
     [TemplatePart(Name = "PART_CheckBox", Type = typeof(CheckBox))]
-    public class ItemCheckBoxControl : RadControl
+    public partial class ItemCheckBoxControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="CheckBoxStyle"/> dependency property. 

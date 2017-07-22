@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// <summary>
     /// A basic class for all controls used by the <see cref="RadListView"/> for incremental data loading.
     /// </summary>
-    public abstract class ListViewLoadDataControlBase : RadControl, IDataStatusListener
+    public abstract partial class ListViewLoadDataControlBase : RadControl, IDataStatusListener
     {
         /// <summary>
         /// Identifies the <see cref="IsLoadingData"/> dependency property.

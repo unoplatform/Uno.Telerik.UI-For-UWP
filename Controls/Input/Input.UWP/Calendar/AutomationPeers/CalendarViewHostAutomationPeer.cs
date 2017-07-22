@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Input;
 using Telerik.UI.Xaml.Controls.Input.Calendar;
@@ -93,7 +94,8 @@ namespace Telerik.UI.Automation.Peers
                 TextBlock matchingTextBlock = this.CalendarOwner.contentLayer.realizedCalendarCellDefaultPresenters[cellModel];
                 if (matchingTextBlock != null)
                 {
-                    peer.ChildTextBlockPeer = FrameworkElementAutomationPeer.FromElement(matchingTextBlock) as TextBlockAutomationPeer;
+					// UNO TODO
+                    // peer.ChildTextBlockPeer = FrameworkElementAutomationPeer.FromElement(matchingTextBlock) as TextBlockAutomationPeer;
                 }
 
                 peer.GetChildren();
@@ -135,11 +137,13 @@ namespace Telerik.UI.Automation.Peers
 
         private IList<AutomationPeer> GetTextBlockPeers()
         {
-            return this.CalendarOwner.contentLayer.realizedCalendarCellDefaultPresenters.Values
-                .Where(e => e.Visibility == Visibility.Visible)
-                       .Select(e => FrameworkElementAutomationPeer.CreatePeerForElement(e))
-                       .Where(ap => ap != null)
-                       .ToList();
+			// UNO TODO
+			//return this.CalendarOwner.contentLayer.realizedCalendarCellDefaultPresenters.Values
+			//    .Where(e => e.Visibility == Visibility.Visible)
+			//           .Select(e => FrameworkElementAutomationPeer.CreatePeerForElement(e))
+			//           .Where(ap => ap != null)
+			//           .ToList();
+			throw new NotSupportedException();
         }
 
         private bool AreModelsEqual(CalendarNode a, CalendarCellModel b)

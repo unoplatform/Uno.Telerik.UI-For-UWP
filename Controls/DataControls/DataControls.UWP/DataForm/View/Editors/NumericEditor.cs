@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a NumericEditor control.
     /// </summary>
-    public class NumericEditor : RadNumericBox, ITypeEditor, IEditor
+    public partial class NumericEditor : RadNumericBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="ErrorIconStyle"/> dependency property. 

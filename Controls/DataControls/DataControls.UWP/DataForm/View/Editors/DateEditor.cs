@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a DateEditor control.
     /// </summary>
-    public class DateEditor : RadDatePicker, ITypeEditor, IEditor
+    public partial class DateEditor : RadDatePicker, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="LabelIconStyle"/> dependency property. 

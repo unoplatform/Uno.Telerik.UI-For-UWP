@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// Represents a RadDataForm control.
     /// </summary>
     [TemplatePart(Name = "PART_ChildrensPanelPresenter", Type = typeof(ContentControl))]
-    public class RadDataForm : RadControl, IDataFormView
+    public partial class RadDataForm : RadControl, IDataFormView
     {
         /// <summary>
         /// Identifies the <see cref="LayoutDefinition"/> dependency property.

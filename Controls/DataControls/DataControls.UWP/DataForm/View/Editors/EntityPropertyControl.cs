@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// Represents an EntityPropertyControl control.
     /// </summary>
     [TemplatePart(Name = "PART_Content", Type = typeof(Grid))]
-    public class EntityPropertyControl : RadControl, IEntityPropertyEditor
+    public partial class EntityPropertyControl : RadControl, IEntityPropertyEditor
     {
         /// <summary>
         /// Identifies the <see cref="RowCount"/> dependency property. 

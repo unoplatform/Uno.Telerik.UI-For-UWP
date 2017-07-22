@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a DataFormAutoCompleteTextBox control.
     /// </summary>
-    public class DataFormAutoCompleteTextBox : DataFormTextBox
+    public partial class DataFormAutoCompleteTextBox : DataFormTextBox
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataFormAutoCompleteTextBox"/> class.

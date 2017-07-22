@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Data.DataBoundListBox
     /// <summary>
     /// Represents a control that allows the user to reorder items in <see cref="RadDataBoundListBox"/>.
     /// </summary>
-    public class ItemReorderControl : RadControl
+    public partial class ItemReorderControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="ShiftUpButtonStyle"/> dependency property.

@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// <summary>
     /// Represents busy indicator overlay used by <see cref="RadListView"/> when background operation is in progress.
     /// </summary>
-    public class ListViewBusyOverlayControl : RadControl
+    public partial class ListViewBusyOverlayControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="IsBusy"/> dependency property.

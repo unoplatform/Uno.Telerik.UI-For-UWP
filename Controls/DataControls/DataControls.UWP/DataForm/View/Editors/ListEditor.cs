@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a ListEditor control.
     /// </summary>
-    public class ListEditor : ComboBox, ITypeEditor, IEditor
+    public partial class ListEditor : ComboBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ListEditor"/> class.
