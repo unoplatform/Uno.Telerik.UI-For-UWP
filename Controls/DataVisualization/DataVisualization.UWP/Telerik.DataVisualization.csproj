@@ -1,12 +1,12 @@
 <Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
-  <PropertyGroup>
+	<PropertyGroup>
 		<TargetFrameworks>uap10.0.17763;xamarinios10;monoandroid90;netstandard2.0</TargetFrameworks>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<DefaultLanguage>en-US</DefaultLanguage>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
     <AssemblyName>Telerik.UI.Xaml.DataVisualization.UWP</AssemblyName>
-  </PropertyGroup>
+	</PropertyGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="Uno.UI" Version="3.0.0-dev.1262" />
@@ -24,6 +24,9 @@
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
+		<PackageReference Include="Uno.UI">
+			<Version>1.16.1-dev.562.clear</Version>
+		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
 

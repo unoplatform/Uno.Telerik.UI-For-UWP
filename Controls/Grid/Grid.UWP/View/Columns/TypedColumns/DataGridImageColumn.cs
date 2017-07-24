@@ -175,9 +175,9 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         internal override Size MeasureCellContainer(double availableWidth, UIElement container)
         {
-            // UNO TODO
-            //var size = base.MeasureCellContainer(availableWidth, container);
+            var size = base.MeasureCellContainer(availableWidth, container);
 
+            // UNO TODO
             //var image = container as Image;
             //if (image != null)
             //{
