@@ -21,11 +21,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SDKExamples.UWP
 {
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
-	public sealed partial class MainPage : Page
-	{
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class MainPage : Page
+    {
 		public static Frame RootFrame;
 		private ControlData[] _controls;
 		private Example[] _examples;
@@ -35,9 +35,9 @@ namespace SDKExamples.UWP
 			get { return NavigationViewControl; }
 		}
 
-		public MainPage()
-		{
-			this.InitializeComponent();
+        public MainPage()
+        {
+            this.InitializeComponent();
 
 			MainPage.RootFrame = rootFrame;
 
@@ -46,10 +46,10 @@ namespace SDKExamples.UWP
 			this.Padding = new Thickness(0, 55, 0, 0);
 #endif
 
-			if (MainPage.Source == null)
-			{
-				this.LoadData();
-			}
+            if (MainPage.Source == null)
+            {
+                this.LoadData();
+            }
 
 #if __WASM__
 			switch (Environment.GetEnvironmentVariable("UNO_BOOTSTRAP_MONO_RUNTIME_MODE"))
@@ -65,12 +65,12 @@ namespace SDKExamples.UWP
 					break;
 			}
 #endif
-		}
+        }
 
-		public static IEnumerable Source { get; set; }
+        public static IEnumerable Source { get; set; }
 
-		private async void LoadData()
-		{
+        private async void LoadData()
+        {
 #if NETSTANDARD2_0 || __ANDROID__
 			string Read()
 			{
@@ -90,9 +90,9 @@ namespace SDKExamples.UWP
 #elif !NETFX_CORE
 			var text = File.ReadAllText("Data/Examples.xml");
 #else
-			var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");
+            var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");
 #endif
-			var doc = XDocument.Parse(text);
+            var doc = XDocument.Parse(text);
 			_controls = this.GetControls(doc).ToArray();
 			var dummyTextBlock = new TextBlock();
 
@@ -113,39 +113,62 @@ namespace SDKExamples.UWP
 
 				NavigationViewControl.MenuItems.Add(item);
 			}
-		}
+        }
 
 		private IEnumerable<ControlData> GetControls(XDocument doc)
-		{
+        {
 
-			return from control in doc.Descendants("Control")
-				   select new ControlData
-				   (
-					   control.Attribute("Name").Value,
-					   from example in control.Descendants("Example")
-					   select new Example(example.Attribute("ClassName").Value, example.Attribute("DisplayName").Value)
-					);
-		}
+            return from control in doc.Descendants("Control")
+                                     select new ControlData
+                                     (
+                                         control.Attribute("Name").Value,
+                                         from example in control.Descendants("Example")
+                                         select new Example(example.Attribute("ClassName").Value, example.Attribute("DisplayName").Value)
+                                      );
+        }
 
-		private void BackButtonClicked(object sender, RoutedEventArgs e)
-		{
-			this.DataContext = MainPage.Source;
-		}
+      //  private static ControlData CurrentItem { get; set; }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            var controlData = e.Parameter as ControlData;
+
+            if (controlData == null)
+            {
+                this.DataContext = MainPage.Source;
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            }
+            else
+            {
+                this.DataContext = controlData.Examples;
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            }
+        }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = MainPage.Source;
+        }
 
 		private void OnNavigationViewItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
-		{
+            {
+                var dataContext = (sender as FrameworkElement).DataContext;
 
 			for (var i = 0; i < _controls.Length; i++)
-			{
+                {
 				var controlData = _controls[i] as ControlData;
 				if (controlData.Name == args.InvokedItem)
-				{
+                {
 					_examples = controlData.Examples.ToArray();
 					break;
-				}
-			}
+                }
+            }
 
 			rootFrame.Navigate(typeof(SectionPage), _examples);
-		}
-	}
+        }
+    }
 }
