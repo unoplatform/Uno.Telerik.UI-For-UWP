@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents series which define a area with smooth curves among points.
     /// </summary>
-    public class RadarSplineAreaSeries : RadarAreaSeries
+    public partial class RadarSplineAreaSeries : RadarAreaSeries
     {
         /// <summary>
         /// Identifies the <see cref="SplineTension"/> property.

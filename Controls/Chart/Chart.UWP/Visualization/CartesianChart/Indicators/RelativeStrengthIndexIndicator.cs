@@ -4,7 +4,7 @@
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. 
     /// This class represents the RelativeStrengthIndex financial indicator. 
     /// </summary>
-    public class RelativeStrengthIndexIndicator : ValuePeriodIndicatorBase
+    public partial class RelativeStrengthIndexIndicator : ValuePeriodIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RelativeStrengthIndexIndicator"/> class.

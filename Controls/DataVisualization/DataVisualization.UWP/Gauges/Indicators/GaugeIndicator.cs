@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// because more concrete types must implement the arrange logic. Every indicator
     /// knows how to arrange itself in its range container.
     /// </summary>
-    public abstract class GaugeIndicator : RadControl
+    public abstract partial class GaugeIndicator : RadControl
     {
         /// <summary>
         /// Identifies the Value dependency property.

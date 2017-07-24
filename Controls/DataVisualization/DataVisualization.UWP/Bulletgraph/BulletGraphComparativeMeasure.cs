@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// <summary>
     /// Represents a comparative measure in a RadBulletGraph.
     /// </summary>
-    public class BulletGraphComparativeMeasure : BulletGraphMeasureBase
+    public partial class BulletGraphComparativeMeasure : BulletGraphMeasureBase
     {
         /// <summary>
         /// Identifies the Template property.

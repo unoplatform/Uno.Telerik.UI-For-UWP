@@ -3,7 +3,7 @@
     /// <summary>
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the Range Action Verification Index financial indicator.
     /// </summary>
-    public class RaviIndicator : ShortLongPeriodIndicatorBase
+    public partial class RaviIndicator : ShortLongPeriodIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RaviIndicator"/> class.

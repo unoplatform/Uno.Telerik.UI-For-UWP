@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Defines the tooltip behavior for RadChart.
     /// </summary>
-    public class ChartTooltipBehavior : ChartBehavior
+    public partial class ChartTooltipBehavior : ChartBehavior
     {
         /// <summary>
         /// Identifies the ContentTemplate attached property.
@@ -25,7 +25,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         public static readonly DependencyProperty ContentTemplateProperty =
             DependencyProperty.RegisterAttached("ContentTemplate", typeof(DataTemplate), typeof(ChartTooltipBehavior), new PropertyMetadata(null));
 
-        private Popup toolTip;
+        private Windows.UI.Xaml.Controls.Popup toolTip;
         private ChartTooltip toolTipContent;
         private bool snapToClosestPoint;
         private Point touchOverhang = new Point(0, 24);
@@ -41,7 +41,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         /// </summary>
         public ChartTooltipBehavior()
         {
-            this.toolTip = new Popup();
+            this.toolTip = new Windows.UI.Xaml.Controls.Popup(); // UNO TODO
 
             this.toolTipContent = new ChartTooltip();
             this.toolTipContent.SizeChanged += this.OnToolTipContent_SizeChanged;

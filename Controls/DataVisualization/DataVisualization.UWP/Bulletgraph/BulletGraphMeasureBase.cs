@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// <summary>
     /// The base class for RadBulletGraph's additional measures.
     /// </summary>
-    public abstract class BulletGraphMeasureBase : FrameworkElement
+    public abstract partial class BulletGraphMeasureBase : FrameworkElement
     {
         /// <summary>
         /// Identifies the Value dependency property.

@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Base class for financial indicators that are calculated upon the High and Low values.
     /// </summary>
-    public abstract class HighLowCloseIndicatorBase : HighLowIndicatorBase
+    public abstract partial class HighLowCloseIndicatorBase : HighLowIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="CloseBinding"/> property.

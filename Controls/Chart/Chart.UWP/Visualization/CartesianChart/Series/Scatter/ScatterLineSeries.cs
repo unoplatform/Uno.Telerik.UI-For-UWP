@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart series, which can visualize <see cref="ScatterDataPoint"/> instances by connecting them with straight line segments.
     /// </summary>
-    public class ScatterLineSeries : ScatterPointSeries, IStrokedSeries
+    public partial class ScatterLineSeries : ScatterPointSeries, IStrokedSeries
     {
         /// <summary>
         /// Identifies the <see cref="Stroke"/> property.

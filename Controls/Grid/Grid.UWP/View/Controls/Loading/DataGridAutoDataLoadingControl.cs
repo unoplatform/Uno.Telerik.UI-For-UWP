@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents Indicator controlled used by DataGrid when auto loading more data items.
     /// </summary>
-    public class DataGridAutoDataLoadingControl : RadControl, IDataStatusListener
+    public partial class DataGridAutoDataLoadingControl : RadControl, IDataStatusListener
     {
         /// <summary>
         /// Identifies the <see cref="LoadingData"/> dependency property.

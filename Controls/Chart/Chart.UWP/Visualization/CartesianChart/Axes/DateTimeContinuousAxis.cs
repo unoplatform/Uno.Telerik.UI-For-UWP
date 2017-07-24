@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an <see cref="Axis"/> which plots points along the actual timeline.
     /// </summary>
-    public class DateTimeContinuousAxis : CartesianAxis
+    public partial class DateTimeContinuousAxis : CartesianAxis
     {
         /// <summary>
         /// Identifies the <see cref="Minimum"/> dependency property.

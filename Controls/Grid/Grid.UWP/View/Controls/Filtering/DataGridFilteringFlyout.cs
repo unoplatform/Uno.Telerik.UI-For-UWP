@@ -41,7 +41,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     [TemplateVisualState(Name = "NormalExpandable", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "NormalNotExpandable", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Expanded", GroupName = "CommonStates")]
-    public class DataGridFilteringFlyout : RadControl
+    public partial class DataGridFilteringFlyout : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="FirstFilterControl"/> dependency property.
@@ -412,23 +412,24 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         /// </summary>
         protected override void OnTemplateApplied()
         {
-            this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.And.ToString()));
-            this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.Or.ToString()));
-
-            var compositeDescriptor = this.context.AssociatedDescriptor as CompositeFilterDescriptor;
-            if (compositeDescriptor != null && this.context.SecondFilterControl != null)
-            {
-                this.logicalOperatorCombo.SelectedIndex = compositeDescriptor.Operator == LogicalOperator.And ? 0 : 1;
-                this.IsExpanded = true;
-            }
-            else
-            {
-                this.logicalOperatorCombo.SelectedIndex = 0;
-            }
-
-            base.OnTemplateApplied();
-
-            this.UpdateStyles();
+			// UNO TODO
+			// this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.And.ToString()));
+			// this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.Or.ToString()));
+			// 
+            // var compositeDescriptor = this.context.AssociatedDescriptor as CompositeFilterDescriptor;
+            // if (compositeDescriptor != null && this.context.SecondFilterControl != null)
+            // {
+            //     this.logicalOperatorCombo.SelectedIndex = compositeDescriptor.Operator == LogicalOperator.And ? 0 : 1;
+            //     this.IsExpanded = true;
+            // }
+            // else
+            // {
+            //     this.logicalOperatorCombo.SelectedIndex = 0;
+            // }
+			// 
+            // base.OnTemplateApplied();
+			// 
+            // this.UpdateStyles();
         }
 
         /// <summary>

@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a DataGridDataOperationsControl control.
     /// </summary>
-    public class DataGridDataOperationsControl : RadControl
+    public partial class DataGridDataOperationsControl : RadControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridDataOperationsControl"/> class.

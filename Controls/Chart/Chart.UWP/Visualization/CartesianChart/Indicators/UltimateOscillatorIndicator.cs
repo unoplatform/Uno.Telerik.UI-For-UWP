@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the Momentum oscillator.
     /// </summary>
-    public class UltimateOscillatorIndicator : HighLowClosePeriodIndicatorBase
+    public partial class UltimateOscillatorIndicator : HighLowClosePeriodIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="Period2"/> dependency property.

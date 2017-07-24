@@ -135,9 +135,10 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             this.closeButton = this.GetTemplatePartField<Image>("PART_CloseButton");
             applied = applied && this.closeButton != null;
 
-            this.closeButton.PointerEntered += this.CloseButton_PointerEntered;
-            this.closeButton.PointerExited += this.CloseButton_PointerExited;
-            this.closeButton.Tapped += this.CloseButton_Tapped;
+			// UNO TODO
+			//  this.closeButton.PointerEntered += this.CloseButton_PointerEntered;
+			// this.closeButton.PointerExited += this.CloseButton_PointerExited;
+            // this.closeButton.Tapped += this.CloseButton_Tapped;
 
             return applied;
         }
@@ -145,9 +146,10 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         /// <inheritdoc/>
         protected override void UnapplyTemplateCore()
         {
-            this.closeButton.PointerEntered -= this.CloseButton_PointerEntered;
-            this.closeButton.PointerExited -= this.CloseButton_PointerExited;
-            this.closeButton.Tapped -= this.CloseButton_Tapped;
+			// UNO TODO
+			// this.closeButton.PointerEntered -= this.CloseButton_PointerEntered;
+			// this.closeButton.PointerExited -= this.CloseButton_PointerExited;
+            // this.closeButton.Tapped -= this.CloseButton_Tapped;
             base.UnapplyTemplateCore();
         }
 

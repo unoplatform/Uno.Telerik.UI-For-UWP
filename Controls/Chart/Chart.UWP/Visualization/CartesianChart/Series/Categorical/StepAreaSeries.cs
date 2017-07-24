@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a step area series.
     /// </summary>
-    public class StepAreaSeries : AreaSeries
+    public partial class StepAreaSeries : AreaSeries
     {
         /// <summary>
         /// Identifies the <see cref="RisersPosition"/> dependency property.

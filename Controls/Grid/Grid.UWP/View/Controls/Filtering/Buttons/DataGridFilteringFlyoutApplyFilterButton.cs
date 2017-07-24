@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a DataGridFilteringFlyoutApplyFilterButton control.
     /// </summary>
-    public class DataGridFilteringFlyoutApplyFilterButton : InlineButton
+    public partial class DataGridFilteringFlyoutApplyFilterButton : InlineButton
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridFilteringFlyoutApplyFilterButton"/> class.

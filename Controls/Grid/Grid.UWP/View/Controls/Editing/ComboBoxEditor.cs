@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
-    internal class ComboBoxEditor : ComboBox, ITypeEditor
+    internal partial class ComboBoxEditor : ComboBox, ITypeEditor
     {
         // Using a DependencyProperty as the backing store for Source.  This enables animation, styling, binding, etc...    
         public static readonly DependencyProperty SourceProperty =
@@ -45,7 +45,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 
             Binding b5 = new Binding();
             b5.Path = new PropertyPath("SelectedValuePath");
-            this.SetBinding(ComboBoxEditor.SelectedValuePathProperty, b5);
+			// UNO TODO
+			// this.SetBinding(ComboBoxEditor.SelectedValuePathProperty, b5);
         }
 
         private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -62,9 +63,10 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
                     if (!string.IsNullOrEmpty(property.SelectedValuePath))
                     {
                         b1.Path = new PropertyPath("PropertyValue");
-                        combo.SetBinding(ComboBoxEditor.SelectedValueProperty, b1);
-                    }
-                    else
+						// UNO TODO
+						// combo.SetBinding(ComboBoxEditor.SelectedValueProperty, b1);
+					}
+					else
                     {
                         b1.Path = new PropertyPath("PropertyValue");
                         combo.SetBinding(ComboBoxEditor.SelectedItemProperty, b1);

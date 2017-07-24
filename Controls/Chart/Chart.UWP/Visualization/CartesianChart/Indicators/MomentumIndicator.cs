@@ -3,7 +3,7 @@
     /// <summary>
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the Momentum oscillator.
     /// </summary>
-    public class MomentumIndicator : ValuePeriodIndicatorBase
+    public partial class MomentumIndicator : ValuePeriodIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MomentumIndicator"/> class.

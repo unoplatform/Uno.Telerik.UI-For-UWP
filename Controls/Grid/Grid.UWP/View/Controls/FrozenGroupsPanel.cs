@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a panel that contains the frozen group rows.
     /// </summary>
-    public class FrozenGroupsPanel : Panel
+    public partial class FrozenGroupsPanel : Panel
     {
         private RectangleGeometry clipGeometry = new RectangleGeometry();
 

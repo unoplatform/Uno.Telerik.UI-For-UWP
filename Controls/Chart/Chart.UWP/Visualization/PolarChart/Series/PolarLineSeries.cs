@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents <see cref="PolarPointSeries"/> which connect each <see cref="PolarDataPoint"/> with a straight line segment.
     /// </summary>
-    public class PolarLineSeries : PolarPointSeries, IStrokedSeries
+    public partial class PolarLineSeries : PolarPointSeries, IStrokedSeries
     {
         /// <summary>
         /// Identifies the <see cref="Stroke"/> property.

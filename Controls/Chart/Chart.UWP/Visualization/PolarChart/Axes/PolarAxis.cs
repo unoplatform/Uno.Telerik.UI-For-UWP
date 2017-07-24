@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents the Polar (Radius) axis within a <see cref="RadPolarChart"/> instance.
     /// </summary>
-    public class PolarAxis : LineAxis
+    public partial class PolarAxis : LineAxis
     {
         /// <summary>
         /// Identifies the <see cref="MajorStep"/> dependency property.

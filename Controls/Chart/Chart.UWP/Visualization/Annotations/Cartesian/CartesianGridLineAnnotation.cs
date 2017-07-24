@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Allows you to place a straight line at a specific place in your <see cref="RadCartesianChart"/>. 
     /// </summary>
-    public class CartesianGridLineAnnotation : CartesianStrokedAnnotation
+    public partial class CartesianGridLineAnnotation : CartesianStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="Axis"/> dependency property.

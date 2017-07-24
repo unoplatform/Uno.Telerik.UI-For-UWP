@@ -8,8 +8,13 @@ using Windows.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
-    internal class DataGridContentLayerPanel : Panel
+    internal partial class DataGridContentLayerPanel : Panel
     {
+		public DataGridContentLayerPanel()
+		{
+			// UNO TODO
+		}
+
         internal RadDataGrid Owner;
 
         /// <summary>

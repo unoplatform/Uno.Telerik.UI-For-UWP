@@ -175,18 +175,96 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             var size = base.MeasureCellContainer(availableWidth, container);
 
-            var image = container as Image;
-            if (image != null)
-            {
-                var bitmapImage = image.Source as BitmapImage;
-                if (bitmapImage != null && bitmapImage.PixelWidth > 0)
-                {
-                    size.Width = bitmapImage.PixelWidth;
-                    size.Height = bitmapImage.PixelHeight;
-                }
-            }
+			// UNO TODO
+            // var image = container as Image;
+            // if (image != null)
+            // {
+            //     var bitmapImage = image.Source as BitmapImage;
+            //     if (bitmapImage != null && bitmapImage.PixelWidth > 0)
+            //     {
+            //         size.Width = bitmapImage.PixelWidth;
+            //         size.Height = bitmapImage.PixelHeight;
+            //     }
+            // }
 
             return size;
+        }
+
+        internal override void ClearCell(GridCellModel cell)
+        {
+            base.ClearCell(cell);
+
+            Image image = cell.Container as Image;
+            if (image != null)
+            {
+                image.ImageOpened -= this.OnImageOpened;
+                SetIsImageOpened(image, false);
+            }
+        }
+
+        internal override async void PrepareCell(GridCellModel cell)
+        {
+            base.PrepareCell(cell);
+
+            var image = cell.Container as Image;
+            if (image == null)
+            {
+                return;
+            }
+
+            if (cell.Value == null)
+            {
+                image.Source = null;
+            }
+            else if (cell.Value is ImageSource)
+            {
+                image.Source = cell.Value as ImageSource;
+            }
+            else if (cell.Value is string)
+            {
+                try
+                {
+                    var source = image.Source as BitmapImage;
+                    var uri = new Uri((string)cell.Value, UriKind.RelativeOrAbsolute);
+                    if (source == null)
+                    {
+                        source = new BitmapImage(uri);
+                        image.Source = source;
+                    }
+                    else
+                    {
+                        source.UriSource = uri;
+                    }
+                }
+                catch
+                {
+                    // TODO: What exceptions can be caught here?
+                }
+            }
+            else if (cell.Value is byte[])
+            {
+                image.Source = await this.LoadImageFromBytes(cell.Value as byte[]);
+            }
+
+            if (!GetIsImageOpened(image))
+            {
+                image.ImageOpened += this.OnImageOpened;
+            }
+        }
+
+        internal override FrameworkElement CreateEditorContentVisual()
+        {
+			// UNO TODO
+			// return new Image();
+			throw new NotSupportedException();
+        }
+
+        internal override void PrepareEditorContentVisual(FrameworkElement editorContent, Windows.UI.Xaml.Data.Binding binding)
+        {
+        }
+
+        internal override void ClearEditorContentVisual(FrameworkElement editorContent)
+        {
         }
 
         /// <summary>

@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a DataGridFlyoutHeaderCancelButton control.
     /// </summary>
-    public class DataGridFlyoutHeaderCancelButton : InlineButton
+    public partial class DataGridFlyoutHeaderCancelButton : InlineButton
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridFlyoutHeaderCancelButton"/> class.

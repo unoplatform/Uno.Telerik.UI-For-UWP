@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents the Bollinger Bands financial indicator.
     /// </summary>
-    public class BollingerBandsIndicator : ValuePeriodIndicatorBase
+    public partial class BollingerBandsIndicator : ValuePeriodIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="StandardDeviations"/> dependency property.

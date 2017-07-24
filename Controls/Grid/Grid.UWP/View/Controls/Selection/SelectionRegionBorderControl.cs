@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents the custom Control implementation used to visualize a selection region within a <see cref="RadDataGrid"/> component.
     /// </summary>
-    public class SelectionRegionBorderControl : RadControl
+    public partial class SelectionRegionBorderControl : RadControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SelectionRegionBorderControl" /> class.

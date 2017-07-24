@@ -23,7 +23,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultCellEditorStyle == null)
                 {
-                    this.defaultCellEditorStyle = ResourceHelper.LoadEmbeddedResource(
+                    defaultCellEditorStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultNumericalColumnEditorStyle.xaml",
                         "DefaultColumnEditorStyle") as Style;

@@ -3,7 +3,7 @@
     /// <summary>
     /// This is the base class for all chart annotations in a <see cref="RadPolarChart"/>.
     /// </summary>
-    public abstract class PolarChartAnnotation : ChartAnnotation
+    public abstract partial class PolarChartAnnotation : ChartAnnotation
     {
         /// <summary>
         /// Occurs when one of the axes of the owning <see cref="RadPolarChart"/> has been changed.

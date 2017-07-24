@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// </summary>
     [TemplatePart(Name = "PART_Layout", Type = typeof(Grid))]
     [ContentProperty(Name = "Segments")]
-    public abstract class SegmentedGaugeIndicator : GaugeIndicator
+    public abstract partial class SegmentedGaugeIndicator : GaugeIndicator
     {
         internal IndicatorSegmentCollection segments = new IndicatorSegmentCollection();
         private const string LayoutPartName = "PART_Layout";

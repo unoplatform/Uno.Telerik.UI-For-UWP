@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Visualizes a collection of data points using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape.
     /// </summary>
-    public class LineSeries : CategoricalStrokedSeries
+    public partial class LineSeries : CategoricalStrokedSeries
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LineSeries"/> class.

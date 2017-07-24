@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents the Stochastic Fast financial indicator.
     /// </summary>
-    public class StochasticFastIndicator : HighLowCloseIndicatorBase
+    public partial class StochasticFastIndicator : HighLowCloseIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="MainPeriod"/> dependency property.

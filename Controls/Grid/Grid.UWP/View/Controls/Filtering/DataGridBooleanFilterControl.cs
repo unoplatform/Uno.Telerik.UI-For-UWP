@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// </summary>
     [TemplatePart(Name = "PART_FalseButton", Type = typeof(RadioButton))]
     [TemplatePart(Name = "PART_TrueButton", Type = typeof(RadioButton))]
-    public class DataGridBooleanFilterControl : DataGridFilterControlBase
+    public partial class DataGridBooleanFilterControl : DataGridFilterControlBase
     {
         private RadioButton falseButton;
         private RadioButton trueButton;

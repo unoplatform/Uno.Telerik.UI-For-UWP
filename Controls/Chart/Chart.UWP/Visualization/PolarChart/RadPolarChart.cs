@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents a <see cref="RadChartBase"/> instance that uses Polar coordinate system to plot data points.
     /// </summary>
     [ContentProperty(Name = "Series")]
-    public class RadPolarChart : RadChartBase
+    public partial class RadPolarChart : RadChartBase
     {
         /// <summary>
         /// Identifies the <see cref="PolarAxis"/> dependency property.

@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     [TemplatePart(Name = "PART_Canvas", Type = typeof(Canvas))]
     [TemplatePart(Name = "PART_VisualElement", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "PART_VisualElementRotation", Type = typeof(RotateTransform))]
-    public class MarkerGaugeIndicator : GaugeIndicator
+    public partial class MarkerGaugeIndicator : GaugeIndicator
     {
         /// <summary>
         /// Identifies the <see cref="ContentTemplate"/> dependency property.

@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart range area series.
     /// </summary>
-    public class RangeSeries : RangeSeriesBase, IFilledSeries, IStrokedSeries
+    public partial class RangeSeries : RangeSeriesBase, IFilledSeries, IStrokedSeries
     {
         /// <summary>
         /// Identifies the <see cref="Fill"/> property.

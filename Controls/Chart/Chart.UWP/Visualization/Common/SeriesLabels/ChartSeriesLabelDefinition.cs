@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Describes the appearance of the labels within a <see cref="ChartSeries"/>.
     /// A chart series can have multiple definitions, allowing for multiple labels per data point.
     /// </summary>
-    public class ChartSeriesLabelDefinition : DependencyObject
+    public partial class ChartSeriesLabelDefinition : DependencyObject
     {
         /// <summary>
         /// Identifies the <see cref="Binding"/> property.

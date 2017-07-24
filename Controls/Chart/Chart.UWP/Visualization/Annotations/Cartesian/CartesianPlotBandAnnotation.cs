@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Allows you highlight the area between two values drawn by the <see cref="CartesianPlotBandAnnotation.Axis"/>
     /// in the <see cref="RadCartesianChart"/>.
     /// </summary>
-    public class CartesianPlotBandAnnotation : CartesianStrokedAnnotation
+    public partial class CartesianPlotBandAnnotation : CartesianStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="Axis"/> dependency property.

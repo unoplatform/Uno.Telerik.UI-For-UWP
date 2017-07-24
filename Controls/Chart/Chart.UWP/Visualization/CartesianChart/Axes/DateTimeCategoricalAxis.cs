@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an <see cref="Axis"/> that recognizes DateTime values and organizes all the plotted points in chronologically sorted categories.
     /// </summary>
-    public class DateTimeCategoricalAxis : CategoricalAxis
+    public partial class DateTimeCategoricalAxis : CategoricalAxis
     {
         /// <summary>
         /// Identifies the <see cref="DateTimeComponent"/> dependency property.

@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// </summary>
     ////[TemplatePart(Name = BarPartName, Type = typeof(FrameworkElement))]
     [TemplatePart(Name = "PART_Bar", Type = typeof(Rectangle))]
-    public class LinearBarGaugeIndicator : BarGaugeIndicator
+    public partial class LinearBarGaugeIndicator : BarGaugeIndicator
     {
         private const string BarPartName = "PART_Bar";
 

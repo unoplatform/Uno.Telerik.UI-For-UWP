@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents the financial Candlestick symbol.
     /// </summary>
-    public class OhlcStick : OhlcShape
+    public partial class OhlcStick : OhlcShape
     {
         internal override void UpdateElementAppearance()
         {

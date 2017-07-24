@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// </summary>
     [TemplatePart(Name = "PART_Path", Type = typeof(Path))]
     [TemplatePart(Name = "PART_Figure", Type = typeof(PathFigure))]
-    public class RadialBarGaugeIndicator : RadialGaugeIndicator
+    public partial class RadialBarGaugeIndicator : RadialGaugeIndicator
     {
         internal ArcSegment arc = new ArcSegment();
         internal PathFigure figure;

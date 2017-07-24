@@ -113,7 +113,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultCellEditorStyle == null)
                 {
-                    this.defaultCellEditorStyle = ResourceHelper.LoadEmbeddedResource(
+                    defaultCellEditorStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultComboBoxColumnEditorStyle.xaml",
                         "DefaultColumnEditorStyle") as Style;
@@ -220,7 +220,9 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             editorContent.SetBinding(ComboBox.ItemsSourceProperty, itemsSourceBinding);
             editorContent.SetBinding(ComboBox.DisplayMemberPathProperty, displayMemberPathBinding);
-            editorContent.SetBinding(ComboBox.SelectedValuePathProperty, selectedValuePathBinding);
+
+			// UNO TODO
+            // editorContent.SetBinding(ComboBox.SelectedValuePathProperty, selectedValuePathBinding);
 
             if (!string.IsNullOrEmpty(this.SelectedValuePath))
             {
@@ -237,7 +239,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
                     });
                     
                     (editorContent as ComboBox).SelectedItem = selectedItem;
-                    editorContent.SetBinding(ComboBox.SelectedValueProperty, binding);
+					// UNO TODO
+					// editorContent.SetBinding(ComboBox.SelectedValueProperty, binding);
                 }
             }
             else
@@ -254,18 +257,19 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             if (!string.IsNullOrEmpty(this.SelectedValuePath))
             {
-                editorContent.ClearValue(ComboBox.SelectedValueProperty);
+                // UNO TODO editorContent.ClearValue(ComboBox.SelectedValueProperty);
                 editorContent.ClearValue(ComboBox.SelectedItemProperty);
             }
             else
             {
                 editorContent.ClearValue(ComboBox.SelectedItemProperty);
-                editorContent.ClearValue(ComboBox.SelectedValueProperty);
+               // UNO TODO editorContent.ClearValue(ComboBox.SelectedValueProperty);
             }
 
             editorContent.ClearValue(ComboBox.DisplayMemberPathProperty);
-            editorContent.ClearValue(ComboBox.SelectedValuePathProperty);
-            editorContent.ClearValue(ComboBox.ItemsSourceProperty);
+			// UNO TODO
+			// editorContent.ClearValue(ComboBox.SelectedValuePathProperty);
+			editorContent.ClearValue(ComboBox.ItemsSourceProperty);
         }
 
         /// <inheritdoc/>

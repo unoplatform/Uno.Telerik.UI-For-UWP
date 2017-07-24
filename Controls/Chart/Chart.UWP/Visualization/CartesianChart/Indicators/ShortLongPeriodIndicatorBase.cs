@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Base class for financial indicators, which use <see cref="ShortPeriod"/> and <see cref="LongPeriod"/> properties to define their values.
     /// </summary>
-    public abstract class ShortLongPeriodIndicatorBase : ValueIndicatorBase
+    public abstract partial class ShortLongPeriodIndicatorBase : ValueIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="LongPeriod"/> dependency property.

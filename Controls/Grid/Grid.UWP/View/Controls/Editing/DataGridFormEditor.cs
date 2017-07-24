@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a DataGridFormEditor control.
     /// </summary>
-    public class DataGridFormEditor : RadControl, IGridExternalEditor
+    public partial class DataGridFormEditor : RadControl, IGridExternalEditor
     {
         /// <summary>
         /// Identifies the <see cref="Item"/> dependency property. 

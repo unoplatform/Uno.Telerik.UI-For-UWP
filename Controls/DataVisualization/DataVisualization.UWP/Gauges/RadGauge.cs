@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// Base class for <see cref="RadLinearGauge"/> and <see cref="RadRadialGauge"/>.
     /// </summary>
     [ContentProperty(Name = "Indicators")]
-    public abstract class RadGauge : RadControl
+    public abstract partial class RadGauge : RadControl
     {
         /// <summary>
         /// Identifies the MinValue property.

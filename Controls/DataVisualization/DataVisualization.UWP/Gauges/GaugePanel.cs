@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// Base class for the gauge ranges. Defines a value range (min and max value), tick and label steps and templates for the ticks and labels.
     /// The class is abstract because the layout of the ticks and labels are defined in concrete types, for example the radial and linear ranges.
     /// </summary>
-    public abstract class GaugePanel : Panel
+    public abstract partial class GaugePanel : Panel
     {
         private Canvas indicatorContainer = new Canvas();
 

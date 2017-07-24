@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Defines an axis that treats distinct points as "Categories" rather than "Values".
     /// </summary>
-    public class CategoricalAxis : CartesianAxis
+    public partial class CategoricalAxis : CartesianAxis
     {
         /// <summary>
         /// Identifies the <see cref="GapLength"/> dependency property.

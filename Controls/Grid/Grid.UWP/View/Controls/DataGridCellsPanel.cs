@@ -1,6 +1,7 @@
 ﻿using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -10,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a panel that lays out cells in a <see cref="RadDataGrid"/> component.
     /// </summary>
-    public class DataGridCellsPanel : Panel
+    public partial class DataGridCellsPanel : Panel
     {
         internal bool isDirectMeasure;
         private Size desiredSize;
@@ -120,9 +121,13 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
                 this.Owner.Model.pendingMeasureFlags &= ~InvalidateMeasureFlags.Cells;
                 this.desiredSize = this.Owner.OnCellsPanelMeasure(this.Owner.CellsHostAvaialbleSize).ToSize();
 
-                foreach (var child in this.Children)
+                foreach (var nativeChild in this.Children)
                 {
-                    child.Measure(availableSize);
+					// UNO TODO
+					if (nativeChild is FrameworkElement child)
+					{
+						child.Measure(availableSize);
+					}
                 }
 
                 this.Owner.visualStateLayerCache.UpdateVisuals();
@@ -180,9 +185,13 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             this.Owner.FrozenContentHost.Width = this.Owner.Model.FrozenColumnsWidth;
             this.Owner.FrozenContentHost.Height = finalSize.Height;
 
-            foreach (var child in this.Children)
-            {
-                child.Arrange(new Rect(0, 0, finalSize.Width, finalSize.Height));
+            foreach (var nativeChild in this.Children)
+			{
+				// UNO TODO
+				if (nativeChild is FrameworkElement child)
+				{
+					child.Arrange(new Rect(0, 0, finalSize.Width, finalSize.Height));
+				}
             }
 
             this.isInArrange = false;

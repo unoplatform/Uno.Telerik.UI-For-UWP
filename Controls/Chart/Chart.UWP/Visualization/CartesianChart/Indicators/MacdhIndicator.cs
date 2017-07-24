@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// This class represents the MovingAverageConvergenceDivergence financial indicator. 
     /// </summary>
-    public class MacdhIndicator : BarIndicatorBase
+    public partial class MacdhIndicator : BarIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="PointTemplate"/> property.

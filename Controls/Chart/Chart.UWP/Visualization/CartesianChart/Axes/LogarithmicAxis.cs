@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an axis that uses the Logarithm function to calculate the values of the plotted points.
     /// </summary>
-    public class LogarithmicAxis : NumericalAxis
+    public partial class LogarithmicAxis : NumericalAxis
     {
         /// <summary>
         /// Identifies the <see cref="ExponentStep"/> dependency property.

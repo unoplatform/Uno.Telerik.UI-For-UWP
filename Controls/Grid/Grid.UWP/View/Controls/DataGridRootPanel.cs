@@ -11,8 +11,13 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a panel that supports the layout of Table components.
     /// </summary>
-    public sealed class DataGridRootPanel : Panel
+    public sealed partial class DataGridRootPanel : Panel
     {
+		public DataGridRootPanel()
+		{
+			// UNO TODO
+		}
+
         internal RadDataGrid Owner
         {
             get;
@@ -243,12 +248,12 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             if (double.IsInfinity(size.Width))
             {
-                size.Width = Window.Current.Bounds.Width;
+                size.Width = /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width;
             }
 
             if (double.IsInfinity(size.Height))
             {
-                size.Height = Window.Current.Bounds.Height;
+                size.Height = /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Height;
             }
 
             return size;

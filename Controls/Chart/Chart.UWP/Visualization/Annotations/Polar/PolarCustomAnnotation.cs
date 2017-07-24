@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Allows you to place a custom object at a specific place in your <see cref="RadPolarChart"/>. 
     /// </summary>
-    public class PolarCustomAnnotation : PolarChartAnnotation
+    public partial class PolarCustomAnnotation : PolarChartAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="RadialValue"/> dependency property.

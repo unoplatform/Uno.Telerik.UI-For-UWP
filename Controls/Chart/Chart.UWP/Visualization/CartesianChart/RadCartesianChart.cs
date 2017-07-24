@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents a <see cref="RadChartBase"/> instance that uses a Cartesian Coordinate System to plot the associated data points.
     /// </summary>
     [ContentProperty(Name = "Series")]
-    public class RadCartesianChart : RadChartBase
+    public partial class RadCartesianChart : RadChartBase
     {
         /// <summary>
         /// Identifies the <see cref="HorizontalAxis"/> dependency property.

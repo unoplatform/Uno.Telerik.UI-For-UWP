@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents loading control used to request more data items in DataGrid.
     /// </summary>
-    public class DataGridLoadDataControl : RadControl, IDataStatusListener
+    public partial class DataGridLoadDataControl : RadControl, IDataStatusListener
     {
         /// <summary>
         /// Identifies the <see cref="LoadingData"/> dependency property.

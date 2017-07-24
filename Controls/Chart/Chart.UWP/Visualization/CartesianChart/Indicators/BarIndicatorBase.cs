@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a financial indicator, whose value depends on the values of DataPoints in financial series.
     /// </summary>
-    public abstract class BarIndicatorBase : IndicatorBase
+    public abstract partial class BarIndicatorBase : IndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="ValueBinding"/> property.

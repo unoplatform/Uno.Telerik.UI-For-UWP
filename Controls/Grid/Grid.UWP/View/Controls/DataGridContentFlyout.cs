@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a DataGridContentFlyout control.
     /// </summary>
-    public sealed class DataGridContentFlyout : RadControl
+    public sealed partial class DataGridContentFlyout : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="IsOpen"/> dependency property. 
@@ -44,7 +44,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         internal static readonly DependencyProperty IdProperty = 
             DependencyProperty.Register(nameof(Id), typeof(DataGridFlyoutId), typeof(DataGridContentFlyout), new PropertyMetadata(DataGridFlyoutId.All, OnIdChanged));
 
-        private Popup popup = new Popup() { ChildTransitions = new TransitionCollection(), IsLightDismissEnabled = false };   
+		// UNO TODO
+        private Windows.UI.Xaml.Controls.Popup popup = new Windows.UI.Xaml.Controls.Popup() { /*ChildTransitions = new TransitionCollection(),*/ IsLightDismissEnabled = false };   
         private Border content;
         private Storyboard opacityAnimationStoryboard = new Storyboard();
         private DoubleAnimation opacityAnimation;
@@ -419,15 +420,15 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 
             if (this.popup.IsOpen)
             {
-                var currentOffsetX = this.Owner.TransformToVisual(Window.Current.Content).TransformPoint(new Point(0, 0)).X + this.HorizontalOffset;
+                var currentOffsetX = this.Owner.TransformToVisual(/*UNO TODO*/Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0)).X + this.HorizontalOffset;
 
                 if (currentOffsetX < 0)
                 {
                     this.HorizontalOffset += -currentOffsetX;
                 }
-                else if (currentOffsetX + this.Child.ActualWidth > Window.Current.Bounds.Width)
+                else if (currentOffsetX + this.Child.ActualWidth > /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width)
                 {
-                    this.HorizontalOffset -= currentOffsetX + this.Child.ActualWidth - Window.Current.Bounds.Width;
+                    this.HorizontalOffset -= currentOffsetX + this.Child.ActualWidth - /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width;
                 }
 
                 if (this.HorizontalOffset + this.Child.ActualWidth > this.Owner.ActualWidth)
@@ -445,35 +446,36 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 
         private void UpdateTransitions()
         {
-            this.popup.ChildTransitions.Clear();
+			// UNO TODO
+            //this.popup.ChildTransitions.Clear();
 
-            switch (this.Id)
-            {
-                case DataGridFlyoutId.EditorLeft:
-                    this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Left });
-                    break;
-                case DataGridFlyoutId.ColumnHeader:
-                    this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Top });
-                    break;
-                case DataGridFlyoutId.FlyoutFilterButton:
-                    this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Top });
-                    break;
-                case DataGridFlyoutId.ColumnChooser:
-                    if (this.Owner != null && this.Owner.ActualHeight < this.Owner.ActualWidth)
-                    {
-                    this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Right });
-                    }
-                    else
-                    {
-                        this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Top });
-                    }
-                    break;
-                case DataGridFlyoutId.EditorRight:
-                    this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Right });
-                    break;
-                default:
-                    break;
-            }
+            //switch (this.Id)
+            //{
+            //    case DataGridFlyoutId.EditorLeft:
+            //        this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Left });
+            //        break;
+            //    case DataGridFlyoutId.ColumnHeader:
+            //        this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Top });
+            //        break;
+            //    case DataGridFlyoutId.FlyoutFilterButton:
+            //        this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Top });
+            //        break;
+            //    case DataGridFlyoutId.ColumnChooser:
+            //        if (this.Owner != null && this.Owner.ActualHeight < this.Owner.ActualWidth)
+            //        {
+            //        this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Right });
+            //        }
+            //        else
+            //        {
+            //            this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Top });
+            //        }
+            //        break;
+            //    case DataGridFlyoutId.EditorRight:
+            //        this.popup.ChildTransitions.Add(new PaneThemeTransition() { Edge = EdgeTransitionLocation.Right });
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         private void PopupOpened(object sender, object e)
