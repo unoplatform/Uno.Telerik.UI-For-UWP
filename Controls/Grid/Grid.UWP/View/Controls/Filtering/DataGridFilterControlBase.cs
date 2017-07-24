@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a custom control that represents the <see cref="DataGridFilteringFlyout.FirstFilterControl"/> or <see cref="DataGridFilteringFlyout.SecondFilterControl"/>.
     /// </summary>
-    public abstract class DataGridFilterControlBase : RadControl, IFilterControl
+    public abstract partial class DataGridFilterControlBase : RadControl, IFilterControl
     {
         internal FilterDescriptorBase associatedDescriptor;
         private bool isFirst;

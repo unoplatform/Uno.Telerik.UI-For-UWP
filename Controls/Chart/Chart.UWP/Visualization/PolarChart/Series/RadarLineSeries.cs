@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents <see cref="RadarPointSeries"/> which connect each <see cref="CategoricalDataPoint"/> with a straight line segment.
     /// </summary>
-    public class RadarLineSeries : RadarPointSeries, IStrokedSeries
+    public partial class RadarLineSeries : RadarPointSeries, IStrokedSeries
     {
         /// <summary>
         /// Identifies the <see cref="Stroke"/> property.

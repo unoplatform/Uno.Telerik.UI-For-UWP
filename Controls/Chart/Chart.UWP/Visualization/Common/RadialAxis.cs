@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an elliptical axis.
     /// </summary>
-    public abstract class RadialAxis : Axis
+    public abstract partial class RadialAxis : Axis
     {
         /// <summary>
         /// Identifies the <see cref="SweepDirection"/> property.

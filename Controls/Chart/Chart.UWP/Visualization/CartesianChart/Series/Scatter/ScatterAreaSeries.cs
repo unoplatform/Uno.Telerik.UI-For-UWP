@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart series which visualize <see cref="ScatterDataPoint"/> instances by an area shape.
     /// </summary>
-    public class ScatterAreaSeries : ScatterLineSeries, IFilledSeries
+    public partial class ScatterAreaSeries : ScatterLineSeries, IFilledSeries
     {
         /// <summary>
         /// Identifies the <see cref="Fill"/> property.

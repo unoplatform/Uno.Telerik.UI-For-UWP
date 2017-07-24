@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart series that plot their points using financial "Candlestick" shapes.
     /// </summary>
-    public class CandlestickSeries : OhlcSeriesBase
+    public partial class CandlestickSeries : OhlcSeriesBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CandlestickSeries"/> class.

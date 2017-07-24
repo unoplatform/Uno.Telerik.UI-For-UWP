@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// A segment can have a distinctive color, length and thickness.
     /// </summary>
     [TemplatePart(Name = "PART_Layout", Type = typeof(Canvas))]
-    public class BarIndicatorSegment : RadControl
+    public partial class BarIndicatorSegment : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Length"/> property.

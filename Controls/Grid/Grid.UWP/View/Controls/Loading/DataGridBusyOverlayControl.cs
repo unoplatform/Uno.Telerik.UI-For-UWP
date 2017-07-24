@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents busy indicator overlay used by <see cref="RadDataGrid"/> when background operation is in progress.
     /// </summary>
-    public class DataGridBusyOverlayControl : RadControl
+    public partial class DataGridBusyOverlayControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="IsBusy"/> dependency property.

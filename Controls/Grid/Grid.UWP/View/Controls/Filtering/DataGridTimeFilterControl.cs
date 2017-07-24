@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// </summary>
     [TemplatePart(Name = "PART_OperatorCombo", Type = typeof(DataGridFilterComboBox))]
     [TemplatePart(Name = "PART_TimePicker", Type = typeof(RadTimePicker))]
-    public class DataGridTimeFilterControl : DataGridDateTimeFilterControl
+    public partial class DataGridTimeFilterControl : DataGridDateTimeFilterControl
     {
         private RadTimePicker timePicker;
 

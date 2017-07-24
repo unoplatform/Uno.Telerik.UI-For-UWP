@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents the financial Candlestick symbol.
     /// </summary>
-    public class Candlestick : OhlcShape
+    public partial class Candlestick : OhlcShape
     {
         /// <summary>
         /// Identifies the <see cref="UpFill"/> dependency property.

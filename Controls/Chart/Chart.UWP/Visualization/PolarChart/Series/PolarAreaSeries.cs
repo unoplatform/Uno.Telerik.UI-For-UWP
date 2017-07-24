@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents <see cref="PolarLineSeries"/> that may optionally fill the area, enclosed by all points.
     /// </summary>
-    public class PolarAreaSeries : PolarLineSeries, IFilledSeries
+    public partial class PolarAreaSeries : PolarLineSeries, IFilledSeries
     {
         /// <summary>
         /// Identifies the <see cref="Fill"/> property.

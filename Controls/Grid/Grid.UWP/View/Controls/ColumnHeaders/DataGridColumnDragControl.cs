@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents the drag visual used when dragging RadDataGrid columns.
     /// </summary>
-    public class DataGridColumnDragControl : RadContentControl
+    public partial class DataGridColumnDragControl : RadContentControl
     {
         /// <summary>
         /// Identifies the <see cref="FilterGlyphVisibility"/> dependency property.

@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// </summary>
     [TemplatePart(Name = "PART_OperatorCombo", Type = typeof(DataGridFilterComboBox))]
     [TemplatePart(Name = "PART_ValueBox", Type = typeof(RadNumericBox))]
-    public class DataGridNumericalFilterControl : DataGridTypedFilterControl
+    public partial class DataGridNumericalFilterControl : DataGridTypedFilterControl
     {
         private RadNumericBox valueBox;
 
@@ -41,8 +41,9 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             var descriptor = new NumericalFilterDescriptor();
             descriptor.PropertyName = this.PropertyName;
-            descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
-            descriptor.Value = this.valueBox.Value;
+			// UNO TODO
+			// descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
+			descriptor.Value = this.valueBox.Value;
 
             return descriptor;
         }

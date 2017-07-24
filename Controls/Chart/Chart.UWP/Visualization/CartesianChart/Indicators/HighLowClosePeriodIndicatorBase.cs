@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Base class for financial indicators that are calculated upon the High, Low and Close values and define a period.
     /// </summary>
-    public abstract class HighLowClosePeriodIndicatorBase : HighLowCloseIndicatorBase
+    public abstract partial class HighLowClosePeriodIndicatorBase : HighLowCloseIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="Period"/> dependency property.

@@ -17,7 +17,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents a chart series which can visualize <see cref="ScatterDataPoint"/> instances.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public class ScatterPointSeries : CartesianSeries
+    public partial class ScatterPointSeries : CartesianSeries
     {
         /// <summary>
         /// Identifies the <see cref="XValueBinding"/> property.

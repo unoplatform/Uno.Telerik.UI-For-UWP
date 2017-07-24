@@ -418,7 +418,9 @@ namespace Telerik.UI.Xaml.Controls.Chart
             TextBlock block = new TextBlock();
             block.Style = context.Definition.DefaultVisualStyle;
 
-            return block;
+			// UNO TODO
+			// return block;
+			throw new NotSupportedException();
         }
 
         internal virtual RadSize MeasureLabel(FrameworkElement visual, ChartSeriesLabelUpdateContext context)
@@ -840,19 +842,20 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
             else
             {
-                TextBlock textblock = element as TextBlock;
-                if (textblock != null)
-                {
-                    // Assumes TextBlock has been created to handle the default case.
-                    object label = this.GetLabelContent(context);
-                    textblock.Text = label == null ? string.Empty : label.ToString();
-                }
-                else
-                {
-                    // Assumes if user-defined label strategy is involved in visual creation (even if the strategy creates ContentPresenters),
-                    // the strategy should be responsible for setting its content (via ChartSeriesLabelStrategy.SetLabelContent(...) method override)
-                    this.SetLabelContent(element, context);
-                }
+				// UNO TODO
+                //TextBlock textblock = element as TextBlock;
+                //if (textblock != null)
+                //{
+                //    // Assumes TextBlock has been created to handle the default case.
+                //    object label = this.GetLabelContent(context);
+                //    textblock.Text = label == null ? string.Empty : label.ToString();
+                //}
+                //else
+                //{
+                //    // Assumes if user-defined label strategy is involved in visual creation (even if the strategy creates ContentPresenters),
+                //    // the strategy should be responsible for setting its content (via ChartSeriesLabelStrategy.SetLabelContent(...) method override)
+                //    this.SetLabelContent(element, context);
+                //}
             }
 
             return element;

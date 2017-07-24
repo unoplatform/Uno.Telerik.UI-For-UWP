@@ -192,22 +192,23 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
             foreach (Setter setter in style.Setters)
             {
-                if (setter.Property == FrameworkElement.WidthProperty ||
-                    setter.Property == FrameworkElement.MinWidthProperty)
-                {
-                    if (NumericConverter.TryConvertToDouble(setter.Value, out value))
-                    {
-                        width = value;
-                    }
-                }
-                else if (setter.Property == FrameworkElement.HeightProperty ||
-                    setter.Property == FrameworkElement.MinHeightProperty)
-                {
-                    if (NumericConverter.TryConvertToDouble(setter.Value, out value))
-                    {
-                        height = value;
-                    }
-                }
+				// UNO TODO
+                //if (setter.Property == FrameworkElement.WidthProperty ||
+                //    setter.Property == FrameworkElement.MinWidthProperty)
+                //{
+                //    if (NumericConverter.TryConvertToDouble(setter.Value, out value))
+                //    {
+                //        width = value;
+                //    }
+                //}
+                //else if (setter.Property == FrameworkElement.HeightProperty ||
+                //    setter.Property == FrameworkElement.MinHeightProperty)
+                //{
+                //    if (NumericConverter.TryConvertToDouble(setter.Value, out value))
+                //    {
+                //        height = value;
+                //    }
+                //}
             }
 
             return new RadSize(width, height);

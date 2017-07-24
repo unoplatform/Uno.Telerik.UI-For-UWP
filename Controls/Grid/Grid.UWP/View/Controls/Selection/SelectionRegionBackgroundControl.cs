@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents the custom Control implementation used to visualize a selection region within a <see cref="RadDataGrid"/> component.
     /// </summary>
-    public class SelectionRegionBackgroundControl : RadControl
+    public partial class SelectionRegionBackgroundControl : RadControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SelectionRegionBackgroundControl" /> class.

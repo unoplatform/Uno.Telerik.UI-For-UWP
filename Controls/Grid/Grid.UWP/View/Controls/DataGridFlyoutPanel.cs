@@ -11,9 +11,14 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Container panel used in <see cref="DataGridFlyout"/> to display <see cref="DataGridFlyoutHeader"/> items.
     /// </summary>
-    public class DataGridFlyoutPanel : Canvas
+    public partial class DataGridFlyoutPanel : Canvas
     {
-        private List<DataGridFlyoutHeader> elementsCache = new List<DataGridFlyoutHeader>();
+		public DataGridFlyoutPanel()
+		{
+			// UNO TODO
+		}
+
+		private List<DataGridFlyoutHeader> elementsCache = new List<DataGridFlyoutHeader>();
         private RadDataGrid owner;
 
         private double totalRealizedHeight = 0;

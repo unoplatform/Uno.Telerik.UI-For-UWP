@@ -121,9 +121,10 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
             // NOTE: All hit tests with VisualTreeHelper.FindElementsInHostCoordinates(intersectingRect, subtree, includeAllElements) 
             // are done in the global coordinate system of the application and not in the coordinate system of the subtree passed as parameter.
-            if (Window.Current != null && Window.Current.Content != null)
+			// UNO TODO
+            if (Windows.UI.Xaml.Window.Current != null && Windows.UI.Xaml.Window.Current.Content != null)
             {
-                touchRect = this.Chart.TransformToVisual(Window.Current.Content).TransformBounds(touchRect);
+                touchRect = this.Chart.TransformToVisual(Windows.UI.Xaml.Window.Current.Content).TransformBounds(touchRect);
             }
 
             foreach (var element in this.GetElements(touchRect, this.renderSurface, includeAllElements, dataPointsOnly))

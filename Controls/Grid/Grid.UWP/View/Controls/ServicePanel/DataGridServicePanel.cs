@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents the service UI that is located on the left side of a <see cref="RadDataGrid"/> component and is used to control the grouping state of the component through the user interface.
     /// </summary>
-    [TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Popup))]
+    [TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Windows.UI.Xaml.Controls.Popup/*UNO TODO*/))]
     [TemplatePart(Name = "PART_GroupFlyoutContent", Type = typeof(DataGridServicePanelGroupingFlyout))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "NormalGrouped", GroupName = "CommonStates")]
@@ -32,7 +32,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             DependencyProperty.Register(nameof(Position), typeof(GroupPanelPosition), typeof(DataGridServicePanel), new PropertyMetadata(GroupPanelPosition.Left, OnPositionChanged));
 
         private TextBlock verticalText;
-        private Popup groupFlyout;
+		private /*UNO TODO*/ Windows.UI.Xaml.Controls.Popup groupFlyout;
         private DataGridServicePanelGroupingFlyout groupFlyoutContent;
         private bool isGroupFlyoutOpen;
         private bool isColumnDragging;
@@ -55,11 +55,11 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             get { return (GroupPanelPosition)GetValue(PositionProperty); }
             set { this.SetValue(PositionProperty, value); }
         }
-        
-        /// <summary>
-        /// Gets the Popup instance used to display the grouping flyout content. Exposed for testing purposes, do not use elsewhere but in test projects.
-        /// </summary>
-        internal Popup GroupFlyout
+
+		/// <summary>
+		/// Gets the Popup instance used to display the grouping flyout content. Exposed for testing purposes, do not use elsewhere but in test projects.
+		/// </summary>
+		internal /*UNO TODO*/ Windows.UI.Xaml.Controls.Popup GroupFlyout
         {
             get
             {
@@ -233,7 +233,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
                 this.verticalText.Text = GridLocalizationManager.Instance.GetString("DragToGroup");
             }
 
-            this.groupFlyout = this.GetTemplatePartField<Popup>("PART_GroupFlyout");
+            this.groupFlyout = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>("PART_GroupFlyout");
             applied = applied && this.groupFlyout != null;
 
             this.groupFlyoutContent = this.GetTemplatePartField<DataGridServicePanelGroupingFlyout>("PART_GroupFlyoutContent");

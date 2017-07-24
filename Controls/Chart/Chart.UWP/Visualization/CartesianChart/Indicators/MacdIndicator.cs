@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// This class represents the MovingAverageConvergenceDivergence financial indicator. 
     /// </summary>
-    public class MacdIndicator : ShortLongPeriodIndicatorBase
+    public partial class MacdIndicator : ShortLongPeriodIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="SignalStroke"/> property.

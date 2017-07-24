@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// Represents a <see cref="ComboBoxItem"/> that appears within the operator combo box in a 
     /// <see cref="DataGridFilterControlBase"/> control.
     /// </summary>
-    public class DataGridFilterComboBoxItem : ComboBoxItem
+    public partial class DataGridFilterComboBoxItem : ComboBoxItem
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridFilterComboBoxItem" /> class.

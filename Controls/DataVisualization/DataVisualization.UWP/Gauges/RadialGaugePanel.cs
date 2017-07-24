@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// in a circle and defines attached properties for the contained
     /// indicators.
     /// </summary>
-    public class RadialGaugePanel : GaugePanel
+    public partial class RadialGaugePanel : GaugePanel
     {
         private SweepDirection sweepDir;
 

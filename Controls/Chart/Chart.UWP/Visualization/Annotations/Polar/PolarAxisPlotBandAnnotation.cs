@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Allows you highlight the area between two values drawn by the <see cref="RadPolarChart.PolarAxis"/>
     /// in the <see cref="RadPolarChart"/>.
     /// </summary>
-    public class PolarAxisPlotBandAnnotation : PolarStrokedAnnotation
+    public partial class PolarAxisPlotBandAnnotation : PolarStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="From"/> dependency property.

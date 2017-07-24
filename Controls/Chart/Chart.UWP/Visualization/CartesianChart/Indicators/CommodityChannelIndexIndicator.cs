@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the CommodityChannelIndicator.
     /// </summary>
-    public class CommodityChannelIndexIndicator : HighLowClosePeriodIndicatorBase
+    public partial class CommodityChannelIndexIndicator : HighLowClosePeriodIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CommodityChannelIndexIndicator" /> class.

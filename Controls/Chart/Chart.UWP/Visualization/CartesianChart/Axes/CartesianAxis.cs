@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an axis used to plot points within a <see cref="RadCartesianChart"/> instance.
     /// </summary>
-    public abstract class CartesianAxis : LineAxis
+    public abstract partial class CartesianAxis : LineAxis
     {
         /// <summary>
         /// Identifies the <see cref="HorizontalLocation"/> dependency property.

@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Base class for all <see cref="Control"/> instances that represent charting engine logical models.
     /// </summary>
     ////[TemplatePart(Name = RenderSurfacePartName, Type = typeof(Canvas))]
-    public abstract class PresenterBase : RadControl, IChartElementPresenter
+    public abstract partial class PresenterBase : RadControl, IChartElementPresenter
     {
         /// <summary>
         /// Represents a <see cref="Windows.Foundation.Size(double, double)"/> structure, which Width and Height members are set to double.PositiveInfinity.

@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a <see cref="RadialAxis"/> that plots numerical data.
     /// </summary>
-    public class NumericalRadialAxis : RadialAxis
+    public partial class NumericalRadialAxis : RadialAxis
     {
         /// <summary>
         /// Identifies the <see cref="MajorStep"/> dependency property.

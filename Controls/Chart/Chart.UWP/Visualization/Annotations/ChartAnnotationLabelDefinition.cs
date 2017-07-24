@@ -4,11 +4,13 @@ using Windows.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
-    /// <summary>
-    /// Describes the appearance of the labels within a <see cref="ChartAnnotation"/>.
-    /// </summary>
+	/// <summary>
+	/// Describes the appearance of the labels within a <see cref="ChartAnnotation"/>.
+	/// </summary>
+#if NETFX_CORE // UNO TODO
     [Bindable]
-    public class ChartAnnotationLabelDefinition : DependencyObject
+#endif
+    public partial class ChartAnnotationLabelDefinition : DependencyObject
     {
         /// <summary>
         /// Identifies the <see cref="Format"/> property.

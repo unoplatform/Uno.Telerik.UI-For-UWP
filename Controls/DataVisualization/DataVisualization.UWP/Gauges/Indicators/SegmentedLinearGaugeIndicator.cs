@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// This class represents a line indicator with different segments.
     /// </summary>
     [ContentProperty(Name = "Segments")]
-    public class SegmentedLinearGaugeIndicator : SegmentedGaugeIndicator
+    public partial class SegmentedLinearGaugeIndicator : SegmentedGaugeIndicator
     {
         private double extent;
         private bool isHorizontal = true;

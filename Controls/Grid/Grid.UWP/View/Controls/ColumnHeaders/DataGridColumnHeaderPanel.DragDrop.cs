@@ -2,6 +2,7 @@
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop.Reorder;
+using Windows.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -36,9 +37,12 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             this.Owner.DragBehavior.ReorderVisibleColumn(sourceIndex, destinationIndex);
 
-            foreach (var item in this.Children)
+            foreach (var nativeItem in this.Children)
             {
-                item.Opacity = 1;
+				if (nativeItem is FrameworkElement item)
+				{
+					item.Opacity = 1;
+				}
             }
         }
 

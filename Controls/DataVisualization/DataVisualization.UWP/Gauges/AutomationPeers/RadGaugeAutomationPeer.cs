@@ -107,7 +107,8 @@ namespace Telerik.UI.Automation.Peers
         {
             if (!this.IsEnabled())
             {
-                throw new ElementNotEnabledException();
+				// UNO TODO
+                // throw new ElementNotEnabledException();
             }
 
             if ((value < this.Gauge.MinValue) || (value > this.Gauge.MaxValue))

@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a series which shape may be stroked (outlined).
     /// </summary>
-    public abstract class CategoricalStrokedSeries : CategoricalSeries, IStrokedSeries
+    public abstract partial class CategoricalStrokedSeries : CategoricalSeries, IStrokedSeries
     {
         /// <summary>
         /// Identifies the <see cref="Stroke"/> property.

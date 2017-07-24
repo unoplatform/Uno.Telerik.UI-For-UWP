@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an annotation which shape may be stroked (outlined).
     /// </summary>
-    public abstract class PolarStrokedAnnotation : PolarChartAnnotation, IStrokedAnnotation
+    public abstract partial class PolarStrokedAnnotation : PolarChartAnnotation, IStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="Stroke"/> dependency property.

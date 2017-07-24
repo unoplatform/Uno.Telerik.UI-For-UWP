@@ -3,7 +3,7 @@
     /// <summary>
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the Moving Average financial indicator. Its values are defined as the average value of the last points.
     /// </summary>
-    public class OscillatorIndicator : ShortLongPeriodIndicatorBase
+    public partial class OscillatorIndicator : ShortLongPeriodIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OscillatorIndicator"/> class.

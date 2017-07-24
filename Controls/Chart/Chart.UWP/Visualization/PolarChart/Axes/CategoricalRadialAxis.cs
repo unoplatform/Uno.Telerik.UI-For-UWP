@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a <see cref="RadialAxis"/> that plots categorical data.
     /// </summary>
-    public class CategoricalRadialAxis : RadialAxis
+    public partial class CategoricalRadialAxis : RadialAxis
     {
         /// <summary>
         /// Identifies the <see cref="MajorTickInterval"/> dependency property.

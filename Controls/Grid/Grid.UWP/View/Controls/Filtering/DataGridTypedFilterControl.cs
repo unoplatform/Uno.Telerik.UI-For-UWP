@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// Represents a <see cref="DataGridFilterControlBase"/> that is may be used to filter data presented by a <see cref="DataGridTypedColumn"/> instance.
     /// </summary>
     [TemplatePart(Name = "PART_OperatorCombo", Type = typeof(ComboBox))]
-    public abstract class DataGridTypedFilterControl : DataGridFilterControlBase
+    public abstract partial class DataGridTypedFilterControl : DataGridFilterControlBase
     {
         private ComboBox operatorCombo;
 
@@ -56,7 +56,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             // populate the operator combo
             foreach (var op in this.GetOperators())
             {
-                this.operatorCombo.Items.Add(op);
+				// UNO TODO
+				// this.operatorCombo.Items.Add(op);
             }
         }
 

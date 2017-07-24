@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// A base class for chart range series.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public abstract class RangeSeriesBase : CartesianSeries
+    public abstract partial class RangeSeriesBase : CartesianSeries
     {
         /// <summary>
         /// Identifies the <see cref="CategoryBinding"/> property.

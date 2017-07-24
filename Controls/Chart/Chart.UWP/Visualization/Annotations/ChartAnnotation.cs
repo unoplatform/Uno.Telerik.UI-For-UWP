@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// This is the base class for all chart annotations.
     /// </summary>
-    public abstract class ChartAnnotation : ChartElementPresenter
+    public abstract partial class ChartAnnotation : ChartElementPresenter
     {
         /// <summary>
         /// Identifies the <see cref="ClipToPlotArea"/> dependency property.

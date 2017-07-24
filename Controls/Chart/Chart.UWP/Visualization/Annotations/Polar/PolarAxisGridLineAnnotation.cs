@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Allows you to place am ellipse at a specific place in your <see cref="RadCartesianChart"/>. This annotation
     /// uses the <see cref="RadPolarChart.PolarAxis"/>.
     /// </summary>
-    public class PolarAxisGridLineAnnotation : PolarStrokedAnnotation
+    public partial class PolarAxisGridLineAnnotation : PolarStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="Value"/> dependency property.

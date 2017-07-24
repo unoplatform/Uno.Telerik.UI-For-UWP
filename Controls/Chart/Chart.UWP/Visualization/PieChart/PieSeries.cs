@@ -21,7 +21,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents a chart series that visualize data points using arcs that form a pie.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public class PieSeries : ChartSeries
+    public partial class PieSeries : ChartSeries
     {
         /// <summary>
         /// Identifies the <see cref="DefaultSegmentStyle"/> property.

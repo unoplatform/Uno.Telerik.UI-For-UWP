@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// This is the base class for all chart annotations in a <see cref="RadCartesianChart"/>.
     /// </summary>
-    public abstract class CartesianChartAnnotation : ChartAnnotation
+    public abstract partial class CartesianChartAnnotation : ChartAnnotation
     {
         internal virtual void ChartAxisChanged(CartesianAxis oldAxis, CartesianAxis newAxis)
         {             

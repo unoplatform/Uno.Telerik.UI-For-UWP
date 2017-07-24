@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents the User Interface that is displayed whenever a <see cref="RadDataGrid"/> row enters edit mode.
     /// </summary>
-    public class DataGridEditRow : RadControl
+    public partial class DataGridEditRow : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="CancelButtonStyle"/> dependency property. 

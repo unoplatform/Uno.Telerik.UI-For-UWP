@@ -39,7 +39,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
         public static readonly DependencyProperty GroupDescriptorProperty =
             DependencyProperty.Register(nameof(GroupDescriptor), typeof(GroupDescriptorBase), typeof(DataGridTemplateColumn), new PropertyMetadata(null, OnGroupDescriptorChanged));
 
-        private static readonly DataTemplate EmptyDataTemplate = new DataTemplate();
+		// UNO TODO
+		private static readonly DataTemplate EmptyDataTemplate = null; // new DataTemplate();
 
         private DataTemplate cellContentTemplateCache;
         private DataTemplateSelector cellContentTemplateSelectorCache;

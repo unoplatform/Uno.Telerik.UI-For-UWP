@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a custom templated <see cref="ComboBox"/> used in a <see cref="DataGridFilterControlBase"/> instance.
     /// </summary>
-    public class DataGridFilterComboBox : ComboBox
+    public partial class DataGridFilterComboBox : ComboBox
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridFilterComboBox" /> class.
@@ -21,9 +21,10 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         /// <returns>
         /// The element that is used to display the given item.
         /// </returns>
-        protected override DependencyObject GetContainerForItemOverride()
-        {
-            return new DataGridFilterComboBoxItem();
-        }
+		// UNO TODO
+        //protected override DependencyObject GetContainerForItemOverride()
+        //{
+        //    return new DataGridFilterComboBoxItem();
+        //}
     }
 }

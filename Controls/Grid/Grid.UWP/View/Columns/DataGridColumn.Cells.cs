@@ -270,9 +270,9 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 // Apply padding when last column to offset from column chooser button.
                 if (header.Owner.CanUserChooseColumns)
                 {
-                    if (this.headerStyleCache != null && this.headerStyleCache.Setters.OfType<Setter>().Any(c => c.Property == DataGridColumnHeader.PaddingProperty))
+                    if (this.headerStyleCache != null && this.headerStyleCache.Setters.OfType<Setter>().Any(c => c.Property == "Padding"/*UNO TODO DataGridColumnHeader.PaddingProperty*/))
                     {
-                        var oldPadding = (Thickness)this.headerStyleCache.Setters.OfType<Setter>().First(c => c.Property == DataGridColumnHeader.PaddingProperty).Value;
+                        var oldPadding = (Thickness)this.headerStyleCache.Setters.OfType<Setter>().First(c => c.Property == "Padding"/*UNO TODO DataGridColumnHeader.PaddingProperty*/).Value;
                         header.Padding = new Thickness(oldPadding.Left, oldPadding.Top, oldPadding.Right + header.Owner.ColumnReorderServicePanel.ActualWidth, oldPadding.Bottom);
                     }
                     else
@@ -282,9 +282,9 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 }
                 else
                 {
-                    if (this.headerStyleCache != null && this.headerStyleCache.Setters.OfType<Setter>().Any(c => c.Property == DataGridColumnHeader.PaddingProperty))
+                    if (this.headerStyleCache != null && this.headerStyleCache.Setters.OfType<Setter>().Any(c => c.Property == "Padding"/*UNO TODO DataGridColumnHeader.PaddingProperty*/))
                     {
-                        var oldPadding = (Thickness)this.headerStyleCache.Setters.OfType<Setter>().First(c => c.Property == DataGridColumnHeader.PaddingProperty).Value;
+                        var oldPadding = (Thickness)this.headerStyleCache.Setters.OfType<Setter>().First(c => c.Property == "Padding"/*UNO TODO DataGridColumnHeader.PaddingProperty*/).Value;
                         header.Padding = oldPadding;
                     }
                     else

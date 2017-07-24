@@ -3,7 +3,7 @@
     /// <summary>
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the Modified Exponential Moving Average financial indicator. Its values are defined as the average of the exponentially weighted values of the last points.
     /// </summary>
-    public class ModifiedExponentialMovingAverageIndicator : ExponentialMovingAverageIndicator
+    public partial class ModifiedExponentialMovingAverageIndicator : ExponentialMovingAverageIndicator
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ModifiedExponentialMovingAverageIndicator"/> class.

@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents <see cref="RadarLineSeries"/> that may optionally fill the area, enclosed by all points.
     /// </summary>
-    public class RadarAreaSeries : RadarLineSeries, IFilledSeries
+    public partial class RadarAreaSeries : RadarLineSeries, IFilledSeries
     {
         /// <summary>
         /// Identifies the <see cref="Fill"/> property.

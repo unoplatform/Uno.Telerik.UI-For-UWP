@@ -13,13 +13,13 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// Represents a container control that can rotate its child content and apply the rotation transformation to its desired size.
     /// </summary>
     [ContentProperty(Name = "Child")]
-    public class RotatedContainer : RadControl
+    public partial class RotatedContainer : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Child"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty ChildProperty =
-            DependencyProperty.Register(nameof(Child), typeof(UIElement), typeof(RotatedContainer), new PropertyMetadata(null, OnChildChanged));
+            DependencyProperty.Register(nameof(Child), typeof(object), typeof(RotatedContainer), new PropertyMetadata(null, OnChildChanged));
 
         /// <summary>
         /// Identifies the <see cref="RotationAngle"/> property.
@@ -40,11 +40,11 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         /// <summary>
         /// Gets or sets the <see cref="UIElement"/> instance that is parented by this container.
         /// </summary>
-        public UIElement Child
+        public object Child
         {
             get
             {
-                return this.GetValue(ChildProperty) as UIElement;
+                return this.GetValue(ChildProperty) as object;
             }
             set
             {
@@ -86,8 +86,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             var baseSize = base.MeasureOverride(availableSize);
             var desiredSize = baseSize;
 
-            var child = this.Child;
-            if (child != null)
+			// UNO TODO
+            if (this.Child is FrameworkElement child)
             {
                 child.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                 this.childDesiredSize = child.DesiredSize;
@@ -122,7 +122,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
                     left = (this.childDesiredSize.Width - finalSize.Width) / 2;
                 }
 
-                child.Arrange(new Rect(-left, 0, maxWidth, maxHeight));
+				// UNO TODO
+                (child as FrameworkElement)?.Arrange(new Rect(-left, 0, maxWidth, maxHeight));
             }
 
             return finalSize;
@@ -148,8 +149,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 
         private void UpdateChildTransform()
         {
-            var child = this.Child;
-            if (child != null)
+            if (this.Child is FrameworkElement child)
             {
                 child.RenderTransform = new RotateTransform() { Angle = this.RotationAngle };
                 child.RenderTransformOrigin = new Point(0.5, 0.5);

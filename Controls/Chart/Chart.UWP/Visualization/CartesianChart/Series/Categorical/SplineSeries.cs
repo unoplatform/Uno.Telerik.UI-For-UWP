@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Visualizes a collection of data points using a smooth <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape.
     /// </summary>
-    public class SplineSeries : LineSeries
+    public partial class SplineSeries : LineSeries
     {
         /// <summary>
         /// Identifies the <see cref="SplineTension"/> property.

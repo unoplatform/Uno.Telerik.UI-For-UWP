@@ -24,3 +24,6 @@ using Telerik.Core;
 [assembly: InternalsVisibleTo("Telerik.Data")]
 [assembly: InternalsVisibleTo("Telerik.Input")]
 [assembly: InternalsVisibleTo("Telerik.DataControls")]
+[assembly: InternalsVisibleTo("Telerik.Chart")]
+[assembly: InternalsVisibleTo("Telerik.DataVisualization")]
+[assembly: InternalsVisibleTo("Telerik.Grid")]
