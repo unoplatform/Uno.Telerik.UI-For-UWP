@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart range bar series.
     /// </summary>
-    public class RangeBarSeries : RangeSeriesBase
+    public partial class RangeBarSeries : RangeSeriesBase
     {
         /// <summary>
         /// Identifies the <see cref="CombineMode"/> property.

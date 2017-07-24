@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// and labels in a straight line and defines attached
     /// properties for the contained indicators.
     /// </summary>
-    public class LinearGaugePanel : GaugePanel
+    public partial class LinearGaugePanel : GaugePanel
     {
         private RotateTransform verticalTickTransform = new RotateTransform() { Angle = -90 };
 

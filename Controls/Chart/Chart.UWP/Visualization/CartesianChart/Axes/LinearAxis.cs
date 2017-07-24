@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a <see cref="NumericalAxis"/> which step is linear.
     /// </summary>
-    public class LinearAxis : NumericalAxis
+    public partial class LinearAxis : NumericalAxis
     {
         /// <summary>
         /// Identifies the <see cref="MajorStep"/> dependency property.

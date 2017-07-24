@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart.Primitives
     /// Represents the control that displays the track information, provided by a <see cref="ChartTrackBallBehavior"/>.
     /// </summary>
     [TemplatePart(Name = "PART_Panel", Type = typeof(StackPanel))]
-    public class TrackBallInfoControl : RadControl
+    public partial class TrackBallInfoControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="DataPointInfoTemplate"/> property.

@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Defines a basic chart grid control properties.
     /// </summary>
-    public abstract class ChartGrid : ChartElementPresenter
+    public abstract partial class ChartGrid : ChartElementPresenter
     {
         /// <summary>
         /// Identifies the <see cref="DefaultStripeBrush"/> dependency property.

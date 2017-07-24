@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Allows a user to view a header for some details.
     /// </summary>
-    public abstract class DataGridHeader : RadControl
+    public abstract partial class DataGridHeader : RadControl
     {
         /// <summary>
         /// Identifies the DataTemplate dependency property.

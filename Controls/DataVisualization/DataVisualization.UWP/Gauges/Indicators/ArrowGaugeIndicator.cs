@@ -20,7 +20,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
      [TemplatePart(Name = "PART_ArrowShaft", Type = typeof(LineGeometry))]
      [TemplatePart(Name = "PART_ArrowTail", Type = typeof(EllipseGeometry))]
      [TemplatePart(Name = "PART_NeedleRotateTransform", Type = typeof(RotateTransform))]
-    public class ArrowGaugeIndicator : NeedleGaugeIndicator
+    public partial class ArrowGaugeIndicator : NeedleGaugeIndicator
     {
         /// <summary>
         /// Identifies the ArrowTailRadius dependency property.

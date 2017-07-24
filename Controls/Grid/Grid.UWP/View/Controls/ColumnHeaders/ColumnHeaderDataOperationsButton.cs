@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a ColumnHeaderDataOperationsButton control.
     /// </summary>
-    public class ColumnHeaderDataOperationsButton : InlineButton
+    public partial class ColumnHeaderDataOperationsButton : InlineButton
     {
         /// <summary>
         /// Identifies the <see cref="IconText"/> dependency property. 

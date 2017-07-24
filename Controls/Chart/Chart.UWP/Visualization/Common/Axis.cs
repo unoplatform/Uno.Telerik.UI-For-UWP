@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an axis within a <see cref="RadCartesianChart"/> instance.
     /// </summary>
-    public abstract class Axis : ChartElementPresenter
+    public abstract partial class Axis : ChartElementPresenter
     {
         /// <summary>
         /// Identifies the <see cref="LabelRotationAngle"/> property.
@@ -797,21 +797,22 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
         private static void SetLabelContent(FrameworkElement presenter, AxisLabelModel label)
         {
-            var contentPresetner = presenter as ContentPresenter;
-            var textBlock = presenter as TextBlock;
+			// UNO TODO
+            //var contentPresetner = presenter as ContentPresenter;
+            //var textBlock = presenter as TextBlock;
 
-            if (contentPresetner != null && contentPresetner.Content != label.Content)
-            {
-                contentPresetner.Content = label.Content;
-            }
-            else if (textBlock != null)
-            {
-                textBlock.Text = label.Content == null ? string.Empty : label.Content.ToString();
-            }
-            else
-            {
-                // TODO: consider throwing exception
-            }
+            //if (contentPresetner != null && contentPresetner.Content != label.Content)
+            //{
+            //    contentPresetner.Content = label.Content;
+            //}
+            //else if (textBlock != null)
+            //{
+            //    textBlock.Text = label.Content == null ? string.Empty : label.Content.ToString();
+            //}
+            //else
+            //{
+            //    // TODO: consider throwing exception
+            //}
         }
 
         private static LabelSizeInfo GetLabelSize(FrameworkElement visual)
@@ -1059,11 +1060,12 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 template = this.labelTemplateSelectorCache.SelectTemplate(label.Content, this);
             }
 
-            FrameworkElement visual;
+            FrameworkElement visual = null;
             if (template == null)
             {
                 // creating a TextBlock directly gives huge performance boost - about 10 frames per second!!!
-                visual = this.CreateLabelTextBlock();
+				// UNO TODO
+                //visual = this.CreateLabelTextBlock();
             }
             else
             {

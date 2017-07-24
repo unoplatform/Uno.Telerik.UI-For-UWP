@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an annotation which marks a rectangle area on the chart.
     /// </summary>
-    public class CartesianMarkedZoneAnnotation : CartesianFromToAnnotation
+    public partial class CartesianMarkedZoneAnnotation : CartesianFromToAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="Fill"/> dependency property.

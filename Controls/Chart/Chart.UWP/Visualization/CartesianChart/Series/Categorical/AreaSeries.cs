@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart series that are visualize like an area figure in the cartesian space.
     /// </summary>
-    public class AreaSeries : CategoricalStrokedSeries, IFilledSeries
+    public partial class AreaSeries : CategoricalStrokedSeries, IFilledSeries
     {
         /// <summary>
         /// Identifies the <see cref="Fill"/> property.

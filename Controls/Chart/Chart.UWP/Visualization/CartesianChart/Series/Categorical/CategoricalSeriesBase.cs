@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Base class for all <see cref="ChartSeries"/> that may contain <see cref="CategoricalDataPoint"/>.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public abstract class CategoricalSeriesBase : CartesianSeries
+    public abstract partial class CategoricalSeriesBase : CartesianSeries
     {
         /// <summary>
         /// Identifies the <see cref="ValueBinding"/> property.

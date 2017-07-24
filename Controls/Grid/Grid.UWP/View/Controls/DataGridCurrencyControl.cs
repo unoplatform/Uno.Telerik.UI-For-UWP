@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the custom Control implementation used to visualize the current item within a <see cref="RadDataGrid"/> component.
     /// </summary>
-    public class DataGridCurrencyControl : RadControl
+    public partial class DataGridCurrencyControl : RadControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridCurrencyControl" /> class.

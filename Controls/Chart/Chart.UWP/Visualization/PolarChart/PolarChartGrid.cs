@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a decoration layer over a <see cref="RadPolarChart"/>. Adds visual representation of Polar and Radial lines and stripes.
     /// </summary>
-    public class PolarChartGrid : ChartGrid
+    public partial class PolarChartGrid : ChartGrid
     {
         /// <summary>
         /// Identifies the <see cref="PolarLineStyle"/> property.
@@ -300,10 +300,11 @@ namespace Telerik.UI.Xaml.Controls.Chart
         {
             foreach (Setter setter in style.Setters)
             {
-                if (setter.Property == Shape.StrokeDashArrayProperty)
-                {
-                    return setter.Value as DoubleCollection;
-                }
+				// UNO TODO
+                //if (setter.Property == Shape.StrokeDashArrayProperty)
+                //{
+                //    return setter.Value as DoubleCollection;
+                //}
             }
 
             return null;

@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents <see cref="CartesianSeries"/> which may visualize <see cref="CategoricalDataPoint"/> objects in <see cref="RadPolarChart"/>.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public class RadarPointSeries : PolarSeries
+    public partial class RadarPointSeries : PolarSeries
     {
         /// <summary>
         /// Identifies the <see cref="CategoryBinding"/> property.

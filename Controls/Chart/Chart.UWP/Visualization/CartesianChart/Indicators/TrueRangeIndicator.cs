@@ -3,7 +3,7 @@
     /// <summary>
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the True Range oscillator.
     /// </summary>
-    public class TrueRangeIndicator : HighLowCloseIndicatorBase
+    public partial class TrueRangeIndicator : HighLowCloseIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TrueRangeIndicator"/> class.

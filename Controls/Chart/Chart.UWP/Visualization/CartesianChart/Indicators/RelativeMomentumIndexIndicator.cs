@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents the Relative Momentum Index financial indicator.
     /// </summary>
-    public class RelativeMomentumIndexIndicator : ValuePeriodIndicatorBase
+    public partial class RelativeMomentumIndexIndicator : ValuePeriodIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="MomentumPeriod"/> dependency property.

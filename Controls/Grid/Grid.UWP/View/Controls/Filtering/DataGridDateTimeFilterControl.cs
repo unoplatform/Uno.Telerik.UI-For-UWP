@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents the base class used to filter <see cref="DateTime"/> data.
     /// </summary>
-    public abstract class DataGridDateTimeFilterControl : DataGridTypedFilterControl
+    public abstract partial class DataGridDateTimeFilterControl : DataGridTypedFilterControl
     {
         internal abstract DateTimePicker Picker
         {
@@ -27,9 +27,10 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             var descriptor = new DateTimeFilterDescriptor();
             descriptor.PropertyName = this.PropertyName;
-            descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
+			// UNO TODO
+			// descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
 
-            if (this.Picker != null)
+			if (this.Picker != null)
             {
                 descriptor.Value = this.Picker.Value;
                 descriptor.Part = this.Part;

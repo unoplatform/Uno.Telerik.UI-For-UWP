@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     [TemplatePart(Name = "PART_AlternativeFeaturedMeasure", Type = typeof(MarkerGaugeIndicator))]
     [TemplatePart(Name = "PART_ComparativeMeasure", Type = typeof(MarkerGaugeIndicator))]
     [ContentProperty(Name = "QualitativeRanges")]
-    public class RadBulletGraph : RadControl
+    public partial class RadBulletGraph : RadControl
     {
         /// <summary>
         /// Identifies the StartValue dependency property.

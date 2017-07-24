@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the AverageTrueRange financial indicator.
     /// </summary>
-    public class AverageTrueRangeIndicator : HighLowClosePeriodIndicatorBase
+    public partial class AverageTrueRangeIndicator : HighLowClosePeriodIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AverageTrueRangeIndicator" /> class.

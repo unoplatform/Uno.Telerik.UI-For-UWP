@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     [TemplatePart(Name = "PART_OperatorCombo", Type = typeof(DataGridFilterComboBox))]
     [TemplatePart(Name = "PART_ValueBox", Type = typeof(TextBox))]
     [TemplatePart(Name = "PART_CaseButton", Type = typeof(ToggleButton))]
-    public class DataGridTextFilterControl : DataGridTypedFilterControl
+    public partial class DataGridTextFilterControl : DataGridTypedFilterControl
     {
         /// <summary>
         /// Identifies the <see cref="IsCaseSensitive"/> dependency property.
@@ -64,8 +64,9 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             var descriptor = new TextFilterDescriptor();
             descriptor.PropertyName = this.PropertyName;
-            descriptor.Operator = (TextOperator)this.OperatorCombo.SelectedIndex;
-            descriptor.Value = this.valueBox.Text;
+			// UNO TODO
+			//  descriptor.Operator = (TextOperator)this.OperatorCombo.SelectedIndex;
+			descriptor.Value = this.valueBox.Text;
             descriptor.IsCaseSensitive = this.IsCaseSensitive;
 
             return descriptor;

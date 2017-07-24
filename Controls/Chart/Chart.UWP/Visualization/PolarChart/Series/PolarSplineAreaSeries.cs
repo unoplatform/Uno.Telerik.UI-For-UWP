@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents series which define a area with smooth curves among points.
     /// </summary>
-    public class PolarSplineAreaSeries : PolarAreaSeries
+    public partial class PolarSplineAreaSeries : PolarAreaSeries
     {
         /// <summary>
         /// Identifies the <see cref="SplineTension"/> property.

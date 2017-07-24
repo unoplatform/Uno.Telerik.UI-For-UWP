@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an annotation which position is defined by a rectangle defined by <see cref="HorizontalFrom"/>, <see cref="HorizontalTo"/>, <see cref="VerticalFrom"/> and <see cref="VerticalTo"/> properties.
     /// </summary>
-    public abstract class CartesianFromToAnnotation : CartesianStrokedAnnotation
+    public abstract partial class CartesianFromToAnnotation : CartesianStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="HorizontalAxis"/> dependency property.

@@ -28,7 +28,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultCellStyle == null)
                 {
-                    this.defaultCellStyle = ResourceHelper.LoadEmbeddedResource(
+                    defaultCellStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultBooleanColumnStyle.xaml",
                         "DefaultColumnStyle") as Style;
@@ -43,7 +43,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultCellEditorStyle == null)
                 {
-                    this.defaultCellEditorStyle = ResourceHelper.LoadEmbeddedResource(
+                    defaultCellEditorStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultBooleanColumnEditorStyle.xaml",
                         "DefaultColumnEditorStyle") as Style;

@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// A base class for chart series that plot financial indicators using High, Low, Open, Close values.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public abstract class OhlcSeriesBase : CartesianSeries
+    public abstract partial class OhlcSeriesBase : CartesianSeries
     {
         /// <summary>
         /// Identifies the <see cref="HighBinding"/> property.

@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the Exponential Moving Average financial indicator. Its values are defined as the average of the exponentially weighted values of the last points.
     /// </summary>
-    public class AdaptiveMovingAverageKaufmanIndicator : ValuePeriodIndicatorBase
+    public partial class AdaptiveMovingAverageKaufmanIndicator : ValuePeriodIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="SlowPeriod"/> dependency property.

@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// Represents a Gauge that arranges its ticks, labels and indicators in a circle.
     /// </summary>
     [TemplatePart(Name = "PART_Panel", Type = typeof(RadialGaugePanel))]
-    public class RadRadialGauge : RadGauge
+    public partial class RadRadialGauge : RadGauge
     {
         /// <summary>
         /// Identifies the MaxAngle attached property.

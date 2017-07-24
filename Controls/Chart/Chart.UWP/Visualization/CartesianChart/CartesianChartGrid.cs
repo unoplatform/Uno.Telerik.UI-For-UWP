@@ -17,7 +17,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a decoration over a <see cref="RadCartesianChart"/> plot area. Adds major and minor lines, connected to each Major and Minor tick of each axis.
     /// </summary>
-    public class CartesianChartGrid : ChartGrid
+    public partial class CartesianChartGrid : ChartGrid
     {
         /// <summary>
         /// Identifies the <see cref="MajorXLineStyle"/> property.
@@ -498,10 +498,11 @@ namespace Telerik.UI.Xaml.Controls.Chart
             {
                 foreach (Setter setter in this.LineStyle.Setters)
                 {
-                    if (setter.Property == Shape.StrokeDashArrayProperty)
-                    {
-                        return setter.Value as DoubleCollection;
-                    }
+					// UNO TODO
+                    //if (setter.Property == Shape.StrokeDashArrayProperty)
+                    //{
+                    //    return setter.Value as DoubleCollection;
+                    //}
                 }
 
                 return null;

@@ -20,7 +20,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents a special chart that visualizes its data points using arc segments.
     /// </summary>
     [ContentProperty(Name = "Series")]
-    public class RadPieChart : RadChartBase
+    public partial class RadPieChart : RadChartBase
     {
         private ChartAreaModel pieArea;
         private PieSeriesCollection series;

@@ -4,7 +4,7 @@
     /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. 
     /// This class represents the Weighted Moving Average financial indicator. 
     /// </summary>
-    public class WeightedMovingAverageIndicator : ValuePeriodIndicatorBase
+    public partial class WeightedMovingAverageIndicator : ValuePeriodIndicatorBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WeightedMovingAverageIndicator" /> class.

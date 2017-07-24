@@ -10,8 +10,13 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents the panel that hosts the editing UI of the <see cref="RadDataGrid"/> control.
     /// </summary>
-    public class EditRowHostPanel : Windows.UI.Xaml.Controls.Grid
+    public partial class EditRowHostPanel : Windows.UI.Xaml.Controls.Grid
     {
+		public EditRowHostPanel()
+		{
+			// UNO TODO
+		}
+
         internal IGridView Owner { get; set; }
 
         /// <inheritdoc/>

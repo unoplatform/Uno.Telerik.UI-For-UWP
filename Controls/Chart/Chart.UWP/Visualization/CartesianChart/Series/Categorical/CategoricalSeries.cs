@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart categorical series that supports combining.
     /// </summary>
-    public abstract class CategoricalSeries : CategoricalSeriesBase
+    public abstract partial class CategoricalSeries : CategoricalSeriesBase
     {     
         /// <summary>
         /// Identifies the <see cref="CombineMode"/> property.

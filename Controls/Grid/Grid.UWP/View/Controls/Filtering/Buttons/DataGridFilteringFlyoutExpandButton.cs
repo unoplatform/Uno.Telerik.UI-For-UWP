@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a DataGridFilteringFlyoutExpandButton control.
     /// </summary>
-    public class DataGridFilteringFlyoutExpandButton : InlineButton
+    public partial class DataGridFilteringFlyoutExpandButton : InlineButton
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridFilteringFlyoutExpandButton"/> class.

@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// It keeps a cache of the attached properties of the radial
     /// range. It defines neither visualization nor behavior so it is marked abstract.
     /// </summary>
-    public abstract class RadialGaugeIndicator : BarGaugeIndicator
+    public abstract partial class RadialGaugeIndicator : BarGaugeIndicator
     {
         private Point center = new Point();
         private double radius;

@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Allows you to place a straight line with specific coordinates on your <see cref="RadCartesianChart"/>. 
     /// </summary>
-    public class CartesianCustomLineAnnotation : CartesianFromToAnnotation
+    public partial class CartesianCustomLineAnnotation : CartesianFromToAnnotation
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CartesianCustomLineAnnotation" /> class.

@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a logical object that may be used to feed a <see cref="RadChartBase"/> instance with data, leaving the series creation to the chart itself.
     /// </summary>
-    public class ChartSeriesProvider : DependencyObject, IWeakEventListener
+    public partial class ChartSeriesProvider : DependencyObject, IWeakEventListener
     {
         /// <summary>
         /// Identifies the <see cref="Source"/> dependency property.

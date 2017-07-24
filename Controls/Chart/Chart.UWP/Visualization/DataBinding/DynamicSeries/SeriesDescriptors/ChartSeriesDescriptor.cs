@@ -14,7 +14,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// visualized - e.g. Categorical, Scatter, Financial, etc.
     /// This is the base class which encapsulates all the common functionality for all concrete descriptors.
     /// </summary>
-    public abstract class ChartSeriesDescriptor : DependencyObject
+    public abstract partial class ChartSeriesDescriptor : DependencyObject
     {
         /// <summary>
         /// Identifies the <see cref="Style"/> dependency property.

@@ -175,16 +175,17 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             var size = base.MeasureCellContainer(availableWidth, container);
 
-            var image = container as Image;
-            if (image != null)
-            {
-                var bitmapImage = image.Source as BitmapImage;
-                if (bitmapImage != null && bitmapImage.PixelWidth > 0)
-                {
-                    size.Width = bitmapImage.PixelWidth;
-                    size.Height = bitmapImage.PixelHeight;
-                }
-            }
+           // UNO TODO
+            // var image = container as Image;
+            // if (image != null)
+            // {
+            //     var bitmapImage = image.Source as BitmapImage;
+            //     if (bitmapImage != null && bitmapImage.PixelWidth > 0)
+            //     {
+            //         size.Width = bitmapImage.PixelWidth;
+            //         size.Height = bitmapImage.PixelHeight;
+            //     }
+            // }
 
             return size;
         }

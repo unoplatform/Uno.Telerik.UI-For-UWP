@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// This is the base class for all chart behaviors.
     /// </summary>
-    public abstract class ChartBehavior : DependencyObject
+    public abstract partial class ChartBehavior : DependencyObject
     {
         internal RadChartBase chart;
 

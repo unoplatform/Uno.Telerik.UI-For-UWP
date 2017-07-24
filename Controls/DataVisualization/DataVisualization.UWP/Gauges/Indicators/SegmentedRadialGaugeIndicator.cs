@@ -17,7 +17,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// This class represents a circle indicator with different segments.
     /// </summary>
     [ContentProperty(Name = "Segments")]
-    public class SegmentedRadialGaugeIndicator : SegmentedGaugeIndicator
+    public partial class SegmentedRadialGaugeIndicator : SegmentedGaugeIndicator
     {
         private double radius;
         private Point center;

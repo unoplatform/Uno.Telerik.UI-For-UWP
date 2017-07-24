@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// This class represents the tool tips for RadChart.
     /// </summary>
-    public class ChartTooltip : ContentControl
+    public partial class ChartTooltip : ContentControl
     {
         /// <summary>
         /// Initializes a new instance of the ChartTooltip class.

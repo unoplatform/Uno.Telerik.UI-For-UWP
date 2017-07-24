@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents a chart series that plot their points using rectangular shapes, named "Bars".
     /// The series support default visuals - <see cref="Border"/> instances.
     /// </summary>
-    public class BarSeries : CategoricalSeries
+    public partial class BarSeries : CategoricalSeries
     {
         /// <summary>
         /// Identifies the <see cref="PaletteMode"/> dependency property.

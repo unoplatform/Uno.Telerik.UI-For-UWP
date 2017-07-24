@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// A base class for bar indicators.
     /// A bar has a thickness and a brush that defines its color.
     /// </summary>
-    public abstract class BarGaugeIndicator : GaugeIndicator
+    public abstract partial class BarGaugeIndicator : GaugeIndicator
     {
         /// <summary>
         /// Identifies the BarThickness dependency property.

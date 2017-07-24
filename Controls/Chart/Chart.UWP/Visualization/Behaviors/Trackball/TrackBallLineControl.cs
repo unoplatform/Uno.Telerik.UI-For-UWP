@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart.Primitives
     /// Represents the Line part of the <see cref="ChartTrackBallBehavior"/>.
     /// </summary>
     [TemplatePart(Name = "PART_LayoutRoot", Type = typeof(Canvas))]
-    public class TrackBallLineControl : RadControl
+    public partial class TrackBallLineControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="LineStyle"/> property.

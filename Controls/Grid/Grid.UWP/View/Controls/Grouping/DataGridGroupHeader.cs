@@ -12,7 +12,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// </summary>
     [TemplateVisualState(GroupName = "ExpandedStates", Name = "Expanded")]
     [TemplateVisualState(GroupName = "ExpandedStates", Name = "Collapsed")]
-    public class DataGridGroupHeader : DataGridHeader
+    public partial class DataGridGroupHeader : DataGridHeader
     {
         /// <summary>
         /// Identifies the IsExpanded dependency property.

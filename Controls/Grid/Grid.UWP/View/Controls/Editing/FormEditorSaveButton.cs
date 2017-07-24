@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a FormEditorSaveButton control.
     /// </summary>
-    public class FormEditorSaveButton : InlineButton
+    public partial class FormEditorSaveButton : InlineButton
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FormEditorSaveButton"/> class.

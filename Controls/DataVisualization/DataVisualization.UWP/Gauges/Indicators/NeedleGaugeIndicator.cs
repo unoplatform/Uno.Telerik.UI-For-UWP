@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// other thin and pointy indicator. This class provides a rotation render transform.
     /// </summary>
     ////[TemplatePart(Name = NeedleRotateTransformPartName, Type = typeof(RotateTransform))]
-    public abstract class NeedleGaugeIndicator : RadialGaugeIndicator
+    public abstract partial class NeedleGaugeIndicator : RadialGaugeIndicator
     {
         private const string NeedleRotateTransformPartName = "PART_NeedleRotateTransform";
         private RotateTransform needleRotation;

@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
     /// Represents a Gauge that arranges its ticks, labels and indicators in a circle.
     /// </summary>
     [TemplatePart(Name = "PART_Panel", Type = typeof(LinearGaugePanel))]
-    public class RadLinearGauge : RadGauge
+    public partial class RadLinearGauge : RadGauge
     {
         /// <summary>
         /// Identifies the Orientation property.

@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a FlyoutHeaderControl control.
     /// </summary>
-    public class FlyoutHeaderControl : RadControl
+    public partial class FlyoutHeaderControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Content"/> dependency property. 

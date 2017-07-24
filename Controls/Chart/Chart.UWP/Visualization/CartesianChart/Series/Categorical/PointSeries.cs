@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a chart series that plot its points using ellipses.
     /// </summary>
-    public class PointSeries : CategoricalSeriesBase
+    public partial class PointSeries : CategoricalSeriesBase
     {
         /// <summary>
         /// Identifies the <see cref="PointSize"/> property.

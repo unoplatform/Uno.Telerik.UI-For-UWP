@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// </summary>
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Expanded", GroupName = "CommonStates")]
-    public class DataGridColumnReorderServicePanel : RadControl
+    public partial class DataGridColumnReorderServicePanel : RadControl
     {
         private DataGridColumnsFlyout columnReorderFlyoutContent = new DataGridColumnsFlyout();
         private RadDataGrid owner;

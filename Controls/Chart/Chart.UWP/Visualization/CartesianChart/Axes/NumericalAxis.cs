@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Base class for all axes that use numbers to plot associated points.
     /// </summary>
-    public abstract class NumericalAxis : CartesianAxis
+    public abstract partial class NumericalAxis : CartesianAxis
     { 
         /// <summary>
         /// Identifies the <see cref="Minimum"/> dependency property.

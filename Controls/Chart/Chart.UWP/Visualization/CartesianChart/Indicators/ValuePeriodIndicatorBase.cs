@@ -5,7 +5,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a base class for financial indicators whose value depends on one input value (Open, High, Low, Close) and Period.
     /// </summary>
-    public abstract class ValuePeriodIndicatorBase : ValueIndicatorBase
+    public abstract partial class ValuePeriodIndicatorBase : ValueIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="Period"/> dependency property.

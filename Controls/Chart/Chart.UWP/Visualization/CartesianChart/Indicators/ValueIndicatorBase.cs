@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents a base class for financial indicators whose value depends on one input value (Open, High, Low, Close).
     /// </summary>
-    public abstract class ValueIndicatorBase : LineIndicatorBase
+    public abstract partial class ValueIndicatorBase : LineIndicatorBase
     {
         /// <summary>
         /// Identifies the <see cref="ValueBinding"/> property.

@@ -6,7 +6,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// <summary>
     /// Represents a DataGridCellFlyoutControl control.
     /// </summary>
-    public class DataGridCellFlyoutControl : RadControl
+    public partial class DataGridCellFlyoutControl : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Child"/> dependency property. 

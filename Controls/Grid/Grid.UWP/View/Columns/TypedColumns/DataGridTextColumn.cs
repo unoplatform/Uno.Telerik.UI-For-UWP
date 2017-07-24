@@ -49,7 +49,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultCellEditorStyle == null)
                 {
-                    this.defaultCellEditorStyle = ResourceHelper.LoadEmbeddedResource(
+                    defaultCellEditorStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnEditorStyle.xaml",
                         "DefaultColumnEditorStyle") as Style;
@@ -64,7 +64,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultTextCellStyle == null)
                 {
-                    this.defaultTextCellStyle = ResourceHelper.LoadEmbeddedResource(
+                    defaultTextCellStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
                         "DefaultColumnStyle") as Style;
@@ -79,7 +79,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.defaultCellFlyoutContentStyle == null)
                 {
-                    this.defaultCellFlyoutContentStyle = ResourceHelper.LoadEmbeddedResource(
+                    defaultCellFlyoutContentStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnFlyoutContentStyle.xaml",
                         "DefaultColumnFlyoutStyle") as Style;

@@ -13,7 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Represents an annotation which shape may be stroked (outlined).
     /// </summary>
-    public abstract class CartesianStrokedAnnotation : CartesianChartAnnotation, IStrokedAnnotation
+    public abstract partial class CartesianStrokedAnnotation : CartesianChartAnnotation, IStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="Stroke"/> dependency property.
@@ -377,12 +377,13 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
             else
             {
-                TextBlock textBlock = this.labelPresenter as TextBlock;
-                if (textBlock != null)
-                {
-                    object label = this.GetLabelContent(context);
-                    textBlock.Text = label == null ? string.Empty : label.ToString();
-                }
+				// UNO TODO
+				//TextBlock textBlock = this.labelPresenter as TextBlock;
+    //            if (textBlock != null)
+    //            {
+    //                object label = this.GetLabelContent(context);
+    //                textBlock.Text = label == null ? string.Empty : label.ToString();
+    //            }
             }
 
             return this.labelPresenter;
@@ -402,7 +403,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
         private FrameworkElement CreateLabelVisual(ChartAnnotationLabelUpdateContext context)
         {
-            FrameworkElement visual;
+            FrameworkElement visual = null;
             DataTemplate template = context.Definition.Template;
 
             if (template != null)
@@ -411,7 +412,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
             else
             {
-                visual = new TextBlock() { Style = context.Definition.DefaultVisualStyle };
+				// UNO TODO
+                // visual = new TextBlock() { Style = context.Definition.DefaultVisualStyle };
             }
 
             this.renderSurface.Children.Add(visual);

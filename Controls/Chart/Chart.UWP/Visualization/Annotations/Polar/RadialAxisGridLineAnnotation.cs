@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Allows you to place a straight line at a specific place in your <see cref="RadCartesianChart"/>. This annotation
     /// uses the <see cref="RadPolarChart.RadialAxis"/>.
     /// </summary>
-    public class RadialAxisGridLineAnnotation : PolarStrokedAnnotation
+    public partial class RadialAxisGridLineAnnotation : PolarStrokedAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="Value"/> dependency property.

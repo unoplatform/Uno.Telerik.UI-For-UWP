@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Base class for all <see cref="PresenterBase"/> instances that visualize a logical chart element.
     /// </summary>
     [TemplatePart(Name = "PART_RenderSurface", Type = typeof(Canvas))]
-    public abstract class ChartElementPresenter : PresenterBase
+    public abstract partial class ChartElementPresenter : PresenterBase
     {
         internal RadChartBase chart;
         private int userZIndex;

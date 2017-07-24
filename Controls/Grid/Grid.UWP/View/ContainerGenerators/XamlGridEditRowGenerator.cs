@@ -44,7 +44,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 var element = decorator.Container as DataGridEditRow;
                 if (element != null)
                  {
-                    element.ClearValue(FrameworkElement.DataContextProperty);
+					// UNO TODO
+                    // element.ClearValue(FrameworkElement.DataContextProperty);
                     element.UpdateCloseButtonVisibility(false);
 
                     if (decorator.IsFrozen)

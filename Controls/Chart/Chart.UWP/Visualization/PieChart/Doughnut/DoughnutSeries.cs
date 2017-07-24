@@ -17,7 +17,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents a chart series that visualize data points using arcs that form a doughnut.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public class DoughnutSeries : PieSeries
+    public partial class DoughnutSeries : PieSeries
     {
         /// <summary>
         /// Identifies the <see cref="InnerRadiusFactor"/> property.

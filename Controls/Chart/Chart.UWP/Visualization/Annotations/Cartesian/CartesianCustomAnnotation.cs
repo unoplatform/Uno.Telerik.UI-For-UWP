@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// <summary>
     /// Allows you to place a custom object at a specific place in your <see cref="RadCartesianChart"/>. 
     /// </summary>
-    public class CartesianCustomAnnotation : CartesianChartAnnotation
+    public partial class CartesianCustomAnnotation : CartesianChartAnnotation
     {
         /// <summary>
         /// Identifies the <see cref="HorizontalAxis"/> dependency property.

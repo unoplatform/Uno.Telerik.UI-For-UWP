@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
     /// Represents <see cref="CartesianSeries"/> which may visualize <see cref="PolarDataPoint"/> objects in <see cref="RadPolarChart"/>.
     /// </summary>
     [ContentProperty(Name = "DataPoints")]
-    public class PolarPointSeries : PolarSeries
+    public partial class PolarPointSeries : PolarSeries
     {
         /// <summary>
         /// Identifies the <see cref="AngleBinding"/> property.

@@ -638,10 +638,10 @@
                                     </Image>
                                     <TextBlock x:Name="DragHintGlyph" FontFamily="{ThemeResource SymbolThemeFontFamily}" Text="&#xE169;"
                                              VerticalAlignment="Top" Visibility="Collapsed"/>
-                                    <localPrimitives:RotatedContainer  HorizontalAlignment="Center" x:Name="RotatedContainer">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="DragHereText"/>
-                                    </localPrimitives:RotatedContainer>
-                                </Grid>
+									<localPrimitives:RotatedContainer  HorizontalAlignment="Center" x:Name="RotatedContainer">
+										<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="DragHereText"/>
+									</localPrimitives:RotatedContainer>
+								</Grid>
                                 <Rectangle x:Name="InnerShadow" Fill="{ThemeResource TelerikGridInnerShadowBrush}" 
                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1"/>
                             </Grid>
@@ -1928,9 +1928,10 @@
                                 </VisualState>
                                 <VisualState x:Name="Error">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ProgressBarIndicator">
+                                        <!-- UNO TODO
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ProgressBarIndicator">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
-                                        </ObjectAnimationUsingKeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>-->
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>

@@ -109,11 +109,12 @@ namespace Telerik.UI.Automation.Peers
                                 var cellContainer = cell.Container as TextBlock;
                                 if (cellContainer != null)
                                 {
-                                    var tbPeer = FrameworkElementAutomationPeer.FromElement(cellContainer) as TextBlockAutomationPeer;
-                                    if (tbPeer != null)
-                                    {
-                                        peer.ChildTextBlockPeer = tbPeer;
-                                    }
+									// UNO TODO
+									// var tbPeer = FrameworkElementAutomationPeer.FromElement(cellContainer) as TextBlockAutomationPeer;
+                                    // if (tbPeer != null)
+                                    // {
+                                    //     peer.ChildTextBlockPeer = tbPeer;
+                                    // }
                                 }
 
                                 children.Add(peer);
