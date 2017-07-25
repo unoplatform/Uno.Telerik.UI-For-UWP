@@ -119,14 +119,15 @@
                                         <Path Stroke="Red" StrokeThickness="2">
                                             <Path.Data>
                                                 <PathGeometry>
-                                                    <PathGeometry.Figures>
+                                                    <!-- UNO TODO
+													<PathGeometry.Figures>
                                                         <PathFigure StartPoint="0,0">
                                                             <LineSegment Point="20,30"/>
                                                         </PathFigure>
                                                         <PathFigure StartPoint="0,30">
                                                             <LineSegment Point="20,0"/>
                                                         </PathFigure>
-                                                    </PathGeometry.Figures>
+                                                    </PathGeometry.Figures>-->
                                                 </PathGeometry>
                                             </Path.Data>
                                         </Path>

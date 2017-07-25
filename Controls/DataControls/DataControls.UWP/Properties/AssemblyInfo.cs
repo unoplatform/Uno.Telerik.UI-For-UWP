@@ -15,4 +15,4 @@ using Telerik.Core;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("2015.3.1106.45")]
 [assembly: ComVisible(false)]
-[assembly: InternalsVisibleTo("Telerik.Grid")]
+//[assembly: InternalsVisibleTo("Telerik.Grid")]

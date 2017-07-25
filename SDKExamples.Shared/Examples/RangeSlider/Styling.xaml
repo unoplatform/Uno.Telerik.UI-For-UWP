@@ -8,6 +8,7 @@
     xmlns:input="using:Telerik.UI.Xaml.Controls.Input"
     xmlns:primitives="using:Telerik.UI.Xaml.Controls.Primitives"
     xmlns:sliderPrimitives="using:Telerik.UI.Xaml.Controls.Primitives.RangeSlider"
+	x:Name="page"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

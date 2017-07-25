@@ -12,6 +12,6 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="1" SelectionChanged="ListView_SelectionChanged" ItemsSource="{Binding}" HorizontalAlignment="Stretch"/>
+        <ListView Grid.Column="1" SelectionChanged="ListView_SelectionChanged" SelectionMode="Single" ItemsSource="{Binding}" HorizontalAlignment="Stretch"/>
     </Grid>
 </Page>

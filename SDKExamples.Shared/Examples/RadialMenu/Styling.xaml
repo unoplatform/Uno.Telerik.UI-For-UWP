@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:primitives="using:Telerik.UI.Xaml.Controls.Primitives"
     xmlns:radialMenu="using:Telerik.UI.Xaml.Controls.Primitives.Menu"
+	x:Name="page"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
