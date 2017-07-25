@@ -10,7 +10,7 @@
     mc:Ignorable="d" x:Name="page">
 
     <local:ExamplePageBase.Resources>
-        <localRadialMenu:MenuCommand x:Key="Command" BackGroundElement="{Binding ElementName=Grid}" />
+        <localRadialMenu:MenuCommand x:Key="Command"  /> <!-- TODO UNO BackGroundElement="{Binding ElementName=Grid}" -->
         <SolidColorBrush Color="Red" x:Key="red" />
         <SolidColorBrush Color="Green" x:Key="green" />
         <SolidColorBrush Color="Blue" x:Key="blue" />

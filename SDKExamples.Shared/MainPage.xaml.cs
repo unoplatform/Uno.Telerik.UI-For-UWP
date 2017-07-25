@@ -40,8 +40,12 @@ namespace SDKExamples.UWP
 
         private async void LoadData()
         {
-            var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");
-            var doc = XDocument.Parse(text);
+#if __IOS__
+			var text = File.ReadAllText("Data/Examples.xml");
+#else
+			var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");
+#endif
+			var doc = XDocument.Parse(text);
 
             this.DataContext = MainPage.Source = this.GetControls(doc);
         }

@@ -23,7 +23,7 @@
                         <Setter Target="grid.ColumnDataOperationsMode" Value="Inline" />
                         <Setter Target="grid.ColumnResizeHandleDisplayMode" Value="Always" />
                         <Setter Target="info1.Visibility" Value="Visible"/>
-                        <Setter Target="info2.Text" Value="Large Desktop"/>
+                        <!--UNO TODO <Setter Target="info2.Text" Value="Large Desktop"/>-->
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Desktop">
@@ -37,7 +37,7 @@
                         <Setter Target="grid.ColumnDataOperationsMode" Value="Flyout" />
                         <Setter Target="grid.ColumnResizeHandleDisplayMode" Value="OnColumnHeaderActionFlyoutOpen" />
                         <Setter Target="info1.Visibility" Value="Visible"/>
-                        <Setter Target="info2.Text" Value="Small Desktop"/>
+                        <!--UNO TODO <Setter Target="info2.Text" Value="Small Desktop"/>-->
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Phone">
@@ -51,7 +51,7 @@
                         <Setter Target="grid.ColumnDataOperationsMode" Value="Flyout" />
                         <Setter Target="grid.ColumnResizeHandleDisplayMode" Value="OnColumnHeaderActionFlyoutOpen" />
                         <Setter Target="info1.Visibility" Value="Collapsed"/>
-                        <Setter Target="info2.Text" Value="Mobile"/>
+                        <!--UNO TODO <Setter Target="info2.Text" Value="Mobile"/>-->
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -66,7 +66,7 @@
         <TextBlock x:Name="info1" Text="Resize the window to see how the grid layout changes." TextWrapping="WrapWholeWords" Grid.Row="1" Margin="10"/>
         <TextBlock Margin="10" Grid.Row="2" TextWrapping="WrapWholeWords">
             <Run Text="The grid layout has been set for "/>
-            <Run x:Name="info2" FontWeight="Bold"/>
+            <!--UNO TODO <Run x:Name="info2" FontWeight="Bold"/>-->
             <Run Text=" mode."/>
         </TextBlock>
 
