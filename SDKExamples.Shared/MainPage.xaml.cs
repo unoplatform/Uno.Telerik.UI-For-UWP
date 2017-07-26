@@ -47,10 +47,10 @@ namespace SDKExamples.UWP
 #endif
 			var doc = XDocument.Parse(text);
 
-            this.DataContext = MainPage.Source = this.GetControls(doc);
+            this.DataContext = MainPage.Source = this.GetControls(doc).ToArray();
         }
 
-        private IEnumerable GetControls(XDocument doc)
+        private IEnumerable<ControlData> GetControls(XDocument doc)
         {
 
             return from control in doc.Descendants("Control")

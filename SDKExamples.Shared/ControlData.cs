@@ -11,7 +11,7 @@ namespace SDKExamples.UWP
         public ControlData(string name, IEnumerable<Example> examples)
         {
             this.Name = name;
-            this.Examples = examples;
+            this.Examples = examples.ToArray();
         }
 
         public string Name { get; set; }
