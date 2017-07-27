@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Microsoft.Extensions.Logging;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -28,7 +30,19 @@ namespace SDKExamples.UWP
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         public App()
-        {
+		{
+			Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory
+				.WithFilter(new FilterLoggerSettings {
+						{ "Uno.UI", LogLevel.Warning },
+						{ "Windows.UI", LogLevel.Warning },
+						{ "Windows.UI.Xaml.Controls.Layouter", LogLevel.Warning },
+				})
+				.AddDebug(LogLevel.Debug);
+
+
+			System.Console.WriteLine($"ProcessID: {Process.GetCurrentProcess().Id} name: {Process.GetCurrentProcess().ProcessName}");
+
+
 #if NETFX_CORE
 			Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
@@ -36,14 +50,15 @@ namespace SDKExamples.UWP
 #endif
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-        }
 
-        /// <summary>
-        /// Invoked when the application is launched normally by the end user.  Other entry points
-        /// will be used such as when the application is launched to open a specific file.
-        /// </summary>
-        /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+		}
+
+		/// <summary>
+		/// Invoked when the application is launched normally by the end user.  Other entry points
+		/// will be used such as when the application is launched to open a specific file.
+		/// </summary>
+		/// <param name="e">Details about the launch request and process.</param>
+		protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
