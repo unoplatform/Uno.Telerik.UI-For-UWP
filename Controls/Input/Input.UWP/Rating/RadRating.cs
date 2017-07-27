@@ -279,15 +279,16 @@ namespace Telerik.UI.Xaml.Controls.Input
                 this.SetValue(ValueProperty, value);
 
                 // raise the change for UIA 
-                if (AutomationPeer.ListenerExists(AutomationEvents.PropertyChanged))
-                {
-                    RadRatingAutomationPeer peer = FrameworkElementAutomationPeer.FromElement(this) as RadRatingAutomationPeer;
-                    if (peer != null)
-                    {
-                        peer.RaisePropertyChangedEvent(ValuePatternIdentifiers.ValueProperty, this.GetValue(ValueProperty), value);
-                        peer.RaisePropertyChangedEvent(RangeValuePatternIdentifiers.ValueProperty, this.GetValue(ValueProperty), value);
-                    }
-                }
+				// TODO UNO
+                //if (AutomationPeer.ListenerExists(AutomationEvents.PropertyChanged))
+                //{
+                //    RadRatingAutomationPeer peer = FrameworkElementAutomationPeer.FromElement(this) as RadRatingAutomationPeer;
+                //    if (peer != null)
+                //    {
+                //        peer.RaisePropertyChangedEvent(ValuePatternIdentifiers.ValueProperty, this.GetValue(ValueProperty), value);
+                //        peer.RaisePropertyChangedEvent(RangeValuePatternIdentifiers.ValueProperty, this.GetValue(ValueProperty), value);
+                //    }
+                //}
             }
         }
 
@@ -1257,13 +1258,14 @@ namespace Telerik.UI.Xaml.Controls.Input
                 var ratingItem = this.Items.ElementAtOrDefault((int)newValue - 1) as RadRatingItem;
                 if (ratingItem != null)
                 {
-                    var ratingItemPeer = FrameworkElementAutomationPeer.FromElement(ratingItem);
-                    if (ratingItemPeer != null)
-                    {
-                        ratingItemPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);
-                    }
-                }
-            }
+					// UNO TODO
+					//var ratingItemPeer = FrameworkElementAutomationPeer.FromElement(ratingItem);
+					//if (ratingItemPeer != null)
+					//{
+					//    ratingItemPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);
+					//}
+				}
+			}
         }
 
         private void RaiseCommandExecute()

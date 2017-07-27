@@ -16,7 +16,7 @@
 
         <TextBlock Text="{Binding Title, ElementName=page}" Style="{StaticResource ExampleHeaderTextBlockStyle}" />
 
-        <input:RadRangeSlider Minimum="20" MaxHeight="120" SelectionStart="35" SelectionEnd="55" TickFrequency="20"
+        <input:RadRangeSlider Minimum="20" Height="120" Width="200"  SelectionStart="35" SelectionEnd="55" TickFrequency="20"
                               SmallChange="5" LargeChange="20" IsDeferredDraggingEnabled="False" TrackTapMode="MoveToTapPosition"
                               SnapsTo="SmallChange" LabelFormat="{}{0:C}" ShowRangeToolTip="True" ShowValueToolTip="False"
                               Grid.Row="1"/>

@@ -582,8 +582,8 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <!-- UNO TODO <localRangeSlider:RangeTrackPrimitive x:Name="PART_TrackBar" /> -->
-                            <Thumb x:Name="PART_SelectionStartThumb" Style="{TemplateBinding SelectionStartThumbStyle}" AutomationProperties.Name="SelectionStartThumb"/>
+							<localRangeSlider:RangeTrackPrimitive x:Name="PART_TrackBar" />
+							<Thumb x:Name="PART_SelectionStartThumb" Style="{TemplateBinding SelectionStartThumbStyle}" AutomationProperties.Name="SelectionStartThumb"/>
                             <Thumb x:Name="PART_SelectionMiddleThumb" Style="{TemplateBinding SelectionMiddleThumbStyle}" AutomationProperties.Name="SelectionMiddleThumb"/>
                             <Thumb x:Name="PART_SelectionEndThumb" Style="{TemplateBinding SelectionEndThumbStyle}" AutomationProperties.Name="SelectionEndThumb"/>
                         </localRangeSlider:ThumbsPanel>
