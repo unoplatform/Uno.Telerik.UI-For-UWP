@@ -26,7 +26,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         private GridLocalizationManager()
         {
-            this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Grid.UWP/Neutral");
+           // UNO TODO this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Grid.UWP/Neutral");
         }
 
         /// <summary>
