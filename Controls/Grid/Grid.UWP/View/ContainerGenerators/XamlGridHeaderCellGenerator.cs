@@ -37,6 +37,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
         public object GenerateContainerForItem(ColumnGenerationContext info, object containerType)
         {
             var header = new DataGridColumnHeader();
+			// UNO TODO
+			header.ApplyTemplate();
 
             if (info.IsFrozen)
             {

@@ -38,8 +38,12 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             set
             {
                 this.owner = value;
-            }
-        }
+
+				// UNO TODO
+				this.Owner.ContentFlyout.Opened += this.ColumnReorderFlyout_Opened;
+				this.Owner.ContentFlyout.Closed += this.ColumnReorderFlyout_Closed;
+			}
+		}
 
         internal void OpenColumnsFlyout()
         {
@@ -56,15 +60,15 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             this.Owner.ContentFlyout.Hide(DataGridFlyoutId.ColumnChooser);
         }
 
-        /// <summary>
-        /// Occurs when the <see cref="M:OnApplyTemplate" /> method has been called and the template is already successfully applied.
-        /// </summary>
-        protected override void OnTemplateApplied()
+		protected override void OnLoaded() 
+			=> base.OnLoaded();
+
+		/// <summary>
+		/// Occurs when the <see cref="M:OnApplyTemplate" /> method has been called and the template is already successfully applied.
+		/// </summary>
+		protected override void OnTemplateApplied()
         {
             base.OnTemplateApplied();
-
-            this.Owner.ContentFlyout.Opened += this.ColumnReorderFlyout_Opened;
-            this.Owner.ContentFlyout.Closed += this.ColumnReorderFlyout_Closed;
 
             this.columnReorderFlyoutContent.Owner = this;
         }
@@ -131,7 +135,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             {
                 return "NormalPointerOver";
             }
-            else if (this.Owner.ContentFlyout.IsOpen)
+            else if (this.Owner?.ContentFlyout.IsOpen ?? false)
             {
                 return "Expanded";
             }
