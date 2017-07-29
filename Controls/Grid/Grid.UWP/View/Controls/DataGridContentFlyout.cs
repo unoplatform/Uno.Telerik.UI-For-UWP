@@ -54,11 +54,14 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         private DoubleAnimation cellFlyoutHideTimeOutAnimation;
         private Storyboard cellFlyoutHideTimeOutAnimationBoard;
         private bool automaticallyHideFlyout = false;
-        
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridContentFlyout"/> class.
-        /// </summary>
-        public DataGridContentFlyout()
+
+		// UNO TODO
+		private RadDataGrid _owner;
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DataGridContentFlyout"/> class.
+		/// </summary>
+		public DataGridContentFlyout()
         {
             this.DefaultStyleKey = typeof(DataGridContentFlyout);
         }
@@ -117,9 +120,18 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             }
         }
 
-        internal RadDataGrid Owner { get; set; }
+		internal RadDataGrid Owner
+		{
+			get => _owner; set
+			{
+				_owner = value;
 
-        internal DataGridFlyoutId Id
+				// UNO TODO
+				this.Owner.SizeChanged += this.OwnerSizeChanged;
+			}
+		}
+
+		internal DataGridFlyoutId Id
         {
             get { return (DataGridFlyoutId)GetValue(IdProperty); }
             set { this.SetValue(IdProperty, value); }
@@ -177,7 +189,6 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             this.content.Child = this.popup;
             this.popup.Closed += this.PopupClosed;
             this.popup.Opened += this.PopupOpened;
-            this.Owner.SizeChanged += this.OwnerSizeChanged;
 
             this.opacityAnimation = new DoubleAnimation();
             this.opacityAnimation.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut };

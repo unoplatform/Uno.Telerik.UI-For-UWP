@@ -16,7 +16,10 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         private ReorderItemsCoordinator reorderCoordinator;
         private bool skipHitTest;
 
-        DependencyObject IReorderItem.Visual
+		protected override void OnLoaded() 
+			=> base.OnLoaded();
+
+		DependencyObject IReorderItem.Visual
         {
             get
             {
