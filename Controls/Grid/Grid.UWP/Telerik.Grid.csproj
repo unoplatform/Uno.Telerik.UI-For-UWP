@@ -11,6 +11,7 @@
 	<ItemGroup>
 		<Page Include="Themes\Generic.xaml" />
 		<Page Include="Themes\Resources.xaml" />
+		<Page Include="Themes\ThemeResourcesLight.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>

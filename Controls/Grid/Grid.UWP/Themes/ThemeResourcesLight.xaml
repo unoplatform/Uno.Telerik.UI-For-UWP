@@ -198,15 +198,17 @@
     <SolidColorBrush x:Key="TelerikGridColumnFlyoutColumnHeaderCheckBoxCheckedPressedBackgroundBrush" Color="{ThemeResource TelerikPressedBackgroundColor}"/>
     <SolidColorBrush x:Key="TelerikGridColumnFlyoutColumnHeaderCheckBoxCheckedPressedForegroundBrush" Color="{ThemeResource TelerikPressedForegroundColor}"/>
 
-    <BitmapImage x:Key="TelerikGridReorderHandle" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/Reorder/ic_reorder_light.png"></BitmapImage>
+    <!--
+	UNO TODO
+	<BitmapImage x:Key="TelerikGridReorderHandle" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/Reorder/ic_reorder_light.png"></BitmapImage>
     <BitmapImage x:Key="TelerikGridReorderHandleWhite" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/Reorder/ic_reorder_dark.png"></BitmapImage>
     <BitmapImage x:Key="TelerikGridColumnChooserOpen" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/Reorder/column_chooser_btn.png"></BitmapImage>
     <BitmapImage x:Key="TelerikGridColumnChooserOpenMouseOver" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/Reorder/column_chooser_btn_blue.png"></BitmapImage>
     <BitmapImage x:Key="TelerikGridColumnChooserClose" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/Reorder/close_btn.png"></BitmapImage>
     <BitmapImage x:Key="TelerikGridColumnChooserCloseMouseOver" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/Reorder/close_btn_blue.png"></BitmapImage>
+	<BitmapImage x:Key="TelerikGridFilterFlyoutHeaderIcon" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/FilterFlyout/ic_filter_header_light.png"/>
+    <BitmapImage x:Key="TelerikGridFilterFlyoutExpanderIcon" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/FilterFlyout/ic_arrow_down.png"/>-->
 
     <!--FilterFlyoutIcons-->
-    <BitmapImage x:Key="TelerikGridFilterFlyoutHeaderIcon" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/FilterFlyout/ic_filter_header_light.png"/>
-    <BitmapImage x:Key="TelerikGridFilterFlyoutExpanderIcon" UriSource="ms-appx:///Telerik.UI.Xaml.Grid.UWP/Assets/FilterFlyout/ic_arrow_down.png"/>
 
 </ResourceDictionary>
