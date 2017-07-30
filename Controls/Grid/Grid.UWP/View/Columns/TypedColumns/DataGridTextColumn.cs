@@ -62,29 +62,33 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             get
             {
-                if (this.defaultTextCellStyle == null)
-                {
-                    defaultTextCellStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
-                        typeof(DataGridTextColumn),
-                        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
-                        "DefaultColumnStyle") as Style;
-                }
-                return this.defaultTextCellStyle;
-            }
-        }
+				// UNO TODO
+				//if (defaultTextCellStyle == null)
+				//{
+				//    defaultTextCellStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
+				//        typeof(DataGridTextColumn),
+				//        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
+				//        "DefaultColumnStyle") as Style;
+				//}
+				//return defaultTextCellStyle;
+				return null;
+			}
+		}
 
         internal override Style DefaultCellFlyoutContentStyle
         {
             get
             {
-                if (this.defaultCellFlyoutContentStyle == null)
-                {
-                    defaultCellFlyoutContentStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
-                        typeof(DataGridTextColumn),
-                        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnFlyoutContentStyle.xaml",
-                        "DefaultColumnFlyoutStyle") as Style;
-                }
-                return this.defaultCellFlyoutContentStyle;
+				// UNO TODO
+				//if (defaultCellFlyoutContentStyle == null)
+				//{
+				//    defaultCellFlyoutContentStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
+				//        typeof(DataGridTextColumn),
+				//        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnFlyoutContentStyle.xaml",
+				//        "DefaultColumnFlyoutStyle") as Style;
+				//}
+				//return defaultCellFlyoutContentStyle;
+				return null;
             }
         }
 
