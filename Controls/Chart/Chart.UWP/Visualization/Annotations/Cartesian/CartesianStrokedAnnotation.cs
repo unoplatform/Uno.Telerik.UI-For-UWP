@@ -412,8 +412,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
             else
             {
-				// UNO TODO
-                // visual = new TextBlock() { Style = context.Definition.DefaultVisualStyle };
+				visual = new TextBlock() { Style = context.Definition.DefaultVisualStyle };
             }
 
             this.renderSurface.Children.Add(visual);
