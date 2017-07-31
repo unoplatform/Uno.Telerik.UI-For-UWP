@@ -244,7 +244,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
             grid.gridLinesVisibilityCache = (GridLinesVisibility)e.NewValue;
 
             // the grid lines visibility will need cells re-arrange
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsContent);
+			// UNO TODO
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsContent);
         }
 
         private static void OnGridLinesThicknessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -253,7 +254,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             grid.gridLinesThicknessCache = (double)e.NewValue;
 
             // the grid lines thickness will need cells re-arrange
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsContent);
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsContent);
         }
 
         private static void OnGridLinesBrushChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -261,7 +262,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var grid = d as RadDataGrid;
             grid.gridLinesBrushCache = e.NewValue as Brush;
 
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsDecorations);
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsDecorations);
         }
 
         private static void OnRowBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -269,7 +270,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var grid = d as RadDataGrid;
             grid.rowBackgroundCache = e.NewValue as Brush;
 
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsDecorations);
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsDecorations);
         }
 
         private static void OnRowBackgroundSelectorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -277,7 +278,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var grid = d as RadDataGrid;
             grid.rowBackgroundSelectorCache = e.NewValue as ObjectSelector<Brush>;
 
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsDecorations);
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsDecorations);
         }
 
         private static void OnAlternateRowBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -285,7 +286,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var grid = d as RadDataGrid;
             grid.alternateRowBackgroundCache = e.NewValue as Brush;
 
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsDecorations);
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsDecorations);
         }
 
         private static void OnAlternationStepChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -293,7 +294,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var grid = d as RadDataGrid;
             grid.alternationStepCache = (int)e.NewValue;
 
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsDecorations);
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsDecorations);
         }
 
         private static void OnAlternationStartIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -301,7 +302,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var grid = d as RadDataGrid;
             grid.alternationStartIndexCache = (int)e.NewValue;
 
-            grid.updateService.RegisterUpdate(UpdateFlags.AffectsDecorations);
+            grid.updateService?.RegisterUpdate(UpdateFlags.AffectsDecorations);
         }
     }
 }

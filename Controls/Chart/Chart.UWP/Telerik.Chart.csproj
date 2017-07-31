@@ -18,6 +18,8 @@
 			<Version>1.16.1-dev.562.clear</Version>
 		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Numerics" />
+		<Reference Include="System.Numerics.Vectors" />
 	</ItemGroup>
 
 </Project>
