@@ -88,12 +88,12 @@
                               Fill="{TemplateBinding Brush}">
                             <Path.Data>
                                 <GeometryGroup>
-                                    <PathGeometry>
+                                    <!-- UNO TODO <PathGeometry>
                                         <PathFigure x:Name="PART_ArrowHead" IsClosed="True">
                                             <LineSegment x:Name="PART_ArrowBottom"/>
                                             <LineSegment x:Name="PART_ArrowTop"/>
                                         </PathFigure>
-                                    </PathGeometry>
+                                    </PathGeometry>-->
                                     <LineGeometry x:Name="PART_ArrowShaft"/>
                                     <EllipseGeometry x:Name="PART_ArrowTail" RadiusX="2" RadiusY="2"/>
                                 </GeometryGroup>
@@ -114,13 +114,13 @@
                 <ControlTemplate TargetType="local:RadialBarGaugeIndicator">
                     <Grid>
                         <Path x:Name="PART_Path" StrokeThickness="{TemplateBinding Thickness}" Stroke="{TemplateBinding Brush}">
-                            <Path.Data>
+                            <!--UNO TODO <Path.Data>
                                 <PathGeometry>
                                     <PathGeometry.Figures>
                                         <PathFigure x:Name="PART_Figure"/>
                                     </PathGeometry.Figures>
                                 </PathGeometry>
-                            </Path.Data>
+                            </Path.Data>-->
                         </Path>
                     </Grid>
                 </ControlTemplate>
@@ -218,9 +218,9 @@
                                                        Thickness="{TemplateBinding FeaturedMeasureThickness}"
                                                        local:RadLinearGauge.IndicatorOffset="-15"
                                                        StartValue="{TemplateBinding FeaturedMeasureStartValue}"
-                                                       Visibility="{Binding ElementName=PART_BulletGraphScale, Path=MinValue, Converter={StaticResource ZeroToVisibleConverter}}"
                                                        Canvas.ZIndex="3"
                                                        IsAnimated="{TemplateBinding IsAnimated}"/>
+                                                       <!--UNO TODO Visibility="{Binding ElementName=PART_BulletGraphScale, Path=MinValue, Converter={StaticResource ZeroToVisibleConverter}}"-->
                         <local:LinearBarGaugeIndicator x:Name="PART_ProjectedMeasure"
                                                        Value="{TemplateBinding ProjectedMeasure}"
                                                        Brush="{TemplateBinding ProjectedMeasureBrush}"
@@ -231,10 +231,10 @@
                         <local:MarkerGaugeIndicator x:Name="PART_AlternativeFeaturedMeasure"
                                                     Value="{TemplateBinding FeaturedMeasure}"
                                                     local:RadLinearGauge.IndicatorOffset="-20"
-                                                    Visibility="{Binding ElementName=PART_BulletGraphScale, Path=MinValue, Converter={StaticResource ZeroToCollapsedConverter}}"
                                                     ContentTemplate="{TemplateBinding FeaturedMeasureAlternativeTemplate}"
                                                     IsRotated="True"
                                                     Canvas.ZIndex="3"/>
+                                                    <!-- UNO TODO Visibility="{Binding ElementName=PART_BulletGraphScale, Path=MinValue, Converter={StaticResource ZeroToCollapsedConverter}}"-->
                         <local:MarkerGaugeIndicator x:Name="PART_ComparativeMeasure"
                                                     IsRotated="True"
                                                     local:RadLinearGauge.IndicatorOffset="-15"
