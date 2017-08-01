@@ -9,6 +9,12 @@
 	<Import Project="..\..\CrossTargetting.props" />
 
 	<ItemGroup>
+	  <Page Include="Themes\Generic.xaml" />
+		<Page Include="Themes\Resources.xaml" />
+		<Page Include="Themes\ThemeResourcesLight.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
 		<ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
 	</ItemGroup>
