@@ -64,8 +64,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         internal async void Select(GridCellModel gridCellModel, bool uiSelect = true)
         {
-            // UNO TODO
-            //await this.RaiseAutomationSelection(gridCellModel);
+            await this.RaiseAutomationSelection(gridCellModel);
 
             switch (this.Owner.SelectionUnit)
             {
