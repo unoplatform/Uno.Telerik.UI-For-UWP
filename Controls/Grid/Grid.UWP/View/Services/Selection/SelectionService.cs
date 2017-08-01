@@ -64,7 +64,28 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         internal async void Select(GridCellModel gridCellModel, bool uiSelect = true)
         {
-            await this.RaiseAutomationSelection(gridCellModel);
+			// UNO TODO
+            //var dataGridPeer = FrameworkElementAutomationPeer.FromElement(this.Owner) as RadDataGridAutomationPeer;
+            //if (dataGridPeer != null && dataGridPeer.childrenCache != null)
+            //{
+            //    if (dataGridPeer.childrenCache.Count == 0)
+            //    {
+            //        dataGridPeer.GetChildren();
+            //    }
+
+            //  var cellPeer = dataGridPeer.childrenCache.FirstOrDefault(a => a.Row == gridCellModel.ParentRow.ItemInfo.Slot && a.Column == gridCellModel.Column.ItemInfo.Slot) as DataGridCellInfoAutomationPeer;
+            //  if (cellPeer != null && cellPeer.ChildTextBlockPeer != null)
+            //  {
+            //      await Dispatcher.RunAsync(
+            //          Windows.UI.Core.CoreDispatcherPriority.Normal,
+            //          () => 
+            //          {
+            //              cellPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);
+            //              cellPeer.RaiseAutomationEvent(AutomationEvents.SelectionItemPatternOnElementAddedToSelection);
+            //              cellPeer.RaiseValuePropertyChangedEvent(false, true);
+            //          });
+            //  }
+            
 
             switch (this.Owner.SelectionUnit)
             {
