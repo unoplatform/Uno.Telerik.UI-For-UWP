@@ -61,3 +61,4 @@ SampleApps/*
 *VSIX*
 /Controls/.vs/UWPControls/v15/sqlite3
 /.vs
+/Controls/.vs/UWPControls/v15/Server/sqlite3
