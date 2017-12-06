@@ -105,7 +105,7 @@
       <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI">
-      <Version>1.16.1-dev.562.clear</Version>
+      <Version>1.23.1-dev.1453</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

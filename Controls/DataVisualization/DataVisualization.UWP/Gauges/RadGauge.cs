@@ -456,7 +456,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
             
             if (AutomationPeer.ListenerExists(AutomationEvents.PropertyChanged))
             {
-                var peer = FrameworkElementAutomationPeer.FromElement(gauge) as RadGaugeAutomationPeer;
+               var peer = FrameworkElementAutomationPeer.FromElement(gauge) as RadGaugeAutomationPeer;
                 if (peer != null)
                 {
                     peer.RaiseMinimumPropertyChangedEvent((double)args.OldValue, (double)args.NewValue);
@@ -477,7 +477,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
 
             if (AutomationPeer.ListenerExists(AutomationEvents.PropertyChanged))
             {
-                var peer = FrameworkElementAutomationPeer.FromElement(gauge) as RadGaugeAutomationPeer;
+				var peer = FrameworkElementAutomationPeer.FromElement(gauge) as RadGaugeAutomationPeer;
                 if (peer != null)
                 {
                     peer.RaiseMinimumPropertyChangedEvent((double)args.OldValue, (double)args.NewValue);

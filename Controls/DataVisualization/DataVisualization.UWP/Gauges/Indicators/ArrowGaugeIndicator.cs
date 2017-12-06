@@ -79,7 +79,7 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
 
             this.UpdateArrow(availableSize);
         }
-
+		 
         /// <summary>
         /// Initializes the template parts of the control (see the TemplatePart attributes for more information).
         /// </summary>

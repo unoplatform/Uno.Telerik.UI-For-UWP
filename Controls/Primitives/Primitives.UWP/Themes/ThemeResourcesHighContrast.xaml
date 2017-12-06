@@ -15,7 +15,7 @@
 
     <SolidColorBrush x:Key="TelerikSecondaryForegroundBrush" Color="{StaticResource TelerikSecondaryForegroundColor}"/>
     <SolidColorBrush x:Key="TelerikWhiteBrush" Color="Red"/>
-    <SolidColorBrush x:Key="TelerikBlackBrush" Color="Green"/>
+    <SolidColorBrush x:Key="TelerikBlackBrush" Color="Black"/>
 
     <SolidColorBrush x:Key="TelerikHubTileBackgroundBrush" Color="{StaticResource TelerikSelectedColor}"/>
     <SolidColorBrush x:Key="TelerikHubTileForegroundBrush" Color="{StaticResource TelerikWhiteColor}"/>

@@ -10,7 +10,28 @@
     mc:Ignorable="d" x:Name="page">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <VisualStateManager.VisualStateGroups>
+		
+		        <chart:RadPolarChart>
+            <chart:RadPolarChart.DataContext>
+                <localChart:ViewModelRadarSeries/>
+            </chart:RadPolarChart.DataContext>
+            <chart:RadPolarChart.PolarAxis>
+                <chart:PolarAxis/>
+            </chart:RadPolarChart.PolarAxis>
+            <chart:RadPolarChart.RadialAxis>
+                <chart:CategoricalRadialAxis/>
+            </chart:RadPolarChart.RadialAxis>
+            <chart:RadarAreaSeries ItemsSource="{Binding Source}">
+                <chart:RadarAreaSeries.CategoryBinding>
+                    <chart:PropertyNameDataPointBinding PropertyName="Category"/>
+                </chart:RadarAreaSeries.CategoryBinding>
+                <chart:RadarAreaSeries.ValueBinding>
+                    <chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                </chart:RadarAreaSeries.ValueBinding>
+            </chart:RadarAreaSeries>
+        </chart:RadPolarChart>
+		
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="Phone">
                     <VisualState.StateTriggers>
@@ -52,25 +73,7 @@
             <ListViewItem>
                 <ListViewItem.DataContext>
                     <DataTemplate>
-                        <chart:RadPolarChart>
-                            <chart:RadPolarChart.DataContext>
-                                <localChart:ViewModelRadarSeries/>
-                            </chart:RadPolarChart.DataContext>
-                            <chart:RadPolarChart.PolarAxis>
-                                <chart:PolarAxis/>
-                            </chart:RadPolarChart.PolarAxis>
-                            <chart:RadPolarChart.RadialAxis>
-                                <chart:CategoricalRadialAxis/>
-                            </chart:RadPolarChart.RadialAxis>
-                            <chart:RadarAreaSeries ItemsSource="{Binding Source}">
-                                <chart:RadarAreaSeries.CategoryBinding>
-                                    <chart:PropertyNameDataPointBinding PropertyName="Category"/>
-                                </chart:RadarAreaSeries.CategoryBinding>
-                                <chart:RadarAreaSeries.ValueBinding>
-                                    <chart:PropertyNameDataPointBinding PropertyName="Value"/>
-                                </chart:RadarAreaSeries.ValueBinding>
-                            </chart:RadarAreaSeries>
-                        </chart:RadPolarChart>
+
                     </DataTemplate>
                 </ListViewItem.DataContext>
                 <TextBlock  Text="RadarArea Series" FontSize="20"/>
@@ -187,6 +190,6 @@
         
         <TextBlock Text="{Binding Title, ElementName=page}" Style="{StaticResource ExampleHeaderTextBlockStyle}" Grid.ColumnSpan="2"/>
 
-        <ContentControl ContentTemplate="{Binding SelectedItem.DataContext, ElementName=listview}" Grid.Row="1"/>
+        <ContentControl ContentTemplate="{Binding SelectedItem.DataContext, ElementName=listview}" Grid.Row="1"/>-->
     </Grid>
 </local:ExamplePageBase>

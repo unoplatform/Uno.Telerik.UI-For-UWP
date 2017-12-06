@@ -30,7 +30,12 @@ namespace SDKExamples.UWP
         {
             this.InitializeComponent();
 
-            if (MainPage.Source == null)
+#if !NETFX_CORE
+			this.TopAppBar = new CommandBar();
+			this.Padding = new Thickness(0, 55, 0, 0);
+#endif
+
+			if (MainPage.Source == null)
             {
                 this.LoadData();
             }
@@ -40,7 +45,7 @@ namespace SDKExamples.UWP
 
         private async void LoadData()
         {
-#if __IOS__
+#if !NETFX_CORE
 			var text = File.ReadAllText("Data/Examples.xml");
 #else
 			var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");

@@ -234,11 +234,13 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
             }
             indicator.UpdateRotationInLinearRange();
 
-            var peer = FrameworkElementAutomationPeer.CreatePeerForElement(indicator) as MarkerGaugeIndicatorAutomationPeer;
+#if NETFX_CORE
+          var peer = FrameworkElementAutomationPeer.CreatePeerForElement(indicator) as MarkerGaugeIndicatorAutomationPeer;
             if (peer != null)
             {
                 peer.RaiseToggleStatePropertyChangedEvent((bool)args.OldValue, (bool)args.NewValue);
             }
+#endif
         }
 
         private static void OnContentPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

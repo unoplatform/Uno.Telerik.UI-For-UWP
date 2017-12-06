@@ -238,30 +238,42 @@ namespace Telerik.UI.Xaml.Controls.Chart
         private static void OnStrokeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PolarLineSeries series = d as PolarLineSeries;
-            series.renderer.strokeShape.Stroke = e.NewValue as Brush;
+			if (series.renderer != null)
+			{
+				series.renderer.strokeShape.Stroke = e.NewValue as Brush;
 
-            if (series.isPaletteApplied)
-            {
-                series.UpdatePalette(true);
-            }
+				if (series.isPaletteApplied)
+				{
+					series.UpdatePalette(true);
+				}
+			}
         }
 
         private static void OnStrokeThicknessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PolarLineSeries series = d as PolarLineSeries;
-            series.renderer.strokeShape.StrokeThickness = (double)e.NewValue;
+			if (series.renderer != null)
+			{
+				series.renderer.strokeShape.StrokeThickness = (double)e.NewValue;
+			}
         }
 
         private static void OnStrokeDashArrayChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PolarLineSeries series = d as PolarLineSeries;
-            series.renderer.strokeShape.StrokeDashArray = (e.NewValue as DoubleCollection).Clone();
+			if (series.renderer != null)
+			{
+				series.renderer.strokeShape.StrokeDashArray = (e.NewValue as DoubleCollection).Clone();
+			}
         }
 
         private static void OnStrokeLineJoinChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PolarLineSeries series = d as PolarLineSeries;
-            series.renderer.strokeShape.StrokeLineJoin = (PenLineJoin)e.NewValue;
+			if (series.renderer != null)
+			{
+				series.renderer.strokeShape.StrokeLineJoin = (PenLineJoin)e.NewValue;
+			}
         }
     }
 }
