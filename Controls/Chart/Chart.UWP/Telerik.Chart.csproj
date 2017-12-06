@@ -16,6 +16,11 @@
 		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
 		<ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
 	</ItemGroup>
+	
+	<ItemGroup>
+		<Page Include="Themes\Generic.xaml" />
+		<Page Include="Themes\ThemeResourcesLight.xaml" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<Page Include="Themes\Generic.xaml" />
