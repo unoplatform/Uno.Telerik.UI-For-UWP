@@ -24,6 +24,11 @@ namespace SDKExamples.UWP
         {
             base.OnNavigatedTo(e);
             this.Title = (string)e.Parameter;
+
+#if !NETFX_CORE
+			this.TopAppBar = new CommandBar();
+			this.Padding = new Thickness(0, 55, 0, 0);
+#endif
         }
     }
 }

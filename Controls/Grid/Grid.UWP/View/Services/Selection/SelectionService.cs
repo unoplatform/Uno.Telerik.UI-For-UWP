@@ -85,7 +85,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             //              cellPeer.RaiseValuePropertyChangedEvent(false, true);
             //          });
             //  }
-            }
+           // }
 
             switch (this.Owner.SelectionUnit)
             {

@@ -31,6 +31,8 @@ namespace SDKExamples.UWP
         /// </summary>
         public App()
 		{
+			Uno.UI.Configuration.FrameworkElement.UseLegacyApplyStylePhase = false;
+
 			Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory
 				.WithFilter(new FilterLoggerSettings {
 						{ "Uno.UI", LogLevel.Warning },

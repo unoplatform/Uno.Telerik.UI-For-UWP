@@ -418,12 +418,15 @@ namespace Telerik.UI.Xaml.Controls.Chart
             TextBlock block = new TextBlock();
             block.Style = context.Definition.DefaultVisualStyle;
 
+#if NETFX_CORE
+			return block;
+#else
 			// UNO TODO
-			// return block;
-			throw new NotSupportedException();
-        }
+			return new Border { Child = block, Tag = this };
+#endif
+		}
 
-        internal virtual RadSize MeasureLabel(FrameworkElement visual, ChartSeriesLabelUpdateContext context)
+		internal virtual RadSize MeasureLabel(FrameworkElement visual, ChartSeriesLabelUpdateContext context)
         {
             if (context.Definition.Strategy != null)
             {
@@ -842,21 +845,37 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
             else
             {
+#if NETFX_CORE
+				TextBlock textblock = element as TextBlock;
+				if (textblock != null)
+				{
+					// Assumes TextBlock has been created to handle the default case.
+					object label = this.GetLabelContent(context);
+					textblock.Text = label == null ? string.Empty : label.ToString();
+				}
+				else
+				{
+					// Assumes if user-defined label strategy is involved in visual creation (even if the strategy creates ContentPresenters),
+					// the strategy should be responsible for setting its content (via ChartSeriesLabelStrategy.SetLabelContent(...) method override)
+					this.SetLabelContent(element, context);
+				}
+#else
 				// UNO TODO
-                //TextBlock textblock = element as TextBlock;
-                //if (textblock != null)
-                //{
-                //    // Assumes TextBlock has been created to handle the default case.
-                //    object label = this.GetLabelContent(context);
-                //    textblock.Text = label == null ? string.Empty : label.ToString();
-                //}
-                //else
-                //{
-                //    // Assumes if user-defined label strategy is involved in visual creation (even if the strategy creates ContentPresenters),
-                //    // the strategy should be responsible for setting its content (via ChartSeriesLabelStrategy.SetLabelContent(...) method override)
-                //    this.SetLabelContent(element, context);
-                //}
-            }
+				var textblock = (element as Border)?.Child as TextBlock;
+				if (textblock != null)
+				{
+					// Assumes TextBlock has been created to handle the default case.
+					object label = this.GetLabelContent(context);
+					textblock.Text = label == null ? string.Empty : label.ToString();
+				}
+				else
+				{
+					// Assumes if user-defined label strategy is involved in visual creation (even if the strategy creates ContentPresenters),
+					// the strategy should be responsible for setting its content (via ChartSeriesLabelStrategy.SetLabelContent(...) method override)
+					this.SetLabelContent(element, context);
+				}
+#endif
+			}
 
             return element;
         }

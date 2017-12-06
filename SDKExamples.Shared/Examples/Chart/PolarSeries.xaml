@@ -10,7 +10,7 @@
     mc:Ignorable="d" x:Name="page">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <VisualStateManager.VisualStateGroups>
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="Phone">
                     <VisualState.StateTriggers>
@@ -34,7 +34,7 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </VisualStateManager.VisualStateGroups>-->
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -47,8 +47,28 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+		<chart:RadPolarChart Grid.Row="1">
+			<chart:RadPolarChart.DataContext>
+				<localChart:ViewModelPolarSeries/>
+			</chart:RadPolarChart.DataContext>
+			<chart:RadPolarChart.PolarAxis>
+				<chart:PolarAxis/>
+			</chart:RadPolarChart.PolarAxis>
+			<chart:RadPolarChart.RadialAxis>
+				<chart:NumericalRadialAxis/>
+			</chart:RadPolarChart.RadialAxis>
+			<chart:PolarAreaSeries ItemsSource="{Binding Source}">
+				<chart:PolarAreaSeries.AngleBinding>
+					<chart:PropertyNameDataPointBinding PropertyName="Angle"/>
+				</chart:PolarAreaSeries.AngleBinding>
+				<chart:PolarAreaSeries.ValueBinding>
+					<chart:PropertyNameDataPointBinding PropertyName="Value"/>
+				</chart:PolarAreaSeries.ValueBinding>
+			</chart:PolarAreaSeries>
+		</chart:RadPolarChart>
 
-        <ListView x:Name="listview" SelectedIndex="0">
+
+        <!--<ListView x:Name="listview" SelectedIndex="0">
             <ListViewItem>
                 <ListViewItem.DataContext>
                     <DataTemplate>
@@ -185,10 +205,10 @@
             </ListViewItem>
 
 
-        </ListView>
+        </ListView>-->
       
         <TextBlock Text="{Binding Title, ElementName=page}" Style="{StaticResource ExampleHeaderTextBlockStyle}" Grid.ColumnSpan="2"/>
 
-        <ContentControl ContentTemplate="{Binding SelectedItem.DataContext, ElementName=listview}" Grid.Row="1"/>
+        <!--<ContentControl ContentTemplate="{Binding SelectedItem.DataContext, ElementName=listview}" Grid.Row="1"/>-->
     </Grid>
 </local:ExamplePageBase>

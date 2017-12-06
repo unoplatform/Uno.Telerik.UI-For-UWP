@@ -1061,13 +1061,17 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
 
             FrameworkElement visual = null;
-            if (template == null)
-            {
-                // creating a TextBlock directly gives huge performance boost - about 10 frames per second!!!
+			if (template == null)
+			{
+				// creating a TextBlock directly gives huge performance boost - about 10 frames per second!!!
+#if NETFX_CORE
 				// UNO TODO
-                //visual = this.CreateLabelTextBlock();
-            }
-            else
+				visual = this.CreateLabelTextBlock();
+#else
+				visual = new Border { Child = this.CreateLabelTextBlock() };
+#endif
+			}
+			else
             {
                 visual = this.CreateContentPresenter(label.Content, template);
             }

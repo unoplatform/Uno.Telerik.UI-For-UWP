@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a SliderCustomEditor control.
     /// </summary>
-    public class SliderCustomEditor : Slider, ITypeEditor, IEditor
+    public partial class SliderCustomEditor : Slider, ITypeEditor
     {
         /// <summary>
         /// Identifies the <see cref="ThumbBackground"/> dependency property. 
@@ -37,13 +37,8 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
             set
             {
-                this.SetValue(ThumbBackgroundProperty, value);
+                SetValue(ThumbBackgroundProperty, value);
             }
-        }
-
-        object IEditor.GetCurrentValue()
-        {
-            return this.Value;
         }
 
         /// <summary>
@@ -70,7 +65,6 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             Binding b5 = new Binding() { Mode = BindingMode.TwoWay };
             b5.Path = new PropertyPath("PropertyValue");
-            EditorsHelper.AddPropertyValueConverter(b5, this);
             this.SetBinding(SliderCustomEditor.ValueProperty, b5);
         }
     }

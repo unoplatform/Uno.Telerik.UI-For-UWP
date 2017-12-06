@@ -7,7 +7,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a custom ComboBoxItem element.
     /// </summary>
-    public class DataFormComboBoxItem : ComboBoxItem
+    public partial class DataFormComboBoxItem : ComboBoxItem
     {
         /// <summary>
         /// Identifies the <see cref="SelectedForeground"/> dependency property.

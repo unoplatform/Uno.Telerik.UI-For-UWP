@@ -479,6 +479,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Examples\Calendar\Styling.xaml.cs">
       <DependentUpon>Styling.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Chart\AnimationContainerVisualsFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Examples\Chart\Annotations_Custom.xaml.cs">
       <DependentUpon>Annotations_Custom.xaml</DependentUpon>
     </Compile>
@@ -536,6 +537,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Examples\Chart\SelectionBehavior.xaml.cs">
       <DependentUpon>SelectionBehavior.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Examples\Chart\SeriesAnimationsHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Examples\Chart\TooltipBehavior.xaml.cs">
       <DependentUpon>TooltipBehavior.xaml</DependentUpon>
     </Compile>

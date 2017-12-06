@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a SegmentedCustomEditor control.
     /// </summary>
-    public class SegmentedCustomEditor : RadSegmentedControl, ITypeEditor, IEditor
+    public partial class SegmentedCustomEditor : RadSegmentedControl, ITypeEditor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SegmentedCustomEditor"/> class.
@@ -18,12 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             this.DefaultStyleKey = typeof(SegmentedCustomEditor);
         }
-
-        object IEditor.GetCurrentValue()
-        {
-            return this.SelectedItem;
-        }
-
+        
         /// <summary>
         /// Method used for generating bindings for the <see cref="ITypeEditor"/> properties.
         /// </summary>
@@ -35,7 +30,6 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             Binding b2 = new Binding() { Mode = BindingMode.TwoWay };
             b2.Path = new PropertyPath("PropertyValue");
-            EditorsHelper.AddPropertyValueConverter(b2, this);
             this.SetBinding(SegmentedCustomEditor.SelectedItemProperty, b2);
 
             Binding b3 = new Binding();
