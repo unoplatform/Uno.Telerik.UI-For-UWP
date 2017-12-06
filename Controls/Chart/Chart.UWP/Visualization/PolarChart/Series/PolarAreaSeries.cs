@@ -65,12 +65,16 @@ namespace Telerik.UI.Xaml.Controls.Chart
         private static void OnFillChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PolarAreaSeries series = d as PolarAreaSeries;
-            series.renderer.strokeShape.Fill = e.NewValue as Brush;
 
-            if (series.isPaletteApplied)
-            {
-                series.UpdatePalette(true);
-            }
+			if (series.renderer != null)
+			{
+				series.renderer.strokeShape.Fill = e.NewValue as Brush;
+
+				if (series.isPaletteApplied)
+				{
+					series.UpdatePalette(true);
+				}
+			}
         }
     }
 }

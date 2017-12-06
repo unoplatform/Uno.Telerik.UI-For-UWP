@@ -3,7 +3,7 @@
     /// <summary>
     /// The control that represents the row details of the DataGrid.
     /// </summary>
-    public class DataGridRowDetailsControl : RadContentControl
+    public partial class DataGridRowDetailsControl : RadContentControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridRowDetailsControl" /> class.

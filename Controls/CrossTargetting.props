@@ -4,7 +4,7 @@
     The TargetFrameworks property can be adjusted to override the possible targets for all uno cross-targetable projects.
     This can be useful when debugging a specific targets, and avoid compiling unused targets to save build time.
     -->
-    <!--<TargetFrameworks>MonoAndroid60;MonoAndroid70;Xamarin.iOS10</TargetFrameworks>-->
+    <!--<TargetFrameworks>MonoAndroid60;MonoAndroid70;xamarinios10</TargetFrameworks>-->
     
     
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
@@ -31,7 +31,7 @@
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'Xamarin.iOS10'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'xamarinios10'">
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <NuGetTargetMoniker>Xamarin.iOS,Version=v1.0</NuGetTargetMoniker>
@@ -81,7 +81,7 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform " Version="5.2.2" />
   </ItemGroup>
   
-  <ItemGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'xamarinios10' ">
     <Reference Include="System" />
     <Reference Include="System.Runtime" />
     <Reference Include="System.Collections" />
@@ -93,7 +93,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="Xamarin.iOS" />
-    <Compile Include="Platforms\xamarin.ios10\**\*.cs" />
+    <Compile Include="Platforms\xamarinios10\**\*.cs" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' ">
@@ -126,11 +126,11 @@
 
 	<Target Name="GetPackagingOutputs" Condition=" '$(TargetFramework)' == 'uap10.0' "/>
 
-	<Target Name="GetBuiltProjectOutputRecursive" Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' "/>
+	<Target Name="GetBuiltProjectOutputRecursive" Condition=" '$(TargetFramework)' == 'xamarinios10' "/>
 
 	<Target Name="_WorkaroundRegisterMdbFilesWithFileWrites" 
           BeforeTargets="IncrementalClean" 
-          Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' or '$(TargetFrameworkIdentifier)' == 'MonoAndroid' ">
+          Condition=" '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'MonoAndroid' ">
     <CreateItem Include="$(OutDir)*.mdb;$(MonoAndroidIntermediateAssemblyDir)*.mdb">
       <Output TaskParameter="Include" ItemName="_FilesToRegister" />
     </CreateItem>

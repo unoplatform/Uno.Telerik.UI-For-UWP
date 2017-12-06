@@ -88,12 +88,12 @@
                               Fill="{TemplateBinding Brush}">
                             <Path.Data>
                                 <GeometryGroup>
-                                    <!-- UNO TODO <PathGeometry>
+                                     <PathGeometry>
                                         <PathFigure x:Name="PART_ArrowHead" IsClosed="True">
                                             <LineSegment x:Name="PART_ArrowBottom"/>
                                             <LineSegment x:Name="PART_ArrowTop"/>
                                         </PathFigure>
-                                    </PathGeometry>-->
+                                    </PathGeometry>
                                     <LineGeometry x:Name="PART_ArrowShaft"/>
                                     <EllipseGeometry x:Name="PART_ArrowTail" RadiusX="2" RadiusY="2"/>
                                 </GeometryGroup>
@@ -114,14 +114,14 @@
                 <ControlTemplate TargetType="local:RadialBarGaugeIndicator">
                     <Grid>
                         <Path x:Name="PART_Path" StrokeThickness="{TemplateBinding Thickness}" Stroke="{TemplateBinding Brush}">
-                            <!--UNO TODO <Path.Data>
-                                <PathGeometry>
-                                    <PathGeometry.Figures>
-                                        <PathFigure x:Name="PART_Figure"/>
-                                    </PathGeometry.Figures>
-                                </PathGeometry>
-                            </Path.Data>-->
-                        </Path>
+							<Path.Data>
+								<PathGeometry>
+									<PathGeometry.Figures>
+										<PathFigure x:Name="PART_Figure" />
+									</PathGeometry.Figures>
+								</PathGeometry>
+							</Path.Data>
+						</Path>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a SegmentedCustomEditor control.
     /// </summary>
-    public class SegmentedCustomEditor : RadSegmentedControl, ITypeEditor, IEditor
+    public partial class SegmentedCustomEditor : RadSegmentedControl, ITypeEditor, IEditor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SegmentedCustomEditor"/> class.

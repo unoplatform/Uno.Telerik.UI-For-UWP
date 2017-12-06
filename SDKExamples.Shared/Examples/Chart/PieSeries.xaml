@@ -9,7 +9,22 @@
     xmlns:chart="using:Telerik.UI.Xaml.Controls.Chart"
     mc:Ignorable="d" x:Name="page">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	<Grid Background="White" Padding="30">
+		<chart:RadPieChart PaletteName="DefaultDark">
+			<chart:RadPieChart.DataContext>
+				<localChart:ViewModel />
+			</chart:RadPieChart.DataContext>
+			<chart:PieSeries ItemsSource="{Binding Source}"
+							 RadiusFactor="0.6">
+				<chart:PieSeries.ValueBinding>
+					<chart:PropertyNameDataPointBinding PropertyName="Value" />
+				</chart:PieSeries.ValueBinding>
+			</chart:PieSeries>
+		</chart:RadPieChart>
+	</Grid>
+
+
+	<!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="Phone">
@@ -52,16 +67,6 @@
             <ListViewItem>
                     <ListViewItem.DataContext>
                         <DataTemplate>
-                            <chart:RadPieChart PaletteName="DefaultDark">
-                                <chart:RadPieChart.DataContext>
-                                <localChart:ViewModel/>
-                                </chart:RadPieChart.DataContext>
-                                <chart:PieSeries ItemsSource="{Binding Source}" RadiusFactor="0.6">
-                                    <chart:PieSeries.ValueBinding>
-                                        <chart:PropertyNameDataPointBinding PropertyName="Value"/>
-                                    </chart:PieSeries.ValueBinding>
-                                </chart:PieSeries>
-                            </chart:RadPieChart>
                         </DataTemplate>
                     </ListViewItem.DataContext>
                     <TextBlock Text="Pie Series" FontSize="20"/>
@@ -89,5 +94,5 @@
         <TextBlock Text="{Binding Title, ElementName=page}" Style="{StaticResource ExampleHeaderTextBlockStyle}" Grid.ColumnSpan="2"/>
 
         <ContentControl ContentTemplate="{Binding SelectedItem.DataContext, ElementName=listview}" Grid.Row="1"/>
-    </Grid>
+    </Grid>-->
 </local:ExamplePageBase>
