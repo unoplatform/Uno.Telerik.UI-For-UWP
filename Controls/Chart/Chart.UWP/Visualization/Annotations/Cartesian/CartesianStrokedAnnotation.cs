@@ -377,16 +377,25 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
             else
             {
+#if NETFX_CORE
+				TextBlock textBlock = this.labelPresenter as TextBlock;
+				if (textBlock != null)
+				{
+				    object label = this.GetLabelContent(context);
+				    textBlock.Text = label == null ? string.Empty : label.ToString();
+				}
+#else
 				// UNO TODO
-				//TextBlock textBlock = this.labelPresenter as TextBlock;
-    //            if (textBlock != null)
-    //            {
-    //                object label = this.GetLabelContent(context);
-    //                textBlock.Text = label == null ? string.Empty : label.ToString();
-    //            }
-            }
+				TextBlock textBlock = (this.labelPresenter as Border)?.Child as TextBlock;
+				if (textBlock != null)
+				{
+					object label = this.GetLabelContent(context);
+					textBlock.Text = label == null ? string.Empty : label.ToString();
+				}
+#endif
+			}
 
-            return this.labelPresenter;
+			return this.labelPresenter;
         }
 
         private object GetLabelContent(ChartAnnotationLabelUpdateContext context)
@@ -412,9 +421,13 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
             else
             {
-				// UNO TODO
+#if NETFX_CORE
 				// visual = new TextBlock() { Style = context.Definition.DefaultVisualStyle };
-            }
+#else
+				// UNO TODO
+				visual = new Border { Child = new TextBlock() { Style = context.Definition.DefaultVisualStyle } };
+#endif
+			}
 
             this.renderSurface.Children.Add(visual);
 
