@@ -1,0 +1,66 @@
+resources:
+- repo: self
+  clean: true
+  lfs: true
+
+phases:
+- phase: Packages
+  variables:
+    NUGET_PACKAGES: $(Agent.WorkFolder)\.nuget
+    NUGET_HTTP_CACHE_PATH: $(Agent.WorkFolder)\.nuget-http-cache
+
+  queue:
+    name: Default
+    demands:
+    - Xamarin -equals 4.7.10.22
+
+  steps:
+
+  - task: GitVersion@3
+    inputs:
+      updateAssemblyInfo: false
+
+  - task: NuGetToolInstaller@0
+    inputs:
+      versionSpec: 4.3.0
+      checkLatest: false
+
+  - task: NuGetCommand@2
+    inputs:
+      command: restore
+      solution: Controls/UWPControls.sln
+      selectOrConfig: select
+      feedRestore: nventive
+      includeNuGetOrg: true
+      verbosityRestore: Normal
+
+  - task: MSBuild@1
+    inputs:
+      solution: Controls/UWPControls.sln
+      msbuildLocationMethod: version
+      msbuildVersion: latest
+      msbuildArchitecture: x86
+      msbuildArguments: /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary
+      clean: false
+      maximumCpuCount: true
+      restoreNugetPackages: false
+      logProjectEvents: false
+      createLogFile: false
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactName: NugetPackages
+      ArtifactType: Container
+
+  - task: PublishSymbols@2
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    inputs:
+      SymbolsFolder:
+      SearchPattern: '**/bin/**/*.pdb'
+      IndexSources: true
+      PublishSymbol: true
+      SymbolServerType: TeamServices
+      DetailedLog: false
+      TreatNotIndexedAsWarning: false
+      SymbolsArtifactName: Symbols_$(BuildConfiguration)
