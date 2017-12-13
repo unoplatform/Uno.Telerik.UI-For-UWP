@@ -797,23 +797,42 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
         private static void SetLabelContent(FrameworkElement presenter, AxisLabelModel label)
         {
-			// UNO TODO
-            //var contentPresetner = presenter as ContentPresenter;
-            //var textBlock = presenter as TextBlock;
+#if NETFX_CORE
+			var contentPresetner = presenter as ContentPresenter;
+			var textBlock = presenter as TextBlock;
 
-            //if (contentPresetner != null && contentPresetner.Content != label.Content)
-            //{
-            //    contentPresetner.Content = label.Content;
-            //}
-            //else if (textBlock != null)
-            //{
-            //    textBlock.Text = label.Content == null ? string.Empty : label.Content.ToString();
-            //}
-            //else
-            //{
-            //    // TODO: consider throwing exception
-            //}
-        }
+			if (contentPresetner != null && contentPresetner.Content != label.Content)
+			{
+				contentPresetner.Content = label.Content;
+			}
+			else if (textBlock != null)
+			{
+				textBlock.Text = label.Content == null ? string.Empty : label.Content.ToString();
+			}
+			else
+			{
+				// TODO: consider throwing exception
+			}
+#else
+			// UNO TODO
+
+			var contentPresetner = presenter as ContentPresenter;
+			var textBlock = (presenter as Border)?.Child as TextBlock;
+
+			if (contentPresetner != null && contentPresetner.Content != label.Content)
+			{
+				contentPresetner.Content = label.Content;
+			}
+			else if (textBlock != null)
+			{
+				textBlock.Text = label.Content == null ? string.Empty : label.Content.ToString();
+			}
+			else
+			{
+				// TODO: consider throwing exception
+			}
+#endif
+		}
 
         private static LabelSizeInfo GetLabelSize(FrameworkElement visual)
         {
@@ -1068,7 +1087,10 @@ namespace Telerik.UI.Xaml.Controls.Chart
 				// UNO TODO
 				visual = this.CreateLabelTextBlock();
 #else
-				visual = new Border { Child = this.CreateLabelTextBlock() };
+				var border = new Border();
+				var tb = this.CreateLabelTextBlock(border);
+				border.Child = tb;
+				visual = border;
 #endif
 			}
 			else
@@ -1095,13 +1117,21 @@ namespace Telerik.UI.Xaml.Controls.Chart
             return visual;
         }
 
-        private TextBlock CreateLabelTextBlock()
+        private TextBlock CreateLabelTextBlock(FrameworkElement owner = null)
         {
             TextBlock textBlock = new TextBlock();
             textBlock.Style = this.labelStyleCache;
-            this.renderSurface.Children.Add(textBlock);
 
-            return textBlock;
+			if (owner != null)
+			{
+				this.renderSurface.Children.Add(owner);
+			}
+			else
+			{
+				this.renderSurface.Children.Add(textBlock);
+			}
+
+			return textBlock;
         }
 
         private Rectangle CreateTickRectangle()
