@@ -79,10 +79,14 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 
         private void MenuToolTipSizeChanged(object sender, SizeChangedEventArgs e)
         {
-			// UNO TODO
+#if NETFX_CORE
+			var parent = this.Parent as Popup;
+#else
+			//TODO UNO
 			var parent = this.Parent as Windows.UI.Xaml.Controls.Popup;
+#endif
 
-            if (parent == null || this.Owner == null)
+			if (parent == null || this.Owner == null)
             {
                 return;
             }

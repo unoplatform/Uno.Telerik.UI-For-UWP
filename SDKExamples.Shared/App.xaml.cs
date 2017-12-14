@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Microsoft.Extensions.Logging;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -17,6 +16,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
+#if !NETFX_CORE
+using Microsoft.Extensions.Logging;
+#endif
 
 namespace SDKExamples.UWP
 {
@@ -31,7 +34,8 @@ namespace SDKExamples.UWP
         /// </summary>
         public App()
 		{
-			Uno.UI.Configuration.FrameworkElement.UseLegacyApplyStylePhase = false;
+#if !NETFX_CORE
+			// Uno.UI.Configuration.FrameworkElement.UseLegacyApplyStylePhase = false;
 
 			Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory
 				.WithFilter(new FilterLoggerSettings {
@@ -43,7 +47,7 @@ namespace SDKExamples.UWP
 
 
 			System.Console.WriteLine($"ProcessID: {Process.GetCurrentProcess().Id} name: {Process.GetCurrentProcess().ProcessName}");
-
+#endif
 
 #if NETFX_CORE
 			Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(

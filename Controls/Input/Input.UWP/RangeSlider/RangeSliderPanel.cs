@@ -47,8 +47,6 @@ namespace Telerik.UI.Xaml.Controls.Input.RangeSlider
             this.Owner.RangeSlider.Measure(availableSize);
             this.Owner.ScaleBottomRight.Measure(availableSize);
 
-			Console.WriteLine($"MeasureOverride({this.Owner.RangeSlider.GetHashCode()}) this.Owner.RangeSlider = {this.Owner.RangeSlider.DesiredSize.Width}x{this.Owner.RangeSlider.DesiredSize.Height}");
-
 			if (this.Owner.Orientation == Orientation.Horizontal)
             {
                 finalSize.Height = this.Owner.ScaleTopLeft.DesiredSize.Height;
@@ -132,8 +130,6 @@ namespace Telerik.UI.Xaml.Controls.Input.RangeSlider
             }
 
             height = Math.Min(this.Owner.RangeSlider.DesiredSize.Height, finalSize.Height - top);
-
-			Console.WriteLine($"ArrangeHorizontal({this.Owner.RangeSlider.GetHashCode()}) this.Owner.RangeSlider = {this.Owner.RangeSlider.DesiredSize.Width}x{this.Owner.RangeSlider.DesiredSize.Height}");
 
 			this.Owner.RangeSlider.Arrange(new Rect(left, top, width, height));
 

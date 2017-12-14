@@ -296,10 +296,14 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
         internal static bool IsDefaultLabelVisual(FrameworkElement visual)
         {
-            return visual is TextBlock;
-        }
+#if NETFX_CORE
+			return visual is TextBlock;
+#else
+			return visual is Border;
+#endif
+		}
 
-        internal virtual void OnDataPointSelectionChanged(DataPoint point)
+		internal virtual void OnDataPointSelectionChanged(DataPoint point)
         {
             this.InvalidatePalette();
         }

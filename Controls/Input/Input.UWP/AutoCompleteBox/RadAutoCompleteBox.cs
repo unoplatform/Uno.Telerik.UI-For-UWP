@@ -21,8 +21,13 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// a text box control with extended functionality to support customized suggestion items.
     /// </summary>
     [TemplatePart(Name = "PART_TextBox", Type = typeof(AutoCompleteTextBox))]
-    [TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Windows.UI.Xaml.Controls.Popup))]
-    [TemplatePart(Name = "PART_SuggestionsControl", Type = typeof(SuggestionItemsControl))]
+#if NETFX_CORE
+	[TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
+#else
+	// UNO TODO
+	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Windows.UI.Xaml.Controls.Popup))]
+#endif
+	[TemplatePart(Name = "PART_SuggestionsControl", Type = typeof(SuggestionItemsControl))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "Disabled", GroupName = "CommonStates")]
     [TemplateVisualState(Name = "WatermarkUnfocused", GroupName = "FocusStates")]
@@ -175,8 +180,13 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         internal const double PopupOffsetFromTextBox = 2.0;
 
-        internal Windows.UI.Xaml.Controls.Popup suggestionsPopup;// UNO TODO
-        internal SuggestionItemsControl suggestionsControl;
+#if NETFX_CORE
+		internal Popup suggestionsPopup;
+#else
+		// UNO TODO
+		internal Windows.UI.Xaml.Controls.Popup suggestionsPopup;
+#endif
+		internal SuggestionItemsControl suggestionsControl;
         internal TextBox textbox;
         internal ContentControl noResultsControl;
 
@@ -1041,8 +1051,13 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.textbox = this.GetTemplatePartField<TextBox>(TextBoxPartName);
             applied = applied && this.textbox != null;
 
-            this.suggestionsPopup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(SuggestionsPopupPartName); // UNO TODO
-            applied = applied && this.suggestionsPopup != null;
+#if NETFX_CORE
+			this.suggestionsPopup = this.GetTemplatePartField<Popup>(SuggestionsPopupPartName);
+#else
+			 // UNO TODO
+			this.suggestionsPopup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(SuggestionsPopupPartName);
+#endif
+			applied = applied && this.suggestionsPopup != null;
 
             this.suggestionsControl = this.GetTemplatePartField<SuggestionItemsControl>(SuggestionsControlPartName);
             applied = applied && this.suggestionsControl != null;

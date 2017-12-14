@@ -267,8 +267,36 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             if (cell.ItemInfo.LayoutInfo.Line == this.Model.ColumnPool.Layout.ItemsSource.Count - 1)
             {
-                // Apply padding when last column to offset from column chooser button.
-                if (header.Owner.CanUserChooseColumns)
+#if NETFX_CORE
+				// Apply padding when last column to offset from column chooser button.
+				if (header.Owner.CanUserChooseColumns)
+                {
+                    if (this.headerStyleCache != null && this.headerStyleCache.Setters.OfType<Setter>().Any(c => c.Property == DataGridColumnHeader.PaddingProperty))
+                    {
+                        var oldPadding = (Thickness)this.headerStyleCache.Setters.OfType<Setter>().First(c => c.Property == DataGridColumnHeader.PaddingProperty).Value;
+                        header.Padding = new Thickness(oldPadding.Left, oldPadding.Top, oldPadding.Right + header.Owner.ColumnReorderServicePanel.ActualWidth, oldPadding.Bottom);
+                    }
+                    else
+                    {
+                        header.Padding = new Thickness(0, 0, header.Owner.ColumnReorderServicePanel.ActualWidth, 0);
+                    }
+                }
+                else
+                {
+                    if (this.headerStyleCache != null && this.headerStyleCache.Setters.OfType<Setter>().Any(c => c.Property == DataGridColumnHeader.PaddingProperty))
+                    {
+                        var oldPadding = (Thickness)this.headerStyleCache.Setters.OfType<Setter>().First(c => c.Property == DataGridColumnHeader.PaddingProperty).Value;
+                        header.Padding = oldPadding;
+                    }
+                    else
+                    {
+                        header.Padding = new Thickness(0);
+                    }
+                }
+#else
+				// UNO TODO
+				// Apply padding when last column to offset from column chooser button.
+				if (header.Owner.CanUserChooseColumns)
                 {
                     if (this.headerStyleCache != null && this.headerStyleCache.Setters.OfType<Setter>().Any(c => c.Property == "Padding"/*UNO TODO DataGridColumnHeader.PaddingProperty*/))
                     {
@@ -292,7 +320,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
                         header.Padding = new Thickness(0);
                     }
                 }
-            }
+				#endif
+			}
         }
 
         internal virtual void ClearColumnHeaderCell(GridHeaderCellModel cell)
