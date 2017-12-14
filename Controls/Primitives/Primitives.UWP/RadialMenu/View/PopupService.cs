@@ -14,10 +14,14 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
     internal static class PopupService
     {
+#if NETFX_CORE
+		private static Popup popup;
+#else
 		//TODO UNO
-        private static Windows.UI.Xaml.Controls.Popup popup;
+		private static Windows.UI.Xaml.Controls.Popup popup;
+#endif
 
-        private static Panel overlay;
+		private static Panel overlay;
 
         internal static RadRadialMenu CurrentAttachedMenu { get; private set; }
 
@@ -31,9 +35,14 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         {
             if (popup == null)
             {
-				// TODO UNO
-                popup = new Windows.UI.Xaml.Controls.Popup();
-                overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
+#if NETFX_CORE
+				popup = new Popup();
+#else
+				//TODO UNO
+				popup = new Windows.UI.Xaml.Controls.Popup();
+#endif
+
+				overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
                 popup.Child = overlay;
             }
 
@@ -55,8 +64,13 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         {
             if (popup == null)
             {
-				// TODO UNO
+#if NETFX_CORE
+				popup = new Popup();
+#else
+				//TODO UNO
 				popup = new Windows.UI.Xaml.Controls.Popup();
+#endif
+
 				overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
                 popup.Child = overlay;
             }

@@ -40,9 +40,16 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             DependencyProperty.Register(nameof(SelectionMiddleThumbStyle), typeof(Style), typeof(RangeSliderPrimitive), null);
 
         internal double coeficient;
+
+#if NETFX_CORE
+		internal Popup rangeToolTip;
+#else
 		//UNO TODO
-        internal Windows.UI.Xaml.Controls.Popup rangeToolTip;
-        internal RangeToolTip rangeToolTipContent;
+		internal Windows.UI.Xaml.Controls.Popup rangeToolTip;
+#endif
+
+
+		internal RangeToolTip rangeToolTipContent;
         internal Point toolTipPosition;
         internal ToolTip valueToolTip;
         internal Point sliderPrimitivePosition;
@@ -68,9 +75,13 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Initializes a new instance of the <see cref="RangeSliderPrimitive"/> class.
         /// </summary>
         public RangeSliderPrimitive()
-		{              
-			// TODO UNO
+		{
+#if NETFX_CORE
+			this.rangeToolTip = new Popup();
+#else
+			//TODO UNO
 			this.rangeToolTip = new Windows.UI.Xaml.Controls.Popup();
+#endif
 
             this.rangeToolTipContent = new RangeToolTip();
 

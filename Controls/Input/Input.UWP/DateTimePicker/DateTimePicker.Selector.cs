@@ -76,8 +76,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             DependencyProperty.Register(nameof(SelectorBackgroundStyle), typeof(Style), typeof(DateTimePicker), new PropertyMetadata(null));
 
         internal int availableListsCount;
-        internal Windows.UI.Xaml.Controls.Popup popup; // UNO TODO
-        internal List<DateTimeList> dateTimeLists = new List<DateTimeList>();
+#if NETFX_CORE
+		internal Popup popup;
+#else
+		internal Windows.UI.Xaml.Controls.Popup popup; // UNO TODO
+#endif
+		internal List<DateTimeList> dateTimeLists = new List<DateTimeList>();
 
         private const string PickerButtonPartName = "PART_PickerButton";
         private const string PopupPartName = "PART_Popup";
@@ -383,13 +387,19 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
-        /// <summary>
-        /// Gets the Popup instance used to display the component when its DisplayMode is Standard.
-        /// </summary>
+		/// <summary>
+		/// Gets the Popup instance used to display the component when its DisplayMode is Standard.
+		/// </summary>
+#if NETFX_CORE
+		internal Popup Popup
+#else
+		// UNO TODO
         internal Windows.UI.Xaml.Controls.Popup Popup
-        {
+#endif
+
+		{
 			//UNO TODO
-            get
+			get
             {
                 return this.popup;
             }
@@ -852,8 +862,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.pickerButton = this.GetTemplatePartField<Button>(PickerButtonPartName);
             applied = applied && this.pickerButton != null;
 
-            this.popup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(PopupPartName); // TODO UNO
-            applied = applied && this.popup != null;
+#if NETFX_CORE
+			this.popup = this.GetTemplatePartField<Popup>(PopupPartName); // TODO UNO
+#else
+			this.popup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(PopupPartName); // TODO UNO
+#endif
+			applied = applied && this.popup != null;
 
 #if WINDOWS_PHONE_APP
             this.commandBarInfo = this.GetTemplatePartField<CommandBarInfo>(CommandBarInfoPartName);
@@ -1433,9 +1447,13 @@ namespace Telerik.UI.Xaml.Controls.Input
                 Binding b = new Binding();
                 b.Source = this;
                 b.Path = new PropertyPath("IsOpen");
-                this.popup.SetBinding(/* TODO UNO */Windows.UI.Xaml.Controls.Popup.IsOpenProperty, b);
+#if NETFX_CORE
+				this.popup.SetBinding(Popup.IsOpenProperty, b);
+#else
+				this.popup.SetBinding(/* TODO UNO */Windows.UI.Xaml.Controls.Popup.IsOpenProperty, b);
+#endif
 
-                this.CloseSelector(false, false);
+				this.CloseSelector(false, false);
             }
 
 #if WINDOWS_PHONE_APP

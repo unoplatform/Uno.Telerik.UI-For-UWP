@@ -1127,9 +1127,14 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.emptyContentPresenter = this.GetTemplateChild("PART_EmptyContentPresenter") as ContentPresenter;
 
             this.itemReorderControl = this.GetTemplateChild("PART_ItemReorderControl") as ItemReorderControl;
-            this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Windows.UI.Xaml.Controls.Popup /* UNO TODO */;
 
-            if (this.itemReorderControl != null && this.itemReorderPopup != null)
+#if NETFX_CORE
+			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Popup /* UNO TODO */;
+#else
+			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Windows.UI.Xaml.Controls.Popup /* UNO TODO */;
+#endif
+
+			if (this.itemReorderControl != null && this.itemReorderPopup != null)
             {
                 this.itemReorderPopup.Opened += this.OnItemReorderPopup_OpenedChanged;
                 this.itemReorderPopup.Closed += this.OnItemReorderPopup_OpenedChanged;

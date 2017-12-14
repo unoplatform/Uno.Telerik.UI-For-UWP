@@ -45,11 +45,15 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
         }
 
         internal void UpdateTooltipPosition(Point position)
-        {
-			// TODO UNO
+		{
+#if NETFX_CORE
+			var parent = this.Parent as Popup;
+#else
+			//TODO UNO
 			var parent = this.Parent as Windows.UI.Xaml.Controls.Popup;
+#endif
 
-            if (this.Owner == null || this.Parent == null || parent == null || !this.Owner.ShowRangeToolTip)
+			if (this.Owner == null || this.Parent == null || parent == null || !this.Owner.ShowRangeToolTip)
             {
                 return;
             }
@@ -106,8 +110,17 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             }
         }
 
-		//TODO UNO
-        private void TruncateToBoundsVertical(Windows.UI.Xaml.Controls.Popup parent, Point position)
+        private void TruncateToBoundsVertical(
+
+#if NETFX_CORE
+		Popup parent
+#else
+		//UNO TODO
+		Windows.UI.Xaml.Controls.Popup parent
+#endif
+	
+			
+			, Point position)
         {
             if (this.Owner.sliderPrimitivePosition.X < Math.Abs(position.X))
             {
@@ -133,8 +146,14 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             }
         }
 
-		//TODO UNO
-        private void TruncateToBoundsHorizontal(Windows.UI.Xaml.Controls.Popup parent, Point position)
+        private void TruncateToBoundsHorizontal(
+#if NETFX_CORE
+			Popup parent
+#else
+			//UNO TODO
+			Windows.UI.Xaml.Controls.Popup parent
+#endif
+			, Point position)
         {
             if (this.Owner.sliderPrimitivePosition.Y < Math.Abs(position.Y))
             {

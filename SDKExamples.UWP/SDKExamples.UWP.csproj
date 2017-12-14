@@ -43,7 +43,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -118,47 +118,38 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Reference Include="Telerik.Core">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Data">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Geospatial.UWP">
-      <HintPath>..\Binaries\Telerik.Geospatial.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Drawing">
-      <HintPath>..\Binaries\x86\Telerik.UI.Drawing.winmd</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.Chart.UWP">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.UI.Xaml.Chart.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.Controls.Data.UWP">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.UI.Xaml.Controls.Data.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.DataVisualization.UWP">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.UI.Xaml.DataVisualization.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.Grid.UWP">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.UI.Xaml.Grid.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.Input.UWP">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.UI.Xaml.Input.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.Map.UWP">
-      <HintPath>..\Binaries\x86\Telerik.UI.Xaml.Map.UWP.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.UI.Xaml.Primitives.UWP">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Telerik.UI.Xaml.Primitives.UWP.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Controls\Chart\Chart.UWP\Telerik.Chart.csproj">
+      <Project>{b1a0d416-9566-45cc-aa38-41908d28ce56}</Project>
+      <Name>Telerik.Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Core.UWP\Telerik.Core.csproj">
+      <Project>{1652093c-b541-48c9-bcb6-bbe7ce7c7ffe}</Project>
+      <Name>Telerik.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Data.UWP\Telerik.Data.csproj">
+      <Project>{453edd2c-5b29-4d4e-b4da-578d0bdca06f}</Project>
+      <Name>Telerik.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\DataControls\DataControls.UWP\Telerik.DataControls.csproj">
+      <Project>{02174a60-4907-449e-818c-a25a39c0b3dc}</Project>
+      <Name>Telerik.DataControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\DataVisualization\DataVisualization.UWP\Telerik.DataVisualization.csproj">
+      <Project>{53d05634-f960-4526-8008-f082a598a0e4}</Project>
+      <Name>Telerik.DataVisualization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Grid\Grid.UWP\Telerik.Grid.csproj">
+      <Project>{23930c19-5a0f-4217-a80a-868505d629a4}</Project>
+      <Name>Telerik.Grid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Input\Input.UWP\Telerik.Input.csproj">
+      <Project>{5db497cd-b469-42a8-ae39-41b8465710a6}</Project>
+      <Name>Telerik.Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Primitives\Primitives.UWP\Telerik.Primitives.csproj">
+      <Project>{bf14f352-f1b9-4cde-854b-0339259a4cfd}</Project>
+      <Name>Telerik.Primitives</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\SDKExamples.Shared\SDKExamples.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

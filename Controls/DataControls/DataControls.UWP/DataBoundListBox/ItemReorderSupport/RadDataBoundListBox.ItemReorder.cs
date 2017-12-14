@@ -23,13 +23,19 @@ namespace Telerik.UI.Xaml.Controls.Data
         internal DispatcherTimer holdTimer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 1) };
         internal bool isItemReorderEnabledCache = false;
         internal ItemReorderControl itemReorderControl;
-        internal Windows.UI.Xaml.Controls.Popup itemReorderPopup;
 
-        /// <summary>
-        /// Fired when the end user taps on the Item Reorder button which shifts
-        /// the target item up in the source collection.
-        /// </summary>
-        public event EventHandler ItemReorderUpButtonTap;
+#if NETFX_CORE
+		internal Popup itemReorderPopup;
+#else
+		// UNO TODO
+		internal Windows.UI.Xaml.Controls.Popup itemReorderPopup;
+#endif
+
+		/// <summary>
+		/// Fired when the end user taps on the Item Reorder button which shifts
+		/// the target item up in the source collection.
+		/// </summary>
+		public event EventHandler ItemReorderUpButtonTap;
 
         /// <summary>
         /// Fired when the end user taps on the Item Reorder button which shifts

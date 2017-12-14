@@ -15,8 +15,13 @@ namespace Telerik.UI.Xaml.Controls.Input
     /// on a picker box containing the current value and opening a time selector to select a new value.
     /// </summary>
     [TemplatePart(Name = "PART_PickerButton", Type = typeof(DateTimePickerButton))]
-    [TemplatePart(Name = "PART_Popup", Type = typeof(Windows.UI.Xaml.Controls.Popup))] // UNO TODO
-    [TemplatePart(Name = "PART_SelectorLayoutRoot", Type = typeof(Border))]
+#if NETFX_CORE
+	[TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
+#else
+	// UNO TODO
+	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Windows.UI.Xaml.Controls.Popup))]
+#endif
+	[TemplatePart(Name = "PART_SelectorLayoutRoot", Type = typeof(Border))]
     [TemplatePart(Name = "PART_SelectorHeader", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "PART_MonthList", Type = typeof(DateTimeList))]
     [TemplatePart(Name = "PART_DayList", Type = typeof(DateTimeList))]
