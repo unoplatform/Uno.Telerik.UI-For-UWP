@@ -7,11 +7,17 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
+#if NETFX_CORE
+using DefaultPresenter = TextBlock;
+#else
+using DefaultPresenter = Windows.UI.Xaml.Controls.Border;
+#endif
+
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
     internal class XamlHeaderContentLayer : CalendarLayer
     {
-        internal List<TextBlock> realizedCalendarCellDefaultPresenters;
+        internal List<DefaultPresenter> realizedCalendarCellDefaultPresenters;
 
         private TextBlock measurementPresenter;
         private Canvas contentPanel;
@@ -20,7 +26,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             this.contentPanel = new Canvas();
 
-            this.realizedCalendarCellDefaultPresenters = new List<TextBlock>();
+            this.realizedCalendarCellDefaultPresenters = new List<DefaultPresenter>();
         }
 
         internal Panel VisualContainer
@@ -110,10 +116,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
                 this.measurementPresenter.Text = content.ToString();
 
-               // return XamlContentLayerHelper.MeasureVisual(this.measurementPresenter);  
-				
-				// TODO UNO
-				throw new NotSupportedException();
+				return XamlContentLayerHelper.MeasureVisual(this.measurementPresenter);  
 			}
 
 			return RadSize.Empty;
@@ -132,39 +135,65 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         private FrameworkElement GetDefaultVisual(CalendarNode cell, int virtualIndex)
         {
-            //TextBlock visual;
+#if NETFX_CORE
+			TextBlock visual;
 
-            //if (virtualIndex < this.realizedCalendarCellDefaultPresenters.Count)
-            //{
-            //    visual = this.realizedCalendarCellDefaultPresenters[virtualIndex];
+			if (virtualIndex < this.realizedCalendarCellDefaultPresenters.Count)
+			{
+				visual = this.realizedCalendarCellDefaultPresenters[virtualIndex];
 
-            //    visual.ClearValue(TextBlock.VisibilityProperty);
-            //    visual.ClearValue(TextBlock.StyleProperty);
-            //}
-            //else
-            //{
-            //    visual = this.CreateDefaultVisual();
-            //}
+				visual.ClearValue(TextBlock.VisibilityProperty);
+				visual.ClearValue(TextBlock.StyleProperty);
+			}
+			else
+			{
+				visual = this.CreateDefaultVisual();
+			}
 
-            //XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
+			XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
 
-            //return visual;   
-			
+			return visual;
+#else
 			// TODO UNO
-			throw new NotSupportedException();
+			DefaultPresenter visual;
+
+			if (virtualIndex < this.realizedCalendarCellDefaultPresenters.Count)
+			{
+				visual = this.realizedCalendarCellDefaultPresenters[virtualIndex];
+
+				(visual.Child as TextBlock).ClearValue(TextBlock.VisibilityProperty);
+				(visual.Child as TextBlock).ClearValue(TextBlock.StyleProperty);
+			}
+			else
+			{
+				visual = this.CreateDefaultVisual();
+			}
+
+			XamlContentLayerHelper.PrepareDefaultVisualUno(visual, cell);
+
+			return new Border { Child = visual };
+#endif
 		}
 
-		private TextBlock CreateDefaultVisual()
+		private DefaultPresenter CreateDefaultVisual()
         {
-            //TextBlock textBlock = new TextBlock();
+#if NETFX_CPRE
+			TextBlock textBlock = new TextBlock();
 
-            //this.AddVisualChild(textBlock);
-            //this.realizedCalendarCellDefaultPresenters.Add(textBlock);
+			this.AddVisualChild(textBlock);
+			this.realizedCalendarCellDefaultPresenters.Add(textBlock);
 
-            //return textBlock;  
-			
+			return textBlock;
+#else
 			// TODO UNO
-			throw new NotSupportedException();
+			TextBlock textBlock = new TextBlock();
+			var border = new Border { Child = textBlock };
+
+			this.AddVisualChild(border);
+			this.realizedCalendarCellDefaultPresenters.Add(border);
+
+			return border;
+#endif
 
 		}
 
