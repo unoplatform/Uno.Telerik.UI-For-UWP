@@ -8,16 +8,26 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
     internal static class XamlContentLayerHelper
     {
-        internal static RadSize MeasureVisual(FrameworkElement visual)
-        {
-            visual.ClearValue(FrameworkElement.WidthProperty);
-            visual.ClearValue(FrameworkElement.HeightProperty);
-            visual.Measure(RadCalendar.InfinitySize);
+		internal static RadSize MeasureVisual(FrameworkElement visual)
+		{
+			visual.ClearValue(FrameworkElement.WidthProperty);
+			visual.ClearValue(FrameworkElement.HeightProperty);
+			visual.Measure(RadCalendar.InfinitySize);
 
-            return new RadSize(visual.DesiredSize.Width, visual.DesiredSize.Height);
-        }
+			return new RadSize(visual.DesiredSize.Width, visual.DesiredSize.Height);
+		}
 
-        internal static RadRect ApplyLayoutSlotAlignment(FrameworkElement visual, RadRect layoutSlot)
+#if __IOS__ || __ANDROID__
+		internal static RadSize MeasureVisual(TextBlock visual)
+		{
+			visual.ClearValue(TextBlock.WidthProperty);
+			visual.ClearValue(TextBlock.HeightProperty);
+			var result = visual.Measure(RadCalendar.InfinitySize);
+
+			return new RadSize(result.Width, result.Height);
+		}
+#endif
+		internal static RadRect ApplyLayoutSlotAlignment(FrameworkElement visual, RadRect layoutSlot)
         {
             Size desiredSize = visual.DesiredSize;
 
@@ -50,18 +60,26 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             return layoutSlot;
         }
 
-        internal static void PrepareDefaultVisual(TextBlock visual, CalendarNode cell)
+		internal static void PrepareDefaultVisual(TextBlock visual, CalendarNode cell)
         {
-            //visual.Tag = cell;
-            //visual.Text = cell.Label;
+			visual.Tag = cell;
+			visual.Text = cell.Label;
 
-            //ApplyStyleToDefaultVisual(visual, cell);
+			ApplyStyleToDefaultVisual(visual, cell);
 
-            //MeasureVisual(visual);   
-			
-			// TODO UNO
-			throw new NotSupportedException();
+			MeasureVisual(visual);
+		}
 
+		internal static void PrepareDefaultVisualUno(Border visual, CalendarNode cell)
+		{
+			var textBlock = visual.Child as TextBlock;
+
+			textBlock.Tag = cell;
+			textBlock.Text = cell.Label;
+
+			ApplyStyleToDefaultVisual(textBlock, cell);
+
+			MeasureVisual(visual);
 		}
 
 		internal static void ApplyStyleToDefaultVisual(TextBlock visual, CalendarNode cell)

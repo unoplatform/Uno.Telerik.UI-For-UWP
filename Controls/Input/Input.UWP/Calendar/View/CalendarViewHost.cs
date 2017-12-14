@@ -9,6 +9,11 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
     /// </summary>
     public partial class CalendarViewHost : Canvas
     {
+		public CalendarViewHost()
+		{
+
+		}
+
         /// <inheritdoc />
         protected override AutomationPeer OnCreateAutomationPeer()
         {

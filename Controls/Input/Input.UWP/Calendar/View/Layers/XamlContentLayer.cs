@@ -8,13 +8,19 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
+#if NETFX_CORE
+using DefaultPresenter = TextBlock;
+#else
+using DefaultPresenter = Windows.UI.Xaml.Controls.Border;
+#endif
+
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
     // TODO: extract abstract ContentLayer class
     internal class XamlContentLayer : CalendarLayer
     {
-        internal Dictionary<CalendarCellModel, TextBlock> realizedCalendarCellDefaultPresenters;
-        internal Queue<TextBlock> recycledContainers;
+        internal Dictionary<CalendarCellModel, DefaultPresenter> realizedCalendarCellDefaultPresenters;
+        internal Queue<DefaultPresenter> recycledContainers;
 
         internal Dictionary<CalendarCellModel, FrameworkElement> realizedCalendarCellTemplatedPresenters;
 
@@ -29,8 +35,8 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.animatableContentPanel = new Canvas();
             this.contentPanelHost.Children.Add(this.animatableContentPanel);
 
-            this.recycledContainers = new Queue<TextBlock>();
-            this.realizedCalendarCellDefaultPresenters = new Dictionary<CalendarCellModel, TextBlock>();
+            this.recycledContainers = new Queue<DefaultPresenter>();
+            this.realizedCalendarCellDefaultPresenters = new Dictionary<CalendarCellModel, DefaultPresenter>();
             this.realizedCalendarCellTemplatedPresenters = new Dictionary<CalendarCellModel, FrameworkElement>();
         }
 
@@ -160,15 +166,20 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             foreach (CalendarCellModel cellModel in cellsRangeToUpdate)
             {
-                TextBlock visual;
+				DefaultPresenter visual;
 
                 if (this.realizedCalendarCellDefaultPresenters.TryGetValue(cellModel, out visual))
                 {
                     this.realizedCalendarCellDefaultPresenters.Remove(cellModel);
                     this.recycledContainers.Enqueue(visual);
 
-                    visual.ClearValue(TextBlock.StyleProperty);
-                }
+#if NETFX_CORE
+					visual.ClearValue(TextBlock.StyleProperty);
+#else
+					// TODO UNO
+					(visual.Child as TextBlock).ClearValue(TextBlock.StyleProperty);
+#endif
+				}
             }
         }
 
@@ -220,38 +231,63 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         private FrameworkElement GetDefaultVisual(CalendarCellModel cell)
         {
-			//TextBlock visual;
+#if NETFX_CORE
+			TextBlock visual;
 
-			//if (this.recycledContainers.Count > 0)
-			//{
-			//    visual = this.recycledContainers.Dequeue();
-			//    visual.ClearValue(TextBlock.VisibilityProperty);
-			//    this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
-			//}
-			//else
-			//{
-			//    visual = this.CreateDefaultVisual();
-			//    this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
-			//}
+			if (this.recycledContainers.Count > 0)
+			{
+			    visual = this.recycledContainers.Dequeue();
+			    visual.ClearValue(TextBlock.VisibilityProperty);
+			    this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
+			}
+			else
+			{
+			    visual = this.CreateDefaultVisual();
+			    this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
+			}
 
-			//XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
+			XamlContentLayerHelper.PrepareDefaultVisual(visual, cell);
 
-			// return visual;
-
+			return visual;
+#else
 			// TODO UNO
-			throw new NotSupportedException();
-        }
+			DefaultPresenter visual;
 
-        private TextBlock CreateDefaultVisual()
+			if (this.recycledContainers.Count > 0)
+			{
+				visual = this.recycledContainers.Dequeue();
+				(visual.Child as TextBlock).ClearValue(TextBlock.VisibilityProperty);
+				this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
+			}
+			else
+			{
+				visual = this.CreateDefaultVisual();
+				this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
+			}
+
+			XamlContentLayerHelper.PrepareDefaultVisualUno(visual, cell);
+
+			return visual;
+#endif
+		}
+
+		private DefaultPresenter CreateDefaultVisual()
         {
-            //TextBlock textBlock = new TextBlock();
+#if NETFX_CORE
+			TextBlock textBlock = new TextBlock();
 
-            //this.AddVisualChild(textBlock);
+			this.AddVisualChild(textBlock);
 
-            //return textBlock;
-
+			return textBlock;
+#else
 			// TODO UNO
-			throw new NotSupportedException();
+			TextBlock textBlock = new TextBlock();
+			var border = new Border { Child = textBlock };
+
+			this.AddVisualChild(border);
+
+			return border;
+#endif
 		}
 	}
 }
