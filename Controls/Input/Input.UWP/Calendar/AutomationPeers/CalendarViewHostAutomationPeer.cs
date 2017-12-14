@@ -91,12 +91,14 @@ namespace Telerik.UI.Automation.Peers
                     calendarPeer.childrenCache.Add(peer);
                 }
 
-                TextBlock matchingTextBlock = this.CalendarOwner.contentLayer.realizedCalendarCellDefaultPresenters[cellModel];
+#if NETFX_CORE
+				// UNO TODO
+				TextBlock matchingTextBlock = this.CalendarOwner.contentLayer.realizedCalendarCellDefaultPresenters[cellModel];
                 if (matchingTextBlock != null)
                 {
-					// UNO TODO
-                    // peer.ChildTextBlockPeer = FrameworkElementAutomationPeer.FromElement(matchingTextBlock) as TextBlockAutomationPeer;
+                    peer.ChildTextBlockPeer = FrameworkElementAutomationPeer.FromElement(matchingTextBlock) as TextBlockAutomationPeer;
                 }
+#endif
 
                 peer.GetChildren();
                 children.Add(peer);
