@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
 #if NETFX_CORE
-using DefaultPresenter = TextBlock;
+using DefaultPresenter = Windows.UI.Xaml.Controls.TextBlock;
 #else
 using DefaultPresenter = Windows.UI.Xaml.Controls.Border;
 #endif
@@ -177,7 +177,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
 		private DefaultPresenter CreateDefaultVisual()
         {
-#if NETFX_CPRE
+#if NETFX_CORE
 			TextBlock textBlock = new TextBlock();
 
 			this.AddVisualChild(textBlock);

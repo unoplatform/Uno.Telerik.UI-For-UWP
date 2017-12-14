@@ -19,9 +19,15 @@ namespace Telerik.Core
         public ElementScreenShotInfo(FrameworkElement targetElement)
         {
             FrameworkElement rootVisual = Window.Current.Content as FrameworkElement;
+
+#if NETFX_CORE
+			this.Popup = new Popup();
+#else
 			// TODO UNO
 			this.Popup = new Windows.UI.Xaml.Controls.Popup();
-            Canvas popupChild = new Canvas()
+#endif
+
+			Canvas popupChild = new Canvas()
             {
                 Width = rootVisual.ActualWidth,
                 Height = rootVisual.ActualHeight
@@ -98,17 +104,22 @@ namespace Telerik.Core
         /// <value>The original location.</value>
         public Point OriginalLocation { get; set; }
 
-        /// <summary>
-        /// Gets or sets the popup.
-        /// </summary>
-        /// <value>The popup.</value>
-        public Windows.UI.Xaml.Controls.Popup Popup { get; set; }
+		/// <summary>
+		/// Gets or sets the popup.
+		/// </summary>
+		/// <value>The popup.</value>
+#if NETFX_CORE
+        public Popup Popup { get; set; }
+#else
+		// TODO UNO
+		public Windows.UI.Xaml.Controls.Popup Popup { get; set; }
+#endif
 
-        /// <summary>
-        /// Gets or sets the screen shot container.
-        /// </summary>
-        /// <value>The screen shot container.</value>
-        public Rectangle ScreenShotContainer { get; set; }
+		/// <summary>
+		/// Gets or sets the screen shot container.
+		/// </summary>
+		/// <value>The screen shot container.</value>
+		public Rectangle ScreenShotContainer { get; set; }
 
         internal void Dispose()
         {

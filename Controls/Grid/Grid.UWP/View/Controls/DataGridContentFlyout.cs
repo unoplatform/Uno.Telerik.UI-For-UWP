@@ -44,9 +44,13 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         internal static readonly DependencyProperty IdProperty = 
             DependencyProperty.Register(nameof(Id), typeof(DataGridFlyoutId), typeof(DataGridContentFlyout), new PropertyMetadata(DataGridFlyoutId.All, OnIdChanged));
 
+#if NETFX_CORE
+		private Popup popup = new Popup() { ChildTransitions = new TransitionCollection(), IsLightDismissEnabled = false };
+#else
 		// UNO TODO
-        private Windows.UI.Xaml.Controls.Popup popup = new Windows.UI.Xaml.Controls.Popup() { /*ChildTransitions = new TransitionCollection(),*/ IsLightDismissEnabled = false };   
-        private Border content;
+		private Windows.UI.Xaml.Controls.Popup popup = new Windows.UI.Xaml.Controls.Popup() { /*ChildTransitions = new TransitionCollection(),*/ IsLightDismissEnabled = false };
+#endif
+		private Border content;
         private Storyboard opacityAnimationStoryboard = new Storyboard();
         private DoubleAnimation opacityAnimation;
         private TimeSpan AnimationDuration = TimeSpan.FromMilliseconds(150);

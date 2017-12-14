@@ -12,7 +12,7 @@ phases:
   queue:
     name: Default
     demands:
-    - Xamarin -equals 4.7.10.22
+    - Xamarin -equals 4.8.0.752
 
   steps:
 
@@ -46,6 +46,12 @@ phases:
       restoreNugetPackages: false
       logProjectEvents: false
       createLogFile: false
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: $(Build.SourcesDirectory)\SDKExamples.iOS\bin
+      Contents: $(Build.SourcesDirectory)\SDKExamples.iOS\bin\**\*.ipa
+      TargetFolder: $(build.artifactstagingdirectory)
 
   - task: PublishBuildArtifacts@1
     inputs:

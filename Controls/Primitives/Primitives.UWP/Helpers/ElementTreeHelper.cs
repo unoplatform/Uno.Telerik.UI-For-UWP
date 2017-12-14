@@ -113,8 +113,12 @@ namespace Telerik.UI.Xaml.Controls
 		/// over a tree of DependencyObjects.
 		/// </returns>
 		// UNO TODO
-		public static IEnumerable<T> EnumVisualDescendants<T>(DependencyObject parent) where T : class, DependencyObject
-        {
+		public static IEnumerable<T> EnumVisualDescendants<T>(DependencyObject parent) where T :
+#if !NETFX_CORE
+			class, 
+#endif
+			DependencyObject
+		{
             if (parent == null)
             {
                 yield break;

@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <!--<TargetFrameworks>uap10.0;xamarinios10</TargetFrameworks>-->
-    <TargetFrameworks>xamarinios10</TargetFrameworks>
+    <TargetFrameworks>uap10.0;xamarinios10</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>

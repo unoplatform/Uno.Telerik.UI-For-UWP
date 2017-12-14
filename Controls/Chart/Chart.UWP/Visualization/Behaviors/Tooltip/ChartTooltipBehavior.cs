@@ -25,8 +25,13 @@ namespace Telerik.UI.Xaml.Controls.Chart
         public static readonly DependencyProperty ContentTemplateProperty =
             DependencyProperty.RegisterAttached("ContentTemplate", typeof(DataTemplate), typeof(ChartTooltipBehavior), new PropertyMetadata(null));
 
-        private Windows.UI.Xaml.Controls.Popup toolTip;
-        private ChartTooltip toolTipContent;
+#if NETFX_CORE
+		private Popup toolTip;
+#else
+		// UNO TODO
+		private Windows.UI.Xaml.Controls.Popup toolTip;
+#endif
+		private ChartTooltip toolTipContent;
         private bool snapToClosestPoint;
         private Point touchOverhang = new Point(0, 24);
         private Point displayPosition;
@@ -41,9 +46,13 @@ namespace Telerik.UI.Xaml.Controls.Chart
         /// </summary>
         public ChartTooltipBehavior()
         {
-            this.toolTip = new Windows.UI.Xaml.Controls.Popup(); // UNO TODO
+#if NETFX_CORE
+			this.toolTip = new Popup();
+#else
+			this.toolTip = new Windows.UI.Xaml.Controls.Popup(); // UNO TODO
+#endif
 
-            this.toolTipContent = new ChartTooltip();
+			this.toolTipContent = new ChartTooltip();
             this.toolTipContent.SizeChanged += this.OnToolTipContent_SizeChanged;
 
             this.toolTip.Child = this.toolTipContent;

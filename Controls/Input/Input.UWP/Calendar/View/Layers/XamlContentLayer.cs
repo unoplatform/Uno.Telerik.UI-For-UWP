@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 #if NETFX_CORE
-using DefaultPresenter = TextBlock;
+using DefaultPresenter = Windows.UI.Xaml.Controls.TextBlock;
 #else
 using DefaultPresenter = Windows.UI.Xaml.Controls.Border;
 #endif
@@ -95,8 +95,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 }
             }
 
-			// TODO UNO
-            foreach (IFrameworkElement visual in this.recycledContainers)
+			foreach (DefaultPresenter visual in this.recycledContainers)
             {
                 visual.Visibility = Visibility.Collapsed;
             }
