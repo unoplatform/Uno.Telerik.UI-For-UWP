@@ -9,11 +9,9 @@
     xmlns:input="using:Telerik.UI.Xaml.Controls.Input"
     mc:Ignorable="d"  x:Name="page" >
 
-    <!--
-	UNO TODO
 	<Page.DataContext>
         <localCalendar:ViewModelCalendarEvents />
-    </Page.DataContext>-->
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.Resources>
