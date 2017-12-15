@@ -8,7 +8,7 @@
   <Import Project="..\..\CrossTargetting.props" />
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="1.24.1-dev.1526" />
+    <PackageReference Include="Uno.UI" Version="1.24.1-dev.1535" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +26,7 @@
 
   <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
     <PackageReference Include="Uno.UI">
-			<Version>1.24.1-dev.1526</Version>
+			<Version>1.24.1-dev.1535</Version>
 		</PackageReference>
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
