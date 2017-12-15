@@ -8,6 +8,10 @@
 	<Import Project="..\..\CrossTargetting.props" />
 
 	<ItemGroup>
+	  <PackageReference Include="Uno.UI" Version="1.24.1-dev.1526" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
 		<ProjectReference Include="..\..\Data.UWP\Telerik.Data.csproj" />
 		<ProjectReference Include="..\..\Input\Input.UWP\Telerik.Input.csproj" />
@@ -16,7 +20,7 @@
 
 	<ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
 		<PackageReference Include="Uno.UI">
-			<Version>1.24.1-dev.1510</Version>
+			<Version>1.24.1-dev.1526</Version>
 		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>

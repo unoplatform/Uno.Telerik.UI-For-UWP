@@ -8,6 +8,10 @@
 	<Import Project="..\..\CrossTargetting.props" />
 
 	<ItemGroup>
+	  <PackageReference Include="Uno.UI" Version="1.24.1-dev.1526" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Page Include="Themes\Generic.xaml" />
 		<Page Include="Themes\Resources.xaml" />
 		<Page Include="Themes\ThemeResourcesLight.xaml" />
@@ -20,7 +24,7 @@
 
 	<ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
 		<PackageReference Include="Uno.UI">
-			<Version>1.24.1-dev.1510</Version>
+			<Version>1.24.1-dev.1526</Version>
 		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
