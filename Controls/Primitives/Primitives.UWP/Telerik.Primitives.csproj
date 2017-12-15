@@ -9,7 +9,7 @@
 
   <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
     <PackageReference Include="Uno.UI">
-			<Version>1.24.1-dev.1510</Version>
+			<Version>1.24.1-dev.1526</Version>
 		</PackageReference>
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
@@ -18,6 +18,10 @@
     <None Remove="Themes\SharedResources.xaml" />
     <None Remove="Themes\ThemeColorsLight.xaml" />
     <None Remove="Themes\ThemeResourcesLight.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Uno.UI" Version="1.24.1-dev.1526" />
   </ItemGroup>
 
   <ItemGroup>
