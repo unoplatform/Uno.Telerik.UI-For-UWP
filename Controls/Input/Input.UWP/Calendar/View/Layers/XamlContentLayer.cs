@@ -255,7 +255,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 			if (this.recycledContainers.Count > 0)
 			{
 				visual = this.recycledContainers.Dequeue();
-				(visual.Child as TextBlock).ClearValue(TextBlock.VisibilityProperty);
+				visual.ClearValue(Border.VisibilityProperty);
 				this.realizedCalendarCellDefaultPresenters.Add(cell, visual);
 			}
 			else
