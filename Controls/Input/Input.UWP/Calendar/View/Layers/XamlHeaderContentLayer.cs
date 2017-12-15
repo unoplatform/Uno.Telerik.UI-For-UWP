@@ -19,7 +19,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
     {
         internal List<DefaultPresenter> realizedCalendarCellDefaultPresenters;
 
-        private TextBlock measurementPresenter;
+        private DefaultPresenter measurementPresenter;
         private Canvas contentPanel;
 
         public XamlHeaderContentLayer()
@@ -89,32 +89,39 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             if (owner is CalendarHeaderCellType)
             {
                 CalendarHeaderCellType headerType = (CalendarHeaderCellType)owner;
-                if (headerType == CalendarHeaderCellType.DayName)
+
+
+#if NETFX_CORE
+				var localPresenter = this.measurementPresenter;
+#else
+				// UNO TODO
+				var localPresenter = this.measurementPresenter.Child as TextBlock;
+#endif
+
+				if (headerType == CalendarHeaderCellType.DayName)
                 {
                     if (this.Owner.DayNameCellStyleSelector != null)
                     {
-                        this.measurementPresenter.Style = this.Owner.DayNameCellStyleSelector.SelectStyle(new CalendarCellStyleContext() { Label = content.ToString() }, this.Owner);
+						localPresenter.Style = this.Owner.DayNameCellStyleSelector.SelectStyle(new CalendarCellStyleContext() { Label = content.ToString() }, this.Owner);
                     }
                     else
                     {
-                        this.measurementPresenter.Style = this.Owner.DayNameCellStyle != null 
-                            ? this.Owner.DayNameCellStyle.ContentStyle 
-                            : this.Owner.defaultDayNameCellStyle.ContentStyle;
+						localPresenter.Style = this.Owner.DayNameCellStyle.ContentStyle;
                     }
                 }
                 else
                 {
                     if (this.Owner.WeekNumberCellStyleSelector != null)
                     {
-                        this.measurementPresenter.Style = this.Owner.WeekNumberCellStyleSelector.SelectStyle(new CalendarCellStyleContext() { Label = content.ToString() }, this.Owner);
+						localPresenter.Style = this.Owner.WeekNumberCellStyleSelector.SelectStyle(new CalendarCellStyleContext() { Label = content.ToString() }, this.Owner);
                     }
                     else
                     {
-                        this.measurementPresenter.Style = this.Owner.WeekNumberCellStyle.ContentStyle;
+						localPresenter.Style = this.Owner.WeekNumberCellStyle.ContentStyle;
                     }
                 }
 
-                this.measurementPresenter.Text = content.ToString();
+				localPresenter.Text = content.ToString();
 
 				return XamlContentLayerHelper.MeasureVisual(this.measurementPresenter);  
 			}
@@ -161,7 +168,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 			{
 				visual = this.realizedCalendarCellDefaultPresenters[virtualIndex];
 
-				(visual.Child as TextBlock).ClearValue(TextBlock.VisibilityProperty);
+				visual.ClearValue(Border.VisibilityProperty);
 				(visual.Child as TextBlock).ClearValue(TextBlock.StyleProperty);
 			}
 			else
@@ -171,7 +178,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
 			XamlContentLayerHelper.PrepareDefaultVisualUno(visual, cell);
 
-			return new Border { Child = visual };
+			return visual;
 #endif
 		}
 
@@ -201,13 +208,22 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             if (this.measurementPresenter == null)
             {
-                this.measurementPresenter = new TextBlock();
+#if NETFX_CORE
+				this.measurementPresenter = new TextBlock();
                 this.measurementPresenter.Opacity = 0;
                 this.measurementPresenter.IsHitTestVisible = false;
 
 				// TODO UNO
                 // this.AddVisualChild(this.measurementPresenter);
-            }
-        }
+#else
+				// TODO UNO
+				this.measurementPresenter = new Border { Child = new TextBlock() };
+				this.measurementPresenter.Opacity = 0;
+				this.measurementPresenter.IsHitTestVisible = false;
+
+				this.AddVisualChild(this.measurementPresenter);
+#endif
+			}
+		}
     }
 }
