@@ -8,6 +8,7 @@
     xmlns:telerikPrimitives="using:Telerik.UI.Xaml.Controls.Primitives">
 
     <ResourceDictionary.MergedDictionaries>
+		<!-- UNO TODO
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Dark" Source="ms-appx:///Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesDark.xaml"/>
@@ -24,6 +25,7 @@
                 <ResourceDictionary x:Key="HighContrast" Source="{CustomResource HighContrastResourcesPath}"/>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
+		-->
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ShiftButtonStyle"  TargetType="Button">
@@ -397,7 +399,7 @@
         <Setter Property="Fill" Value="{StaticResource ApplicationForegroundThemeBrush}"/>
     </Style>
 
-    <telerikCore:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    <!--<telerikCore:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>-->
 
     <Style TargetType="local:RadDataBoundListBox" x:Key="baseListBoxStyle">
         <Setter Property="Background" Value="#00ffffff"/>

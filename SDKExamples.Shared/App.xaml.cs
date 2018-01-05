@@ -47,6 +47,7 @@ namespace SDKExamples.UWP
 
 
 			System.Console.WriteLine($"ProcessID: {Process.GetCurrentProcess().Id} name: {Process.GetCurrentProcess().ProcessName}");
+
 #endif
 
 #if NETFX_CORE
@@ -58,6 +59,7 @@ namespace SDKExamples.UWP
             this.Suspending += OnSuspending;
 
 		}
+
 
 		/// <summary>
 		/// Invoked when the application is launched normally by the end user.  Other entry points

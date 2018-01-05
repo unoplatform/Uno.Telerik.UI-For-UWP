@@ -47,7 +47,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listview" Margin="10" SelectedIndex="0">
+        <ListView x:Name="listview" Margin="10" SelectedIndex="0" Width="120">
             <ListViewItem>
                 <ListViewItem.DataContext>
                     <DataTemplate>

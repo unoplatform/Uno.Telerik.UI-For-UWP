@@ -12,6 +12,12 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     {
         internal RadListView Owner { get; set; }
 
+		// UNO TODO
+		public ListViewRootPanel()
+		{
+
+		}
+
         /// <inheritdoc/>
         protected override Size MeasureOverride(Size availableSize)
         {

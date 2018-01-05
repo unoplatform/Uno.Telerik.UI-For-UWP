@@ -21,6 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+		<EmbeddedResource Include="BusyIndicator\Animations\*.xaml" />
+		<EmbeddedResource Include="**\*.png" />
+	</ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Uno.UI" Version="1.24.1-dev.1535" />
   </ItemGroup>
 
