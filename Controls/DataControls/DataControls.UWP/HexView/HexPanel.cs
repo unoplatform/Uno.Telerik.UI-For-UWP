@@ -11,6 +11,11 @@ namespace Telerik.UI.Xaml.Controls.Data
         internal bool measureRequested = true;
         private Size sizeCache;
 
+		// UNO TODO
+		public HexPanel()
+		{
+		}
+
         internal RadHexView Owner { get; set; }
 
         /// <inheritdoc/>

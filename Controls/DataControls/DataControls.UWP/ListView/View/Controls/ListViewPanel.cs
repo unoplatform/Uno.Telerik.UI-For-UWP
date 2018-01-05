@@ -18,6 +18,12 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         private bool isInMeasure;
         private bool measured = false;
 
+		// UNO TODO
+		public ListViewPanel()
+		{
+
+		}
+
         internal bool IsInMeasure
         {
             get

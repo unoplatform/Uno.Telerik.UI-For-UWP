@@ -10,7 +10,14 @@
 	<ItemGroup>
 	  <PackageReference Include="Uno.UI" Version="1.24.1-dev.1535" />
 	</ItemGroup>
-
+	
+	<ItemGroup>
+		<Page Include="Themes\Generic.xaml" />
+		<Page Include="Themes\DataForm.xaml" />
+		<Page Include="Themes\ListBox.xaml" />
+		<Page Include="Themes\ThemeResourcesLight.xaml" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
 		<ProjectReference Include="..\..\Data.UWP\Telerik.Data.csproj" />
