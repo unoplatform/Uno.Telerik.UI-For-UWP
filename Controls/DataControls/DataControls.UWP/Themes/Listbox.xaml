@@ -7,17 +7,19 @@
     xmlns:telerikListBox="using:Telerik.UI.Xaml.Controls.Data.DataBoundListBox"
     xmlns:telerikPrimitives="using:Telerik.UI.Xaml.Controls.Primitives">
 
-    <ResourceDictionary.MergedDictionaries>
-		<!-- UNO TODO
-        <ResourceDictionary>
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Dark" Source="ms-appx:///Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesDark.xaml"/>
-                <ResourceDictionary x:Key="Light" Source="ms-appx:///Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesLight.xaml"/>
-                <ResourceDictionary x:Key="HighContrast" Source="ms-appx:///Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesHighContrast.xaml"/>
-            </ResourceDictionary.ThemeDictionaries>
-        </ResourceDictionary>
+    xmlns:telerikCore="using:Telerik.Core"
+    xmlns:theming="using:Telerik.UI.Xaml.Controls">
 
-        <ResourceDictionary>
+    <ResourceDictionary.ThemeDictionaries>
+        <!-- UNO TODO
+        <ResourceDictionary x:Key="Default">
+            <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesDark.xaml"/>
+                <ResourceDictionary Source="{CustomResource DarkResourcesPath}"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+		<ResourceDictionary x:Key="Light">
             <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Dark" Source="{CustomResource DarkResourcesPath}"/>
@@ -25,8 +27,14 @@
                 <ResourceDictionary x:Key="HighContrast" Source="{CustomResource HighContrastResourcesPath}"/>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
-		-->
-    </ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary x:Key="HighContrast">
+            <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesHighContrast.xaml"/>
+                <ResourceDictionary Source="{CustomResource HighContrastResourcesPath}"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+    </ResourceDictionary.ThemeDictionaries>
 
     <Style x:Key="ShiftButtonStyle"  TargetType="Button">
         <Setter Property="Background" Value="Blue"/>
