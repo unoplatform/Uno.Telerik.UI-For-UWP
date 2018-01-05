@@ -9,6 +9,12 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
     /// </summary>
     public partial class ChildrenListViewPanel : Canvas
     {
+		// UNO TODO
+		public ChildrenListViewPanel()
+		{
+
+		}
+
         /// <inheritdoc/>
         protected override Size ArrangeOverride(Size finalSize)
         {
