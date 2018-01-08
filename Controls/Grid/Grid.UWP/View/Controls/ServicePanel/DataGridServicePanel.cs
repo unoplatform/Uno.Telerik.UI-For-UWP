@@ -163,13 +163,15 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             var descriptor = (sender as FrameworkElement).DataContext as GroupDescriptorBase;
             if (descriptor == null)
             {
-                Debug.Assert(false, "Invalid HandleGroupFlyoutHeaderClosed event sender");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "Invalid HandleGroupFlyoutHeaderClosed event sender");
                 return;
             }
 
             if (descriptor is CollectionViewGroupDescriptor)
             {
-                Debug.Assert(false, "CollectionViewGroupDescriptor cannot be removed by the user.");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "CollectionViewGroupDescriptor cannot be removed by the user.");
                 return;
             }
 
@@ -206,7 +208,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             var descriptor = (sender as FrameworkElement).DataContext as GroupDescriptorBase;
             if (descriptor == null)
             {
-                Debug.Assert(false, "Invalid HandleGroupFlyoutHeaderClosed event sender");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "Invalid HandleGroupFlyoutHeaderClosed event sender");
                 return;
             }
 

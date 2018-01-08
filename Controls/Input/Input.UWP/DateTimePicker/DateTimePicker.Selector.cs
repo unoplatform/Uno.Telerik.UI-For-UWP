@@ -1147,11 +1147,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
-        private void OnCoreWindowKeyDown(CoreWindow sender, KeyEventArgs args)
+        private void OnCoreWindowKeyDown(CoreWindow sender, /* UNO TODO */ Windows.UI.Core.KeyEventArgs args)
         {
             if (!this.IsOpen)
             {
-                Debug.Assert(false, "This event should be handled ONLY if the popup is opened");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "This event should be handled ONLY if the popup is opened");
                 this.UnhookCoreWindowEvents();
                 return;
             }
@@ -1558,7 +1559,8 @@ namespace Telerik.UI.Xaml.Controls.Input
             Panel layoutRoot = this.popup.Parent as Panel;
             if (layoutRoot == null)
             {
-                Debug.Assert(false, "No layout root associated with the Control template.");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "No layout root associated with the Control template.");
                 return;
             }
 
@@ -1567,7 +1569,8 @@ namespace Telerik.UI.Xaml.Controls.Input
                 FrameworkElement content = this.popup.Child as FrameworkElement;
                 if (content == null)
                 {
-                    Debug.Assert(false, "No popup child");
+					// UNO TODO
+					System.Diagnostics.Debug.Assert(false, "No popup child");
                     return;
                 }
 

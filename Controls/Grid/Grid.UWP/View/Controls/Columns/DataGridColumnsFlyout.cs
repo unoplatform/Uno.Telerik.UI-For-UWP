@@ -162,7 +162,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             DataGridColumn column = (sender as DataGridFlyoutColumnHeader).DataContext as DataGridColumn;
 
-            Debug.Assert(column != null, "A column should be present as DataContext");
+			// UNO TODO
+			System.Diagnostics.Debug.Assert(column != null, "A column should be present as DataContext");
             if (column == null)
             {
                 return;
@@ -175,7 +176,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             DataGridColumn column = (sender as DataGridFlyoutColumnHeader).DataContext as DataGridColumn;
 
-            Debug.Assert(column != null, "A column should be present as DataContext");
+			// UNO TODO
+			System.Diagnostics.Debug.Assert(column != null, "A column should be present as DataContext");
             if (column == null)
             {
                 return;

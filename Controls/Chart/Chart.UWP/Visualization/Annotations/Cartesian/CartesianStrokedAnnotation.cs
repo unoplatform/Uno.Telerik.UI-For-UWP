@@ -334,7 +334,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
             FrameworkElement visual = this.GetLabelVisual(context);
             if (visual == null)
             {
-                Debug.Assert(false, "No label visual created.");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "No label visual created.");
                 return;
             }
 
