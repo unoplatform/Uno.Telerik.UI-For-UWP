@@ -88,7 +88,8 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
             {
                 if (segment.Path == null)
                 {
-                    Debug.Assert(false, "Missing segment path.");
+					// UNO TODO
+					System.Diagnostics.Debug.Assert(false, "Missing segment path.");
                     continue;
                 }
 

@@ -374,7 +374,8 @@ namespace Telerik.UI.Xaml.Controls.Input.DateTimePickers
 
             if (string.IsNullOrEmpty(input))
             {
-                Debug.Assert(RadControl.IsInTestMode, "Must have typed input at this point.");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(RadControl.IsInTestMode, "Must have typed input at this point.");
                 return false;
             }
 

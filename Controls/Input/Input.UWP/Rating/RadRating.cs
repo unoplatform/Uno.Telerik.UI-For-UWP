@@ -464,7 +464,8 @@ namespace Telerik.UI.Xaml.Controls.Input
             int index = this.GetIndexOf(ratingItem);
             if (index == -1)
             {
-                Debug.Assert(false, "Unknown item");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "Unknown item");
                 return;
             }
 

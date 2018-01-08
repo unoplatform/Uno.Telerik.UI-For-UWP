@@ -769,7 +769,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.LoopingList
 
         internal virtual LoopingListDataItem CreateDataItem(int logicalIndex)
         {
-            Debug.WriteLine("logical index: {0}", logicalIndex);
+			// UNO TODO
+            System.Diagnostics.Debug.WriteLine("logical index: {0}", logicalIndex);
             if (this.ItemsSource[logicalIndex] != null)
             {
                 return new LoopingListDataItem() { Item = this.ItemsSource[logicalIndex] };
@@ -850,7 +851,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.LoopingList
                 visualIndex += count;
             }
 
-            Debug.Assert(visualIndex >= 0, "Visual index should not be negative.");
+			// UNO TODO
+            System.Diagnostics.Debug.Assert(visualIndex >= 0, "Visual index should not be negative.");
 
             return visualIndex;
         }

@@ -487,7 +487,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 object dataItem = context.Point.dataItem;
                 if (dataItem == null)
                 {
-                    Debug.Assert(false, string.Format("Failed to retrieve data item for data point at index {0}", context.Point.CollectionIndex));
+					// UNO TODO
+					System.Diagnostics.Debug.Assert(false, string.Format("Failed to retrieve data item for data point at index {0}", context.Point.CollectionIndex));
                     return null;
                 }
 
@@ -807,7 +808,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 pointLabels = this.labels[context.PointVirtualIndex].Value;
                 if (pointLabels == null)
                 {
-                    Debug.Assert(false, "Must have list of label visuals created at this point");
+					// UNO TODO
+					System.Diagnostics.Debug.Assert(false, "Must have list of label visuals created at this point");
                     return null;
                 }
 
@@ -946,7 +948,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
             FrameworkElement visual = this.GetLabelVisual(context);
             if (visual == null)
             {
-                Debug.Assert(false, "No label visual created.");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "No label visual created.");
                 return;
             }
 
