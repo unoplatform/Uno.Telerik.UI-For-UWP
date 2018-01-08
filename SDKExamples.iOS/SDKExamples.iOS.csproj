@@ -59,7 +59,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <BuildIpa>true</BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
@@ -103,6 +103,21 @@
     <BundleResource Include="Assets\Fonts\segmdl2.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Assets\Fonts\seguisym.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Assets\Fonts\segoeui.ttf" />
+    <BundleResource Include="Assets\Fonts\segoeuib.ttf" />
+    <BundleResource Include="Assets\Fonts\segoeuii.ttf" />
+    <BundleResource Include="Assets\Fonts\segoeuil.ttf" />
+    <BundleResource Include="Assets\Fonts\segoeuisl.ttf" />
+    <BundleResource Include="Assets\Fonts\segoeuiz.ttf" />
+    <BundleResource Include="Assets\Fonts\seguibl.ttf" />
+    <BundleResource Include="Assets\Fonts\seguibli.ttf" />
+    <BundleResource Include="Assets\Fonts\seguili.ttf" />
+    <BundleResource Include="Assets\Fonts\seguisb.ttf" />
+    <BundleResource Include="Assets\Fonts\seguisbi.ttf" />
+    <BundleResource Include="Assets\Fonts\seguisli.ttf" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>
     </None>
