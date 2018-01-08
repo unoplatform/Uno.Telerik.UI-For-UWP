@@ -41,6 +41,19 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Assets/Fonts/segmdl2.ttf</string>
+		<string>Assets/Fonts/segoeui.ttf</string>
+		<string>Assets/Fonts/segoeuib.ttf</string>
+		<string>Assets/Fonts/segoeuii.ttf</string>
+		<string>Assets/Fonts/segoeuil.ttf</string>
+		<string>Assets/Fonts/segoeuisl.ttf</string>
+		<string>Assets/Fonts/segoeuiz.ttf</string>
+		<string>Assets/Fonts/seguibl.ttf</string>
+		<string>Assets/Fonts/seguibli.ttf</string>
+		<string>Assets/Fonts/seguili.ttf</string>
+		<string>Assets/Fonts/seguisb.ttf</string>
+		<string>Assets/Fonts/seguisbi.ttf</string>
+		<string>Assets/Fonts/seguisli.ttf</string>
+		<string>Assets/Fonts/seguisym.ttf</string>
 	</array>
 </dict>
 </plist>
