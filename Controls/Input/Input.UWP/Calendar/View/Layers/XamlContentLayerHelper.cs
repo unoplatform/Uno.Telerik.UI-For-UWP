@@ -22,7 +22,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 		{
 			visual.ClearValue(TextBlock.WidthProperty);
 			visual.ClearValue(TextBlock.HeightProperty);
-			var result = visual.Measure(RadCalendar.InfinitySize);
+			var result = IFrameworkElementHelper.Measure(visual, RadCalendar.InfinitySize);
 
 			return new RadSize(result.Width, result.Height);
 		}

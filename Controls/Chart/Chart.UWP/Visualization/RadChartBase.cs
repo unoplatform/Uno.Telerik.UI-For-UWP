@@ -610,7 +610,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
         {
             if (!this.invalidateScheduled && !RadControl.IsInTestMode)
             {
-                Debug.Assert(false, "OnInvalidated received without the flag being raised.");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "OnInvalidated received without the flag being raised.");
                 return;
             }
 

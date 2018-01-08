@@ -242,7 +242,8 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
         {
             if (this.ownerGauge == null)
             {
-                Debug.Assert(false, "Must have an owner gauge reference at this point.");
+				// UNO TODO
+                System.Diagnostics.Debug.Assert(false, "Must have an owner gauge reference at this point.");
                 return base.MeasureOverride(availableSize);
             }
 
@@ -302,7 +303,8 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
         {
             if (this.ownerGauge == null)
             {
-                Debug.Assert(false, "Must have an owner gauge reference at this point.");
+				// UNO TODO
+				System.Diagnostics.Debug.Assert(false, "Must have an owner gauge reference at this point.");
                 return base.ArrangeOverride(finalSize);
             }
 
