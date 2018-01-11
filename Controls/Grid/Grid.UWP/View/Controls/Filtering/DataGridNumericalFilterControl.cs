@@ -41,8 +41,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             var descriptor = new NumericalFilterDescriptor();
             descriptor.PropertyName = this.PropertyName;
-			// UNO TODO
-			// descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
+			descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
 			descriptor.Value = this.valueBox.Value;
 
             return descriptor;

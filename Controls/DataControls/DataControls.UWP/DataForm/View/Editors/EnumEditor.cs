@@ -44,8 +44,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             b4.Path = new PropertyPath("PropertyValue");
             b4.Converter = new EnumToIndexConverter();
 
-			// UNO TODO
-			//this.SetBinding(EnumEditor.SelectedIndexProperty, b4);
+			this.SetBinding(EnumEditor.SelectedIndexProperty, b4);
 		}
 
 		protected override DependencyObject GetContainerForItemOverride()

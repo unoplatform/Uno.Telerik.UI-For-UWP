@@ -32,8 +32,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             var descriptor = new DataGridNestedPropertyTextFilterDescriptor();
 
-			// UNO TODO
-			// descriptor.Operator = (TextOperator)this.OperatorCombo.SelectedIndex;
+			descriptor.Operator = (TextOperator)this.OperatorCombo.SelectedIndex;
 			descriptor.Value = this.TextBox.Text;
             descriptor.IsCaseSensitive = this.IsCaseSensitive;
             descriptor.ItemPropertyGetter = this.ItemPropertyGetter;

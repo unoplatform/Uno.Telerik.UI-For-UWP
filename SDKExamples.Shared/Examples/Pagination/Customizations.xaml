@@ -36,7 +36,7 @@
                     <Setter Property="CurrentIndexFormat" Value=" {0:0} image" />
                 </Style>
             </primitives:RadPaginationControl.Resources>-->
-            <primitives:RadPaginationControl.ListItemTemplate>
+			<primitives:RadPaginationControl.ListItemTemplate>
                 <DataTemplate>
                     <Border Width="50" Height="50" Padding="1">
                         <Image VerticalAlignment="Center" HorizontalAlignment="Center"

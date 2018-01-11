@@ -26,11 +26,10 @@ namespace Telerik.UI.Xaml.Controls.Data
     [TemplatePart(Name = "PART_EmptyContentPresenter", Type = typeof(Canvas))]
     [TemplatePart(Name = "PART_CheckBoxesPressIndicator", Type = typeof(Rectangle))]
     [StyleTypedPropertyAttribute(Property = "ItemContainerStyle", StyleTargetType = typeof(RadDataBoundListBoxItem))]
-	// UNO TODO
-    //[StyleTypedPropertyAttribute(Property = "PullToRefreshIndicatorStyle", StyleTargetType = typeof(PullToRefreshIndicatorControl))]
-    //[StyleTypedPropertyAttribute(Property = "ItemReorderControlStyle", StyleTargetType = typeof(ItemReorderControl))]
-    //[StyleTypedPropertyAttribute(Property = "CheckBoxStyle", StyleTargetType = typeof(ItemCheckBox))]
-    public partial class RadDataBoundListBox : RadVirtualizingDataControl
+	[StyleTypedPropertyAttribute(Property = "PullToRefreshIndicatorStyle", StyleTargetType = typeof(PullToRefreshIndicatorControl))]
+	[StyleTypedPropertyAttribute(Property = "ItemReorderControlStyle", StyleTargetType = typeof(ItemReorderControl))]
+	[StyleTypedPropertyAttribute(Property = "CheckBoxStyle", StyleTargetType = typeof(ItemCheckBox))]
+	public partial class RadDataBoundListBox : RadVirtualizingDataControl
     {
         /// <summary>
         /// Identifies the <see cref="CheckBoxStyle"/> dependency property.
