@@ -343,7 +343,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Model
             if (view != null)
             {
                 this.isCurrentItemSynchronizing = true;
-                // UNO TODO this.GridView.CurrencyService.MoveCurrentTo(view.CurrentItem);
+                this.GridView.CurrencyService.MoveCurrentTo(view.CurrentItem);
                 this.isCurrentItemSynchronizing = false;
             }
         }
