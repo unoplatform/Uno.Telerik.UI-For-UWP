@@ -222,7 +222,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             editorContent.SetBinding(ComboBox.DisplayMemberPathProperty, displayMemberPathBinding);
 
 			// UNO TODO
-            // editorContent.SetBinding(ComboBox.SelectedValuePathProperty, selectedValuePathBinding);
+            //editorContent.SetBinding(ComboBox.SelectedValuePathProperty, selectedValuePathBinding);
 
             if (!string.IsNullOrEmpty(this.SelectedValuePath))
             {
