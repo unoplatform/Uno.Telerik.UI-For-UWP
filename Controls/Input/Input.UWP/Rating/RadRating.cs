@@ -1259,12 +1259,11 @@ namespace Telerik.UI.Xaml.Controls.Input
                 var ratingItem = this.Items.ElementAtOrDefault((int)newValue - 1) as RadRatingItem;
                 if (ratingItem != null)
                 {
-					// UNO TODO
-					//var ratingItemPeer = FrameworkElementAutomationPeer.FromElement(ratingItem);
-					//if (ratingItemPeer != null)
-					//{
-					//    ratingItemPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);
-					//}
+					var ratingItemPeer = FrameworkElementAutomationPeer.FromElement(ratingItem);
+					if (ratingItemPeer != null)
+					{
+						ratingItemPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);
+					}
 				}
 			}
         }

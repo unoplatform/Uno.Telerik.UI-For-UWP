@@ -642,8 +642,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             if (view != null)
             {
                 this.isCurrentItemSynchronizing = true;
-				// UNO TODO
-				//this.View.CurrencyService.MoveCurrentTo(view.CurrentItem);
+				this.View.CurrencyService.MoveCurrentTo(view.CurrentItem);
 				this.isCurrentItemSynchronizing = false;
             }
         }

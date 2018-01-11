@@ -106,16 +106,16 @@ namespace Telerik.UI.Automation.Peers
                                     dataGridPeers.childrenCache.Add(peer);
                                 }
 
-                                var cellContainer = cell.Container as TextBlock;
-                                if (cellContainer != null)
-                                {
-									// UNO TODO
-									// var tbPeer = FrameworkElementAutomationPeer.FromElement(cellContainer) as TextBlockAutomationPeer;
-                                    // if (tbPeer != null)
-                                    // {
-                                    //     peer.ChildTextBlockPeer = tbPeer;
-                                    // }
-                                }
+								// UNO TODO
+        //                        var cellContainer = cell.Container as TextBlock;
+        //                        if (cellContainer != null)
+        //                        {
+								//	var tbPeer = FrameworkElementAutomationPeer.FromElement(cellContainer) as TextBlockAutomationPeer;
+								//	if (tbPeer != null)
+								//	{
+								//		peer.ChildTextBlockPeer = tbPeer;
+								//	}
+								//}
 
                                 children.Add(peer);
                             }

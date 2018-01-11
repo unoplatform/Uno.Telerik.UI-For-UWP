@@ -119,16 +119,15 @@
                                         <Path Stroke="Red" StrokeThickness="2">
                                             <Path.Data>
                                                 <PathGeometry>
-                                                    <!-- UNO TODO
 													<PathGeometry.Figures>
-                                                        <PathFigure StartPoint="0,0">
-                                                            <LineSegment Point="20,30"/>
-                                                        </PathFigure>
-                                                        <PathFigure StartPoint="0,30">
-                                                            <LineSegment Point="20,0"/>
-                                                        </PathFigure>
-                                                    </PathGeometry.Figures>-->
-                                                </PathGeometry>
+														<PathFigure StartPoint="0,0">
+															<LineSegment Point="20,30" />
+														</PathFigure>
+														<PathFigure StartPoint="0,30">
+															<LineSegment Point="20,0" />
+														</PathFigure>
+													</PathGeometry.Figures>
+												</PathGeometry>
                                             </Path.Data>
                                         </Path>
                                     </chart:PolarCustomAnnotation.Content>

@@ -887,7 +887,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             base.OnTemplateApplied();
 
             this.scrollViewer.ViewChanged += this.OnScrollViewerViewChanged;
-            // UNO TODO this.scrollViewer.AddHandler(ScrollViewer.KeyDownEvent, this.keyDownHandler, true);
+            //UNO TODO this.scrollViewer.AddHandler(ScrollViewer.KeyDownEvent, this.keyDownHandler, true);
 
             this.columnHeadersPanel.Owner = this;
             this.cellsPanel.Owner = this;

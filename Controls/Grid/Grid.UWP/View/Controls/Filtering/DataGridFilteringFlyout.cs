@@ -412,25 +412,24 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         /// </summary>
         protected override void OnTemplateApplied()
         {
-			// UNO TODO
-			// this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.And.ToString()));
-			// this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.Or.ToString()));
-			// 
-            // var compositeDescriptor = this.context.AssociatedDescriptor as CompositeFilterDescriptor;
-            // if (compositeDescriptor != null && this.context.SecondFilterControl != null)
-            // {
-            //     this.logicalOperatorCombo.SelectedIndex = compositeDescriptor.Operator == LogicalOperator.And ? 0 : 1;
-            //     this.IsExpanded = true;
-            // }
-            // else
-            // {
-            //     this.logicalOperatorCombo.SelectedIndex = 0;
-            // }
-			// 
-            // base.OnTemplateApplied();
-			// 
-            // this.UpdateStyles();
-        }
+			this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.And.ToString()));
+			this.logicalOperatorCombo.Items.Add(GridLocalizationManager.Instance.GetString(LogicalOperator.Or.ToString()));
+
+			var compositeDescriptor = this.context.AssociatedDescriptor as CompositeFilterDescriptor;
+			if (compositeDescriptor != null && this.context.SecondFilterControl != null)
+			{
+				this.logicalOperatorCombo.SelectedIndex = compositeDescriptor.Operator == LogicalOperator.And ? 0 : 1;
+				this.IsExpanded = true;
+			}
+			else
+			{
+				this.logicalOperatorCombo.SelectedIndex = 0;
+			}
+
+			base.OnTemplateApplied();
+
+			this.UpdateStyles();
+		}
 
         /// <summary>
         /// Builds the current visual state for this instance.
