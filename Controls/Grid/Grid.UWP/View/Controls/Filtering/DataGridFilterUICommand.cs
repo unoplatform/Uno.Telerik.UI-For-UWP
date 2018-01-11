@@ -79,8 +79,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             if (this.owner.IsExpanded)
             {
                 CompositeFilterDescriptor compositeDescriptor = new CompositeFilterDescriptor();
-				// UNO TODO
-				//  compositeDescriptor.Operator = (LogicalOperator)this.owner.OperatorCombo.SelectedIndex;
+				compositeDescriptor.Operator = (LogicalOperator)this.owner.OperatorCombo.SelectedIndex;
 				var firstDescriptor = this.owner.FirstFilterControl.BuildDescriptor();
                 var secondDescriptor = this.owner.SecondFilterControl == null ? null : this.owner.SecondFilterControl.BuildDescriptor();
 

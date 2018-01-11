@@ -27,8 +27,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             var descriptor = new DateTimeFilterDescriptor();
             descriptor.PropertyName = this.PropertyName;
-			// UNO TODO
-			// descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
+			descriptor.Operator = (NumericalOperator)this.OperatorCombo.SelectedIndex;
 
 			if (this.Picker != null)
             {

@@ -136,8 +136,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             if (this.itemsSourceAsCollectionView != null)
             {
-				// UNO TODO
-				// this.itemsSourceAsCollectionView.CurrentChanged -= this.OnItemsSourceCurrentChanged;
+				this.itemsSourceAsCollectionView.CurrentChanged -= this.OnItemsSourceCurrentChanged;
             }
 
             this.itemsSourceAsCollectionView = newSource as ICollectionView;
@@ -145,9 +144,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             if (this.itemsSourceAsCollectionView != null)
             {
-				// UNO TODO
-				//  this.itemsSourceAsCollectionView.CurrentChanged += this.OnItemsSourceCurrentChanged;
-				//this.ChangeCurrentItem(this.itemsSourceAsCollectionView.CurrentItem, false, false);
+				this.itemsSourceAsCollectionView.CurrentChanged += this.OnItemsSourceCurrentChanged;
+				this.ChangeCurrentItem(this.itemsSourceAsCollectionView.CurrentItem, false, false);
             }
             else
             {
@@ -231,8 +229,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 this.Owner.SelectedItem = this.currentItem;
                 if (this.itemsSourceAsCollectionView != null)
                 {
-					// UNO TODO
-					// this.itemsSourceAsCollectionView.MoveCurrentTo(this.currentItem);
+					this.itemsSourceAsCollectionView.MoveCurrentTo(this.currentItem);
 				}
 			}
 

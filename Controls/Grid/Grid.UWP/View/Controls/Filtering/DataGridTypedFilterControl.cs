@@ -56,9 +56,8 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             // populate the operator combo
             foreach (var op in this.GetOperators())
             {
-				// UNO TODO
-				// this.operatorCombo.Items.Add(op);
-            }
+				this.operatorCombo.Items.Add(op);
+			}
         }
 
         /// <inheritdoc/>

@@ -15,16 +15,15 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
         }
 
-        /// <summary>
-        /// Creates or identifies the element that is used to display the given item.
-        /// </summary>
-        /// <returns>
-        /// The element that is used to display the given item.
-        /// </returns>
-		// UNO TODO
-        //protected override DependencyObject GetContainerForItemOverride()
-        //{
-        //    return new DataGridFilterComboBoxItem();
-        //}
-    }
+		/// <summary>
+		/// Creates or identifies the element that is used to display the given item.
+		/// </summary>
+		/// <returns>
+		/// The element that is used to display the given item.
+		/// </returns>
+		protected override DependencyObject GetContainerForItemOverride()
+		{
+			return new DataGridFilterComboBoxItem();
+		}
+	}
 }

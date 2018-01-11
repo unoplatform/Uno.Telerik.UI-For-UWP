@@ -62,16 +62,14 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             get
             {
-				// UNO TODO
-				//if (defaultTextCellStyle == null)
-				//{
-				//    defaultTextCellStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
-				//        typeof(DataGridTextColumn),
-				//        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
-				//        "DefaultColumnStyle") as Style;
-				//}
-				//return defaultTextCellStyle;
-				return null;
+				if (defaultTextCellStyle == null)
+				{
+					defaultTextCellStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
+						typeof(DataGridTextColumn),
+						"Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnStyle.xaml",
+						"DefaultColumnStyle") as Style;
+				}
+				return defaultTextCellStyle;
 			}
 		}
 
@@ -79,17 +77,15 @@ namespace Telerik.UI.Xaml.Controls.Grid
         {
             get
             {
-				// UNO TODO
-				//if (defaultCellFlyoutContentStyle == null)
-				//{
-				//    defaultCellFlyoutContentStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
-				//        typeof(DataGridTextColumn),
-				//        "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnFlyoutContentStyle.xaml",
-				//        "DefaultColumnFlyoutStyle") as Style;
-				//}
-				//return defaultCellFlyoutContentStyle;
-				return null;
-            }
+				if (defaultCellFlyoutContentStyle == null)
+				{
+					defaultCellFlyoutContentStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
+						typeof(DataGridTextColumn),
+						"Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultTextColumnFlyoutContentStyle.xaml",
+						"DefaultColumnFlyoutStyle") as Style;
+				}
+				return defaultCellFlyoutContentStyle;
+			}
         }
 
         internal override bool CanEdit
