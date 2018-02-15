@@ -40,7 +40,7 @@ phases:
       msbuildLocationMethod: version
       msbuildVersion: latest
       msbuildArchitecture: x86
-      msbuildArguments: /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary
+      msbuildArguments: /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary "/p:PackageVersion=$(GITVERSION.FullSemVer)" "/p:InformationalVersion=$(GITVERSION.InformationalVersion)" "/p:PackageOutputPath=$(build.artifactstagingdirectory)"
       clean: false
       maximumCpuCount: true
       restoreNugetPackages: false

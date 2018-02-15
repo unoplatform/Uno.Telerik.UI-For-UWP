@@ -1,19 +1,11 @@
 <Project ToolsVersion="15.0">
   <PropertyGroup>
-    <!-- 
-    The TargetFrameworks property can be adjusted to override the possible targets for all uno cross-targetable projects.
-    This can be useful when debugging a specific targets, and avoid compiling unused targets to save build time.
-    -->
-    <!--<TargetFrameworks>MonoAndroid60;MonoAndroid70;xamarinios10</TargetFrameworks>-->
-    
-    
-    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+
+		<Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefaultLanguage>en-US</DefaultLanguage>
     <Version>10.0.0.0</Version>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
-    
-    <!--<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>-->
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0'">
