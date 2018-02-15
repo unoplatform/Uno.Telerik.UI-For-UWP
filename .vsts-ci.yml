@@ -12,7 +12,7 @@ phases:
   queue:
     name: Default
     demands:
-    - Xamarin -equals 4.8.0.752
+    - VS15.5.5
 
   steps:
 
