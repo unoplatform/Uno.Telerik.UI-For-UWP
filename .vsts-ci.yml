@@ -53,6 +53,12 @@ phases:
       Contents: $(Build.SourcesDirectory)\SDKExamples.iOS\bin\**\*.ipa
       TargetFolder: $(build.artifactstagingdirectory)
 
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Droid\bin
+      Contents: $(Build.SourcesDirectory)\SDKExamples.Droid\bin\**\*.apk
+      TargetFolder: $(build.artifactstagingdirectory)
+
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: $(build.artifactstagingdirectory)
