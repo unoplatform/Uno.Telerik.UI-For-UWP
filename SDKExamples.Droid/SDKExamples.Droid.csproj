@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -122,6 +125,10 @@
       <Name>Telerik.Primitives</Name>
     </ProjectReference>
   </ItemGroup>
+	<Target Name="CreateAppPackage" 
+					DependsOnTargets="Publish;SignAndroidPackage"
+					AfterTargets="Build" 
+					Condition="'$(BUILD_ARTIFACTSTAGINGDIRECTORY)'!=''" />
   <Import Project="..\SDKExamples.Shared\SDKExamples.Shared.projitems" Label="Shared" Condition="Exists('..\SDKExamples.Shared\SDKExamples.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
