@@ -1,20 +1,13 @@
-resources:
-- repo: self
-  clean: true
-  lfs: true
-
 phases:
 - phase: Packages
   variables:
     NUGET_PACKAGES: $(Agent.WorkFolder)\.nuget
     NUGET_HTTP_CACHE_PATH: $(Agent.WorkFolder)\.nuget-http-cache
 
-  queue:
-    name: Default
-    demands:
-    - VS15.5.5
-
   steps:
+  - checkout: self
+    clean: true
+    lfs: true
 
   - task: GitVersion@3
     inputs:
