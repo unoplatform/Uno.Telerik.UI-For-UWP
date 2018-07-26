@@ -30,7 +30,6 @@ phases:
       command: restore
       solution: Controls/UWPControls.sln
       selectOrConfig: select
-      feedRestore: nventive
       includeNuGetOrg: true
       verbosityRestore: Normal
 
