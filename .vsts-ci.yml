@@ -54,7 +54,7 @@ phases:
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: $(build.artifactstagingdirectory)
-      ArtifactName: NugetPackages
+      ArtifactName: TelerikUWP-NugetPackages
       ArtifactType: Container
 
   - task: PublishSymbols@2
