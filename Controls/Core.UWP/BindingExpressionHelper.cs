@@ -45,6 +45,21 @@ namespace Telerik.Core
                 return (item) => BindingExpressionHelper.GetValueThroughBinding(item, propertyPath);
             }
 
+#if WINDOWS_UWP || NETSTANDARD2_0
+            PropertyInfo propertyInfo = itemType.GetRuntimeProperty(propertyPath);
+			return item =>
+			{
+				try
+				{
+					return propertyInfo.GetValue(item);
+				}
+				catch (Exception e)
+				{
+					throw new Exception($"Failed to read {propertyInfo.DeclaringType}.{propertyInfo.Name}", e);
+				}
+			};
+#else
+
             var parameter = Expression.Parameter(itemType, "item");
             Expression getter;
             if (string.IsNullOrEmpty(propertyPath))

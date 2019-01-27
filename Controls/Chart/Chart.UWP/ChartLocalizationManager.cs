@@ -18,8 +18,9 @@ namespace Telerik.UI.Xaml.Controls.Chart
         {
 #if WINDOWS_PHONE_APP || WINDOWS_APP
             this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Chart/Neutral");
+#elif NETSTANDARD2_0
 #else
-            this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Chart.UWP/Neutral");
+			this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Chart.UWP/Neutral");
 #endif
         }
 

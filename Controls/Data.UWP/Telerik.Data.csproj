@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 	<PropertyGroup>
-		<TargetFrameworks>uap10.0;xamarinios10;MonoAndroid71</TargetFrameworks>
+		<TargetFrameworks>uap10.0;xamarinios10;MonoAndroid80;netstandard2.0</TargetFrameworks>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<DefaultLanguage>en-US</DefaultLanguage>
 	</PropertyGroup>
@@ -9,13 +9,13 @@
 
 	<ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
 		<PackageReference Include="Uno.UI">
-			<Version>1.31.0-dev.193</Version>
+			<Version>1.43.0-dev.717</Version>
 		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Uno.UI" Version="1.31.0-dev.193" />
+	  <PackageReference Include="Uno.UI" Version="1.43.0-dev.717" />
 	</ItemGroup>
 
 	<ItemGroup>
