@@ -42,29 +42,23 @@ phases:
   - task: CopyFiles@2
     inputs:
       SourceFolder: $(Build.SourcesDirectory)\SDKExamples.iOS\bin
-      Contents: $(Build.SourcesDirectory)\SDKExamples.iOS\bin\**\*.ipa
-      TargetFolder: $(build.artifactstagingdirectory)
+      Contents: **\*.ipa
+      TargetFolder: $(build.artifactstagingdirectory)\ios
 
   - task: CopyFiles@2
     inputs:
       SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Droid\bin
-      Contents: $(Build.SourcesDirectory)\SDKExamples.Droid\bin\**\*.apk
-      TargetFolder: $(build.artifactstagingdirectory)
+      Contents: **\*.apk
+      TargetFolder: $(build.artifactstagingdirectory)\android
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Wasm\bin\Release\netstandard2.0\dist
+      Contents: **\*.*
+      TargetFolder: $(build.artifactstagingdirectory)\android
 
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: $(build.artifactstagingdirectory)
-      ArtifactName: TelerikUWP-NugetPackages
+      ArtifactName: TelerikUWP-drop
       ArtifactType: Container
-
-  - task: PublishSymbols@2
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-    inputs:
-      SymbolsFolder:
-      SearchPattern: '**/bin/**/*.pdb'
-      IndexSources: true
-      PublishSymbol: true
-      SymbolServerType: TeamServices
-      DetailedLog: false
-      TreatNotIndexedAsWarning: false
-      SymbolsArtifactName: Symbols_$(BuildConfiguration)
