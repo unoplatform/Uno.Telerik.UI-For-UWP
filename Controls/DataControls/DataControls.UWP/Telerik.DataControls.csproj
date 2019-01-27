@@ -19,6 +19,10 @@
 		<Page Include="Themes\ThemeResourcesLight.xaml" />
 	</ItemGroup>
 	
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>__WASM__</DefineConstants>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<Page Include="Themes\Generic.xaml" />
 		<Page Include="Themes\DataForm.xaml" />
