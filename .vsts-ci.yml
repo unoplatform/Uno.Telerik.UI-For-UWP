@@ -1,13 +1,9 @@
-phases:
-- phase: Packages
-  variables:
-    NUGET_PACKAGES: $(Agent.WorkFolder)\.nuget
-    NUGET_HTTP_CACHE_PATH: $(Agent.WorkFolder)\.nuget-http-cache
+jobs:
+- job: Packages
 
   steps:
   - checkout: self
     clean: true
-    lfs: true
 
   - task: GitVersion@3
     inputs:
@@ -15,7 +11,7 @@ phases:
 
   - task: NuGetToolInstaller@0
     inputs:
-      versionSpec: 4.3.0
+      versionSpec: 4.9.1
       checkLatest: false
 
   - task: NuGetCommand@2
@@ -42,19 +38,19 @@ phases:
   - task: CopyFiles@2
     inputs:
       SourceFolder: $(Build.SourcesDirectory)\SDKExamples.iOS\bin
-      Contents: **\*.ipa
+      Contents: '**\*.ipa'
       TargetFolder: $(build.artifactstagingdirectory)\ios
 
   - task: CopyFiles@2
     inputs:
       SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Droid\bin
-      Contents: **\*.apk
+      Contents: '**\*.apk'
       TargetFolder: $(build.artifactstagingdirectory)\android
 
   - task: CopyFiles@2
     inputs:
       SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Wasm\bin\Release\netstandard2.0\dist
-      Contents: **\*.*
+      Contents: '**\*.*'
       TargetFolder: $(build.artifactstagingdirectory)\android
 
   - task: PublishBuildArtifacts@1
