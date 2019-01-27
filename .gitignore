@@ -60,6 +60,6 @@ QSF/*
 SampleApps/*
 *VSIX*
 /Controls/.vs/UWPControls/v15/sqlite3
-/.vs
+.vs
 /Controls/.vs/UWPControls/v15/Server/sqlite3
 /Controls/.vs/UWPControls/DesignTimeBuild

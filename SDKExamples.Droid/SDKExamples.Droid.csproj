@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
   </PropertyGroup>
@@ -63,11 +63,14 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug">
       <Version>1.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console">
+      <Version>1.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Filter">
       <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI">
-      <Version>1.31.0-dev.193</Version>
+      <Version>1.43.0-dev.717</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -125,10 +128,7 @@
       <Name>Telerik.Primitives</Name>
     </ProjectReference>
   </ItemGroup>
-	<Target Name="CreateAppPackage" 
-					DependsOnTargets="Publish;SignAndroidPackage"
-					AfterTargets="Build" 
-					Condition="'$(BUILD_ARTIFACTSTAGINGDIRECTORY)'!=''" />
+  <Target Name="CreateAppPackage" DependsOnTargets="Publish;SignAndroidPackage" AfterTargets="Build" Condition="'$(BUILD_ARTIFACTSTAGINGDIRECTORY)'!=''" />
   <Import Project="..\SDKExamples.Shared\SDKExamples.Shared.projitems" Label="Shared" Condition="Exists('..\SDKExamples.Shared\SDKExamples.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
