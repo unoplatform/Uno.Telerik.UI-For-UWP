@@ -43,9 +43,25 @@ namespace SDKExamples.UWP
 
         public static IEnumerable Source { get; set; }
 
-        private async void LoadData()
-        {
-#if !NETFX_CORE
+		private async void LoadData()
+		{
+#if NETSTANDARD2_0
+			string Read()
+			{
+				if (GetType().Assembly.GetManifestResourceNames().First(a => a.EndsWith("Examples.xml")) is string res)
+				{
+					using (var stream = new StreamReader(GetType().Assembly.GetManifestResourceStream(res)))
+					{
+						return stream.ReadToEnd();
+					}
+				}
+
+				return "";
+			}
+
+			var text = Read();
+
+#elif !NETFX_CORE
 			var text = File.ReadAllText("Data/Examples.xml");
 #else
 			var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");

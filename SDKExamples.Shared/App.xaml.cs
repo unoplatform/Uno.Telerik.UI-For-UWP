@@ -35,18 +35,14 @@ namespace SDKExamples.UWP
         public App()
 		{
 #if !NETFX_CORE
-			// Uno.UI.Configuration.FrameworkElement.UseLegacyApplyStylePhase = false;
-
 			Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory
 				.WithFilter(new FilterLoggerSettings {
-						{ "Uno.UI", LogLevel.Warning },
+						{ "Uno", LogLevel.Warning },
 						{ "Windows.UI", LogLevel.Warning },
 						{ "Windows.UI.Xaml.Controls.Layouter", LogLevel.Warning },
 				})
-				.AddDebug(LogLevel.Debug);
+				.AddConsole(LogLevel.Debug);
 
-
-			System.Console.WriteLine($"ProcessID: {Process.GetCurrentProcess().Id} name: {Process.GetCurrentProcess().ProcessName}");
 
 #endif
 
@@ -124,7 +120,7 @@ namespace SDKExamples.UWP
         /// <param name="e">Details about the navigation failure</param>
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+            throw new Exception("Failed to load Page " + e.Exception);
         }
 
         /// <summary>

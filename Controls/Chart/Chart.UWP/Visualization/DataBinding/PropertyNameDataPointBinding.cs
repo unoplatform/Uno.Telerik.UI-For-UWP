@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
-using Microsoft.CSharp.RuntimeBinder;
 using Telerik.Core;
+
+#if !NETSTANDARD2_0
+using Microsoft.CSharp.RuntimeBinder;
+#endif
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -106,7 +109,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 return true;
             }
 
-            DynamicObject dynamicObject = instance as DynamicObject;
+#if !NETSTANDARD2_0
+        DynamicObject dynamicObject = instance as DynamicObject;
             if (dynamicObject != null)
             {
                 if (this.callSite == null)
@@ -118,6 +122,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 dynamicValue = this.callSite.Target(this.callSite, instance);
                 return true;
             }
+#endif
 
             return false;
         }

@@ -1612,7 +1612,10 @@ namespace Telerik.UI.Xaml.Controls.Input
             {
                 layoutRoot.Children.Remove(popupChild);
                 popupChild.ClearValue(TransitionsProperty);
-                this.popup.Child = popupChild;
+
+#if !NETSTANDARD2_0 // UNO TODO
+				this.popup.Child = popupChild;
+#endif
             }
 
             this.InvalidateMeasure();

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
+
+#if !NETSTANDARD2_0
 using Microsoft.CSharp.RuntimeBinder;
+#endif
 
 namespace Telerik.Core.Data
 {
@@ -103,7 +106,8 @@ namespace Telerik.Core.Data
                 return true;
             }
 
-            DynamicObject dynamicObject = instance as DynamicObject;
+#if !NETSTANDARD2_0
+           DynamicObject dynamicObject = instance as DynamicObject;
             if (dynamicObject != null)
             {
                 if (this.callSite == null)
@@ -115,6 +119,7 @@ namespace Telerik.Core.Data
                 dynamicValue = this.callSite.Target(this.callSite, instance);
                 return true;
             }
+#endif
 
             return false;
         }
