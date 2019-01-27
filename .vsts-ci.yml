@@ -51,7 +51,7 @@ jobs:
     inputs:
       SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Wasm\bin\Release\netstandard2.0\dist
       Contents: '**\*.*'
-      TargetFolder: $(build.artifactstagingdirectory)\android
+      TargetFolder: $(build.artifactstagingdirectory)\wasm
 
   - task: PublishBuildArtifacts@1
     inputs:
