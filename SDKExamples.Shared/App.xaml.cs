@@ -46,7 +46,7 @@ namespace SDKExamples.UWP
 
 #endif
 
-#if NETFX_CORE
+#if false // NETFX_CORE
 			Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
