@@ -9,7 +9,7 @@
 
   <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
     <PackageReference Include="Uno.UI">
-			<Version>1.43.0-dev.717</Version>
+			<Version>1.43.0-dev.850</Version>
 		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
@@ -30,7 +30,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="1.43.0-dev.717" />
+    <PackageReference Include="Uno.UI" Version="1.43.0-dev.850" />
   </ItemGroup>
 
   <ItemGroup>
