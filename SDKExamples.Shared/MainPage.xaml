@@ -3,6 +3,7 @@
 	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	  xmlns:local="using:SDKExamples"
 	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	  xmlns:mux="using:Windows.UI.Xaml.Controls"
 	  mc:Ignorable="">
 
 	<Page.Resources>
@@ -58,39 +59,16 @@
 		<!-- App Content -->
 		<local:UnoPlatformShell.AppContent>
 
-			<Grid Background="White">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="200" />
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="*" />
-				</Grid.ColumnDefinitions>
-
-
-				<!-- 
-				  
-				  ItemsSource="{Binding MainList}"
-				  SelectedIndex="0"-->
-				<!-- MainList -->
-				<ListView x:Name="MainPageList"
-						  Background="Silver"
-						  HorizontalAlignment="Stretch"
-						  SelectionChanged="MainList_SelectionChanged"
-						  SelectionMode="Single"
-						  Grid.Column="0" />
-
-				<!-- SecondaryList -->
-				<ListView Background="LightGray"
-						  ItemsSource="{Binding}"
-						  ItemContainerStyle="{StaticResource ListViewItemStyle}"
-						  SelectionChanged="SecondaryList_SelectionChanged"
-						  HorizontalAlignment="Stretch"
-						  SelectionMode="Single"
-						  Grid.Column="1" />
+			<mux:NavigationView x:Name="NavigationViewControl"
+								ItemInvoked="OnNavigationViewItemInvoked"
+								AlwaysShowHeader="False"
+								IsSettingsVisible="False"
+								IsTabStop="False"
+								Canvas.ZIndex="0">
 
 				<!-- rootFrame -->
-				<Frame x:Name="rootFrame"
-					   Grid.Column="2" />
-			</Grid>
+				<Frame x:Name="rootFrame" />
+			</mux:NavigationView>
 		</local:UnoPlatformShell.AppContent>
 	</local:UnoPlatformShell>
 </Page>

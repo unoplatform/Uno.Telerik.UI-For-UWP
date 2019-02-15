@@ -21,14 +21,23 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SDKExamples.UWP
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
-    {
-        public MainPage()
-        {
-            this.InitializeComponent();
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class MainPage : Page
+	{
+		public static Frame RootFrame;
+
+		public Windows.UI.Xaml.Controls.NavigationView NavigationView
+		{
+			get { return NavigationViewControl; }
+		}
+
+		public MainPage()
+		{
+			this.InitializeComponent();
+
+			MainPage.RootFrame = rootFrame;
 
 #if !NETFX_CORE
 			this.TopAppBar = new CommandBar();
@@ -36,10 +45,10 @@ namespace SDKExamples.UWP
 #endif
 
 			if (MainPage.Source == null)
-            {
-                this.LoadData();
-            }
-			
+			{
+				this.LoadData();
+			}
+
 #if __WASM__
 			switch (Environment.GetEnvironmentVariable("UNO_BOOTSTRAP_MONO_RUNTIME_MODE"))
 			{
@@ -82,43 +91,44 @@ namespace SDKExamples.UWP
 			var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");
 #endif
 			var doc = XDocument.Parse(text);
-			
-			MainPageList.ItemsSource = this.GetControls(doc).ToArray();
-			MainPageList.SelectedIndex = 0;
-		}
+			var controls = this.GetControls(doc).ToArray();
 
-        private IEnumerable<ControlData> GetControls(XDocument doc)
-        {
-
-            return from control in doc.Descendants("Control")
-                                     select new ControlData
-                                     (
-                                         control.Attribute("Name").Value,
-                                         from example in control.Descendants("Example")
-                                         select new Example(example.Attribute("ClassName").Value, example.Attribute("DisplayName").Value)
-                                      );
-        }
-
-        private void BackButtonClicked(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = MainPage.Source;
-        }
-
-        private void MainList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-			var control = (sender as ListView).SelectedItem as ControlData;
-			this.DataContext = control.Examples;
-		}
-
-		private void SecondaryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			var example = (sender as ListView).SelectedItem as Example;
-
-			var exampleType = Type.GetType(string.Format(example.TypeName));
-			if (exampleType != null)
+			for (var i = 0; i < controls.Length; i++)
 			{
-				rootFrame.Navigate(exampleType, example.DisplayName);
+				var controlData = controls[i] as ControlData;
+				var item = new Windows.UI.Xaml.Controls.NavigationViewItem()
+				{
+					Content = controlData.Name,
+					DataContext = controlData
+				};
+
+				item.Icon = new FontIcon() { Glyph = "&#x0000;" };
+
+				NavigationViewControl.MenuItems.Add(item);
 			}
+		}
+
+		private IEnumerable<ControlData> GetControls(XDocument doc)
+		{
+
+			return from control in doc.Descendants("Control")
+				   select new ControlData
+				   (
+					   control.Attribute("Name").Value,
+					   from example in control.Descendants("Example")
+					   select new Example(example.Attribute("ClassName").Value, example.Attribute("DisplayName").Value)
+					);
+		}
+
+		private void BackButtonClicked(object sender, RoutedEventArgs e)
+		{
+			this.DataContext = MainPage.Source;
+		}
+
+		private void OnNavigationViewItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+		{
+			var invokedItem = args.InvokedItem;
+			rootFrame.Navigate(typeof(SectionPage), invokedItem);
 		}
 	}
 }
