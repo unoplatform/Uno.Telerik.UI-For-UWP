@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28516.95
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telerik.Core", "Core.UWP\Telerik.Core.csproj", "{1652093C-B541-48C9-BCB6-BBE7CE7C7FFE}"
 EndProject
@@ -719,6 +719,8 @@ Global
 		{91B9F816-5B05-4D94-A002-58973C02719B}.AppStore|x86.Build.0 = Release|x86
 		{91B9F816-5B05-4D94-A002-58973C02719B}.AppStore|x86.Deploy.0 = Release|x86
 		{91B9F816-5B05-4D94-A002-58973C02719B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{91B9F816-5B05-4D94-A002-58973C02719B}.Debug|Any CPU.Build.0 = Debug|x86
+		{91B9F816-5B05-4D94-A002-58973C02719B}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{91B9F816-5B05-4D94-A002-58973C02719B}.Debug|ARM.ActiveCfg = Debug|ARM
 		{91B9F816-5B05-4D94-A002-58973C02719B}.Debug|ARM.Build.0 = Debug|ARM
 		{91B9F816-5B05-4D94-A002-58973C02719B}.Debug|ARM.Deploy.0 = Debug|ARM
