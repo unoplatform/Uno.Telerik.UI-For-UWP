@@ -39,9 +39,24 @@ namespace SDKExamples.UWP
             {
                 this.LoadData();
             }
-        }
+			
+#if __WASM__
+			switch (Environment.GetEnvironmentVariable("UNO_BOOTSTRAP_MONO_RUNTIME_MODE"))
+			{
+				case "Interpreter":
+					UnoShell.AppEnvironmentMode = "Interpreted";
+					break;
+				case "FullAOT":
+					UnoShell.AppEnvironmentMode = "AOT";
+					break;
+				case "InterpreterAndAOT":
+					UnoShell.AppEnvironmentMode = "Mixed";
+					break;
+			}
+#endif
+		}
 
-        public static IEnumerable Source { get; set; }
+		public static IEnumerable Source { get; set; }
 
 		private async void LoadData()
 		{
@@ -67,9 +82,10 @@ namespace SDKExamples.UWP
 			var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");
 #endif
 			var doc = XDocument.Parse(text);
-
-            this.DataContext = MainPage.Source = this.GetControls(doc).ToArray();
-        }
+			
+			MainPageList.ItemsSource = this.GetControls(doc).ToArray();
+			MainPageList.SelectedIndex = 0;
+		}
 
         private IEnumerable<ControlData> GetControls(XDocument doc)
         {
@@ -83,61 +99,26 @@ namespace SDKExamples.UWP
                                       );
         }
 
-      //  private static ControlData CurrentItem { get; set; }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            var currentView = SystemNavigationManager.GetForCurrentView();
-
-            var controlData = e.Parameter as ControlData;
-
-            if (controlData == null)
-            {
-                this.DataContext = MainPage.Source;
-                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-            }
-            else
-            {
-                this.DataContext = controlData.Examples;
-                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            }
-        }
-
         private void BackButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = MainPage.Source;
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MainList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            var selectedItem = (sender as ListView).SelectedItem;
-            if (selectedItem != null)
-            {
-                var dataContext = (sender as FrameworkElement).DataContext;
+			var control = (sender as ListView).SelectedItem as ControlData;
+			this.DataContext = control.Examples;
+		}
 
-                var control = selectedItem as ControlData;
+		private void SecondaryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			var example = (sender as ListView).SelectedItem as Example;
 
-                var example = selectedItem as Example;
-
-                if (control != null)
-                {
-                    var listType = typeof(MainPage);
-                    Frame.Navigate(listType, control);
-                }
-                else if (!string.IsNullOrEmpty(example.TypeName))
-                {
-                    var exampleType = Type.GetType(string.Format(example.TypeName));
-                    if (exampleType != null)
-                    {
-                        Frame.Navigate(exampleType, example.DisplayName);
-                        currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-                    }
-                }
-            }
-
-        }
-    }
+			var exampleType = Type.GetType(string.Format(example.TypeName));
+			if (exampleType != null)
+			{
+				rootFrame.Navigate(exampleType, example.DisplayName);
+			}
+		}
+	}
 }
