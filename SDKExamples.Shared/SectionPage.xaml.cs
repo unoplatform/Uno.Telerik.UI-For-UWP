@@ -32,8 +32,8 @@ namespace SDKExamples
 
 		protected override async void OnNavigatedTo(NavigationEventArgs e)
 		{
-			var control = e.Parameter as ControlData;
-			this.DataContext = control.Examples;
+			var control = e.Parameter;
+			this.DataContext = control;
 		}
 
 		private void SecondaryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
