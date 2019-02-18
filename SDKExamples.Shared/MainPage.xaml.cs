@@ -27,6 +27,8 @@ namespace SDKExamples.UWP
 	public sealed partial class MainPage : Page
 	{
 		public static Frame RootFrame;
+		private ControlData[] _controls;
+		private Example[] _examples;
 
 		public Windows.UI.Xaml.Controls.NavigationView NavigationView
 		{
@@ -91,18 +93,23 @@ namespace SDKExamples.UWP
 			var text = await Windows.Storage.PathIO.ReadTextAsync("ms-appx:///Data/Examples.xml");
 #endif
 			var doc = XDocument.Parse(text);
-			var controls = this.GetControls(doc).ToArray();
+			_controls = this.GetControls(doc).ToArray();
+			var dummyTextBlock = new TextBlock();
 
-			for (var i = 0; i < controls.Length; i++)
+			for (var i = 0; i < _controls.Length; i++)
 			{
-				var controlData = controls[i] as ControlData;
+				var controlData = _controls[i] as ControlData;
 				var item = new Windows.UI.Xaml.Controls.NavigationViewItem()
 				{
 					Content = controlData.Name,
 					DataContext = controlData
 				};
 
-				item.Icon = new FontIcon() { Glyph = "&#x0000;" };
+				item.Icon = new FontIcon()
+				{
+					FontFamily = dummyTextBlock.FontFamily,
+					Glyph = controlData.Name[0].ToString() + controlData.Name[1].ToString()
+				};
 
 				NavigationViewControl.MenuItems.Add(item);
 			}
@@ -127,8 +134,18 @@ namespace SDKExamples.UWP
 
 		private void OnNavigationViewItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
 		{
-			var invokedItem = args.InvokedItem;
-			rootFrame.Navigate(typeof(SectionPage), invokedItem);
+
+			for(var i = 0; i< _controls.Length; i++)
+			{
+				var controlData = _controls[i] as ControlData;
+				if (controlData.Name == args.InvokedItem)
+				{
+					_examples = controlData.Examples.ToArray();
+					break;
+				}
+			}
+
+			rootFrame.Navigate(typeof(SectionPage), _examples);
 		}
 	}
 }
