@@ -8,7 +8,7 @@
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+  <!--<PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0'">
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     <NugetTargetMoniker>UAP,Version=v10.0</NugetTargetMoniker>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
@@ -19,7 +19,7 @@
     <DefineConstants>$(DefineConstants);NETFX_CORE</DefineConstants>
     <LanguageTargets>$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets</LanguageTargets>
     
-    <!-- Ensures the .xr.xml files are generated in a proper layout folder -->
+    --><!-- Ensures the .xr.xml files are generated in a proper layout folder --><!--
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
   </PropertyGroup>
 
@@ -121,7 +121,7 @@
   </Target>
 
   <PropertyGroup>
-    <!-- Disable Mac integration for libraries -->
+    --><!-- Disable Mac integration for libraries --><!--
     <MtouchTargetsEnabled>false</MtouchTargetsEnabled>
     <IsMacEnabled>false</IsMacEnabled>
 		<ServerAddress></ServerAddress>
@@ -150,6 +150,6 @@
     </CreateItem>
   </Target>
 
-  <Target Name="_SayGoodbye" />
+  <Target Name="_SayGoodbye" />-->
 
 </Project>
