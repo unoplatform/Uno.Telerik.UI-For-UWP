@@ -1,14 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
-	<PropertyGroup>
-		<TargetFrameworks>uap10.0;xamarinios10;MonoAndroid80;netstandard2.0</TargetFrameworks>
+<Project Sdk="MSBuild.Sdk.Extras/2.0.31" ToolsVersion="15.0">
+  <PropertyGroup>
+		<TargetFrameworks>uap10.0.17763;xamarinios10;MonoAndroid80;netstandard2.0</TargetFrameworks>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<DefaultLanguage>en-US</DefaultLanguage>
-	</PropertyGroup>
-
-	<Import Project="..\..\CrossTargetting.props" />
+    <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
+    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+  </PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Uno.UI" Version="1.46.214-dev.2563" />
+	  <PackageReference Include="Uno.UI" Version="1.46.214-dev.2589" />
 	</ItemGroup>
 	
 	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
@@ -27,10 +27,19 @@
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
-		<PackageReference Include="Uno.UI">
-			<Version>1.46.214-dev.2563</Version>
-		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Themes\Generic.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="Themes\Resources.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="Themes\ThemeResourcesLight.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
 	</ItemGroup>
 
 </Project>

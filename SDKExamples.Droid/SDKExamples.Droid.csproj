@@ -70,7 +70,7 @@
       <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI">
-      <Version>1.46.214-dev.2563</Version>
+      <Version>1.46.214-dev.2589</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
