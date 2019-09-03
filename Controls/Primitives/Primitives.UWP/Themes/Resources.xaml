@@ -20,12 +20,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>-->
         <ResourceDictionary x:Key="Light">
-			<!-- <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/> -->
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Dark" Source="{CustomResource DarkResourcesPath}"/>
-                <ResourceDictionary x:Key="Light" Source="{CustomResource LightResourcesPath}"/>
-                <ResourceDictionary x:Key="HighContrast" Source="{CustomResource HighContrastResourcesPath}"/>
-            </ResourceDictionary.ThemeDictionaries>
+            <!--<theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xaml"/>
+                <ResourceDictionary Source="{CustomResource LightResourcesPath}"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
 			<!-- <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/> -->

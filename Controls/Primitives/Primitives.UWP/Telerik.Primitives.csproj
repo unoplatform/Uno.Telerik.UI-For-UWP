@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
+<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
   <PropertyGroup>
     <TargetFrameworks>uap10.0.17763;xamarinios10;monoandroid90;netstandard2.0</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
@@ -7,8 +7,6 @@
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
     <AssemblyName>Telerik.UI.Xaml.Primitives.UWP</AssemblyName>
   </PropertyGroup>
-
-  <Import Project="..\..\CrossTargetting.props" />
 
   <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
     <PackageReference Include="Uno.UI">
