@@ -98,7 +98,7 @@
       <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI">
-      <Version>1.46.214-dev.2598</Version>
+      <Version>2.0.512-dev.4019</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
