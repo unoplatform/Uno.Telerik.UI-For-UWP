@@ -1,11 +1,14 @@
 jobs:
 - job: Packages
 
+  pool:
+    vmImage: 'windows-2019'
+
   steps:
   - checkout: self
     clean: true
 
-  - task: GitVersion@3
+  - task: GitVersion@5
     inputs:
       updateAssemblyInfo: false
 
