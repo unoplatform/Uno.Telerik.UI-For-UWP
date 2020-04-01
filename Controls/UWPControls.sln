@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29924.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telerik.Core", "Core.UWP\Telerik.Core.csproj", "{1652093C-B541-48C9-BCB6-BBE7CE7C7FFE}"
 EndProject
@@ -45,6 +45,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKExamples.UWP", "..\SDKEx
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\SDKExamples.Shared\SDKExamples.Shared.projitems*{0d2293d6-3c35-4e6f-b73f-2c8b7ba060ac}*SharedItemsImports = 5
 		..\SDKExamples.Shared\SDKExamples.Shared.projitems*{136825c7-1f60-4e77-ab0c-1e524b6c5023}*SharedItemsImports = 4
 		..\SDKExamples.Shared\SDKExamples.Shared.projitems*{30515ee5-b4a2-4eac-acfa-95a244c76648}*SharedItemsImports = 4
 		..\SDKExamples.Shared\SDKExamples.Shared.projitems*{30b9b529-fe76-4711-817e-1eebad495b67}*SharedItemsImports = 13
