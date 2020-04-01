@@ -23,8 +23,8 @@
       <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI" Version="2.0.512-dev.4019" />
-    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0" />
-    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.302" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.2.0-dev.16" />
+		<PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="1.2.0-dev.16" />
   </ItemGroup>
 
   <ItemGroup>
