@@ -68,7 +68,7 @@
 		<AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
 		<AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid80'">
+	<PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid90'">
 		<TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
 		<TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
 		<AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
