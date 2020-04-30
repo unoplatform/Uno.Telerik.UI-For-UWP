@@ -12,7 +12,9 @@ namespace Telerik.UI.Xaml.Controls.Data
 
         private DataControlsLocalizationManager()
         {
+#if !HAS_UNO // UNO TODO
             this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Controls.Data.UWP/Neutral");
+#endif
         }
 
         /// <summary>

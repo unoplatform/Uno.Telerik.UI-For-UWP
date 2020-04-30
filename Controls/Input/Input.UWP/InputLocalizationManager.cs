@@ -15,7 +15,8 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
 #if WINDOWS_PHONE_APP || WINDOWS_APP
             this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Input/Neutral");
-#else
+#elif !HAS_UNO // UNO TODO
+
             this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Input.UWP/Neutral");
 #endif
         }
