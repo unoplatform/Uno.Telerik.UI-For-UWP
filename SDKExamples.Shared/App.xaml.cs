@@ -51,6 +51,9 @@ namespace SDKExamples.UWP
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
 #endif
+            // Materialize this here because ResourceDictionary entries are lazily created on Uno, and some controls rely on a side-effect 
+            // of its creation
+            var dummy = new Telerik.UI.Xaml.Controls.UserThemeResources();
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
