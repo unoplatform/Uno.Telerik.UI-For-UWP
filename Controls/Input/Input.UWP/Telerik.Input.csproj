@@ -5,6 +5,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+    <AssemblyName>Telerik.UI.Xaml.Input.UWP</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
