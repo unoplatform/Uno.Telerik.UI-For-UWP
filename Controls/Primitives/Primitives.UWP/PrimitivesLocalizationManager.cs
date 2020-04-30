@@ -20,7 +20,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         {
 #if WINDOWS_PHONE_APP || WINDOWS_APP
             this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Primitives/Neutral");
-#else
+#elif !HAS_UNO // UNO TODO
             this.DefaultResourceMap = ResourceManager.Current.MainResourceMap.GetSubtree("Telerik.UI.Xaml.Primitives.UWP/Neutral");
 #endif
         }
