@@ -21,7 +21,7 @@ namespace SDKExamples.UWP
 	public class DroidApp : Windows.UI.Xaml.NativeApplication
 	{
 		public DroidApp(IntPtr javaReference, JniHandleOwnership transfer)
-			: base(new App(), javaReference, transfer)
+			: base(() => new App(), javaReference, transfer)
 		{
 		}
 	}
