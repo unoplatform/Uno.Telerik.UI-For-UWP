@@ -71,7 +71,7 @@ namespace SDKExamples.UWP
 
 		private async void LoadData()
 		{
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || __ANDROID__
 			string Read()
 			{
 				if (GetType().Assembly.GetManifestResourceNames().First(a => a.EndsWith("Examples.xml")) is string res)
@@ -135,7 +135,7 @@ namespace SDKExamples.UWP
 		private void OnNavigationViewItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
 		{
 
-			for(var i = 0; i< _controls.Length; i++)
+			for (var i = 0; i < _controls.Length; i++)
 			{
 				var controlData = _controls[i] as ControlData;
 				if (controlData.Name == args.InvokedItem)
