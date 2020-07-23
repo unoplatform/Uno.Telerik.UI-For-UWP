@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="3.0.0-dev.419" />
+    <PackageReference Include="Uno.UI" Version="3.0.0-dev.1262" />
   </ItemGroup>
 	
 	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
