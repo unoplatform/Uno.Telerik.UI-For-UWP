@@ -17,16 +17,6 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 			return new RadSize(visual.DesiredSize.Width, visual.DesiredSize.Height);
 		}
 
-#if __IOS__ || __ANDROID__
-		internal static RadSize MeasureVisual(TextBlock visual)
-		{
-			visual.ClearValue(TextBlock.WidthProperty);
-			visual.ClearValue(TextBlock.HeightProperty);
-			var result = IFrameworkElementHelper.Measure(visual, RadCalendar.InfinitySize);
-
-			return new RadSize(result.Width, result.Height);
-		}
-#endif
 		internal static RadRect ApplyLayoutSlotAlignment(FrameworkElement visual, RadRect layoutSlot)
         {
             Size desiredSize = visual.DesiredSize;
