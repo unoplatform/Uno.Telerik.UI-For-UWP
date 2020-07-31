@@ -11,10 +11,6 @@
   <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
-	
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-		<DefineConstants>__WASM__</DefineConstants>
-	</PropertyGroup>
 
 	<ItemGroup>
     <None Remove="Themes\SharedResources.xaml" />
