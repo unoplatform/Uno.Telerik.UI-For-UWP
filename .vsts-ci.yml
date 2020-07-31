@@ -30,26 +30,13 @@ jobs:
       nugetUpdaterVersion: 2.0.6
       packageAuthor: nventive
 
-  - task: NuGetToolInstaller@0
-    inputs:
-      versionSpec: 4.9.1
-      checkLatest: false
-
-  - task: NuGetCommand@2
-    inputs:
-      command: restore
-      solution: Controls/UWPControls.sln
-      selectOrConfig: select
-      includeNuGetOrg: true
-      verbosityRestore: Normal
-
   - task: MSBuild@1
     inputs:
       solution: Controls/UWPControls.sln
       msbuildLocationMethod: version
       msbuildVersion: latest
       msbuildArchitecture: x86
-      msbuildArguments: /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary "/p:PackageVersion=$(GITVERSION.FullSemVer)" "/p:InformationalVersion=$(GITVERSION.InformationalVersion)" "/p:PackageOutputPath=$(build.artifactstagingdirectory)"  /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
+      msbuildArguments: /r /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary "/p:PackageVersion=$(GITVERSION.FullSemVer)" "/p:InformationalVersion=$(GITVERSION.InformationalVersion)" "/p:PackageOutputPath=$(build.artifactstagingdirectory)" # /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
       clean: false
       maximumCpuCount: true
       restoreNugetPackages: false
