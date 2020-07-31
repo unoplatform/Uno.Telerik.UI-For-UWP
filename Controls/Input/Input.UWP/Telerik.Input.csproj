@@ -11,10 +11,6 @@
   <ItemGroup>
     <PackageReference Include="Uno.UI" Version="3.0.0-dev.1262" />
   </ItemGroup>
-	
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-		<DefineConstants>__WASM__</DefineConstants>
-	</PropertyGroup>
 
 	<ItemGroup>
 		<Page Include="Themes\Generic.xaml" />

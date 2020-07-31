@@ -49,7 +49,7 @@ jobs:
       msbuildLocationMethod: version
       msbuildVersion: latest
       msbuildArchitecture: x86
-      msbuildArguments: /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary "/p:PackageVersion=$(GITVERSION.FullSemVer)" "/p:InformationalVersion=$(GITVERSION.InformationalVersion)" "/p:PackageOutputPath=$(build.artifactstagingdirectory)"
+      msbuildArguments: /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary "/p:PackageVersion=$(GITVERSION.FullSemVer)" "/p:InformationalVersion=$(GITVERSION.InformationalVersion)" "/p:PackageOutputPath=$(build.artifactstagingdirectory)"  /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
       clean: false
       maximumCpuCount: true
       restoreNugetPackages: false
@@ -75,6 +75,7 @@ jobs:
       TargetFolder: $(build.artifactstagingdirectory)\wasm
 
   - task: PublishBuildArtifacts@1
+    condition: always()
     inputs:
       PathtoPublish: $(build.artifactstagingdirectory)
       ArtifactName: TelerikUWP-drop
