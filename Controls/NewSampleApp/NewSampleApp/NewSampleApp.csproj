@@ -49,14 +49,14 @@
   </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Chart\Chart.UWP\Telerik.Chart.csproj" />
-        <ProjectReference Include="..\Core.UWP\Telerik.Core.csproj" />
-        <ProjectReference Include="..\Data.UWP\Telerik.Data.csproj" />
-        <ProjectReference Include="..\DataControls\DataControls.UWP\Telerik.DataControls.csproj" />
-        <ProjectReference Include="..\DataVisualization\DataVisualization.UWP\Telerik.DataVisualization.csproj" />
-        <ProjectReference Include="..\Grid\Grid.UWP\Telerik.Grid.csproj" />
-        <ProjectReference Include="..\Input\Input.UWP\Telerik.Input.csproj" />
-        <ProjectReference Include="..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
+        <ProjectReference Include="..\..\Chart\Chart.UWP\Telerik.Chart.csproj" />
+        <ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
+        <ProjectReference Include="..\..\Data.UWP\Telerik.Data.csproj" />
+        <ProjectReference Include="..\..\DataControls\DataControls.UWP\Telerik.DataControls.csproj" />
+        <ProjectReference Include="..\..\DataVisualization\DataVisualization.UWP\Telerik.DataVisualization.csproj" />
+        <ProjectReference Include="..\..\Grid\Grid.UWP\Telerik.Grid.csproj" />
+        <ProjectReference Include="..\..\Input\Input.UWP\Telerik.Input.csproj" />
+        <ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
     </ItemGroup>
 
 </Project>
