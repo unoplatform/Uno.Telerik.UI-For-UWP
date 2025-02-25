@@ -19,7 +19,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 	[TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
 #else
 	// UNO TODO
-	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Microsoft.UI.Xaml.Controls.Popup))]
+	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Microsoft.UI.Xaml.Controls.Primitives.Popup))]
 #endif
 	[TemplatePart(Name = "PART_SelectorLayoutRoot", Type = typeof(Border))]
     [TemplatePart(Name = "PART_SelectorHeader", Type = typeof(ContentPresenter))]

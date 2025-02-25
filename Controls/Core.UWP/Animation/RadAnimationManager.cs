@@ -406,7 +406,7 @@ namespace Telerik.Core
             if (callback != null)
             {
                 await target.Dispatcher.RunAsync(
-                      Microsoft.UI.Core.CoreDispatcherPriority.Normal,
+                      Windows.UI.Core.CoreDispatcherPriority.Normal,
                       () =>
                       {
                           callback.Invoke();

@@ -45,7 +45,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 		internal Popup rangeToolTip;
 #else
 		//UNO TODO
-		internal Microsoft.UI.Xaml.Controls.Popup rangeToolTip;
+		internal Microsoft.UI.Xaml.Controls.Primitives.Popup rangeToolTip;
 #endif
 
 
@@ -80,7 +80,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 			this.rangeToolTip = new Popup();
 #else
 			//TODO UNO
-			this.rangeToolTip = new Microsoft.UI.Xaml.Controls.Popup();
+			this.rangeToolTip = new Microsoft.UI.Xaml.Controls.Primitives.Popup();
 #endif
 
             this.rangeToolTipContent = new RangeToolTip();

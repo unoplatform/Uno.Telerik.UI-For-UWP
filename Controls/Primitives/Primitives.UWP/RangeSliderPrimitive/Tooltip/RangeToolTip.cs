@@ -50,7 +50,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 			var parent = this.Parent as Popup;
 #else
 			//TODO UNO
-			var parent = this.Parent as Microsoft.UI.Xaml.Controls.Popup;
+			var parent = this.Parent as Microsoft.UI.Xaml.Controls.Primitives.Popup;
 #endif
 
 			if (this.Owner == null || this.Parent == null || parent == null || !this.Owner.ShowRangeToolTip)
@@ -116,7 +116,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 		Popup parent
 #else
 		//UNO TODO
-		Microsoft.UI.Xaml.Controls.Popup parent
+		Microsoft.UI.Xaml.Controls.Primitives.Popup parent
 #endif
 	
 			
@@ -151,7 +151,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 			Popup parent
 #else
 			//UNO TODO
-			Microsoft.UI.Xaml.Controls.Popup parent
+			Microsoft.UI.Xaml.Controls.Primitives.Popup parent
 #endif
 			, Point position)
         {

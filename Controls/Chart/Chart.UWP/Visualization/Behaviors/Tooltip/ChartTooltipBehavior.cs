@@ -29,7 +29,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 		private Popup toolTip;
 #else
 		// UNO TODO
-		private Microsoft.UI.Xaml.Controls.Popup toolTip;
+		private Microsoft.UI.Xaml.Controls.Primitives.Popup toolTip;
 #endif
 		private ChartTooltip toolTipContent;
         private bool snapToClosestPoint;
@@ -49,7 +49,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 #if NETFX_CORE
 			this.toolTip = new Popup();
 #else
-			this.toolTip = new Microsoft.UI.Xaml.Controls.Popup(); // UNO TODO
+			this.toolTip = new Microsoft.UI.Xaml.Controls.Primitives.Popup(); // UNO TODO
 #endif
 
 			this.toolTipContent = new ChartTooltip();
@@ -257,8 +257,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 throw new ArgumentNullException(nameof(args));
             }
 
-            if (args.Pointer.PointerDeviceType == PointerDeviceType.Touch)
-            {
+            if (args.Pointer.PointerDeviceType.Equals(PointerDeviceType.Touch))
+			{
                 // Touch is handled through manipulation events
                 return;
             }

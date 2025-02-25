@@ -173,7 +173,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 throw new ArgumentNullException(nameof(args));
             }
 
-            if (args.Pointer.PointerDeviceType != PointerDeviceType.Mouse)
+            if (!args.Pointer.PointerDeviceType.Equals(PointerDeviceType.Mouse))
             {
                 return;
             }

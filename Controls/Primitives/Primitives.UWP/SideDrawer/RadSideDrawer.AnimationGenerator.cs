@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
+using AnimationContext = Telerik.UI.Xaml.Controls.Primitives.SideDrawer.Commands.AnimationContext;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {

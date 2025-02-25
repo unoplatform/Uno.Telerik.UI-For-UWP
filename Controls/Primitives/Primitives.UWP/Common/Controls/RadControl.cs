@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Microsoft.UI.Core;
+using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
