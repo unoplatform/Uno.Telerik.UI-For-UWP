@@ -7,6 +7,7 @@ using Windows.Foundation;
 using Microsoft.UI.Input;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Markup;
+using PointerDeviceType = Windows.Devices.Input.PointerDeviceType;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -80,7 +81,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
 
             // if the DeviceType is touch, we will process it through the Manipulation methods
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Touch)
+            if (e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Touch))
             {
                 return;
             }
@@ -101,7 +102,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
 
             // if the DeviceType is touch, we will process it through the Manipulation methods
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Touch)
+            if (e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Touch))
             {
                 return;
             }
@@ -138,7 +139,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
 
             // if the DeviceType is touch, we will process it through the Manipulation methods
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Touch)
+            if (e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Touch))
             {
                 return;
             }

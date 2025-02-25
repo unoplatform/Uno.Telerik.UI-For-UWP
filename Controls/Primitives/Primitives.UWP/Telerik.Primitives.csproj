@@ -1,6 +1,6 @@
 <Project Sdk="Uno.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
+    <TargetFrameworks>net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefaultLanguage>en-US</DefaultLanguage>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
@@ -8,51 +8,13 @@
     <AssemblyName>Telerik.UI.Xaml.Primitives.UWP</AssemblyName>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
-		<Reference Include="Microsoft.CSharp" />
-	</ItemGroup>
-
-	<ItemGroup>
-    <None Remove="Themes\SharedResources.xaml" />
-    <None Remove="Themes\ThemeColorsLight.xaml" />
-    <None Remove="Themes\ThemeResourcesLight.xaml" />
-  </ItemGroup>
-
   <ItemGroup>
 		<EmbeddedResource Include="BusyIndicator\Animations\*.xaml" />
 		<EmbeddedResource Include="**\*.png" Exclude="bin\**\*.png;obj\**\*.png" />
 	</ItemGroup>
 
   <ItemGroup>
-    
-	  
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Include="Themes\Generic.xaml" />
-    <Page Include="Themes\Resources.xaml" />
-    <Page Include="Themes\SharedResources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\ThemeColorsLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\ThemeResourcesLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-    <None Update="Themes\Resources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
   </ItemGroup>
 
 </Project>

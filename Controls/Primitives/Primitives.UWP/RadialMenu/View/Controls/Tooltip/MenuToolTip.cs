@@ -83,7 +83,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 			var parent = this.Parent as Popup;
 #else
 			//TODO UNO
-			var parent = this.Parent as Microsoft.UI.Xaml.Controls.Popup;
+			var parent = this.Parent as Microsoft.UI.Xaml.Controls.Primitives.Popup;
 #endif
 
 			if (parent == null || this.Owner == null)

@@ -1,4 +1,4 @@
-﻿using Microsoft.UI;
+﻿using Windows.UI;
 
 namespace Telerik.UI.Xaml.Controls.DataVisualization
 {

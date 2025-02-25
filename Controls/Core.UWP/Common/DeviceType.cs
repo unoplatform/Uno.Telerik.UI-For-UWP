@@ -1,5 +1,5 @@
 ﻿using Windows.System.Profile;
-using Microsoft.UI.ViewManagement;
+using Windows.UI.ViewManagement;
 
 // ReSharper disable once CheckNamespace
 namespace Telerik.Core

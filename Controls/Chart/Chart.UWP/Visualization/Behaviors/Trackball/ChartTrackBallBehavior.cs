@@ -364,7 +364,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 throw new ArgumentNullException(nameof(args));
             }
 
-            if (args.Pointer.PointerDeviceType != PointerDeviceType.Touch)
+            if (!args.Pointer.PointerDeviceType.Equals(PointerDeviceType.Touch))
             {
                 this.EndTrack();
             }

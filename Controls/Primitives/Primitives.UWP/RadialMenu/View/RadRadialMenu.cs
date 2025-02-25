@@ -6,7 +6,7 @@ using Telerik.UI.Xaml.Controls.Primitives.Menu;
 using Telerik.UI.Xaml.Controls.Primitives.Menu.Commands;
 using Windows.Foundation;
 using Windows.System;
-using Microsoft.UI.Core;
+using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls.Primitives;

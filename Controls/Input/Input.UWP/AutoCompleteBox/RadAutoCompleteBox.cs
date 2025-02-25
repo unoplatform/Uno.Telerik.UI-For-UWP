@@ -25,7 +25,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 	[TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
 #else
 	// UNO TODO
-	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Microsoft.UI.Xaml.Controls.Popup))]
+	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Microsoft.UI.Xaml.Controls.Primitives.Popup))]
 #endif
 	[TemplatePart(Name = "PART_SuggestionsControl", Type = typeof(SuggestionItemsControl))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
@@ -184,7 +184,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 		internal Popup suggestionsPopup;
 #else
 		// UNO TODO
-		internal Microsoft.UI.Xaml.Controls.Popup suggestionsPopup;
+		internal Microsoft.UI.Xaml.Controls.Primitives.Popup suggestionsPopup;
 #endif
 		internal SuggestionItemsControl suggestionsControl;
         internal TextBox textbox;
@@ -896,7 +896,7 @@ namespace Telerik.UI.Xaml.Controls.Input
                 this.forceSuggestionsRefreshProgrammatically = true;
                 this.Text = searchText;
                 this.InvokeAsync(
-                    Microsoft.UI.Core.CoreDispatcherPriority.Low,
+                    Windows.UI.Core.CoreDispatcherPriority.Low,
                     () =>
                     {
                         // Reconsider future review
@@ -1055,7 +1055,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 			this.suggestionsPopup = this.GetTemplatePartField<Popup>(SuggestionsPopupPartName);
 #else
 			 // UNO TODO
-			this.suggestionsPopup = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Popup>(SuggestionsPopupPartName);
+			this.suggestionsPopup = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Primitives.Popup>(SuggestionsPopupPartName);
 #endif
 			applied = applied && this.suggestionsPopup != null;
 
@@ -1568,7 +1568,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
             FrameworkElement child = this.noResultsFound ? (FrameworkElement)this.noResultsControl : this.suggestionsControl;
 
-            Rect occludedRect = Microsoft.UI.ViewManagement.InputPane.GetForCurrentView().OccludedRect;
+            Rect occludedRect = Windows.UI.ViewManagement.InputPane.GetForCurrentView().OccludedRect;
             double occludedRectStartY = /* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Bottom;
             if (occludedRect.Y > 0)
             {
