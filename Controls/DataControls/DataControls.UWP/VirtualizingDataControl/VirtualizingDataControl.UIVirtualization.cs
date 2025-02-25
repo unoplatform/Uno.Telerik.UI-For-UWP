@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Telerik.Core.Data;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Core;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -411,7 +411,7 @@ namespace Telerik.UI.Xaml.Controls.Data
                 this.virtualizationStrategy.CheckTopScrollableBounds();
             }
 
-            this.previousScrollOffset = this.virtualizationStrategy.LayoutOrientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ?
+            this.previousScrollOffset = this.virtualizationStrategy.LayoutOrientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ?
                this.manipulationContainer.HorizontalOffset :
                this.manipulationContainer.VerticalOffset;
 

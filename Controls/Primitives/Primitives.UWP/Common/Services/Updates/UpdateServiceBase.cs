@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Windows.UI.Core;
+using Microsoft.UI.Core;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {

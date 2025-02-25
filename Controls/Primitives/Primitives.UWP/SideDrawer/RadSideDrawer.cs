@@ -3,11 +3,11 @@ using System.Linq;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.SideDrawer.Commands;
 using Windows.Foundation;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -616,7 +616,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             this.swipeAreaElement = new Border
             {
                 Background = new SolidColorBrush(Colors.Transparent),
-                ManipulationMode = Windows.UI.Xaml.Input.ManipulationModes.All
+                ManipulationMode = Microsoft.UI.Xaml.Input.ManipulationModes.All
             };
 
             this.sideDrawerRoot.Children.Add(this.swipeAreaElement);
@@ -883,7 +883,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        private void MainContent_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void MainContent_Tapped(object sender, Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             if (this.IsOpen && this.closeDrawer && this.TapOutsideToClose)
             {

@@ -5,7 +5,7 @@ using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

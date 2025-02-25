@@ -1,7 +1,7 @@
 ﻿using System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {
@@ -15,7 +15,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         private const string Second = "Second";
 
         /// <summary>
-        /// Takes <see cref="Windows.UI.Xaml.Controls.Orientation"/> value and returns <see cref="Windows.UI.Xaml.VerticalAlignment"/> value that
+        /// Takes <see cref="Microsoft.UI.Xaml.Controls.Orientation"/> value and returns <see cref="Microsoft.UI.Xaml.VerticalAlignment"/> value that
         /// specifies the alignment of the corresponding action content.
         /// </summary>
         /// <param name="value">The input value.</param>

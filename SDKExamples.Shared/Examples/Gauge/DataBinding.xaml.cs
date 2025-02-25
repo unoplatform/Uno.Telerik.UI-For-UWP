@@ -1,5 +1,5 @@
 ﻿using Telerik.Core;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace SDKExamples.UWP.Gauge
 {

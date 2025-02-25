@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Telerik.UI.Xaml.Controls.Primitives.SideDrawer.Commands;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -130,7 +130,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             this.swipeAreaElement.ManipulationCompleted -= this.MainContent_ManipulationCompleted;
         }
 
-        private void Drawer_ManipulationCompleted(object sender, Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs e)
+        private void Drawer_ManipulationCompleted(object sender, Microsoft.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs e)
         {
             if (this.shouldAnimate)
             {
@@ -184,7 +184,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             this.shouldAnimate = false;
         }
 
-        private void Drawer_ManipulationDelta(object sender, Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs e)
+        private void Drawer_ManipulationDelta(object sender, Microsoft.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs e)
         {
             if (this.shouldAnimate)
             {
@@ -235,7 +235,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        private void Drawer_ManipulationStarted(object sender, Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs e)
+        private void Drawer_ManipulationStarted(object sender, Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs e)
         {
             this.DrawerState = Primitives.DrawerState.Moving;
             this.shouldAnimate = true;
@@ -245,7 +245,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             this.Context.DrawerStoryBoardReverse.Pause();
         }
 
-        private void MainContent_ManipulationCompleted(object sender, Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs e)
+        private void MainContent_ManipulationCompleted(object sender, Microsoft.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs e)
         {
             if (this.shouldAnimate)
             {
@@ -300,7 +300,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        private void MainContent_ManipulationStarted(object sender, Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs e)
+        private void MainContent_ManipulationStarted(object sender, Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs e)
         {
             var owner = sender as FrameworkElement;
             bool isInArea = false;
@@ -332,7 +332,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        private void MainContent_ManipulationDelta(object sender, Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs e)
+        private void MainContent_ManipulationDelta(object sender, Microsoft.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs e)
         {
             if (this.shouldAnimate)
             {

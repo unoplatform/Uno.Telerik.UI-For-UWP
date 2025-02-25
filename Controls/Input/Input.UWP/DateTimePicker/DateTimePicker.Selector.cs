@@ -8,14 +8,14 @@ using Windows.Foundation;
 using Windows.Globalization;
 using Windows.System;
 using Windows.System.Profile;
-using Windows.UI.Core;
-using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Core;
+using Microsoft.UI.ViewManagement;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -79,7 +79,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 #if NETFX_CORE
 		internal Popup popup;
 #else
-		internal Windows.UI.Xaml.Controls.Popup popup; // UNO TODO
+		internal Microsoft.UI.Xaml.Controls.Popup popup; // UNO TODO
 #endif
 		internal List<DateTimeList> dateTimeLists = new List<DateTimeList>();
 
@@ -394,7 +394,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 		internal Popup Popup
 #else
 		// UNO TODO
-        internal Windows.UI.Xaml.Controls.Popup Popup
+        internal Microsoft.UI.Xaml.Controls.Popup Popup
 #endif
 
 		{
@@ -545,7 +545,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             foreach (DateTimeList list in this.dateTimeLists)
             {
-                if (list.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+                if (list.Visibility == Microsoft.UI.Xaml.Visibility.Collapsed)
                 {
                     continue;
                 }
@@ -747,7 +747,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         internal Size GetSelectorSize()
         {
-            var view = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            var view = Microsoft.UI.ViewManagement.ApplicationView.GetForCurrentView();
             if (AnalyticsInfo.VersionInfo.DeviceFamily.Equals(DeviceFamilyMobileName) && view != null)
             {
                 // TODO refactor this to use width and height and compensate for ofset of the bounds x and y. Also consider resize the view if entering/exiting full screen.
@@ -865,7 +865,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 #if NETFX_CORE
 			this.popup = this.GetTemplatePartField<Popup>(PopupPartName); // TODO UNO
 #else
-			this.popup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(PopupPartName); // TODO UNO
+			this.popup = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Popup>(PopupPartName); // TODO UNO
 #endif
 			applied = applied && this.popup != null;
 
@@ -1029,7 +1029,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             int itemCount = this.ItemCount;
             Thickness padding = this.selectorLayoutRoot.Padding;
             Thickness borderThickness = this.selectorLayoutRoot.BorderThickness;
-            Rect windowBounds = /* TODO UNO */Windows.UI.Xaml.Window.Current.Bounds;
+            Rect windowBounds = /* TODO UNO */Microsoft.UI.Xaml.Window.Current.Bounds;
             double height;
             if (itemCount <= 0)
             {
@@ -1072,13 +1072,13 @@ namespace Telerik.UI.Xaml.Controls.Input
         }
         private FrameworkElement FindPage()
         {
-            Frame frame = /* TODO UNO */Windows.UI.Xaml.Window.Current.Content as Frame;
+            Frame frame = /* TODO UNO */Microsoft.UI.Xaml.Window.Current.Content as Frame;
             if (frame != null && frame.Content is Page)
             {
                 return frame.Content as Page;
             }
 
-            return ElementTreeHelper.FindVisualDescendant<Page>(/* TODO UNO */Windows.UI.Xaml.Window.Current.Content);
+            return ElementTreeHelper.FindVisualDescendant<Page>(/* TODO UNO */Microsoft.UI.Xaml.Window.Current.Content);
         }
 
         private void PrepareSelector()
@@ -1129,7 +1129,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void HookCoreWindowEvents()
         {
-            CoreWindow root = /* TODO UNO */Windows.UI.Xaml.Window.Current.CoreWindow;
+            CoreWindow root = /* TODO UNO */Microsoft.UI.Xaml.Window.Current.CoreWindow;
 
             if (root != null)
             {
@@ -1139,7 +1139,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void UnhookCoreWindowEvents()
         {
-            CoreWindow root = /* TODO UNO */Windows.UI.Xaml.Window.Current.CoreWindow;
+            CoreWindow root = /* TODO UNO */Microsoft.UI.Xaml.Window.Current.CoreWindow;
 
             if (root != null)
             {
@@ -1147,7 +1147,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
-        private void OnCoreWindowKeyDown(CoreWindow sender, /* UNO TODO */ Windows.UI.Core.KeyEventArgs args)
+        private void OnCoreWindowKeyDown(CoreWindow sender, /* UNO TODO */ Microsoft.UI.Core.KeyEventArgs args)
         {
             if (!this.IsOpen)
             {
@@ -1267,7 +1267,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             double width = itemLength * 3 + 6 * itemSpacing + padding.Left + padding.Right + borderThickness.Left + borderThickness.Right;
             if (clampToWindow)
             {
-                Window current = /* TODO UNO */Windows.UI.Xaml.Window.Current;
+                Window current = /* TODO UNO */Microsoft.UI.Xaml.Window.Current;
                 if (current != null)
                 {
                     width = Math.Min(current.Bounds.Width, width);
@@ -1279,9 +1279,9 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void UpdateSelectorPosition(Size popupSize)
         {
-            Point location = this.TransformToVisual(/* TODO UNO */Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
+            Point location = this.TransformToVisual(/* TODO UNO */Microsoft.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
 
-            var view = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            var view = Microsoft.UI.ViewManagement.ApplicationView.GetForCurrentView();
             if (view != null && view.VisibleBounds.Width < 720)
             {
                 this.PositionPopupOnWholeScreen(location);
@@ -1451,7 +1451,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 #if NETFX_CORE
 				this.popup.SetBinding(Popup.IsOpenProperty, b);
 #else
-				this.popup.SetBinding(/* TODO UNO */Windows.UI.Xaml.Controls.Popup.IsOpenProperty, b);
+				this.popup.SetBinding(/* TODO UNO */Microsoft.UI.Xaml.Controls.Popup.IsOpenProperty, b);
 #endif
 
 				this.CloseSelector(false, false);
@@ -1480,7 +1480,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             // focus the first available datetime list
             foreach (DateTimeList list in this.dateTimeLists)
             {
-                if (list.Visibility == Windows.UI.Xaml.Visibility.Visible)
+                if (list.Visibility == Microsoft.UI.Xaml.Visibility.Visible)
                 {
                     list.Focus(FocusState.Keyboard);
                     break;

@@ -1,10 +1,10 @@
 ﻿using System;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Data.Common
 {
@@ -67,7 +67,7 @@ namespace Telerik.UI.Xaml.Controls.Data.Common
         {
             get
             {
-                return this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal;
+                return this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal;
             }
         }
 
@@ -92,7 +92,7 @@ namespace Telerik.UI.Xaml.Controls.Data.Common
             {
                 var currentThreshold = this.SwipeTheshold - this.initialChildOffset;
 
-                if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     if (Canvas.GetLeft(this.listener.MainElementToTranslate) < currentThreshold)
                     {
@@ -144,7 +144,7 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
 
             var transform = this.rootPanel.TransformToVisual(this.listener.ScrollViewer);
             var point = transform.TransformPoint(new Point(0, 0));
-            var offset = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? point.X : point.Y;
+            var offset = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? point.X : point.Y;
 
             if (this.isIntermidiateChange)
             {
@@ -158,7 +158,7 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
 
                 this.DetachFromRendering();
 
-                if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     Canvas.SetLeft(this.listener.CompressedChildToTranslate, offset);
                 }
@@ -257,7 +257,7 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
             double offset = 0;
             double mainOffsetChild = 0;
 
-            if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+            if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
             {
                 offset = Canvas.GetTop(this.listener.CompressedChildToTranslate) + point.Y;
                 mainOffsetChild = Canvas.GetTop(this.listener.MainElementToTranslate) + point.Y;
@@ -310,7 +310,7 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
             topAnimation.To = to;
             Storyboard.SetTarget(topAnimation, element);
 
-            if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+            if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
             {
                 Storyboard.SetTargetProperty(topAnimation, "(Canvas.Top)");
             }
@@ -346,7 +346,7 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
             CompositionTarget.Rendering -= this.CompositionTarget_Rendering;
         }
 
-        private void ManipulationPanel_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void ManipulationPanel_PointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             var scrollViewerInStartPosition = !this.IsHorizontal && this.listener.ScrollViewer.VerticalOffset == 0 ||
                 this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
@@ -372,9 +372,9 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
             
             if (this.RefreshRequested && !this.IsPullToRefreshCancelled)
             {
-                var offset = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? Canvas.GetLeft(this.listener.CompressedChildToTranslate) : Canvas.GetTop(this.listener.CompressedChildToTranslate);
+                var offset = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? Canvas.GetLeft(this.listener.CompressedChildToTranslate) : Canvas.GetTop(this.listener.CompressedChildToTranslate);
 
-                var mainElementOffset = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? Canvas.GetLeft(this.listener.MainElementToTranslate) : Canvas.GetTop(this.listener.MainElementToTranslate);
+                var mainElementOffset = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? Canvas.GetLeft(this.listener.MainElementToTranslate) : Canvas.GetTop(this.listener.MainElementToTranslate);
 
                 this.AnimatePanel(this.listener.MainElementToTranslate, mainElementOffset, this.SwipeTheshold + this.initialChildOffset, null, true);
             }
@@ -410,7 +410,7 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
                 if (this.capturedPointer == null)
                 {
                     var pointerPoint = e.GetCurrentPoint(this.rootPanel).Position;
-                    this.startLocation = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? pointerPoint.X : pointerPoint.Y;
+                    this.startLocation = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? pointerPoint.X : pointerPoint.Y;
 
                     this.startLocation -= this.rootOffset;
 
@@ -419,13 +419,13 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
                 }
 
                 var curentPoint = e.GetCurrentPoint(this.rootPanel).Position;
-                var offset = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? curentPoint.X - this.startLocation : curentPoint.Y - this.startLocation;
+                var offset = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? curentPoint.X - this.startLocation : curentPoint.Y - this.startLocation;
 
                 var acceleratedOffset = offset + this.initialChildOffset;
 
                 this.listener.OnOffsetChanged(acceleratedOffset);
 
-                if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     Canvas.SetLeft(this.listener.MainElementToTranslate, acceleratedOffset);
                 }
@@ -438,7 +438,7 @@ this.IsHorizontal && this.listener.ScrollViewer.HorizontalOffset == 0;
                 {
                     var slowedOffset = Math.Log(offset, 1.5) + 10;
 
-                    if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                    if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                     {
                         Canvas.SetLeft(this.listener.CompressedChildToTranslate, slowedOffset);
                     }

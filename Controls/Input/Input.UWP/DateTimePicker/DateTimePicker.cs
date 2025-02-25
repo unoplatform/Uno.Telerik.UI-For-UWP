@@ -6,9 +6,9 @@ using Telerik.UI.Xaml.Controls.Primitives.LoopingList;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Globalization;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -119,7 +119,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.selectorUtcValue = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             this.utcValue = this.selectorUtcValue;
 			// TODO UNO
-			Windows.UI.Xaml.Window.Current.SizeChanged += this.Current_SizeChanged;
+			Microsoft.UI.Xaml.Window.Current.SizeChanged += this.Current_SizeChanged;
         }
 
         /// <summary>
@@ -751,7 +751,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
-        private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        private void Current_SizeChanged(object sender, Microsoft.UI.Core.WindowSizeChangedEventArgs e)
         {
             this.IsOpen = false;
         }

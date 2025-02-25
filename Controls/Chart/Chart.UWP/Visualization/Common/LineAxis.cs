@@ -1,10 +1,10 @@
 ﻿using System;
 using Telerik.Charting;
 using Telerik.Core;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Primitives.RangeSlider;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -237,7 +237,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         private double GetRelativeOffset(double offset)
         {
             double selectionOffsets = this.SelectionEndOffset + this.SelectionStartOffset;
-            var dimention = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? this.ActualWidth : this.ActualHeight;
+            var dimention = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? this.ActualWidth : this.ActualHeight;
             var delta = offset * (this.Maximum - this.Minimum) / (dimention - selectionOffsets);
             return delta;
         }

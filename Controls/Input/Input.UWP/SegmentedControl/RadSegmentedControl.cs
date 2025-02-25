@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Windows.Input;
 using Telerik.Core;
-using Telerik.UI.Automation.Peers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -338,7 +336,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.itemsControl.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = this, Path = new PropertyPath("ItemsSource") });
 
             var temp = this.Dispatcher.RunAsync(
-                Windows.UI.Core.CoreDispatcherPriority.Normal, 
+                Microsoft.UI.Core.CoreDispatcherPriority.Normal, 
                 () =>
                 {
                     foreach (var disabledItem in this.disabledItemsCache)

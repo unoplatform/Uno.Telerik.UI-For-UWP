@@ -1,7 +1,7 @@
 ﻿using System;
 using Telerik.Charting;
 using Telerik.Core;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Chart.Primitives
 {
@@ -16,7 +16,7 @@ namespace Telerik.UI.Xaml.Controls.Chart.Primitives
         public PaletteVisualPart PaletteVisualPart { get; set; }
 
         /// <summary>
-        /// Converts a value of type <see cref="DataPoint"/> to the corresponding <see cref="Windows.UI.Xaml.Media.Brush"/> from the chart palette.
+        /// Converts a value of type <see cref="DataPoint"/> to the corresponding <see cref="Microsoft.UI.Xaml.Media.Brush"/> from the chart palette.
         /// </summary>
         public object Convert(object value, Type targetType, object parameter, string language)
         {

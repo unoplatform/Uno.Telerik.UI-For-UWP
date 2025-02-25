@@ -1,5 +1,5 @@
 ﻿using Windows.System;
-using Windows.UI.Core;
+using Microsoft.UI.Core;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {

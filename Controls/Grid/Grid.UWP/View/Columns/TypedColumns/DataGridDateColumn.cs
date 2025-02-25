@@ -3,8 +3,8 @@ using System.Reflection;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Telerik.UI.Xaml.Controls.Input;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

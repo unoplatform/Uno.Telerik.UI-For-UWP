@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.DragDrop.Reorder
 {

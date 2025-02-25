@@ -6,9 +6,9 @@ using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Data.DataForm;
 using Telerik.UI.Xaml.Controls.Data.DataForm.Commands;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -146,7 +146,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="Windows.UI.Xaml.Controls.DataTemplateSelector"/> used to choose DataTemplate to display the group headers that are part of the control.
+        /// Gets or sets the <see cref="Microsoft.UI.Xaml.Controls.DataTemplateSelector"/> used to choose DataTemplate to display the group headers that are part of the control. 
         /// This is a dependency property.
         /// </summary>
         public DataTemplateSelector GroupHeaderTemplateSelector
@@ -167,7 +167,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="Windows.UI.Xaml.Controls.StyleSelector"/> used to choose Style to display each editor of the control.
+        /// Gets or sets the <see cref="Microsoft.UI.Xaml.Controls.StyleSelector"/> used to choose Style to display each editor of the control. 
         /// This is a dependency property.
         /// </summary>
         public StyleSelector EditorStyleSelector
@@ -565,7 +565,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
         }
 
-        private void EditorLostFocus(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void EditorLostFocus(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             var editor = sender as EntityPropertyControl;
             var entityProperty = editor.Property;

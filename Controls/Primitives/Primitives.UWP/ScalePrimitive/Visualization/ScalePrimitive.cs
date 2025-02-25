@@ -2,9 +2,9 @@
 using System.Globalization;
 using Telerik.UI.Xaml.Controls.Primitives.Scale;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {

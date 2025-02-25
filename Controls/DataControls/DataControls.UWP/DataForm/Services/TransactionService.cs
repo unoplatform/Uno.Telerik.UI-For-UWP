@@ -106,8 +106,22 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
         void ITransactionService.ErrorsChanged(object sender, string propertyName)
         {
             var property = this.Owner.Entity.GetEntityProperty(propertyName);
-            var errorsList = (sender as ISupportEntityValidation).GetErrors(propertyName).OfType<object>().ToList();
-            this.errors[propertyName] = errorsList;
+            var list = (sender as ISupportEntityValidation).GetErrors(propertyName).OfType<object>().ToList();
+            this.errors[propertyName] = list;
+
+            var temp = this.Dispatcher.RunAsync(
+                Microsoft.UI.Core.CoreDispatcherPriority.Normal,
+                () =>
+                {
+                    var errorsList = (sender as ISupportEntityValidation).GetErrors(propertyName).OfType<object>().ToArray();
+
+                    property.Errors.Clear();
+
+                    foreach (var error in errorsList)
+                    {
+                        property.Errors.Add(error);
+                    }
+                });
         }
 
         internal bool CommitPropertyCore(EntityProperty property)

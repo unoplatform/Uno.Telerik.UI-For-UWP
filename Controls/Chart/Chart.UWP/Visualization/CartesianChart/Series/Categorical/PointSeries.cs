@@ -4,9 +4,9 @@ using Telerik.Charting;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

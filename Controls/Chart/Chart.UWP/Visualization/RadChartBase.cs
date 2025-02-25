@@ -10,10 +10,10 @@ using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -419,7 +419,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
 
             Canvas newLabelLayer = new Canvas();
-            newLabelLayer.SetBinding(UIElement.VisibilityProperty, new Windows.UI.Xaml.Data.Binding() { Path = new PropertyPath("Visibility"), Source = series });
+            newLabelLayer.SetBinding(UIElement.VisibilityProperty, new Microsoft.UI.Xaml.Data.Binding() { Path = new PropertyPath("Visibility"), Source = series });
             newLabelLayer.Tag = series;
             this.labelLayer.Children.Add(newLabelLayer);
 

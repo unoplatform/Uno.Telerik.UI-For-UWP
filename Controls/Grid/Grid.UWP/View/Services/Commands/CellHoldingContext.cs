@@ -1,4 +1,4 @@
-﻿using Windows.UI.Input;
+﻿using Microsoft.UI.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Commands
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace SDKExamples.UWP.DataGrid
 {

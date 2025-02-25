@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Telerik.Data.Core;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -43,7 +43,7 @@ namespace SDKExamples.UWP.Listview
             }
         }
 
-        private void SortButtonClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void SortButtonClick(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             DelegateSortDescriptor descriptor = new DelegateSortDescriptor();
             descriptor.KeyLookup = new CustomLookup();

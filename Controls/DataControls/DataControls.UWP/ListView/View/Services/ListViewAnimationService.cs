@@ -8,7 +8,7 @@ using Telerik.UI.Xaml.Controls.Data.ContainerGeneration;
 using Telerik.UI.Xaml.Controls.Data.ListView;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.Foundation;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -34,7 +34,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             checkBoxanimation.EndPoint = new Point(0, 0);
             itemLength = itemLength == 0 ? 29 : itemLength;
             var offset = beforeItem ? itemLength : -itemLength;
-            checkBoxanimation.StartPoint = this.Owner.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical ? new Point(-offset, 0) : new Point(0, -offset);
+            checkBoxanimation.StartPoint = this.Owner.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical ? new Point(-offset, 0) : new Point(0, -offset);
 
             if (!forward)
             {
@@ -51,7 +51,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             itemLength = itemLength == 0 ? 29 : itemLength;
             var offset = beforeItem ? itemLength : -itemLength;
 
-            animation.EndPoint = this.Owner.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical ? new Point(offset, 0) : new Point(0, offset);
+            animation.EndPoint = this.Owner.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical ? new Point(offset, 0) : new Point(0, offset);
 
             if (forward)
             {

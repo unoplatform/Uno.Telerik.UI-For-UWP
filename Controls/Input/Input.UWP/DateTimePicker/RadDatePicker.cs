@@ -3,10 +3,10 @@ using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Input.DateTimePickers;
 using Telerik.UI.Xaml.Controls.Primitives.LoopingList;
 using Windows.Globalization;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 	[TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
 #else
 	// UNO TODO
-	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Windows.UI.Xaml.Controls.Popup))]
+	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Microsoft.UI.Xaml.Controls.Popup))]
 #endif
 	[TemplatePart(Name = "PART_SelectorLayoutRoot", Type = typeof(Border))]
     [TemplatePart(Name = "PART_SelectorHeader", Type = typeof(ContentPresenter))]

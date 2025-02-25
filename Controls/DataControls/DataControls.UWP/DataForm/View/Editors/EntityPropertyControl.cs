@@ -1,8 +1,8 @@
 ﻿using System;
 using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Data.DataForm;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {

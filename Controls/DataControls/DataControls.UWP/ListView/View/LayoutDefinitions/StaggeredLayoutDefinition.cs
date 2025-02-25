@@ -1,7 +1,7 @@
 ﻿using Telerik.Data.Core.Layouts;
 using Telerik.UI.Xaml.Controls.Data.ContainerGeneration;
 using Telerik.UI.Xaml.Controls.Data.ListView.Model;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {

@@ -3,8 +3,7 @@ using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
 using Telerik.UI.Xaml.Controls.Data.ListView.View.Controls;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {
@@ -171,7 +170,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 this.dragX = currentPoint.X - startPoint.X;
                 this.dragY = currentPoint.Y - startPoint.Y;
 
-                this.UpdateActionContentClipping(this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX);
+                this.UpdateActionContentClipping(this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX);
             }
         }
 
@@ -191,7 +190,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 }
                 else
                 {
-                    if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+                    if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
                     {
                         switch (this.SwipeDirection)
                         {
@@ -256,7 +255,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
             if (dragContext.PayloadData is DragAction && (DragAction)dragContext.PayloadData == DragAction.ItemAction)
             {
-                var offset = this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX;
+                var offset = this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX;
                 var swipeContext = new ItemSwipingContext(this.DataContext, this, offset);
                 this.ListView.swipedItem = this;
                 this.ListView.commandService.ExecuteCommand(CommandId.ItemSwiping, swipeContext);

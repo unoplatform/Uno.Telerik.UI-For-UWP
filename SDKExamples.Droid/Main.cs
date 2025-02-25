@@ -18,7 +18,7 @@ namespace SDKExamples.UWP
 		HardwareAccelerated = true,
 		Theme = "@style/AppTheme"
 	)]
-	public class DroidApp : Windows.UI.Xaml.NativeApplication
+	public class DroidApp : Microsoft.UI.Xaml.NativeApplication
 	{
 		public DroidApp(IntPtr javaReference, JniHandleOwnership transfer)
 			: base(() => new App(), javaReference, transfer)

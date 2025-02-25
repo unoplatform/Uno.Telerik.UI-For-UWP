@@ -4,7 +4,7 @@ using System.Linq;
 using System.Numerics;
 using Telerik.Charting;
 using Telerik.UI.Xaml.Controls.Chart;
-using Windows.UI.Composition;
+using Microsoft.UI.Composition;
 
 namespace SDKExamples.UWP.Chart
 {

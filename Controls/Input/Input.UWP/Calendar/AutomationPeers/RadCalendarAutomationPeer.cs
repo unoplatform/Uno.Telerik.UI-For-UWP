@@ -4,9 +4,9 @@ using System.Globalization;
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Input;
 using Telerik.UI.Xaml.Controls.Input.Calendar;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -99,7 +99,7 @@ namespace Telerik.UI.Automation.Peers
         {
             get
             {
-                return Windows.UI.Xaml.Automation.RowOrColumnMajor.RowMajor;
+                return Microsoft.UI.Xaml.Automation.RowOrColumnMajor.RowMajor;
             }
         }
 

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives.Menu;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -209,12 +209,12 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             this.AttachToTargetElement();
         }
 
-        private void OnElement_PointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnElement_PointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.AttachToTargetElement();
         }
 
-        private void OnTarget_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnTarget_PointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.AttachToTargetElement();
         }

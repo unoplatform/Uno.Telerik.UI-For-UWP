@@ -1,11 +1,11 @@
 ﻿using System;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {
     /// <summary>
-    /// Converts a value from the <see cref="Windows.UI.Xaml.Controls.Orientation"/> enumeration to a value <see cref="Windows.UI.Xaml.Controls.ScrollMode"/> value.
+    /// Converts a value from the <see cref="Microsoft.UI.Xaml.Controls.Orientation"/> enumeration to a value <see cref="Microsoft.UI.Xaml.Controls.ScrollMode"/> value.
     /// </summary>
     public class OrientationToScrollModeConverter : IValueConverter
     {

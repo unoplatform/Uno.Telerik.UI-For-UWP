@@ -4,13 +4,13 @@ using System.Diagnostics.CodeAnalysis;
 using Telerik.Charting;
 using Telerik.Core;
 using Windows.Foundation;
-using Windows.UI.Composition;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Hosting;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Core;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Hosting;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -83,7 +83,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         }
 
         /// <summary>
-        /// Gets the <see cref="Windows.UI.Composition.Compositor"/> instance used for the creation of Composition visuals.
+        /// Gets the <see cref="Microsoft.UI.Composition.Compositor"/> instance used for the creation of Composition visuals.
         /// </summary>
         protected Compositor Compositor
         {
@@ -94,7 +94,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         }
 
         /// <summary>
-        /// Gets the <see cref="Windows.UI.Composition.ContainerVisual"/> instance used as a container for the visual elements drawn by the Composition.
+        /// Gets the <see cref="Microsoft.UI.Composition.ContainerVisual"/> instance used as a container for the visual elements drawn by the Composition.
         /// </summary>
         protected ContainerVisual ContainerVisualRoot
         {

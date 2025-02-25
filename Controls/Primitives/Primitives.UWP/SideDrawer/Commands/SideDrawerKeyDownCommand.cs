@@ -1,4 +1,4 @@
-﻿using Windows.UI.Xaml.Input;
+﻿using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.SideDrawer.Commands
 {

@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Input;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
 
 namespace Telerik.UI.Automation.Peers
 {

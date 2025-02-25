@@ -1,7 +1,7 @@
 ﻿using Telerik.UI.Xaml.Controls.Data.DataForm;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -37,7 +37,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             EditorsHelper.AddPropertyValueConverter(b, this);
             this.SetBinding(ListEditor.SelectedItemProperty, b);
 
-            Binding b2 = new Windows.UI.Xaml.Data.Binding();
+            Binding b2 = new Microsoft.UI.Xaml.Data.Binding();
             b2.Path = new PropertyPath("Watermark");
             this.SetBinding(ListEditor.PlaceholderTextProperty, b2);
 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Telerik.Data.Core.Layouts;
 using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

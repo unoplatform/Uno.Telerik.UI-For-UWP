@@ -1,7 +1,7 @@
 ﻿using System;
 using Telerik.Charting;
 using Telerik.UI.Xaml.Controls.Chart;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 using System.Linq;
 using System.Collections.Generic;
 

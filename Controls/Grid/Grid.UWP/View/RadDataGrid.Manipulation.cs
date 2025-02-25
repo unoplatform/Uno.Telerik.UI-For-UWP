@@ -8,11 +8,11 @@ using Telerik.UI.Xaml.Controls.Grid.View;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.Devices.Input;
 using Windows.System;
-using Windows.UI.Input;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -349,7 +349,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
 #pragma warning disable CS4014 
                             Dispatcher.RunAsync(
-                                Windows.UI.Core.CoreDispatcherPriority.Low, 
+                                Microsoft.UI.Core.CoreDispatcherPriority.Low, 
                                 () =>
                                 {
                                     var xamlVisualStateLayer = this.visualStateLayerCache as XamlVisualStateLayer;

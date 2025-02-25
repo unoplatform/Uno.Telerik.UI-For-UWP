@@ -2,7 +2,7 @@
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop.Reorder;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {

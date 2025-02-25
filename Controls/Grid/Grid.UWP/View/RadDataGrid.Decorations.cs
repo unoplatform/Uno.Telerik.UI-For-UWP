@@ -1,7 +1,7 @@
 ﻿using Telerik.UI.Xaml.Controls.Grid.View;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

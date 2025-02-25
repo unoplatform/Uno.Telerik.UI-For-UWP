@@ -6,7 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Telerik.Data.Core;
 using Telerik.UI.Automation.Peers;
-using Windows.UI.Xaml.Automation.Peers;
+using Telerik.UI.Xaml.Controls.Grid.Primitives;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

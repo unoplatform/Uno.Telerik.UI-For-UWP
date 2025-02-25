@@ -3,7 +3,9 @@ using System.Linq;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Grid.Model;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Telerik.UI.Xaml.Controls;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -45,7 +45,7 @@ namespace Telerik.UI.Automation.Peers
         {
             if (this.Control.Content != null)
             {
-                var textBlock = ElementTreeHelper.FindVisualDescendant<Windows.UI.Xaml.Controls.TextBlock>(this.Control);
+                var textBlock = ElementTreeHelper.FindVisualDescendant<Microsoft.UI.Xaml.Controls.TextBlock>(this.Control);
                 if (textBlock != null)
                 {
                     return textBlock.Text;

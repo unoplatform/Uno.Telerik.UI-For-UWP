@@ -3,9 +3,9 @@ using Telerik.UI.Xaml.Controls.Input.Calendar;
 using Telerik.UI.Xaml.Controls.Input.Calendar.Commands;
 using Windows.Devices.Input;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {

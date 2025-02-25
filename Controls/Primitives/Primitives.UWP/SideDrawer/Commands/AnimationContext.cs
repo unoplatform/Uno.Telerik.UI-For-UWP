@@ -1,4 +1,9 @@
-﻿using Windows.UI.Xaml.Media.Animation;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.SideDrawer.Commands
 {

@@ -1,6 +1,6 @@
 ﻿using Telerik.Charting;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

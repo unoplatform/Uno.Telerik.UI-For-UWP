@@ -13,11 +13,11 @@ using Telerik.UI.Xaml.Controls.Input.Calendar.Commands;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -1836,7 +1836,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             get
             {
-                return this.isCalendarViewFocused && this.FocusState == Windows.UI.Xaml.FocusState.Keyboard;
+                return this.isCalendarViewFocused && this.FocusState == Microsoft.UI.Xaml.FocusState.Keyboard;
             }
         }
 

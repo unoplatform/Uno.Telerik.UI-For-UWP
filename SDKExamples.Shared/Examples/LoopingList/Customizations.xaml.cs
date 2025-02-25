@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Telerik.UI.Xaml.Controls.Primitives.LoopingList;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -61,12 +61,12 @@ namespace SDKExamples.UWP.LoopingList
             }
         }
 
-        private void HeightChagned(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void HeightChagned(object sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             this.loopingList.ItemHeight = e.NewValue;
         }
 
-        private void SpacingChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void SpacingChanged(object sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             this.loopingList.ItemSpacing = e.NewValue;
         }
