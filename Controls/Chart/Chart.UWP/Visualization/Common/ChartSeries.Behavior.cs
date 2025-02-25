@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Telerik.Charting;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -122,9 +122,9 @@ namespace Telerik.UI.Xaml.Controls.Chart
             // NOTE: All hit tests with VisualTreeHelper.FindElementsInHostCoordinates(intersectingRect, subtree, includeAllElements) 
             // are done in the global coordinate system of the application and not in the coordinate system of the subtree passed as parameter.
 			// UNO TODO
-            if (Windows.UI.Xaml.Window.Current != null && Windows.UI.Xaml.Window.Current.Content != null)
+            if (Microsoft.UI.Xaml.Window.Current != null && Microsoft.UI.Xaml.Window.Current.Content != null)
             {
-                touchRect = this.Chart.TransformToVisual(Windows.UI.Xaml.Window.Current.Content).TransformBounds(touchRect);
+                touchRect = this.Chart.TransformToVisual(Microsoft.UI.Xaml.Window.Current.Content).TransformBounds(touchRect);
             }
 
             foreach (var element in this.GetElements(touchRect, this.renderSurface, includeAllElements, dataPointsOnly))

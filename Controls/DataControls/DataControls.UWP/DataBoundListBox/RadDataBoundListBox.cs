@@ -7,15 +7,15 @@ using Telerik.Core.Data;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Data.DataBoundListBox;
 using Windows.Foundation;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Core;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -215,7 +215,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         public event EventHandler<SelectionChangingEventArgs> SelectionChanging;
 
         /// <summary>
-        /// Gets or sets an instance of the <see cref="Windows.UI.Xaml.Style"/> class that
+        /// Gets or sets an instance of the <see cref="Microsoft.UI.Xaml.Style"/> class that
         /// defines the visual appearance of the pull-to-refresh indicator element.
         /// </summary>
         public Style PullToRefreshIndicatorStyle
@@ -1130,7 +1130,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 #if NETFX_CORE
 			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Popup /* UNO TODO */;
 #else
-			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Windows.UI.Xaml.Controls.Popup /* UNO TODO */;
+			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Microsoft.UI.Xaml.Controls.Popup /* UNO TODO */;
 #endif
 
 			if (this.itemReorderControl != null && this.itemReorderPopup != null)

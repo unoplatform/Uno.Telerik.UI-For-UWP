@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// Represents an extended <see cref="DependencyObject"/> that recognizes whether a property is changed internally within the class or programmatically by the user.
     /// </summary>
 	// TODO UNO
-    // [Windows.UI.Xaml.Data.Bindable]
+    // [Microsoft.UI.Xaml.Data.Bindable]
     public abstract partial class RadDependencyObject : DependencyObject
     {
         private byte internalPropertyChange;

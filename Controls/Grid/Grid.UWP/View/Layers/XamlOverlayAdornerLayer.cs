@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Windows.Foundation;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid.View
 {
@@ -59,7 +59,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.View
             }
         }
 
-        protected internal override void AttachUI(Windows.UI.Xaml.Controls.Panel parent)
+        protected internal override void AttachUI(Microsoft.UI.Xaml.Controls.Panel parent)
         {
             base.AttachUI(parent);
 

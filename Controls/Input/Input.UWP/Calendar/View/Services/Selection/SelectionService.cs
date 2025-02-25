@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {

@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Telerik.Core;
 using Windows.ApplicationModel.Resources.Core;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

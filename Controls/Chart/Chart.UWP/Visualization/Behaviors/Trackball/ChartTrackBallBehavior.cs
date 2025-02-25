@@ -8,12 +8,12 @@ using Telerik.UI.Xaml.Controls.Chart;
 using Telerik.UI.Xaml.Controls.Chart.Primitives;
 using Windows.Devices.Input;
 using Windows.Foundation;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -90,7 +90,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
         /// <summary>
         /// Gets or sets the <see cref="Style"/> that defines the appearance of the line displayed by a <see cref="ChartTrackBallBehavior"/> instance.
-        /// The style should target the <see cref="Windows.UI.Xaml.Shapes.Polyline"/> type.
+        /// The style should target the <see cref="Microsoft.UI.Xaml.Shapes.Polyline"/> type.
         /// </summary>
         public Style LineStyle
         {

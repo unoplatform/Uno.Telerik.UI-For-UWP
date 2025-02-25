@@ -1,10 +1,10 @@
 ﻿using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -178,9 +178,9 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 
             var size = this.Owner.OnCellsPanelArrange(finalSize.ToRadSize()).ToSize();
 
-            this.Margin = new Windows.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
-            this.Owner.DecorationsHost.Margin = new Windows.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
-            this.Owner.ScrollableAdornerHost.Margin = new Windows.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
+            this.Margin = new Microsoft.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
+            this.Owner.DecorationsHost.Margin = new Microsoft.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
+            this.Owner.ScrollableAdornerHost.Margin = new Microsoft.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
 
             this.Owner.FrozenContentHost.Width = this.Owner.Model.FrozenColumnsWidth;
             this.Owner.FrozenContentHost.Height = finalSize.Height;

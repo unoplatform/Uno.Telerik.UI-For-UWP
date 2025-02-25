@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 {
@@ -93,7 +93,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
         {
             if (!DesignMode.DesignModeEnabled)
             {
-                var sliderPrimitiveTransformed = this.TransformToVisual(/* TODO UNO */ Windows.UI.Xaml.Window.Current.Content);
+                var sliderPrimitiveTransformed = this.TransformToVisual(/* TODO UNO */ Microsoft.UI.Xaml.Window.Current.Content);
                 this.Owner.sliderPrimitivePosition = sliderPrimitiveTransformed.TransformPoint(new Point(0, 0));
             }
             else

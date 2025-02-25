@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.Core
 {
@@ -241,7 +241,7 @@ namespace Telerik.Core
                 return (FillBehavior)(this.Parent.FillBehavior + 1);
             }
 
-            return Windows.UI.Xaml.Media.Animation.FillBehavior.HoldEnd;
+            return Microsoft.UI.Xaml.Media.Animation.FillBehavior.HoldEnd;
         }
 
         internal virtual EasingFunctionBase ComposeEasingFunction()

@@ -7,9 +7,9 @@ using Telerik.UI.Xaml.Controls.Grid.Model;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Telerik.UI.Xaml.Controls.Grid.View;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -168,7 +168,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             if (this.FrozenColumnCount > 0)
             {
                 var trimmedClip = new Windows.Foundation.Rect(clip.X + verticalGridLineOffset, 0, clip.Width, this.columnHeadersPanel.ActualHeight);
-                this.columnHeadersPanel.Clip = new Windows.UI.Xaml.Media.RectangleGeometry { Rect = trimmedClip };
+                this.columnHeadersPanel.Clip = new Microsoft.UI.Xaml.Media.RectangleGeometry { Rect = trimmedClip };
             }
             else
             {

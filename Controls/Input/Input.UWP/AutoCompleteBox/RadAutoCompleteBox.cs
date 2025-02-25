@@ -25,7 +25,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 	[TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
 #else
 	// UNO TODO
-	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Windows.UI.Xaml.Controls.Popup))]
+	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Microsoft.UI.Xaml.Controls.Popup))]
 #endif
 	[TemplatePart(Name = "PART_SuggestionsControl", Type = typeof(SuggestionItemsControl))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
@@ -184,7 +184,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 		internal Popup suggestionsPopup;
 #else
 		// UNO TODO
-		internal Windows.UI.Xaml.Controls.Popup suggestionsPopup;
+		internal Microsoft.UI.Xaml.Controls.Popup suggestionsPopup;
 #endif
 		internal SuggestionItemsControl suggestionsControl;
         internal TextBox textbox;
@@ -552,8 +552,8 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// length of their string representation.
         /// </para>
         /// <para>
-        /// First, create a custom class that inherits the <see cref="Windows.UI.Xaml.Controls.DataTemplateSelector"/>
-        /// class and override its <see cref="Windows.UI.Xaml.Controls.DataTemplateSelector.SelectTemplateCore(object, Windows.UI.Xaml.DependencyObject)"/>
+        /// First, create a custom class that inherits the <see cref="Microsoft.UI.Xaml.Controls.DataTemplateSelector"/>
+        /// class and override its <see cref="Microsoft.UI.Xaml.Controls.DataTemplateSelector.SelectTemplateCore(object, Microsoft.UI.Xaml.DependencyObject)"/>
         /// method.
         /// </para>
         /// <code language="c#">
@@ -563,7 +563,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// 
         ///     public DataTemplate Template2;
         /// 
-        ///     protected override Windows.UI.Xaml.DataTemplate SelectTemplateCore(object item, Windows.UI.Xaml.DependencyObject container)
+        ///     protected override Microsoft.UI.Xaml.DataTemplate SelectTemplateCore(object item, Microsoft.UI.Xaml.DependencyObject container)
         ///     {
         ///         var suggestionItem = item as string;
         ///         if (suggestionItem.Length > 5)
@@ -896,7 +896,7 @@ namespace Telerik.UI.Xaml.Controls.Input
                 this.forceSuggestionsRefreshProgrammatically = true;
                 this.Text = searchText;
                 this.InvokeAsync(
-                    Windows.UI.Core.CoreDispatcherPriority.Low,
+                    Microsoft.UI.Core.CoreDispatcherPriority.Low,
                     () =>
                     {
                         // Reconsider future review
@@ -1055,7 +1055,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 			this.suggestionsPopup = this.GetTemplatePartField<Popup>(SuggestionsPopupPartName);
 #else
 			 // UNO TODO
-			this.suggestionsPopup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(SuggestionsPopupPartName);
+			this.suggestionsPopup = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Popup>(SuggestionsPopupPartName);
 #endif
 			applied = applied && this.suggestionsPopup != null;
 
@@ -1522,7 +1522,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void PositionPopup()
         {
-            Point originLocation = this.textbox.TransformToVisual(/* UNO TODO*/Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
+            Point originLocation = this.textbox.TransformToVisual(/* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
 
             this.AdjustPopupHorizontalOffset(originLocation);
             this.AdjustPopupVerticalOffset(originLocation);
@@ -1544,12 +1544,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             if (this.FlowDirection == FlowDirection.LeftToRight)
             {
                 availableOffsetWidth = originLocation.X;
-                availablePopupWidth = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width - availableOffsetWidth;
+                availablePopupWidth = /* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Width - availableOffsetWidth;
             }
             else
             {
                 availablePopupWidth = originLocation.X;
-                availableOffsetWidth = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width - availablePopupWidth;
+                availableOffsetWidth = /* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Width - availablePopupWidth;
             }
 
             double horizontalOffset = child.Width - availablePopupWidth;
@@ -1568,8 +1568,8 @@ namespace Telerik.UI.Xaml.Controls.Input
 
             FrameworkElement child = this.noResultsFound ? (FrameworkElement)this.noResultsControl : this.suggestionsControl;
 
-            Rect occludedRect = Windows.UI.ViewManagement.InputPane.GetForCurrentView().OccludedRect;
-            double occludedRectStartY = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Bottom;
+            Rect occludedRect = Microsoft.UI.ViewManagement.InputPane.GetForCurrentView().OccludedRect;
+            double occludedRectStartY = /* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Bottom;
             if (occludedRect.Y > 0)
             {
                 occludedRectStartY = occludedRect.Y;
@@ -1637,12 +1637,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             {
                 this.shouldMarkText = false;
             }
-            else if (this.lastFocusState == Windows.UI.Xaml.FocusState.Unfocused)
+            else if (this.lastFocusState == Microsoft.UI.Xaml.FocusState.Unfocused)
             {
                 this.lastFocusState = textBox.FocusState;
             }
 
-            if (textBox.FocusState != Windows.UI.Xaml.FocusState.Pointer)
+            if (textBox.FocusState != Microsoft.UI.Xaml.FocusState.Pointer)
             {
                 this.setProgrammaticFocus = false;
             }

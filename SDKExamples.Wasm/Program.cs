@@ -1,6 +1,6 @@
 ﻿using SDKExamples.UWP;
 using System;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace SDKExamples.Wasm
 {

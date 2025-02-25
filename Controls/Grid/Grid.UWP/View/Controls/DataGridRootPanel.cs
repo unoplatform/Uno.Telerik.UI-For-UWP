@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using Telerik.UI.Xaml.Controls.Grid.Model;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -248,12 +248,12 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         {
             if (double.IsInfinity(size.Width))
             {
-                size.Width = /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width;
+                size.Width = /*UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Width;
             }
 
             if (double.IsInfinity(size.Height))
             {
-                size.Height = /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Height;
+                size.Height = /*UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Height;
             }
 
             return size;

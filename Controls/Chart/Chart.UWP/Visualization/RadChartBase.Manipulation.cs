@@ -4,9 +4,9 @@ using Telerik.Charting;
 using Telerik.Core;
 using Windows.Devices.Input;
 using Windows.Foundation;
-using Windows.UI.Input;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Markup;
+using Microsoft.UI.Input;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Markup;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

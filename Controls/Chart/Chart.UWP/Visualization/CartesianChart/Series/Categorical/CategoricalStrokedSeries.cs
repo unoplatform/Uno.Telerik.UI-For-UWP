@@ -65,7 +65,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="Brush"/> instance that defines the stroke of the <see cref="Windows.UI.Xaml.Shapes.Line"/> shape.
+        /// Gets or sets the <see cref="Brush"/> instance that defines the stroke of the <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape.
         /// </summary>
         public Brush Stroke
         {

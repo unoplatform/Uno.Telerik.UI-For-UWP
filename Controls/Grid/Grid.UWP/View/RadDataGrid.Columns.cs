@@ -1,5 +1,5 @@
 ﻿using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {

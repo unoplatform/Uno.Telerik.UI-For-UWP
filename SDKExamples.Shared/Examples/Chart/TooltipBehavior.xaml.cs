@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using Telerik.UI.Xaml.Controls.Chart;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -19,7 +19,7 @@ namespace SDKExamples.UWP.Chart
             this.InitializeComponent();
         }
 
-        private void chart_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void chart_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             var chart = sender as RadCartesianChart;
             if (chart != null)
@@ -77,7 +77,7 @@ namespace SDKExamples.UWP.Chart
                 return border.Background;
             }
 
-            return new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Black);
+            return new Microsoft.UI.Xaml.Media.SolidColorBrush(Microsoft.UI.Colors.Black);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

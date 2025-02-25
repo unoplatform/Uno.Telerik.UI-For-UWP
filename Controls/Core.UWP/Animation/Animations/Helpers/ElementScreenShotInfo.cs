@@ -1,9 +1,9 @@
 ﻿using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.Core
 {
@@ -24,7 +24,7 @@ namespace Telerik.Core
 			this.Popup = new Popup();
 #else
 			// TODO UNO
-			this.Popup = new Windows.UI.Xaml.Controls.Popup();
+			this.Popup = new Microsoft.UI.Xaml.Controls.Popup();
 #endif
 
 			Canvas popupChild = new Canvas()
@@ -112,7 +112,7 @@ namespace Telerik.Core
         public Popup Popup { get; set; }
 #else
 		// TODO UNO
-		public Windows.UI.Xaml.Controls.Popup Popup { get; set; }
+		public Microsoft.UI.Xaml.Controls.Popup Popup { get; set; }
 #endif
 
 		/// <summary>

@@ -1,6 +1,6 @@
 ﻿using Telerik.UI.Xaml.Controls;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Automation.Peers
 {

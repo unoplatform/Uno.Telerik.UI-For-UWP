@@ -2,8 +2,8 @@
 using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -47,8 +47,8 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.CleanupSwipedItem();
             if (item != null)
             {
-                var touchPoint = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical ? relativePosition.X : relativePosition.Y;
-                var itemSize = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical ? radListViewItem.arrangeRect.Width : radListViewItem.arrangeRect.Height;
+                var touchPoint = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical ? relativePosition.X : relativePosition.Y;
+                var itemSize = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical ? radListViewItem.arrangeRect.Width : radListViewItem.arrangeRect.Height;
                 bool isInArea = this.ItemCheckBoxPosition == CheckBoxPosition.BeforeItem ? touchPoint <= CheckBoxSelectionTouchTargetThreshold : itemSize - touchPoint <= CheckBoxSelectionTouchTargetThreshold;
                 if (isInArea && this.SelectionMode == DataControlsSelectionMode.MultipleWithCheckBoxes)
                 {

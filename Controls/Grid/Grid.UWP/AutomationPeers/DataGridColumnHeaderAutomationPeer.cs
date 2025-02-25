@@ -1,6 +1,6 @@
 ﻿using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -31,7 +31,7 @@ namespace Telerik.UI.Automation.Peers
         {
             if (this.OwnerDataGridColumnHeader.Owner != null)
             {
-                this.OwnerDataGridColumnHeader.Owner.OnColumnHeaderTap(this.OwnerDataGridColumnHeader, new Windows.UI.Xaml.Input.TappedRoutedEventArgs());
+                this.OwnerDataGridColumnHeader.Owner.OnColumnHeaderTap(this.OwnerDataGridColumnHeader, new Microsoft.UI.Xaml.Input.TappedRoutedEventArgs());
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using Windows.UI.Core;
+using Microsoft.UI.Core;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {

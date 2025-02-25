@@ -4,14 +4,14 @@ using Telerik.UI.Automation.Peers;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Core;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -301,7 +301,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        internal virtual bool ShouldToggleExpandOnTap(Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        internal virtual bool ShouldToggleExpandOnTap(Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             if (ElementTreeHelper.IsElementRendered(this.expanderHeaderLayoutRoot))
             {
@@ -389,11 +389,11 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         }
 
         /// <summary>
-        /// Called before the <see cref="E:System.Windows.UIElement.Tap" /> event
+        /// Called before the <see cref="E:System.Microsoft.UIElement.Tap" /> event
         /// occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnTapped(Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        protected override void OnTapped(Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             base.OnTapped(e);
 

@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using Telerik.Core;
 using Telerik.Data.Core;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -101,7 +101,7 @@ namespace SDKExamples.UWP.DataForm
             }
         }
 
-        private void SaveButtonClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void SaveButtonClicked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             this.DataForm.TransactionService.CommitAll();
         }

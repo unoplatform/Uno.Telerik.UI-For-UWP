@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using Telerik.Core.Data;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {

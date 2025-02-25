@@ -2,9 +2,9 @@
 using System.Linq;
 using Telerik.Charting;
 using Windows.Foundation;
-using Windows.UI.Composition;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using Telerik.Charting;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

@@ -1,11 +1,11 @@
-﻿using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
+﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls
 {
     /// <summary>
-    /// Extends the base <see cref="Windows.UI.Xaml.Controls.ContentControl"/>.
+    /// Extends the base <see cref="Microsoft.UI.Xaml.Controls.ContentControl"/>.
     /// Wraps basic routed events like Loaded and Unloaded in virtual methods and expose common properties like IsLoaded and IsFocused.
     /// </summary>
     public partial class RadContentControl : ContentControl
@@ -200,7 +200,7 @@ namespace Telerik.UI.Xaml.Controls
         }
 
         /// <summary>
-        /// Called before the <see cref="E:System.Windows.UIElement.GotFocus"/> event occurs.
+        /// Called before the <see cref="E:System.Microsoft.UIElement.GotFocus"/> event occurs.
         /// </summary>
         /// <param name="e">The data for the event.</param>
         protected override void OnGotFocus(RoutedEventArgs e)
@@ -211,7 +211,7 @@ namespace Telerik.UI.Xaml.Controls
         }
 
         /// <summary>
-        /// Called before the <see cref="E:System.Windows.UIElement.LostFocus"/> event occurs.
+        /// Called before the <see cref="E:System.Microsoft.UIElement.LostFocus"/> event occurs.
         /// </summary>
         /// <param name="e">The data for the event.</param>
         protected override void OnLostFocus(RoutedEventArgs e)

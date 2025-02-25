@@ -338,7 +338,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.itemsControl.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = this, Path = new PropertyPath("ItemsSource") });
 
             var temp = this.Dispatcher.RunAsync(
-                Windows.UI.Core.CoreDispatcherPriority.Normal, 
+                Microsoft.UI.Core.CoreDispatcherPriority.Normal, 
                 () =>
                 {
                     foreach (var disabledItem in this.disabledItemsCache)

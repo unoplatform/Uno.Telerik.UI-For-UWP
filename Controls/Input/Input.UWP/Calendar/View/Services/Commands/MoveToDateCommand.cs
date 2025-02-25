@@ -1,4 +1,4 @@
-﻿using Windows.UI.Xaml.Media.Animation;
+﻿using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar.Commands
 {

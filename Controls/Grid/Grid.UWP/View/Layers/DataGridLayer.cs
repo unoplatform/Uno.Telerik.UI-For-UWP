@@ -1,8 +1,8 @@
 ﻿using System;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid.View
 {
@@ -36,7 +36,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.View
                     var offset = offsetWithGridLines ? this.Owner.GridLinesThickness : 0;
                     var trimmedClip = new Windows.Foundation.Rect(clip.X + offset, clip.Y, clip.Width, clip.Height);
 
-                    this.VisualElement.Clip = new Windows.UI.Xaml.Media.RectangleGeometry() { Rect = trimmedClip };
+                    this.VisualElement.Clip = new Microsoft.UI.Xaml.Media.RectangleGeometry() { Rect = trimmedClip };
                 }
                 else
                 {

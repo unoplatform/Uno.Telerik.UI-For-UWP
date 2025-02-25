@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Telerik.UI.Xaml.Controls.Chart;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -16,7 +16,7 @@ namespace SDKExamples.UWP.Chart
             this.InitializeComponent();
         }
 
-        private void RadCartesianChart_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void RadCartesianChart_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             var chart = sender as RadCartesianChart;
             if (chart != null)

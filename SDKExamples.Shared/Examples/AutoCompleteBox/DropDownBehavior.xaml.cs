@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Telerik.UI.Xaml.Controls.Input;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,7 +28,7 @@ namespace SDKExamples.UWP.AutoCompleteBox
         }
 
 
-        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void Button_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             isOpen = !isOpen;
             this.autoComplete.IsDropDownOpen = isOpen;
