@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 		private static Popup popup;
 #else
 		//TODO UNO
-		private static Microsoft.UI.Xaml.Controls.Popup popup;
+		private static Microsoft.UI.Xaml.Controls.Primitives.Popup popup;
 #endif
 
 		private static Panel overlay;
@@ -39,7 +39,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 				popup = new Popup();
 #else
 				//TODO UNO
-				popup = new Microsoft.UI.Xaml.Controls.Popup();
+				popup = new Microsoft.UI.Xaml.Controls.Primitives.Popup();
 #endif
 
 				overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
@@ -68,7 +68,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 				popup = new Popup();
 #else
 				//TODO UNO
-				popup = new Microsoft.UI.Xaml.Controls.Popup();
+				popup = new Microsoft.UI.Xaml.Controls.Primitives.Popup();
 #endif
 
 				overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };

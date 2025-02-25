@@ -1,5 +1,5 @@
 ﻿using Telerik.Charting;
-using Microsoft.UI;
+using Windows.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Shapes;

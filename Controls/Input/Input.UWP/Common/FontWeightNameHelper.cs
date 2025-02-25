@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Text;
+using Windows.UI.Text;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {

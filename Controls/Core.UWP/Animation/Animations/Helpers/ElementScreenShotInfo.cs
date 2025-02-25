@@ -24,7 +24,7 @@ namespace Telerik.Core
 			this.Popup = new Popup();
 #else
 			// TODO UNO
-			this.Popup = new Microsoft.UI.Xaml.Controls.Popup();
+			this.Popup = new Microsoft.UI.Xaml.Controls.Primitives.Popup();
 #endif
 
 			Canvas popupChild = new Canvas()
@@ -112,7 +112,7 @@ namespace Telerik.Core
         public Popup Popup { get; set; }
 #else
 		// TODO UNO
-		public Microsoft.UI.Xaml.Controls.Popup Popup { get; set; }
+		public Microsoft.UI.Xaml.Controls.Primitives.Popup Popup { get; set; }
 #endif
 
 		/// <summary>

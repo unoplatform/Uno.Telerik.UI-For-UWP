@@ -1,6 +1,6 @@
 <Project Sdk="Uno.Sdk">
   <PropertyGroup>
-		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
+		<TargetFrameworks>net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<DefaultLanguage>en-US</DefaultLanguage>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
@@ -8,24 +8,6 @@
     <AssemblyName>Telerik.UI.Xaml.Controls.Data.UWP</AssemblyName>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<Page Include="Themes\Generic.xaml" />
-		<Page Include="Themes\DataForm.xaml" />
-		<Page Include="Themes\ListBox.xaml" />
-		<Page Include="Themes\ThemeResourcesLight.xaml" />
-	</ItemGroup>
-	
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-		<DefineConstants>__WASM__</DefineConstants>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<Page Include="Themes\Generic.xaml" />
-		<Page Include="Themes\DataForm.xaml" />
-		<Page Include="Themes\ListBox.xaml" />
-		<Page Include="Themes\ThemeResourcesLight.xaml" />
-	</ItemGroup>
-	
 	<ItemGroup>
 		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
 		<ProjectReference Include="..\..\Data.UWP\Telerik.Data.csproj" />
@@ -38,21 +20,6 @@
 			<Version>1.23.1-dev.1453</Version>
 		</PackageReference>
 		<Reference Include="Microsoft.CSharp" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Update="Themes\DataForm.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
-	  <None Update="Themes\Generic.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
-	  <None Update="Themes\Listbox.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
-	  <None Update="Themes\ThemeResourcesLight.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
 	</ItemGroup>
 
 </Project>

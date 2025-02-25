@@ -5,7 +5,7 @@ using System.Numerics;
 using Telerik.Charting;
 using Telerik.Core;
 using Windows.Foundation;
-using Microsoft.UI;
+using Windows.UI;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;

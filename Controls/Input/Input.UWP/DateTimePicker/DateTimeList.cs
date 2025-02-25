@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.LoopingList;
-using Microsoft.UI.Core;
+using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Input;

@@ -8,8 +8,8 @@ using Windows.Foundation;
 using Windows.Globalization;
 using Windows.System;
 using Windows.System.Profile;
-using Microsoft.UI.Core;
-using Microsoft.UI.ViewManagement;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
@@ -79,7 +79,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 #if NETFX_CORE
 		internal Popup popup;
 #else
-		internal Microsoft.UI.Xaml.Controls.Popup popup; // UNO TODO
+		internal Microsoft.UI.Xaml.Controls.Primitives.Popup popup; // UNO TODO
 #endif
 		internal List<DateTimeList> dateTimeLists = new List<DateTimeList>();
 
@@ -394,7 +394,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 		internal Popup Popup
 #else
 		// UNO TODO
-        internal Microsoft.UI.Xaml.Controls.Popup Popup
+        internal Microsoft.UI.Xaml.Controls.Primitives.Popup Popup
 #endif
 
 		{
@@ -747,7 +747,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         internal Size GetSelectorSize()
         {
-            var view = Microsoft.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            var view = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
             if (AnalyticsInfo.VersionInfo.DeviceFamily.Equals(DeviceFamilyMobileName) && view != null)
             {
                 // TODO refactor this to use width and height and compensate for ofset of the bounds x and y. Also consider resize the view if entering/exiting full screen.
@@ -865,7 +865,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 #if NETFX_CORE
 			this.popup = this.GetTemplatePartField<Popup>(PopupPartName); // TODO UNO
 #else
-			this.popup = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Popup>(PopupPartName); // TODO UNO
+			this.popup = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Primitives.Popup>(PopupPartName); // TODO UNO
 #endif
 			applied = applied && this.popup != null;
 
@@ -1281,7 +1281,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             Point location = this.TransformToVisual(/* TODO UNO */Microsoft.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
 
-            var view = Microsoft.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            var view = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
             if (view != null && view.VisibleBounds.Width < 720)
             {
                 this.PositionPopupOnWholeScreen(location);
@@ -1451,7 +1451,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 #if NETFX_CORE
 				this.popup.SetBinding(Popup.IsOpenProperty, b);
 #else
-				this.popup.SetBinding(/* TODO UNO */Microsoft.UI.Xaml.Controls.Popup.IsOpenProperty, b);
+				this.popup.SetBinding(/* TODO UNO */Microsoft.UI.Xaml.Controls.Primitives.Popup.IsOpenProperty, b);
 #endif
 
 				this.CloseSelector(false, false);
