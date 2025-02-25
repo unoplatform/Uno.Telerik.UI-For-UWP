@@ -20,7 +20,7 @@ namespace SDKExamples.UWP.DataGrid
             public double Age { get; set; }
         }
 
-        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void Button_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             if (this.grid.GroupPanelPosition == Telerik.UI.Xaml.Controls.Grid.GroupPanelPosition.Left)
             {

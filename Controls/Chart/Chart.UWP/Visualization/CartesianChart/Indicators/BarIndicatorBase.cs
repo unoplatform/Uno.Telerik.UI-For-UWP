@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Telerik.Charting;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

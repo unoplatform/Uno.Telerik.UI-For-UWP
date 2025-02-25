@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
@@ -83,7 +83,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 			var parent = this.Parent as Popup;
 #else
 			//TODO UNO
-			var parent = this.Parent as Windows.UI.Xaml.Controls.Popup;
+			var parent = this.Parent as Microsoft.UI.Xaml.Controls.Popup;
 #endif
 
 			if (parent == null || this.Owner == null)
@@ -92,7 +92,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
             }
 
 			// UNO TODO
-			var radialMenuTransformed = this.Owner.TransformToVisual(Windows.UI.Xaml.Window.Current.Content);
+			var radialMenuTransformed = this.Owner.TransformToVisual(Microsoft.UI.Xaml.Window.Current.Content);
             Point radialMenuPosition = radialMenuTransformed.TransformPoint(new Point(0, 0));
 
             if (radialMenuPosition.Y - this.DesiredSize.Height < 0)

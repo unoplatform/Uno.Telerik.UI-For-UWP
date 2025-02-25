@@ -2,8 +2,8 @@
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Grid;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -126,7 +126,7 @@ namespace Telerik.UI.Automation.Peers
 
             if (dataGridContentLayerPanelChildren.Count > 0)
             {
-                dataGridContentLayerPanelChildren.RemoveAll(a => a.GetClassName() == nameof(Windows.UI.Xaml.Controls.TextBlock));
+                dataGridContentLayerPanelChildren.RemoveAll(a => a.GetClassName() == nameof(Microsoft.UI.Xaml.Controls.TextBlock));
                 children.AddRange(dataGridContentLayerPanelChildren);
             }
 

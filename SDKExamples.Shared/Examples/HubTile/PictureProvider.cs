@@ -1,7 +1,7 @@
 ﻿using System;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace SDKExamples.UWP.HubTile
 {

@@ -3,8 +3,8 @@ using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid.View
 {

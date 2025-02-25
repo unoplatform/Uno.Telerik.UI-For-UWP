@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using Telerik.Charting;
 using Telerik.Core;
 using Windows.Foundation;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

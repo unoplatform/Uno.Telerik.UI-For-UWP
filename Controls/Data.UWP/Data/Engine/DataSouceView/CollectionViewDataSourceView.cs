@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Telerik.Core;
 using Telerik.Core.Data;
 using Windows.Foundation.Collections;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.Data.Core
 {

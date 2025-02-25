@@ -8,11 +8,11 @@ using Telerik.UI.Xaml.Controls.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {
@@ -196,7 +196,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             {
                 if (this.needUpdate)
                 {
-                    if (this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+                    if (this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
                     {
                         if (!ListViewModel.DoubleArithmetics.AreClose(this.arrangeRect.Height, this.lastDesiredSize.Height) && this.arrangeRect.Height > this.lastDesiredSize.Height)
                         {
@@ -287,7 +287,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
         internal void SwipeActionContentControl_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            var offset = this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX;
+            var offset = this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX;
 
             this.ListView.OnItemActionControlTap(this, offset);
         }
@@ -488,7 +488,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
             base.OnHolding(e);
 
-            if (this.ListView != null && e.HoldingState == Windows.UI.Input.HoldingState.Started && this.ListView.ReorderMode == ListViewReorderMode.Default)
+            if (this.ListView != null && e.HoldingState == Microsoft.UI.Input.HoldingState.Started && this.ListView.ReorderMode == ListViewReorderMode.Default)
             {
                 this.ListView.OnItemHold(this, e);
             }
@@ -661,7 +661,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
             if (offset > 0)
             {
-                if (this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     if (dragMode.HasFlag(DragPositionMode.RailYForward))
                     {
@@ -686,7 +686,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             }
             else
             {
-                if (this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     if (dragMode.HasFlag(DragPositionMode.RailYBackwards))
                     {
@@ -710,10 +710,10 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 }
             }
 
-            this.ListView.swipeActionContentControl.Clip = new Windows.UI.Xaml.Media.RectangleGeometry() { Rect = new Rect(x, y, width, height) };
+            this.ListView.swipeActionContentControl.Clip = new Microsoft.UI.Xaml.Media.RectangleGeometry() { Rect = new Rect(x, y, width, height) };
         }
 
-        private void RadListViewItem_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
+        private void RadListViewItem_SizeChanged(object sender, Microsoft.UI.Xaml.SizeChangedEventArgs e)
         {
             var aritmetics = new DoubleArithmetics(1);
 

@@ -50,7 +50,7 @@ namespace SDKExamples.UWP.DataGrid
             }
         }
 
-        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void Button_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             if (this.grid.UserEditMode == DataGridUserEditMode.External)
             {

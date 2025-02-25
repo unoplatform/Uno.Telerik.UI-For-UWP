@@ -11,13 +11,13 @@ using Telerik.UI.Xaml.Controls.Grid.View;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Core;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -451,7 +451,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// {
         ///    public DataTemplate ExpandedTemplate { get; set; }
         ///    public DataTemplate CollapsedTemplate { get; set; }
-        ///    protected override DataTemplate SelectTemplateCore(object item, Windows.UI.Xaml.DependencyObject container)
+        ///    protected override DataTemplate SelectTemplateCore(object item, Microsoft.UI.Xaml.DependencyObject container)
         ///    {
         ///        if ((item as GroupHeaderContext).IsExpanded == true) { return this.ExpandedTemplate; } else { return this.CollapsedTemplate; }
         ///    }

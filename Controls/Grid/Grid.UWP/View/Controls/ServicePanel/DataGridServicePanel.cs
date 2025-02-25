@@ -5,11 +5,11 @@ using Telerik.Data.Core;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -20,7 +20,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 	[TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Popup))]
 #else
-	[TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Windows.UI.Xaml.Controls.Popup/*UNO TODO*/))]
+	[TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Microsoft.UI.Xaml.Controls.Popup/*UNO TODO*/))]
 #endif
 	[TemplatePart(Name = "PART_GroupFlyoutContent", Type = typeof(DataGridServicePanelGroupingFlyout))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
@@ -40,7 +40,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 		private Popup groupFlyout;
 #else
-		private /*UNO TODO*/ Windows.UI.Xaml.Controls.Popup groupFlyout;
+		private /*UNO TODO*/ Microsoft.UI.Xaml.Controls.Popup groupFlyout;
 #endif
 		private DataGridServicePanelGroupingFlyout groupFlyoutContent;
         private bool isGroupFlyoutOpen;
@@ -71,7 +71,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 		internal Popup GroupFlyout
 #else
-		internal /*UNO TODO*/ Windows.UI.Xaml.Controls.Popup GroupFlyout
+		internal /*UNO TODO*/ Microsoft.UI.Xaml.Controls.Popup GroupFlyout
 #endif
 		{
 			get
@@ -252,7 +252,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 			this.groupFlyout = this.GetTemplatePartField<Popup>("PART_GroupFlyout");
 #else
-			this.groupFlyout = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>("PART_GroupFlyout");
+			this.groupFlyout = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Popup>("PART_GroupFlyout");
 #endif
 			applied = applied && this.groupFlyout != null;
 

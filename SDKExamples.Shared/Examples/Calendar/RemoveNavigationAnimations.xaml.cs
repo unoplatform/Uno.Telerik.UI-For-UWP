@@ -1,6 +1,6 @@
 ﻿using Telerik.UI.Xaml.Controls.Input.Calendar;
 using Telerik.UI.Xaml.Controls.Input.Calendar.Commands;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -16,12 +16,12 @@ namespace SDKExamples.UWP.Calendar
             this.InitializeComponent();
         }
 
-        private void NavigateToUpperViewClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void NavigateToUpperViewClick(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             this.calendar.MoveToUpperView();
         }
 
-        private void NavigateToLowerViewClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void NavigateToLowerViewClick(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             this.calendar.MoveToLowerView(this.calendar.CurrentDate);
         }

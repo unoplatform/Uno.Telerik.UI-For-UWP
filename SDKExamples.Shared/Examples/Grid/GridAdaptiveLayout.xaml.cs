@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Telerik.Core;
 using Windows.System.Profile;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace SDKExamples.UWP.DataGrid
 {
@@ -126,7 +126,7 @@ namespace SDKExamples.UWP.DataGrid
             set { SetValue(DeviceFamilyProperty, value); }
         }
 
-        private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        private void Current_SizeChanged(object sender, Microsoft.UI.Core.WindowSizeChangedEventArgs e)
         {
             this.UpdateIsActive();
         }

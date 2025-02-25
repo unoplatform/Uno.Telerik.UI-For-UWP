@@ -2,8 +2,8 @@
 using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Data;
 using Telerik.UI.Xaml.Controls.Data.DataForm;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 

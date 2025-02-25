@@ -7,9 +7,9 @@ using Telerik.Charting;
 using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Markup;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Markup;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

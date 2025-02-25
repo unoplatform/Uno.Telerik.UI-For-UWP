@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using Telerik.UI.Xaml.Controls.Primitives.SideDrawer.Commands;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -515,7 +515,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         private AnimationContext GetScaleUpAnimations()
         {
-            this.drawer.Clip = new Windows.UI.Xaml.Media.RectangleGeometry() { Rect = new Windows.Foundation.Rect(0, 0, 0, 0) };
+            this.drawer.Clip = new Microsoft.UI.Xaml.Media.RectangleGeometry() { Rect = new Windows.Foundation.Rect(0, 0, 0, 0) };
 
             this.drawer.RenderTransform = new ScaleTransform() { CenterX = this.drawer.Width / 2, CenterY = this.drawer.Height / 2 };
 

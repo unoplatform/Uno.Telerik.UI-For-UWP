@@ -1,9 +1,9 @@
 ﻿using System;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -69,7 +69,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             return this.CanEdit ? DataGridBooleanColumn.checkBoxType : DataGridBooleanColumn.TextBlockType;
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Windows.UI.Xaml.Controls.TextBlock.put_Text(System.String)")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Microsoft.UI.Xaml.Controls.TextBlock.put_Text(System.String)")]
         internal override void PrepareCell(GridCellModel cell)
         {
             base.PrepareCell(cell);

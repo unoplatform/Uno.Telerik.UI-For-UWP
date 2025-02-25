@@ -4,12 +4,12 @@ using Telerik.Charting;
 using Telerik.Core;
 using Windows.Devices.Input;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -29,7 +29,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 		private Popup toolTip;
 #else
 		// UNO TODO
-		private Windows.UI.Xaml.Controls.Popup toolTip;
+		private Microsoft.UI.Xaml.Controls.Popup toolTip;
 #endif
 		private ChartTooltip toolTipContent;
         private bool snapToClosestPoint;
@@ -49,7 +49,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 #if NETFX_CORE
 			this.toolTip = new Popup();
 #else
-			this.toolTip = new Windows.UI.Xaml.Controls.Popup(); // UNO TODO
+			this.toolTip = new Microsoft.UI.Xaml.Controls.Popup(); // UNO TODO
 #endif
 
 			this.toolTipContent = new ChartTooltip();
@@ -575,16 +575,16 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
             switch (this.horizontalAlign)
             {
-                case Windows.UI.Xaml.HorizontalAlignment.Left:
+                case Microsoft.UI.Xaml.HorizontalAlignment.Left:
                     position.X -= this.contentSize.Width + this.touchOverhang.X;
                     break;
-                case Windows.UI.Xaml.HorizontalAlignment.Center:
-                case Windows.UI.Xaml.HorizontalAlignment.Stretch:
+                case Microsoft.UI.Xaml.HorizontalAlignment.Center:
+                case Microsoft.UI.Xaml.HorizontalAlignment.Stretch:
                     position.X += this.snapToClosestPoint ?
                         (pointPosition.Width - this.contentSize.Width) / 2 :
                         -this.contentSize.Width / 2;
                     break;
-                case Windows.UI.Xaml.HorizontalAlignment.Right:
+                case Microsoft.UI.Xaml.HorizontalAlignment.Right:
                     position.X = this.snapToClosestPoint ?
                         pointPosition.Right + this.touchOverhang.X :
                         this.touchOverhang.X;
@@ -593,16 +593,16 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
             switch (this.verticalAlign)
             {
-                case Windows.UI.Xaml.VerticalAlignment.Top:
+                case Microsoft.UI.Xaml.VerticalAlignment.Top:
                     position.Y -= this.contentSize.Height + this.touchOverhang.Y;
                     break;
-                case Windows.UI.Xaml.VerticalAlignment.Center:
-                case Windows.UI.Xaml.VerticalAlignment.Stretch:
+                case Microsoft.UI.Xaml.VerticalAlignment.Center:
+                case Microsoft.UI.Xaml.VerticalAlignment.Stretch:
                     position.Y += this.snapToClosestPoint ?
                         (pointPosition.Height - this.contentSize.Height) / 2 :
                         -this.contentSize.Height / 2;
                     break;
-                case Windows.UI.Xaml.VerticalAlignment.Bottom:
+                case Microsoft.UI.Xaml.VerticalAlignment.Bottom:
                     position.Y += this.snapToClosestPoint ?
                         pointPosition.Height + this.touchOverhang.Y :
                         this.touchOverhang.Y;

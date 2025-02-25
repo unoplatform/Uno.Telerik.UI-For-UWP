@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Windows.UI;
+using Microsoft.UI;
 
 namespace Telerik.Core
 {

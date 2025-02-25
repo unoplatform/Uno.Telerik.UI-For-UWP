@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using Telerik.Core;
 using Windows.Foundation;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
@@ -22,7 +22,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.realizedCalendarCellDefaultPresenters = new List<AppointmentControl>();
         }
 
-        protected internal override Windows.UI.Xaml.UIElement VisualElement
+        protected internal override Microsoft.UI.Xaml.UIElement VisualElement
         {
             get
             {

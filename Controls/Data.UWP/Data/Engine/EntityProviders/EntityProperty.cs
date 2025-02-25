@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.Data.Core
 {

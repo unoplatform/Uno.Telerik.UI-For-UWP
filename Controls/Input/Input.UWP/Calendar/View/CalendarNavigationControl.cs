@@ -1,8 +1,8 @@
 ﻿using Telerik.UI.Automation.Peers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
@@ -239,12 +239,12 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
         
-        private void OnHeaderPresenterPointerCaptureLost(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnHeaderPresenterPointerCaptureLost(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.headerPresenter.ReleasePointerCaptures();
         }
 
-        private void OnHeaderPresenterPointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnHeaderPresenterPointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (this.headerPresenter.PointerCaptures != null && this.headerPresenter.PointerCaptures.Count > 0)
             {
@@ -254,13 +254,13 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.isPointerOverHeader = true;
         }
 
-        private void OnHeaderPresenterPointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnHeaderPresenterPointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             VisualStateManager.GoToState(this, "Released", false);
             this.isPointerOverHeader = false;
         }
 
-        private void OnHeaderPresenterPointerReleased(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnHeaderPresenterPointerReleased(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (this.headerPresenter.PointerCaptures != null && this.headerPresenter.PointerCaptures.Count > 0 && 
                 this.isPointerOverHeader && this.Owner != null)
@@ -269,7 +269,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
 
-        private void OnHeaderPresenterPointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnHeaderPresenterPointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.headerPresenter.CapturePointer(e.Pointer);
             VisualStateManager.GoToState(this, "Pressed", false);

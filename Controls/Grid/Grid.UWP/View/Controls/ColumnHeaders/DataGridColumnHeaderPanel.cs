@@ -3,10 +3,10 @@ using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop.Reorder;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -113,7 +113,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
                 this.InvalidateMeasure();
             }
  
-            this.Margin = new Windows.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
+            this.Margin = new Microsoft.UI.Xaml.Thickness(-this.Owner.Model.FrozenColumnsWidth, 0, 0, 0);
             this.Owner.FrozenColumnHeadersHost.Width = this.Owner.Model.FrozenColumnsWidth;
             this.Owner.FrozenColumnHeadersHost.Height = finalSize.Height;
 

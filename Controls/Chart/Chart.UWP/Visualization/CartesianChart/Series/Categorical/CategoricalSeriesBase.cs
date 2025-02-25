@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telerik.Charting;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Markup;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Markup;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

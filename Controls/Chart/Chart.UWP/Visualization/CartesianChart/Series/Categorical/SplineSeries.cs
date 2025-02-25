@@ -1,11 +1,11 @@
 ﻿using System;
 using Telerik.UI.Automation.Peers;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
     /// <summary>
-    /// Visualizes a collection of data points using a smooth <see cref="Windows.UI.Xaml.Shapes.Line"/> shape.
+    /// Visualizes a collection of data points using a smooth <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape.
     /// </summary>
     public partial class SplineSeries : LineSeries
     {

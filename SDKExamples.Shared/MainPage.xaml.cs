@@ -8,14 +8,14 @@ using System.Xml.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Core;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -30,7 +30,7 @@ namespace SDKExamples.UWP
 		private ControlData[] _controls;
 		private Example[] _examples;
 
-		public Windows.UI.Xaml.Controls.NavigationView NavigationView
+		public Microsoft.UI.Xaml.Controls.NavigationView NavigationView
 		{
 			get { return NavigationViewControl; }
 		}
@@ -99,7 +99,7 @@ namespace SDKExamples.UWP
 			for (var i = 0; i < _controls.Length; i++)
 			{
 				var controlData = _controls[i] as ControlData;
-				var item = new Windows.UI.Xaml.Controls.NavigationViewItem()
+				var item = new Microsoft.UI.Xaml.Controls.NavigationViewItem()
 				{
 					Content = controlData.Name,
 					DataContext = controlData
@@ -132,7 +132,7 @@ namespace SDKExamples.UWP
 			this.DataContext = MainPage.Source;
 		}
 
-		private void OnNavigationViewItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+		private void OnNavigationViewItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
 		{
 
 			for (var i = 0; i < _controls.Length; i++)

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.Data.Core
 {

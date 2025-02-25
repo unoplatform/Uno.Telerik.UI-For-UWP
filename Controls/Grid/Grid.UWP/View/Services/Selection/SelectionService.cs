@@ -11,7 +11,7 @@ using Telerik.Data.Core;
 using Telerik.Data.Core.Layouts;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -80,7 +80,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 				if (cellPeer != null && cellPeer.ChildTextBlockPeer != null)
 				{
 					await Dispatcher.RunAsync(
-						Windows.UI.Core.CoreDispatcherPriority.Normal,
+						Microsoft.UI.Core.CoreDispatcherPriority.Normal,
 						() =>
 						{
 							cellPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Telerik.Data.Core.Fields;
-using Windows.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Markup;
 
 namespace Telerik.Data.Core
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using Windows.Foundation;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.Core
 {

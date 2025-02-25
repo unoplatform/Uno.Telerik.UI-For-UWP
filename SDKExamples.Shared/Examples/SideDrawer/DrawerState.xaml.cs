@@ -1,4 +1,4 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -14,7 +14,7 @@ namespace SDKExamples.UWP.SideDrawer
             this.InitializeComponent();
         }
 
-        private void ShowOrHideDrawer(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void ShowOrHideDrawer(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             if (this.sideDrawer.DrawerState == Telerik.UI.Xaml.Controls.Primitives.DrawerState.Closed)
             {

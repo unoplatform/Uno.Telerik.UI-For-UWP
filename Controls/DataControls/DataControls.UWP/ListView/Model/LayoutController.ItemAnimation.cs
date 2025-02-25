@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Data.ContainerGeneration;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView.Model
 {

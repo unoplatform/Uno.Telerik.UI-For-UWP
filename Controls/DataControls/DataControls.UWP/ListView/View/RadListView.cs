@@ -16,11 +16,11 @@ using Telerik.UI.Xaml.Controls.Data.ListView.View.Controls;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -972,11 +972,11 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             double w = newAvailableSize.Width;
             double h = newAvailableSize.Height;
-            if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal && double.IsInfinity(newAvailableSize.Height))
+            if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal && double.IsInfinity(newAvailableSize.Height))
             {
                 h = this.MinHeight;
             }
-            if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical && double.IsInfinity(newAvailableSize.Width))
+            if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical && double.IsInfinity(newAvailableSize.Width))
             {
                 w = this.MinWidth;
             }

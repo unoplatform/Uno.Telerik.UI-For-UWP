@@ -4,8 +4,8 @@ using Telerik.Charting;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Chart;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 

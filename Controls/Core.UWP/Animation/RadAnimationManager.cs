@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.Core
 {
@@ -203,7 +203,7 @@ namespace Telerik.Core
         /// <summary>
         /// Plays the provides animation on the specified target.
         /// </summary>
-        /// <param name="target">The <see cref="T:System.Windows.UIElement"/> instance to be animated.</param>
+        /// <param name="target">The <see cref="T:System.Microsoft.UIElement"/> instance to be animated.</param>
         /// <param name="animation">The <see cref="RadAnimation"/> instance that describes the animation process.</param>
         /// <returns>True if the animation has been successfully executed, false otherwise.</returns>
         public static bool Play(UIElement target, RadAnimation animation)
@@ -214,7 +214,7 @@ namespace Telerik.Core
         /// <summary>
         /// Plays the provides animation on the specified target.
         /// </summary>
-        /// <param name="target">The <see cref="T:System.Windows.UIElement"/> instance to be animated.</param>
+        /// <param name="target">The <see cref="T:System.Microsoft.UIElement"/> instance to be animated.</param>
         /// <param name="animation">The <see cref="RadAnimation"/> instance that describes the animation process.</param>
         /// <param name="completedCallback">Optional callback to notify the caller for animation completion.</param>
         /// <returns>True if the animation has been successfully executed, false otherwise.</returns>
@@ -406,7 +406,7 @@ namespace Telerik.Core
             if (callback != null)
             {
                 await target.Dispatcher.RunAsync(
-                      Windows.UI.Core.CoreDispatcherPriority.Normal,
+                      Microsoft.UI.Core.CoreDispatcherPriority.Normal,
                       () =>
                       {
                           callback.Invoke();

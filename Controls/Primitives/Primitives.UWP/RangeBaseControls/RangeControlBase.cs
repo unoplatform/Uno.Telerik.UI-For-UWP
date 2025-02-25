@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telerik.UI.Xaml.Controls;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Telerik.UI.Xaml.Controls.Grid;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,7 +35,7 @@ namespace SDKExamples.UWP.DataGrid
             public double Age { get; set; }         
         }
 
-        private void Slider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void Slider_ValueChanged(object sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             this.grid.Width = (double)e.NewValue;
         }

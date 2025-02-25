@@ -1,7 +1,7 @@
 ﻿using System;
 using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Input;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {

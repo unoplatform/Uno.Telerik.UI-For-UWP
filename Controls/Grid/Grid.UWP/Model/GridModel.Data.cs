@@ -10,7 +10,7 @@ using Telerik.Data.Core.Fields;
 using Telerik.Data.Core.Layouts;
 using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Windows.Foundation.Collections;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Model
 {

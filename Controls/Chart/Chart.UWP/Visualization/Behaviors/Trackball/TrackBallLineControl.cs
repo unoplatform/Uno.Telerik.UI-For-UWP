@@ -1,7 +1,7 @@
 ﻿using System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart.Primitives
 {
@@ -31,7 +31,7 @@ namespace Telerik.UI.Xaml.Controls.Chart.Primitives
 
         /// <summary>
         /// Gets or sets the <see cref="Style"/> that defines the appearance of the line displayed by a <see cref="ChartTrackBallBehavior"/> instance.
-        /// The style should target the <see cref="Windows.UI.Xaml.Shapes.Polyline"/> type.
+        /// The style should target the <see cref="Microsoft.UI.Xaml.Shapes.Polyline"/> type.
         /// </summary>
         public Style LineStyle
         {

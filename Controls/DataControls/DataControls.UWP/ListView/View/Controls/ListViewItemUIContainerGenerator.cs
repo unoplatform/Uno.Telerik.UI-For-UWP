@@ -4,8 +4,8 @@ using Telerik.UI.Xaml.Controls.Data.ContainerGeneration;
 using Telerik.UI.Xaml.Controls.Data.ListView.Model;
 using Telerik.UI.Xaml.Controls.Data.ListView.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop.Reorder;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView.View.Controls
 {

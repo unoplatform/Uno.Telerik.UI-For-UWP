@@ -11,7 +11,7 @@ namespace SDKExamples.Droid
 			ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize,
 			WindowSoftInputMode = SoftInput.AdjustPan | SoftInput.StateHidden
 		)]
-	public class MainActivity : Windows.UI.Xaml.ApplicationActivity
+	public class MainActivity : Microsoft.UI.Xaml.ApplicationActivity
 	{
 	}
 }
