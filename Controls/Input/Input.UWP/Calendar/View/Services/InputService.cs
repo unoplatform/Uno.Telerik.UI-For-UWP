@@ -76,7 +76,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         internal void EnsureDragStarted(Point lastPoint, PointerRoutedEventArgs e)
         {
-            if (this.Owner.CanStartDrag(lastPoint) && this.isDragInitialized && (this.isHoldingStarted || e.Pointer.PointerDeviceType == PointerDeviceType.Mouse))
+            if (this.Owner.CanStartDrag(lastPoint) && this.isDragInitialized && (this.isHoldingStarted || e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Mouse)))
             {
                 this.isDragging = true;
                 this.isDragInitialized = false;
@@ -127,7 +127,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             var hitPoint = e.GetCurrentPoint(this.Owner.contentLayer.VisualElement).Position;
 
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Mouse))
             {
                 this.canSwipe = false;
             }

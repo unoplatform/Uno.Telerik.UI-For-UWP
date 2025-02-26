@@ -328,7 +328,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
 #pragma warning disable CS4014 
                             Dispatcher.RunAsync(
-                                Microsoft.UI.Core.CoreDispatcherPriority.Low, 
+                                Windows.UI.Core.CoreDispatcherPriority.Low, 
                                 () =>
                                 {
                                     var xamlVisualStateLayer = this.visualStateLayerCache as XamlVisualStateLayer;

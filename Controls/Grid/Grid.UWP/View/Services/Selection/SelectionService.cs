@@ -80,7 +80,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 				if (cellPeer != null && cellPeer.ChildTextBlockPeer != null)
 				{
 					await Dispatcher.RunAsync(
-						Microsoft.UI.Core.CoreDispatcherPriority.Normal,
+						Windows.UI.Core.CoreDispatcherPriority.Normal,
 						() =>
 						{
 							cellPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);

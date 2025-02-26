@@ -7,7 +7,7 @@ using Telerik.Data.Core.Layouts;
 using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Core;
+using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid

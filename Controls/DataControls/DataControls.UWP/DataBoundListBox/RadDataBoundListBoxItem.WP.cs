@@ -45,7 +45,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             base.OnPointerPressed(e);
 
-            if (this.typedOwner != null && e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
+            if (this.typedOwner != null && e.Pointer.PointerDeviceType.Equals(Windows.Devices.Input.PointerDeviceType.Mouse))
             {
                 this.startPoint = e.GetCurrentPoint(this).Position;
 

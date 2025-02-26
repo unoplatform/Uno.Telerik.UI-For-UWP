@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Core;
+using Windows.UI.Core;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
