@@ -20,7 +20,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 	[TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Popup))]
 #else
-	[TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Microsoft.UI.Xaml.Controls.Popup/*UNO TODO*/))]
+	[TemplatePart(Name = "PART_GroupFlyout", Type = typeof(Microsoft.UI.Xaml.Controls.Primitives.Popup/*UNO TODO*/))]
 #endif
 	[TemplatePart(Name = "PART_GroupFlyoutContent", Type = typeof(DataGridServicePanelGroupingFlyout))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
@@ -40,7 +40,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 		private Popup groupFlyout;
 #else
-		private /*UNO TODO*/ Microsoft.UI.Xaml.Controls.Popup groupFlyout;
+		private /*UNO TODO*/ Microsoft.UI.Xaml.Controls.Primitives.Popup groupFlyout;
 #endif
 		private DataGridServicePanelGroupingFlyout groupFlyoutContent;
         private bool isGroupFlyoutOpen;
@@ -71,7 +71,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 		internal Popup GroupFlyout
 #else
-		internal /*UNO TODO*/ Microsoft.UI.Xaml.Controls.Popup GroupFlyout
+		internal /*UNO TODO*/ Microsoft.UI.Xaml.Controls.Primitives.Popup GroupFlyout
 #endif
 		{
 			get
@@ -252,7 +252,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 #if NETFX_CORE
 			this.groupFlyout = this.GetTemplatePartField<Popup>("PART_GroupFlyout");
 #else
-			this.groupFlyout = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Popup>("PART_GroupFlyout");
+			this.groupFlyout = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Primitives.Popup>("PART_GroupFlyout");
 #endif
 			applied = applied && this.groupFlyout != null;
 

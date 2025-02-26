@@ -48,7 +48,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 		private Popup popup = new Popup() { ChildTransitions = new TransitionCollection(), IsLightDismissEnabled = false };
 #else
 		// UNO TODO
-		private Microsoft.UI.Xaml.Controls.Popup popup = new Microsoft.UI.Xaml.Controls.Popup() { /*ChildTransitions = new TransitionCollection(),*/ IsLightDismissEnabled = false };
+		private Microsoft.UI.Xaml.Controls.Primitives.Popup popup = new Microsoft.UI.Xaml.Controls.Primitives.Popup() { /*ChildTransitions = new TransitionCollection(),*/ IsLightDismissEnabled = false };
 #endif
 		private Border content;
         private Storyboard opacityAnimationStoryboard = new Storyboard();

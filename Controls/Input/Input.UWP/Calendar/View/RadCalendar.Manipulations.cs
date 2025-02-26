@@ -159,7 +159,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             var hitPoint = e.GetCurrentPoint(this.calendarViewHost).Position;
             var cellModel = HitTestService.GetCellFromPoint(hitPoint, this.model.CalendarCells);
 
-            if (cellModel != null && e.Pointer.PointerDeviceType != PointerDeviceType.Touch)
+            if (cellModel != null && !e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Touch))
             {
                 this.RaiseCellPointerOverCommand(cellModel);
             }

@@ -7,7 +7,7 @@ using Telerik.Core.Data;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Data.DataBoundListBox;
 using Windows.Foundation;
-using Microsoft.UI.Core;
+using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
@@ -1130,7 +1130,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 #if NETFX_CORE
 			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Popup /* UNO TODO */;
 #else
-			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Microsoft.UI.Xaml.Controls.Popup /* UNO TODO */;
+			this.itemReorderPopup = this.GetTemplateChild("PART_ItemReorderPopup") as Microsoft.UI.Xaml.Controls.Primitives.Popup /* UNO TODO */;
 #endif
 
 			if (this.itemReorderControl != null && this.itemReorderPopup != null)
