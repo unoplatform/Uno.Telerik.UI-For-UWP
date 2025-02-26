@@ -1,6 +1,6 @@
 ﻿using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Windows.ApplicationModel;
-using Microsoft.UI.Core;
+using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid

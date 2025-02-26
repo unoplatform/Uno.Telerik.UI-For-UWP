@@ -6,6 +6,7 @@
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
     <AssemblyName>Telerik.UI.Xaml.Primitives.UWP</AssemblyName>
+	<OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,7 +5,8 @@
 		<DefaultLanguage>en-US</DefaultLanguage>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
-	</PropertyGroup>
+	<OutputType>Library</OutputType>
+  </PropertyGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Core.UWP\Telerik.Core.csproj" />
