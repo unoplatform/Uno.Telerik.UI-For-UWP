@@ -110,7 +110,7 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
             this.errors[propertyName] = list;
 
             var temp = this.Dispatcher.RunAsync(
-                Microsoft.UI.Core.CoreDispatcherPriority.Normal,
+                Windows.UI.Core.CoreDispatcherPriority.Normal,
                 () =>
                 {
                     var errorsList = (sender as ISupportEntityValidation).GetErrors(propertyName).OfType<object>().ToArray();

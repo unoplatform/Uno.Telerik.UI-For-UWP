@@ -1147,7 +1147,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
-        private void OnCoreWindowKeyDown(CoreWindow sender, /* UNO TODO */ Microsoft.UI.Core.KeyEventArgs args)
+        private void OnCoreWindowKeyDown(CoreWindow sender, /* UNO TODO */ Windows.UI.Core.KeyEventArgs args)
         {
             if (!this.IsOpen)
             {

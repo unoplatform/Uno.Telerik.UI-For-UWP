@@ -28,7 +28,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 		internal Popup itemReorderPopup;
 #else
 		// UNO TODO
-		internal Microsoft.UI.Xaml.Controls.Popup itemReorderPopup;
+		internal Microsoft.UI.Xaml.Controls.Primitives.Popup itemReorderPopup;
 #endif
 
 		/// <summary>
