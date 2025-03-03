@@ -13,6 +13,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media.Animation;
+using PointerDeviceType = Microsoft.UI.Input.PointerDeviceType;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
