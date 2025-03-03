@@ -85,7 +85,14 @@ public partial class App : Application
     {
         views.Register(
             new ViewMap(ViewModel: typeof(ShellModel)),
-            new ViewMap<MainPage, MainModel>()
+            new ViewMap<MainPage, MainModel>(),
+            new ViewMap<BlackoutCells>(),
+            new ViewMap<CustomEventInformation>(),
+            new ViewMap<FirstDayOfWeek_and_WeekRule>(),
+            new ViewMap<Formatting>(),
+            new ViewMap<RemoveNavigationAnimations>(),
+            new ViewMap<Selection>(),
+            new ViewMap<Styling>()
         );
 
         routes.Register(
@@ -93,6 +100,13 @@ public partial class App : Application
                 Nested:
                 [
                     new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true),
+                    new("BlackoutCells", View: views.FindByView<BlackoutCells>()),
+                    new("CustomEventInformation", View: views.FindByView<CustomEventInformation>()),
+                    new("FirstDayOfWeek_and_WeekRule", View: views.FindByView<FirstDayOfWeek_and_WeekRule>()),
+                    new("Formatting", View: views.FindByView<Formatting>()),
+                    new("RemoveNavigationAnimations", View: views.FindByView<RemoveNavigationAnimations>()),
+                    new("Selection", View: views.FindByView<Selection>()),
+                    new("Styling", View: views.FindByView<Styling>())
                 ]
             )
         );
