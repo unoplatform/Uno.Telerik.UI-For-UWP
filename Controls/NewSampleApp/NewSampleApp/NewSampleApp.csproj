@@ -1,4 +1,4 @@
-<Project Sdk="Uno.Sdk">
+﻿<Project Sdk="Uno.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
 
@@ -53,6 +53,52 @@
         <ProjectReference Include="..\..\Data.UWP\Telerik.Data.csproj" />
         <ProjectReference Include="..\..\Input\Input.UWP\Telerik.Input.csproj" />
         <ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Presentation\BlackoutCells.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Presentation\CustomEventInformation.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Presentation\FirstDayOfWeek_and_WeekRule.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Presentation\Formatting.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Presentation\RemoveNavigationAnimations.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Presentation\Selection.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Presentation\Styling.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Presentation\Examples\Calendar\" />
     </ItemGroup>
 
 </Project>
