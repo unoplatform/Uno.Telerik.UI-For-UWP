@@ -11,8 +11,27 @@
 			<TextBlock Text="Telerik Samples"
 					   Margin="20"
 					   FontSize="30" />
-			<tInput:RadRangeSlider Height="100"
-								   Header="RadRangeSlider Sample" />
-		</StackPanel>
+            <Button Content="Navigate to BlackoutCells Sample"
+                    Click="NavigateToBlackoutCells_Click"
+                    Margin="0,0,0,20"/>
+            <Button Content="Navigate to CustomEventInformation Sample"
+                    Click="NavigateToCustomEventInformation_Click"
+                    Margin="0,0,0,20"/>
+            <Button Content="Navigate to FirstDayOfWeek and WeekRule Sample"
+                    Click="NavigateToFirstDayOfWeek_and_WeekRule_Click"
+                    Margin="0,0,0,20"/>
+            <Button Content="Navigate to Formatting Sample"
+                    Click="NavigateToFormatting_Click"
+                    Margin="0,0,0,20"/>
+            <Button Content="Navigate to RemoveNavigationAnimations Sample"
+                    Click="NavigateToRemoveNavigationAnimations_Click"
+                    Margin="0,0,0,20"/>
+            <Button Content="Navigate to Selection Sample"
+                    Click="NavigateToSelection_Click"
+                    Margin="0,0,0,20"/>
+            <Button Content="Navigate to Styling Sample"
+                    Click="NavigateToStyling_Click"
+                    Margin="0,0,0,20"/>
+        </StackPanel>
 	</Grid>
 </Page>
