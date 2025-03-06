@@ -8,7 +8,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a ListEditor control.
     /// </summary>
-    public partial class ListEditor : ComboBox, ITypeEditor
+    public class ListEditor : ComboBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ListEditor"/> class.
@@ -16,6 +16,11 @@ namespace Telerik.UI.Xaml.Controls.Data
         public ListEditor()
         {
             this.DefaultStyleKey = typeof(ListEditor);
+        }
+
+        object IEditor.GetCurrentValue()
+        {
+            return this.SelectedItem;
         }
 
         /// <summary>
@@ -29,6 +34,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             Binding b = new Binding() { Mode = BindingMode.TwoWay };
             b.Path = new PropertyPath("PropertyValue");
+            EditorsHelper.AddPropertyValueConverter(b, this);
             this.SetBinding(ListEditor.SelectedItemProperty, b);
 
             Binding b2 = new Windows.UI.Xaml.Data.Binding();
@@ -41,6 +47,12 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.SetBinding(ListEditor.IsEnabledProperty, b3);
         }
 
+        /// <summary>
+        /// Creates or identifies the element that is used to display the given item.
+        /// </summary>
+        /// <returns>
+        /// The element that is used to display the given item.
+        /// </returns>
         protected override DependencyObject GetContainerForItemOverride()
         {
             return new DataFormComboBoxItem();

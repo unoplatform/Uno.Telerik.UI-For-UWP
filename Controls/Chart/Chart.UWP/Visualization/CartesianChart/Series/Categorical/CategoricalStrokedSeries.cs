@@ -1,6 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
 using Telerik.Charting;
 using Windows.UI.Composition;
-using System.Diagnostics.CodeAnalysis;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
@@ -153,11 +153,11 @@ namespace Telerik.UI.Xaml.Controls.Chart
             {
                 this.renderer.Render(this.drawWithComposition);
 
-                if (this.drawWithComposition && this.renderer.renderPoints.Count > 2)
+                if (this.drawWithComposition && this.renderer.renderPoints.Count >= 2)
                 {
                     foreach (DataPointSegment dataSegment in ChartSeriesRenderer.GetDataSegments(this.renderer.renderPoints))
                     {
-                        this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(lineRendererVisual, this.renderer.GetPoints(dataSegment), this.Stroke, this.StrokeThickness);
+                        this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(this.lineRendererVisual, this.renderer.GetPoints(dataSegment), this.Stroke, this.StrokeThickness);
                     }
                 }
             }

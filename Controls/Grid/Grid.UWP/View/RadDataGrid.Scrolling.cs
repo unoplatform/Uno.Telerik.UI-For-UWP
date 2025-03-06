@@ -1,10 +1,9 @@
 ﻿using System;
+using System.Linq;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Grid.Model;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -12,7 +11,6 @@ namespace Telerik.UI.Xaml.Controls.Grid
     {
         private RadPoint lastScrollOffset;
         private ScrollViewer scrollViewer;
-        private bool renderingHooked;
 
         double IGridView.PhysicalVerticalOffset
         {
@@ -110,7 +108,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
 
             // TODO: consider adding displayindex to the columns to improve this when this operation become a performance issue.
-            var columnIndex = this.Columns.IndexOf(column);
+            var visibleCollumns = this.model.VisibleColumns.ToList();
+            var columnIndex = visibleCollumns.IndexOf(column);
             if (columnIndex < 0)
             {
                 return;
@@ -191,48 +190,9 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
         private void OnScrollViewerViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
-            if (e.IsIntermediate)
-            {
-                this.HookRendering();
-            }
-            else
-            {
-                this.UnhookRendering();
-                this.UpdateScrollOffsetOnRendering();
-            }
-        }
-
-        private void CompositionTarget_Rendering(object sender, object e)
-        {
-            this.UpdateScrollOffsetOnRendering();
-        }
-
-        private void HookRendering()
-        {
-            if (this.renderingHooked)
-            {
-                return;
-            }
-
-            CompositionTarget.Rendering += this.CompositionTarget_Rendering;
-            this.renderingHooked = true;
-        }
-
-        private void UnhookRendering()
-        {
-            if (!this.renderingHooked)
-            {
-                return;
-            }
-
-            CompositionTarget.Rendering -= this.CompositionTarget_Rendering;
-            this.renderingHooked = false;
-        }
-
-        private void UpdateScrollOffsetOnRendering()
-        {
-            this.SetHorizontalOffset(this.scrollViewer.HorizontalOffset, true, false);
-            this.SetVerticalOffset(this.scrollViewer.VerticalOffset, true, false);
+            this.SetHorizontalOffset(this.scrollViewer.HorizontalOffset, false, false);
+            this.SetVerticalOffset(this.scrollViewer.VerticalOffset, false, false);
+            this.InvalidatePanelsMeasure();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// </summary>
         public static readonly DependencyProperty CellEditorStyleProperty =
             DependencyProperty.Register(nameof(CellEditorStyle), typeof(Style), typeof(DataGridTypedColumn), new PropertyMetadata(null, OnCellEditorStyleChanged));
-        
+
         private IDataFieldInfo propertyInfo;
 
         private string propertyNameCache;
@@ -108,20 +108,20 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 this.SetValue(CellContentStyleSelectorProperty, value);
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the <see cref="Style"/> that will be applied to the cell editor.
         /// </summary>
         public Style CellEditorStyle
         {
-           get
-           {
-               return this.cellEditorStyleCache;
-           }
-           set
-           {
-               this.SetValue(CellEditorStyleProperty, value);
-           }
+            get
+            {
+                return this.cellEditorStyleCache;
+            }
+            set
+            {
+                this.SetValue(CellEditorStyleProperty, value);
+            }
         }
 
         internal virtual Style DefaultCellContentStyle
@@ -220,6 +220,50 @@ namespace Telerik.UI.Xaml.Controls.Grid
             return null;
         }
 
+        /// <summary>
+        /// Creates an instance of the editor used by the column when entering edit mode.
+        /// </summary>
+        /// <returns>An instance of the editor.</returns>
+        public abstract FrameworkElement CreateEditorContentVisual();
+
+        /// <summary>
+        /// Prepares all bindings and content set to the editor visualized when entering edit mode.
+        /// </summary>
+        /// <param name="editorContent">The editor itself.</param>
+        /// <param name="binding">The binding set to the editor of the cell.</param>
+        public abstract void PrepareEditorContentVisual(FrameworkElement editorContent, Binding binding);
+
+        /// <summary>
+        /// Clears all bindings and content set to the editor visualized when entering edit mode.
+        /// </summary>
+        /// <param name="editorContent">The editor itself.</param>
+        public abstract void ClearEditorContentVisual(FrameworkElement editorContent);
+
+        /// <summary>
+        /// Prepares the UIElement inside which the cell is visualized.
+        /// </summary>
+        /// <param name="container">The element inside which the cell is visualized.</param>
+        /// <param name="value">The value of the cell.</param>
+        /// <param name="item">The business object represented in the cell.</param>
+        public override void PrepareCell(object container, object value, object item)
+        {
+            FrameworkElement element = container as FrameworkElement;
+            if (element == null)
+            {
+                return;
+            }
+
+            Style style = this.ComposeCellContentStyle(element, item);
+            if (style != null)
+            {
+                element.Style = style;
+            }
+            else
+            {
+                element.ClearValue(FrameworkElement.StyleProperty);
+            }
+        }
+
         internal override void SetValueForInstance(object instance, object value)
         {
             var memberAccess = this.propertyInfo as IMemberAccess;
@@ -235,26 +279,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             if (!model.columns.IsSuspended && model.FieldInfoData != null && model.FieldInfoData.RootFieldInfo != null)
             {
-                this.PropertyInfo = model.FieldInfoData.GetFieldDescriptionByMember(this.PropertyName);
-            }
-        }
-
-        internal override void PrepareCell(GridCellModel cell)
-        {
-            FrameworkElement element = cell.Container as FrameworkElement;
-            if (element == null)
-            {
-                return;
-            }
-
-            Style style = this.ComposeCellContentStyle(element, cell);
-            if (style != null)
-            {
-                element.Style = style;
-            }
-            else
-            {
-                element.ClearValue(FrameworkElement.StyleProperty);
+                this.SetPropertyInfo();
             }
         }
 
@@ -290,12 +315,6 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             return new Tuple<FrameworkElement, FrameworkElement, FrameworkElement>(content, host, validation);
         }
-
-        internal abstract FrameworkElement CreateEditorContentVisual();
-
-        internal abstract void PrepareEditorContentVisual(FrameworkElement editorContent, Binding binding);
-
-        internal abstract void ClearEditorContentVisual(FrameworkElement editorContent);
 
         internal override void PrepareEditorContainer(GridCellEditorModel editor)
         {
@@ -431,31 +450,31 @@ namespace Telerik.UI.Xaml.Controls.Grid
             // Assuming that for the time being the path is property name (Simple Binding).
             definition.UpdatePropertyInfo(definition.propertyNameCache);
 
-            definition.OnProperyChange(UpdateFlags.All);
+            definition.OnPropertyChange(UpdateFlags.All);
         }
 
         private static void OnCellContentStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var definition = d as DataGridTypedColumn;
             definition.cellContentStyleCache = e.NewValue as Style;
-            definition.OnProperyChange(UpdateFlags.AllButData);
+            definition.OnPropertyChange(UpdateFlags.AllButData);
         }
 
         private static void OnCellContentStyleSelectorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var definition = d as DataGridTypedColumn;
             definition.cellContentStyleSelectorCache = e.NewValue as StyleSelector;
-            definition.OnProperyChange(UpdateFlags.AllButData);
+            definition.OnPropertyChange(UpdateFlags.AllButData);
         }
-        
+
         private static void OnCellEditorStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var definition = d as DataGridTypedColumn;
             definition.cellEditorStyleCache = e.NewValue as Style;
-            definition.OnProperyChange(UpdateFlags.AllButData);
+            definition.OnPropertyChange(UpdateFlags.AllButData);
         }
 
-        private Style ComposeCellContentStyle(FrameworkElement container, GridCellModel cell)
+        private Style ComposeCellContentStyle(FrameworkElement container, object item)
         {
             if (this.cellContentStyleCache != null)
             {
@@ -464,8 +483,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
 
             if (this.cellContentStyleSelectorCache != null)
             {
-                var parentRow = cell.parent as GridRowModel;
-                var selectContext = new DataGridCellInfo(parentRow.ItemInfo.Item, cell.Column);
+                var selectContext = new DataGridCellInfo(item, this);
                 var style = this.cellContentStyleSelectorCache.SelectStyle(selectContext, container);
                 if (style != null)
                 {
@@ -483,13 +501,31 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 return;
             }
 
-            if (this.propertyInfo.Name != path)
+            if (this.propertyInfo.Name != path && this.Model != null && this.Model.FieldInfoData != null)
             {
-                if (this.Model != null && this.Model.FieldInfoData != null)
+                this.SetPropertyInfo();
+            }
+        }
+
+        private void SetPropertyInfo()
+        {
+            string propertyName = this.PropertyName;
+            this.PropertyInfo = this.Model.FieldInfoData.GetFieldDescriptionByMember(propertyName);
+            int dotIndex = propertyName.IndexOf(".");
+            if (this.propertyInfo == null && dotIndex != -1)
+            {
+                string parentPath = propertyName.Substring(0, dotIndex);
+
+                var parentFieldInfo = this.Model.FieldInfoData.GetFieldDescriptionByMember(parentPath);
+                if (parentFieldInfo != null)
                 {
-                    this.propertyInfo = this.Model.FieldInfoData.GetFieldDescriptionByMember(this.PropertyName);
+                    IDataFieldInfo info = GridModel.InitializePropertyInfo(propertyName, parentFieldInfo.DataType, parentFieldInfo.RootClassType);
+                    if (info != null)
+                    {
+                        this.PropertyInfo = info;
+                        this.Model.FieldInfoData.AddFieldInfoToCache(info);
+                    }
                 }
-                this.UpdateHeader();
             }
         }
 

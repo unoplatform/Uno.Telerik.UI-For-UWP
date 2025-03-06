@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <PlatformFolder>$(Platform)</PlatformFolder>
+    <OutputPath>bin\$(PlatformFolder)\$(Configuration)\</OutputPath>
+    <IsUWP>true</IsUWP>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF14F352-F1B9-4CDE-854B-0339259A4CFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Telerik.UI.Xaml.Controls.Primitives</RootNamespace>
+    <AssemblyName>Telerik.UI.Xaml.Primitives.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <GenerateLibraryLayout>true</GenerateLibraryLayout>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>$(OutputPath)\Telerik.UI.Xaml.Primitives.XML</DocumentationFile>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DocumentationFile>bin\AnyCPU\Release\Telerik.UI.Xaml.Primitives.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\BuildTools\Win8PublicKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BusyIndicator\AutomationPeers\RadBusyIndicatorAutomationPeer.cs" />
+    <Compile Include="Common\Controls\AutomationPeers\RadContentControlAutomationPeer.cs" />
+    <Compile Include="Common\Controls\AutomationPeers\RadControlAutomationPeer.cs" />
+    <Compile Include="Common\Controls\AutomationPeers\RadHeaderedControlAutomationPeer.cs" />
+    <Compile Include="ExpanderControl\RadExpanderControlAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\FlipControlAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\HubTileBaseAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\RadCustomHubTileAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\RadCycleHubTileAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\RadHexHubTileAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\RadHubTileAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\RadMosaicHubTileAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\RadPictureRotatorHubTileAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\RadSlideHubTileAutomationPeer.cs" />
+    <Compile Include="HubTile\AutomationPeers\SlideControlAutomationPeer.cs" />
+    <Compile Include="LoopingList\AutomationPeers\AutomationPeerHalper.cs" />
+    <Compile Include="LoopingList\AutomationPeers\LoopingListItemAutomationPeer.cs" />
+    <Compile Include="LoopingList\AutomationPeers\RadLoopingListAutomationPeer.cs" />
+    <Compile Include="Pagination\AutomationPeers\PaginationButtonAutomationPeer.cs" />
+    <Compile Include="Pagination\AutomationPeers\PaginationIndexLabelControlAutomationPeer.cs" />
+    <Compile Include="Pagination\AutomationPeers\PaginationListControlAutomationPeer.cs" />
+    <Compile Include="Pagination\AutomationPeers\PaginationListControlItemAutomationPeer.cs" />
+    <Compile Include="Pagination\AutomationPeers\RadPaginationControlAutomationPeer.cs" />
+    <Compile Include="Pagination\PaginationButton.cs" />
+    <Compile Include="Pagination\PaginationControlDisplayMode.cs" />
+    <Compile Include="Pagination\PaginationControlNavigationMode.cs" />
+    <Compile Include="Pagination\PaginationIndexLabelControl.cs" />
+    <Compile Include="Pagination\PaginationItemIndicator.cs" />
+    <Compile Include="Pagination\PaginationListControl.cs" />
+    <Compile Include="Pagination\PaginationListControlItem.cs" />
+    <Compile Include="Pagination\RadPaginationControl.cs" />
+    <Compile Include="RadialMenu\AutomationPeers\NavigationItemButtonAutomationPeer.cs" />
+    <Compile Include="RadialMenu\AutomationPeers\RadialMenuItemControlAutomationPeer.cs" />
+    <Compile Include="RadialMenu\AutomationPeers\RadRadialMenuAutomationPeer.cs" />
+    <Compile Include="RadialMenu\Common\CoordinatesUtils.cs" />
+    <Compile Include="RadialMenu\Common\RadialLayoutSlot.cs" />
+    <Compile Include="RadialMenu\Common\RadPolarPoint.cs" />
+    <Compile Include="RadialMenu\Model\FixedSegmentLayout.cs" />
+    <Compile Include="RadialMenu\Model\Items\MenuItemCollection.cs" />
+    <Compile Include="RadialMenu\Model\Items\RadialMenuItem.cs" />
+    <Compile Include="RadialMenu\Model\Items\RadialNavigateItem.cs" />
+    <Compile Include="RadialMenu\Model\Items\RadialSegment.cs" />
+    <Compile Include="RadialMenu\Model\Layout.cs" />
+    <Compile Include="RadialMenu\Model\MenuViewState.cs" />
+    <Compile Include="RadialMenu\Model\RadialMenuModel.cs" />
+    <Compile Include="RadialMenu\Model\RadialMenuModel.Selection.cs" />
+    <Compile Include="RadialMenu\Model\Rings\NavidateItemRingModel.cs" />
+    <Compile Include="RadialMenu\Model\Rings\RingModel.cs" />
+    <Compile Include="RadialMenu\Model\Rings\RingModelBase.cs" />
+    <Compile Include="RadialMenu\Services\CommandService.cs" />
+    <Compile Include="RadialMenu\Services\Commands\CloseMenuCommand.cs" />
+    <Compile Include="RadialMenu\Services\Commands\CommandId.cs" />
+    <Compile Include="RadialMenu\Services\Commands\NavigateBackCommand.cs" />
+    <Compile Include="RadialMenu\Services\Commands\NavigateCommand.cs" />
+    <Compile Include="RadialMenu\Services\Commands\NavigateContext.cs" />
+    <Compile Include="RadialMenu\Services\Commands\OpenMenuCommand.cs" />
+    <Compile Include="RadialMenu\Services\Commands\RadialMenuCommand.cs" />
+    <Compile Include="RadialMenu\Services\Commands\RadialMenuItemContext.cs" />
+    <Compile Include="RadialMenu\Services\Commands\RadialMenuUserCommand.cs" />
+    <Compile Include="RadialMenu\Services\HitTestService.cs" />
+    <Compile Include="RadialMenu\Services\IHitTestArea.cs" />
+    <Compile Include="RadialMenu\Services\VisualStateService.cs" />
+    <Compile Include="RadialMenu\View\Controls\DecorationItemButton.cs" />
+    <Compile Include="RadialMenu\View\Controls\NavigationItemButton.cs" />
+    <Compile Include="RadialMenu\View\Controls\RadialMenuButton.cs" />
+    <Compile Include="RadialMenu\View\Controls\RadialMenuItemControl.cs" />
+    <Compile Include="RadialMenu\View\Controls\RadialPanel.cs" />
+    <Compile Include="RadialMenu\View\Controls\Tooltip\MenuToolTip.cs" />
+    <Compile Include="RadialMenu\View\Layers\Animations.cs" />
+    <Compile Include="RadialMenu\View\Layers\BackgroundSectorItemLayer.cs" />
+    <Compile Include="RadialMenu\View\Layers\ElementLayerBase.cs" />
+    <Compile Include="RadialMenu\View\Layers\ItemVisualStateLayer.cs" />
+    <Compile Include="RadialMenu\View\Layers\LayerBase.cs" />
+    <Compile Include="RadialMenu\View\Layers\MenuItemLayer.cs" />
+    <Compile Include="RadialMenu\View\Layers\NavigateItemLayer.cs" />
+    <Compile Include="RadialMenu\View\Layers\NavigationLayerAnimations.cs" />
+    <Compile Include="RadialMenu\View\Layers\ZIndices.cs" />
+    <Compile Include="RadialMenu\View\MenuSelectionChangedEventArgs.cs" />
+    <Compile Include="RadialMenu\View\PopupService.cs" />
+    <Compile Include="RadialMenu\View\RadRadialContextMenu.cs" />
+    <Compile Include="RadialMenu\View\RadRadialMenu.Commands.cs" />
+    <Compile Include="RadialMenu\View\RadRadialMenu.cs" />
+    <Compile Include="RadialMenu\View\RadRadialMenu.Manipulation.cs" />
+    <Compile Include="RadialMenu\View\Triggers\RadialMenuAttachTriggers.cs" />
+    <Compile Include="RadialMenu\View\Triggers\RadialMenuTriggerBehavior.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangeBaseControls\AutomationPeers\RangeControlBaseAutomationPeer.cs" />
+    <Compile Include="RangeBaseControls\AutomationPeers\RangeInputBaseAutomationPeer.cs" />
+    <Compile Include="RangeBaseControls\AutomationPeers\SliderBaseAutomationPeer.cs" />
+    <Compile Include="RangeSliderPrimitive\AutomationPeers\RangeSliderPrimitiveAutomationPeer.cs" />
+    <Compile Include="Shadow\RadShadow.cs" />
+    <Compile Include="SideDrawer\AutomationPeer\RadSideDrawerAutomationPeer.cs" />
+    <Compile Include="SideDrawer\Commands\SideDrawerKeyDownCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\HubTilePalette.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SharedResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\ThemeColorsDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ThemeColorsHighContrast.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ThemeColorsLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ThemeResourcesDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ThemeResourcesHighContrast.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ThemeResourcesLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core.UWP\Core.UWP.csproj">
+      <Project>{1652093c-b541-48c9-bcb6-bbe7ce7c7ffe}</Project>
+      <Name>Core.UWP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BusyIndicator\AnimationStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\BusyIndicatorAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\BusyIndicatorAnimationAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BusyIndicator\ContentPosition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BusyIndicator\RadBusyIndicator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\AttachableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\AttachableObjectCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Controls\InlineButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Controls\RadContentControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Controls\RadControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Controls\RadHeaderedContentControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Controls\RadHeaderedControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\ContentToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\BooleanNotConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\StringCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\StringCaseMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\DoubleArithmetics.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\GridLinesVisibility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\INoDesiredSizeControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\InputBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ObjectSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RadDependencyObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Scrolling Operations\ScrollIntoViewOperation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ServiceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Actions\ActionBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Actions\ActionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Actions\AnimatationCompleteEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Actions\AnimationAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Actions\AnimationOperation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Actions\CompositeAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Actions\DelegateAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Commands\CommandCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Commands\CommandServiceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Commands\ControlCommandBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Updates\DelegateUpdate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Updates\IUpdateService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Updates\Update.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Services\Updates\UpdateServiceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Culture\CultureService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Culture\ICultureAware.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\CanvasDragSurface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\ContentControlDragVisualContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragCompleteContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragDrop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\IDragDropOperation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragDropTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragDropOperation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragHitTestStrategy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragInitializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragPositionMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragStartingContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragSurfaceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragSurfaceRequestedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\DragVisualContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\IDragDropElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\IDragSurface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\Reorder\IReorderItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\Reorder\IReorderItemsHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragDrop\Reorder\ReorderItemsCoordinator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\MissingTemplatePartException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\TemplateNotAppliedException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpanderControl\ExpandedStateChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpanderControl\ExpandedStateChangingEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpanderControl\RadExpanderControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ElementTreeHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\KeyboardHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ResourceHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\TreeTraversalMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\Converters\DoubleScaleConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\Converters\OrientationToPathDataConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\CustomMosaicTilePart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\Enums\HexOrientation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\Enums\MosaicFlipMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\Enums\SlideTileExpandedStates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\FlipControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\IHexViewListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\RadHexHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\HubTileBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\HubTileService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\IImageSourceProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\MosaicTilePart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\PictureHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\PictureNeededEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\RadCustomHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\RadCycleHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\RadHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\RadMosaicHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\RadPictureRotatorHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\RadSlideHubTile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubTile\SlideControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImageZoomMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionEffects\InteractionEffectBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionEffects\InteractionEffectManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionEffects\TiltInteractionEffect\TiltInteractionEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionEffects\TiltInteractionEffect\TiltInteractionInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Legend\ILegendInfoProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Legend\LegendItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Legend\LegendItemCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Legend\RadLegendControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\RadLoopingList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\LoopingListDataItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\LoopingListItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\LoopingListSelectionChangeReason.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\LoopingPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\LoopingPanelScrollState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\SnapPosition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoopingList\VisualStateUpdateParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PrimitivesLocalizationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeBaseControls\RangeControlBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeBaseControls\RangeInputBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeBaseControls\SliderBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\RangeSliderPrimitive.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\RangeSliderPrimitive.Manipulations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\RangeSliderPrimitive.Model.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\RangeSliderTrackTapMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\RangeTrackPrimitive.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\SelectionRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\ThumbsPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\Tooltip\RangeToolTip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RangeSliderPrimitive\Tooltip\ToolTipContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\AxisLabelModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\AxisModelLayoutStrategy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\AxisTickModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\HorizontalAxisLayoutStrategy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\NumericalAxisModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\ScaleElementPlacement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\ScaleLayoutMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\SnapsTo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Engine\VerticalAxisLayoutStrategy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Visualization\ScalePanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScalePrimitive\Visualization\ScalePrimitive.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\Commands\AnimationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\Commands\CommandId.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\Commands\CommandService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\Commands\GenerateAnimationsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\Commands\DrawerStateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\Commands\SideDrawerCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\RadSideDrawer.AnimationGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\RadSideDrawer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\RadSideDrawer.Manipulations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\DrawerManipulationMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\DrawerLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\DrawerState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\DrawerTransition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\DrawerButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SideDrawer\SideOutPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theming\UserThemeResourceLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theming\UserThemeResources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validation\ValidatingEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Validation\ValidationControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle1.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle6.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator\Animations\AnimationStyle9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadBusyIndicator.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadDataBoundListBox.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadHubTile.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadMosaicHubTile.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadPictureRotatorHubTile.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadSlideHubTile.Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\Neutral.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadHexHubTile.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadLegendControl.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadPaginationControl.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadRadialMenu.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadSideDrawer.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadShadow.Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.LoopingList.RadLoopingList.Icon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ToolboxIcons\Telerik.UI.Xaml.Controls.Primitives.RadExpanderControl.Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="StyleCop.MSBuild">
+      <Version>4.7.55</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors.WindowsRuntime">
+      <Version>4.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="..\..\..\BuildTools\CopyBinaries.targets" />
+  <Target Name="XamlGeneratedCodeWarningRemoved" AfterTargets="MarkupCompilePass2">
+    <Exec Command="for %%f in (@(_GeneratedCodeFiles)) do echo #pragma warning disable 1591 &gt; %%f.temp" />
+    <Exec Command="for %%f in (@(_GeneratedCodeFiles)) do type %%f &gt;&gt; %%f.temp" />
+    <Exec Command="for %%f in (@(_GeneratedCodeFiles)) do echo #pragma warning restore 1591 &gt;&gt; %%f.temp" />
+    <Exec Command="for %%f in (@(_GeneratedCodeFiles)) do move /y %%f.temp %%f" />
+    <Message Text="Xaml Generated Code Warnings Removed: @(_GeneratedCodeFiles)" />
+  </Target>
+</Project>

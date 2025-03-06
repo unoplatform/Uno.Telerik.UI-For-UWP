@@ -122,11 +122,11 @@ namespace Telerik.UI.Xaml.Controls.Chart
             
             this.lowerBandRenderer.Render(this.drawWithComposition);
 
-            if (this.drawWithComposition && this.lowerBandRenderer.renderPoints.Count > 2)
+            if (this.drawWithComposition && this.lowerBandRenderer.renderPoints.Count >= 2)
             {
                 foreach (DataPointSegment dataSegment in ChartSeriesRenderer.GetDataSegments(this.lowerBandRenderer.renderPoints))
                 {
-                    this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(lineRendererVisual, this.lowerBandRenderer.GetPoints(dataSegment), this.LowerBandStroke, this.StrokeThickness);
+                    this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(this.lineRendererVisual, this.lowerBandRenderer.GetPoints(dataSegment), this.LowerBandStroke, this.StrokeThickness);
                 }
             }
         }

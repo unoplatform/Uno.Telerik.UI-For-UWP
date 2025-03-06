@@ -28,7 +28,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether if handling is enabled.
+        /// Gets a value indicating whether if handling is enabled.
         /// </summary>
         public bool IsHandleEnabled
         {
@@ -106,14 +106,28 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 this.dragVisual.Width = this.ActualWidth;
                 this.dragVisual.Height = this.ActualHeight;
                 this.dragVisual.ListView = this.ListView;
-                this.dragVisual.isDragContent = true;
+                this.dragVisual.isReordering = true;
                 this.dragVisual.IsSelected = this.IsSelected;
                 this.ListView.PrepareContainerForItem(this.dragVisual, this.DataContext);
             }
 
             (dragVisual as IDragDropElement).SkipHitTest = true;
 
-            DragDrop.SetDragPositionMode(this, this.ListView.Orientation == Orientation.Vertical ? DragPositionMode.RailY : DragPositionMode.RailX);
+            var dragPositionMode = DragPositionMode.Free;
+
+            if (this.ListView.LayoutDefinition is StackLayoutDefinition)
+            {
+                if (this.ListView.Orientation == Orientation.Vertical)
+                {
+                    dragPositionMode = DragPositionMode.RailY;
+                }
+                else
+                {
+                    dragPositionMode = DragPositionMode.RailX;
+                }
+            }
+
+            DragDrop.SetDragPositionMode(this, dragPositionMode);
 
             this.Opacity = 0.0;
 
@@ -136,11 +150,16 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 {
                     this.ListView.DragBehavior.OnDragDropCompleted(this, context.DragSuccessful);
 
-                    var itemReordered = context.DragSuccessful;
-
-                    if (!itemReordered && this.reorderCoordinator != null)
+                    if (this.reorderCoordinator != null)
                     {
-                        this.reorderCoordinator.CancelReorderOperation(this, data.InitialSourceIndex);
+                        if (context.DragSuccessful)
+                        {
+                            this.reorderCoordinator.CommitReorderOperation(data.InitialSourceIndex, data.CurrentSourceReorderIndex);
+                        }
+                        else
+                        {
+                            this.reorderCoordinator.CancelReorderOperation(this, data.InitialSourceIndex);
+                        }
                     }
                 }
             }

@@ -21,13 +21,12 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar.Commands
             base.Execute(parameter);
 
             CalendarViewChangeContext context = parameter as CalendarViewChangeContext;
-            this.MoveToPreviousView(context.AnimationStoryboard);
+            this.MoveToPreviousView(context.AnimationStoryboard, context.navigationStep, context.weekendsVisible);
         }
 
-        private void MoveToPreviousView(Storyboard animationStoryboard)
+        private void MoveToPreviousView(Storyboard animationStoryboard, int navigationStep, bool weekendsVisible)
         {
-            DateTime newDisplayDate = CalendarMathHelper.IncrementByView(this.Owner.DisplayDate, -1, this.Owner.DisplayMode);
-
+            DateTime newDisplayDate = CalendarMathHelper.IncrementByView(this.Owner.DisplayDate, -navigationStep, this.Owner.DisplayMode, weekendsVisible);
             this.Owner.MoveToDate(newDisplayDate, animationStoryboard);
         }
     }

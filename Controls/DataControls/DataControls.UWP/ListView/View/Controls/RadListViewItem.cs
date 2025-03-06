@@ -6,8 +6,10 @@ using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
 using Telerik.UI.Xaml.Controls.Data.ListView.View.Controls;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
+using Windows.Devices.Input;
 using Windows.Foundation;
 using Windows.System;
+using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Controls;
@@ -56,7 +58,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
         private double dragX;
         private double dragY;
-        private bool isDragContent;
+        private bool isReordering;
         private Border firstHandle;
         private Border secondHandle;
 
@@ -150,6 +152,17 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the item is currently reordering.
+        /// </summary>
+        public bool IsReordering
+        {
+            get
+            {
+                return this.isReordering;
+            }
+        }
+
         Rect IArrangeChild.LayoutSlot
         {
             get
@@ -220,35 +233,6 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             return isInvalidated;
         }
 
-        internal void PrepareSwipeDragHandles()
-        {
-            if (this.IsActionOnSwipeEnabled)
-            {
-                switch (this.SwipeDirection)
-                {
-                    case ListViewItemSwipeDirection.All:
-                        this.PrepareFirstSwipeHandle(true);
-                        this.PrepareSecondSwipeHandle(true);
-                        break;
-                    case ListViewItemSwipeDirection.Forward:
-                        this.PrepareFirstSwipeHandle(true);
-                        this.PrepareSecondSwipeHandle(false);
-                        break;
-                    case ListViewItemSwipeDirection.Backwards:
-                        this.PrepareFirstSwipeHandle(false);
-                        this.PrepareSecondSwipeHandle(true);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                this.PrepareFirstSwipeHandle(false);
-                this.PrepareSecondSwipeHandle(false);
-            }
-        }
-
         internal void PrepareDragVisual(DragAction action)
         {
             var owner = this.ListView;
@@ -260,7 +244,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             this.dragVisual.Width = this.ActualWidth;
             this.dragVisual.Height = this.ActualHeight;
             this.dragVisual.ListView = this.ListView;
-            this.dragVisual.isDragContent = true;
+            this.dragVisual.isReordering = true;
             this.dragVisual.IsSelected = this.IsSelected;
             this.ListView.PrepareContainerForItem(this.dragVisual, this.DataContext);
 
@@ -313,6 +297,38 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             }
         }
 
+        /// <summary>
+        /// Prepares the swipe drag handles of the item.
+        /// </summary>
+        protected internal void PrepareSwipeDragHandles()
+        {
+            if (this.IsActionOnSwipeEnabled)
+            {
+                switch (this.SwipeDirection)
+                {
+                    case ListViewItemSwipeDirection.All:
+                        this.PrepareFirstSwipeHandle(true);
+                        this.PrepareSecondSwipeHandle(true);
+                        break;
+                    case ListViewItemSwipeDirection.Forward:
+                        this.PrepareFirstSwipeHandle(true);
+                        this.PrepareSecondSwipeHandle(false);
+                        break;
+                    case ListViewItemSwipeDirection.Backwards:
+                        this.PrepareFirstSwipeHandle(false);
+                        this.PrepareSecondSwipeHandle(true);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                this.PrepareFirstSwipeHandle(false);
+                this.PrepareSecondSwipeHandle(false);
+            }
+        }
+
         /// <inheritdoc/>
         protected override Size MeasureOverride(Size availableSize)
         {
@@ -335,7 +351,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         /// <inheritdoc/>
         protected override Size ArrangeOverride(Size finalSize)
         {
-            if (this.isDragContent)
+            if (this.isReordering)
             {
                 return base.ArrangeOverride(finalSize);
             }
@@ -364,94 +380,11 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
             this.PrepareReorderHandle();
 
+            this.firstHandle = this.GetTemplateChild("PART_FirstHandle") as Border;
+            this.secondHandle = this.GetTemplateChild("PART_SecondHandle") as Border;
+
             this.PrepareSwipeDragHandles();
             this.ChangeVisualState();
-        }
-
-        private void BindToListViewProperties()
-        {
-            if (this.ListView == null)
-            {
-                return;
-            }
-
-            Binding binding = new Binding();
-            binding.Path = new PropertyPath(nameof(this.DisabledStateOpacity));
-            binding.Source = this.ListView;
-
-            this.SetBinding(RadListViewItem.DisabledStateOpacityProperty, binding);
-        }
-
-        private void PrepareFirstSwipeHandle(bool isVisible)
-        {
-            if (isVisible)
-            {
-                if (this.firstHandle == null)
-                {
-                    this.firstHandle = this.GetTemplateChild("PART_FirstHandle") as Border;
-                }
-
-                if (this.firstHandle != null)
-                {
-                    this.firstHandle.ManipulationMode = ManipulationModes.None;
-                    DragDrop.SetAllowDrag(this.firstHandle, true);
-                    this.firstHandle.Visibility = Visibility.Visible;
-                }
-            }
-            else
-            {
-                if (this.firstHandle != null)
-                {
-                    this.firstHandle.Visibility = Visibility.Collapsed;
-                }
-            }
-        }
-        private void PrepareSecondSwipeHandle(bool isVisible)
-        {
-            if (isVisible)
-            {
-                if (this.secondHandle == null)
-                {
-                    this.secondHandle = this.GetTemplateChild("PART_SecondHandle") as Border;
-                }
-
-                if (this.secondHandle != null)
-                {
-                    this.secondHandle.ManipulationMode = ManipulationModes.None;
-                    DragDrop.SetAllowDrag(this.secondHandle, true);
-                    this.secondHandle.Visibility = Visibility.Visible;
-                }
-            }
-            else
-            {
-                if (this.secondHandle != null)
-                {
-                    this.secondHandle.Visibility = Visibility.Collapsed;
-                }
-            }
-        }
-
-        private void PrepareReorderHandle()
-        {
-            if (this.IsHandleEnabled)
-            {
-                if (this.reorderHandle == null)
-                {
-                    this.reorderHandle = this.GetTemplateChild("PART_ReorderHandle") as FrameworkElement;
-                }
-
-                if (this.reorderHandle != null)
-                {
-                    this.reorderHandle.PointerPressed += OnReorderHandlePointerPressed;
-                }
-            }
-            else
-            {
-                if (this.reorderHandle != null)
-                {
-                    this.reorderHandle.PointerPressed -= OnReorderHandlePointerPressed;
-                }
-            }
         }
 
         /// <inheritdoc/>
@@ -469,6 +402,24 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         }
 
         /// <inheritdoc/>
+        protected override void OnPointerMoved(PointerRoutedEventArgs e)
+        {
+            base.OnPointerMoved(e);
+
+            Pointer pointer = e.Pointer;
+            PointerPoint pointerPoint = e.GetCurrentPoint(this);
+            if (!this.isReordering && pointerPoint.Properties.IsLeftButtonPressed && pointer.PointerDeviceType == PointerDeviceType.Mouse
+                && RadListViewItem.CanCapturePointer(this, pointer))
+            {
+                var source = e.OriginalSource;
+                if (source != this.firstHandle && source != this.secondHandle)
+                {
+                    this.listView.OnItemReorderHandlePressed(this, e, DragDropTrigger.MouseDrag, null);
+                }
+            }
+        }
+
+        /// <inheritdoc/>
         protected override void OnTapped(TappedRoutedEventArgs e)
         {
             base.OnTapped(e);
@@ -481,14 +432,14 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         /// <inheritdoc/>
         protected override void OnHolding(HoldingRoutedEventArgs e)
         {
-            if (this.isDragContent)
+            if (this.isReordering)
             {
                 return;
             }
 
             base.OnHolding(e);
 
-            if (this.ListView != null && e.HoldingState == Windows.UI.Input.HoldingState.Started && this.ListView.ReorderMode == ListViewReorderMode.Default)
+            if (this.ListView != null && e.HoldingState == Windows.UI.Input.HoldingState.Started)
             {
                 this.ListView.OnItemHold(this, e);
             }
@@ -565,6 +516,11 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         protected override void OnKeyDown(KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
+
+            if (e.OriginalSource != this)
+            {
+                return;
+            }
 
             bool success = false;
             this.ListView.currentLogicalIndex = this.logicalIndex;
@@ -645,9 +601,96 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             item.ChangeVisualState(true);
         }
 
+        private static bool CanCapturePointer(RadListViewItem listViewItem, Pointer pointer)
+        {
+            if (listViewItem.CapturePointer(pointer))
+            {
+                listViewItem.ReleasePointerCapture(pointer);
+                return true;
+            }
+
+            return false;
+        }
+        private void BindToListViewProperties()
+        {
+            if (this.ListView == null)
+            {
+                return;
+            }
+
+            Binding binding = new Binding();
+            binding.Path = new PropertyPath(nameof(this.DisabledStateOpacity));
+            binding.Source = this.ListView;
+
+            this.SetBinding(RadListViewItem.DisabledStateOpacityProperty, binding);
+        }
+
+        private void PrepareFirstSwipeHandle(bool isVisible)
+        {
+            if (isVisible)
+            {
+                if (this.firstHandle != null)
+                {
+                    this.firstHandle.ManipulationMode = ManipulationModes.None;
+                    DragDrop.SetAllowDrag(this.firstHandle, true);
+                    this.firstHandle.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                if (this.firstHandle != null)
+                {
+                    this.firstHandle.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void PrepareSecondSwipeHandle(bool isVisible)
+        {
+            if (isVisible)
+            {
+                if (this.secondHandle != null)
+                {
+                    this.secondHandle.ManipulationMode = ManipulationModes.None;
+                    DragDrop.SetAllowDrag(this.secondHandle, true);
+                    this.secondHandle.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                if (this.secondHandle != null)
+                {
+                    this.secondHandle.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void PrepareReorderHandle()
+        {
+            if (this.IsHandleEnabled)
+            {
+                if (this.reorderHandle == null)
+                {
+                    this.reorderHandle = this.GetTemplateChild("PART_ReorderHandle") as FrameworkElement;
+                }
+
+                if (this.reorderHandle != null)
+                {
+                    this.reorderHandle.PointerPressed += this.OnReorderHandlePointerPressed;
+                }
+            }
+            else
+            {
+                if (this.reorderHandle != null)
+                {
+                    this.reorderHandle.PointerPressed -= this.OnReorderHandlePointerPressed;
+                }
+            }
+        }
+
         private void OnReorderHandlePointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            this.ListView.OnItemReorderHandlePressed(this, e, sender);
+            this.ListView.OnItemReorderHandlePressed(this, e, DragDropTrigger.Drag, sender);
         }
 
         private void UpdateActionContentClipping(double offset)
@@ -717,7 +760,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         {
             var aritmetics = new DoubleArithmetics(1);
 
-            if (!aritmetics.AreClose(e.PreviousSize, e.NewSize) && !this.isDragContent)
+            if (!aritmetics.AreClose(e.PreviousSize, e.NewSize) && !this.isReordering)
             {
                 this.Owner.UpdateService.RegisterUpdate(new DelegateUpdate<UpdateFlags>(() => this.ListView.contentPanel.InvalidateMeasure()));
                 this.needUpdate = false;
@@ -787,19 +830,6 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
             bool canReorderColumn = sourceElement != null;
 
             return canReorderColumn && (draggingFromStart || draggingFromEnd);
-        }
-
-        private object GetDestinationDataItem(ReorderItemsDragOperation data)
-        {
-            IEnumerable enumerableSource = this.ListView.ItemsSource as IEnumerable;
-            IEnumerator enumerator = enumerableSource.GetEnumerator();
-            int i = 0;
-            while (i++ <= data.CurrentSourceReorderIndex)
-            {
-                enumerator.MoveNext();
-            }
-            object destinationDataItem = enumerator.Current;
-            return destinationDataItem;
         }
     }
 }

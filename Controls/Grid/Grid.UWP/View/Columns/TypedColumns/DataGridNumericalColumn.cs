@@ -13,40 +13,58 @@ namespace Telerik.UI.Xaml.Controls.Grid
     /// </summary>
     public class DataGridNumericalColumn : DataGridTextColumn
     {
-        private static Style defaultCellEditorStyle;
         private static Type numericBoxType = typeof(RadNumericBox);
+
+        private Style defaultCellEditorStyle;
 
         internal override Style DefaultCellEditorStyle
         {
             get
             {
-                if (defaultCellEditorStyle == null)
+                if (this.defaultCellEditorStyle == null)
                 {
-                    defaultCellEditorStyle = /* UNO TODO */Controls.Primitives.ResourceHelper.LoadEmbeddedResource(
+                    this.defaultCellEditorStyle = ResourceHelper.LoadEmbeddedResource(
                         typeof(DataGridTextColumn),
                         "Telerik.UI.Xaml.Controls.Grid.View.Columns.Resources.DefaultNumericalColumnEditorStyle.xaml",
                         "DefaultColumnEditorStyle") as Style;
                 }
-                return defaultCellEditorStyle;
+                return this.defaultCellEditorStyle;
             }
         }
 
-        internal override object GetEditorType(object item)
+        /// <summary>
+        /// Gets the type of the editor for the DataGridNumericalColumn that is visualized when entering in edit mode.
+        /// </summary>
+        /// <returns>The type of the editor.</returns>
+        public override object GetEditorType(object item)
         {
             return this.CanEdit ? numericBoxType : DataGridNumericalColumn.TextBlockType;
         }
 
-        internal override FrameworkElement CreateEditorContentVisual()
+        /// <summary>
+        /// Creates an instance of a RadNumericBox used by the column when entering edit mode.
+        /// </summary>
+        /// <returns>An instance of the editor.</returns>
+        public override FrameworkElement CreateEditorContentVisual()
         {
             return new RadNumericBox();
         }
 
-        internal override void PrepareEditorContentVisual(FrameworkElement editorContent, Binding binding)
+        /// <summary>
+        /// Prepares all bindings and content set to the RadNumericBox visualized when entering edit mode.
+        /// </summary>
+        /// <param name="editorContent">The editor itself.</param>
+        /// <param name="binding">The binding set to the editor of the cell.</param>
+        public override void PrepareEditorContentVisual(FrameworkElement editorContent, Binding binding)
         {
             editorContent.SetBinding(RadNumericBox.ValueProperty, binding);
         }
 
-        internal override void ClearEditorContentVisual(FrameworkElement editorContent)
+        /// <summary>
+        /// Clears all bindings and content set to the RadNumericBox visualized when entering edit mode.
+        /// </summary>
+        /// <param name="editorContent">The editor itself.</param>
+        public override void ClearEditorContentVisual(FrameworkElement editorContent)
         {
             editorContent.ClearValue(RadNumericBox.ValueProperty);
         }

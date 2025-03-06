@@ -79,13 +79,21 @@ namespace Telerik.UI.Xaml.Controls.Data
 
         internal void OnItemHold(RadListViewItem radListViewItem, HoldingRoutedEventArgs e)
         {
-            // TODO add holdCommand.
-            DragDrop.StartDrag(radListViewItem, e, DragDropTrigger.Hold);
+            var item = radListViewItem.DataContext;
+            if (item != null)
+            {
+                this.commandService.ExecuteCommand(CommandId.ItemHold, new ItemHoldContext(item));
+            }
+
+            if (this.ReorderMode == ListViewReorderMode.Default)
+            {
+                DragDrop.StartDrag(radListViewItem, e, DragDropTrigger.Hold);
+            }
         }
 
-        internal void OnItemReorderHandlePressed(RadListViewItem radListViewItem, PointerRoutedEventArgs e, object sender)
+        internal void OnItemReorderHandlePressed(RadListViewItem radListViewItem, PointerRoutedEventArgs e, DragDropTrigger trigger, object sender = null)
         {
-            DragDrop.StartDrag(radListViewItem, e, DragDropTrigger.Drag, sender);
+            DragDrop.StartDrag(radListViewItem, e, trigger, sender);
         }
 
         internal void OnItemActionControlTap(RadListViewItem radListViewItem, double offset)

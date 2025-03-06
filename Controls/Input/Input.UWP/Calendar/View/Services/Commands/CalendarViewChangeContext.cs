@@ -9,6 +9,9 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
     /// </summary>
     public class CalendarViewChangeContext
     {
+        internal int navigationStep;
+        internal bool weekendsVisible;
+
         /// <summary>
         /// Gets or sets the animation storyboard associated with the navigation action.
         /// </summary>

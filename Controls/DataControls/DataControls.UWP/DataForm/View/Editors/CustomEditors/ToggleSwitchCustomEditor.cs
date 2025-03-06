@@ -9,26 +9,26 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a ToggleSwitchCustomEditor control.
     /// </summary>
-    public partial class ToggleSwitchCustomEditor : CustomEditorBase<ToggleSwitch>
+    public class ToggleSwitchCustomEditor : CustomEditorBase<ToggleSwitch>, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="SelectedBackgroundBrush"/> dependency property. 
         /// </summary>
         public static readonly DependencyProperty SelectedBackgroundBrushProperty =
             DependencyProperty.Register(nameof(SelectedBackgroundBrush), typeof(Brush), typeof(ToggleSwitchCustomEditor), new PropertyMetadata(null, OnSelectedBackgroundBrushChanged));
-        
+
         /// <summary>
         /// Identifies the <see cref="OffStateBackground"/> dependency property. 
         /// </summary>
         public static readonly DependencyProperty PointerOverBackgroundBrushProperty =
             DependencyProperty.Register(nameof(PointerOverBackgroundBrush), typeof(Brush), typeof(ToggleSwitchCustomEditor), new PropertyMetadata(null, OnPointerOverBackgroundBrushPropertyChanged));
-        
+
         /// <summary>
         /// Identifies the <see cref="OffStateBackground"/> dependency property. 
         /// </summary>
         public static readonly DependencyProperty OffStateBackgroundProperty =
             DependencyProperty.Register(nameof(OffStateBackground), typeof(Brush), typeof(ToggleSwitchCustomEditor), new PropertyMetadata(null, OnOffStateBackgroundPropertyChanged));
-        
+
         private const string SwitchKnobBoundsPartName = "SwitchKnobBounds";
         private const string SwitchKnobOffPartName = "SwitchKnobOff";
         private const string OuterBorderPartName = "OuterBorder";
@@ -55,7 +55,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
             set
             {
-                SetValue(SelectedBackgroundBrushProperty, value);
+                this.SetValue(SelectedBackgroundBrushProperty, value);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
             set
             {
-                SetValue(OffStateBackgroundProperty, value);
+                this.SetValue(OffStateBackgroundProperty, value);
             }
         }
 
@@ -85,8 +85,19 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
             set
             {
-                SetValue(PointerOverBackgroundBrushProperty, value);
+                this.SetValue(PointerOverBackgroundBrushProperty, value);
             }
+        }
+
+        object IEditor.GetCurrentValue()
+        {
+            var editor = this.EditorControl;
+            if (editor != null)
+            {
+                return editor.IsOn;
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -99,6 +110,30 @@ namespace Telerik.UI.Xaml.Controls.Data
             if (this.EditorControl != null)
             {
                 this.EditorControl.Loaded += this.OnToggleSwitchEditorLoaded;
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void OnPointerEntered(PointerRoutedEventArgs e)
+        {
+            base.OnPointerEntered(e);
+
+            if (this.switchKnobRect != null)
+            {
+                this.switchKnobRect.Fill = this.PointerOverBackgroundBrush;
+                this.switchKnobRect.Stroke = this.PointerOverBackgroundBrush;
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void OnPointerExited(PointerRoutedEventArgs e)
+        {
+            base.OnPointerExited(e);
+
+            if (this.switchKnobRect != null)
+            {
+                this.switchKnobRect.Fill = this.SelectedBackgroundBrush;
+                this.switchKnobRect.Stroke = this.SelectedBackgroundBrush;
             }
         }
 
@@ -125,11 +160,11 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.switchKnobRect = ElementTreeHelper.FindVisualDescendant<Rectangle>(this.EditorControl, a => a.GetType() == typeof(Rectangle) && ((Rectangle)a).Name == SwitchKnobBoundsPartName);
             this.switchKnobOffEllipse = ElementTreeHelper.FindVisualDescendant<Ellipse>(this.EditorControl, a => a.GetType() == typeof(Ellipse) && ((Ellipse)a).Name == SwitchKnobOffPartName);
             this.outerBorderRect = ElementTreeHelper.FindVisualDescendant<Rectangle>(this.EditorControl, a => a.GetType() == typeof(Rectangle) && ((Rectangle)a).Name == OuterBorderPartName);
-            
+
             this.UpdateSwitchBrushes();
             this.EditorControl.Loaded -= this.OnToggleSwitchEditorLoaded;
         }
-        
+
         private void UpdateSwitchBrushes()
         {
             if (this.switchKnobRect != null)
@@ -141,30 +176,6 @@ namespace Telerik.UI.Xaml.Controls.Data
             {
                 this.switchKnobOffEllipse.Fill = this.OffStateBackground;
                 this.outerBorderRect.Stroke = this.OffStateBackground;
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void OnPointerEntered(PointerRoutedEventArgs e)
-        {
-            base.OnPointerEntered(e);
-
-            if (this.switchKnobRect != null)
-            {
-                this.switchKnobRect.Fill = this.PointerOverBackgroundBrush;
-                this.switchKnobRect.Stroke = this.PointerOverBackgroundBrush;
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void OnPointerExited(PointerRoutedEventArgs e)
-        {
-            base.OnPointerExited(e);
-
-            if (this.switchKnobRect != null)
-            {
-                this.switchKnobRect.Fill = this.SelectedBackgroundBrush;
-                this.switchKnobRect.Stroke = this.SelectedBackgroundBrush;
             }
         }
     }

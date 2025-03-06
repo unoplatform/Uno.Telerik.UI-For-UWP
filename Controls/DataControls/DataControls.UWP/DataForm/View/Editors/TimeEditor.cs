@@ -11,7 +11,7 @@ namespace Telerik.UI.Xaml.Controls.Data
     /// <summary>
     /// Represents a TimeEditor control.
     /// </summary>
-    public partial class TimeEditor : RadTimePicker, ITypeEditor
+    public class TimeEditor : RadTimePicker, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="IconDisplayMode"/> dependency property. 
@@ -126,6 +126,11 @@ namespace Telerik.UI.Xaml.Controls.Data
             set { this.SetValue(SelectedForegroundProperty, value); }
         }
 
+        object IEditor.GetCurrentValue()
+        {
+            return this.Value;
+        }
+
         /// <summary>
         /// Method used for generating bindings for the <see cref="ITypeEditor"/> properties.
         /// </summary>
@@ -133,6 +138,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             Binding b = new Binding() { Mode = BindingMode.TwoWay };
             b.Path = new PropertyPath("PropertyValue");
+            EditorsHelper.AddPropertyValueConverter(b, this);
             this.SetBinding(TimeEditor.ValueProperty, b);
 
             Binding b1 = new Binding();

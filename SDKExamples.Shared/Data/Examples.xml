@@ -24,6 +24,9 @@
     <Example DisplayName="Formatting" ClassName="SDKExamples.UWP.Calendar.Formatting" />
     <Example DisplayName="Styling" ClassName="SDKExamples.UWP.Calendar.Styling" />
     <Example DisplayName="Blackout Cells" ClassName="SDKExamples.UWP.Calendar.BlackoutCells" />
+    <Example DisplayName="MultiDayView" ClassName="SDKExamples.UWP.Calendar.MultiDayView" />
+    <Example DisplayName="MultiDayViewAppointmentsCRUD" ClassName="SDKExamples.UWP.Calendar.MultiDayViewAppointmentsCRUD" />
+    <Example DisplayName="MultiDayViewStyling" ClassName="SDKExamples.UWP.Calendar.MultiDayViewStyling" />
   </Control>
   <Control Name="Chart">
     <Example DisplayName="Unbound Mode" ClassName="SDKExamples.UWP.Chart.UnboundMode" />
@@ -85,15 +88,20 @@
     <Example DisplayName="Pull to Refresh" ClassName="SDKExamples.UWP.Listview.PullToRefresh" />
     <Example DisplayName="Grouping" ClassName="SDKExamples.UWP.Listview.Grouping" />
     <Example DisplayName="Reorder" ClassName="SDKExamples.UWP.Listview.Reorder" />
+    <Example DisplayName="Reorder with Groups" ClassName="SDKExamples.UWP.Listview.ReorderWithGroups" />
     <Example DisplayName="Load on Demand" ClassName="SDKExamples.UWP.Listview.LoadOnDemand" />
+    <Example DisplayName="Load on Demand Command" ClassName="SDKExamples.UWP.Listview.LoadOnDemandCommand" />
     <Example DisplayName="Filtering" ClassName="SDKExamples.UWP.Listview.Filtering" />
     <Example DisplayName="Item Animations" ClassName="SDKExamples.UWP.Listview.ItemAnimations" />
     <Example DisplayName="Layouts" ClassName="SDKExamples.UWP.Listview.Layouts" />
     <Example DisplayName="Item Swipe" ClassName="SDKExamples.UWP.Listview.ItemSwipe" />
+    <Example DisplayName="Scroll index into view" ClassName="SDKExamples.UWP.Listview.ScrollIndexIntoView" />
+    <Example DisplayName="Header/Footer" ClassName="SDKExamples.UWP.Listview.HeaderFooter" />
   </Control>
   <Control Name="Grid">
     <Example DisplayName="Column DataOperations Mode" ClassName="SDKExamples.UWP.DataGrid.ColumnDataOperationsModeExample" />
     <Example DisplayName="Change position of Group Panel" ClassName="SDKExamples.UWP.DataGrid.GroupPanelPosition" />
+    <Example DisplayName="Custom Rating Column" ClassName="SDKExamples.UWP.DataGrid.CustomRatingColumn" />
     <Example DisplayName="Priority Columns" ClassName="SDKExamples.UWP.DataGrid.PriorityColumns" />
     <Example DisplayName="Reorder Columns" ClassName="SDKExamples.UWP.DataGrid.ColumnReordering" />
     <Example DisplayName="Resize Columns" ClassName="SDKExamples.UWP.DataGrid.ColumnResizing" />
@@ -101,9 +109,14 @@
     <Example DisplayName="Edit Mode" ClassName="SDKExamples.UWP.DataGrid.EditMode" />
     <Example DisplayName="Selection" ClassName="SDKExamples.UWP.DataGrid.GridSelection" />
     <Example DisplayName="Frozen Columns" ClassName="SDKExamples.UWP.DataGrid.FrozenColumnsExample" />
+    <Example DisplayName="Nested PropertyName" ClassName="SDKExamples.UWP.DataGrid.NestedPropertyName" />
+    <Example DisplayName="Row Details" ClassName="SDKExamples.UWP.DataGrid.RowDetails" />
   </Control>
   <Control Name="LoopingList">
     <Example DisplayName="Customizations" ClassName="SDKExamples.UWP.LoopingList.Customizations" />
+  </Control>
+  <Control Name="Map">
+    <Example DisplayName="Getting Started" ClassName="SDKExamples.UWP.Examples.Map.GettingStarted" />
   </Control>
   <Control Name="NumericBox">
     <Example DisplayName="Styling" ClassName="SDKExamples.UWP.NumericBox.Styling" />
@@ -118,6 +131,7 @@
     <Example DisplayName="Change Item Template" ClassName="SDKExamples.UWP.RadialMenu.RadialMenuItemTemplate" />
     <Example DisplayName="Styling" ClassName="SDKExamples.UWP.RadialMenu.Styling" />
     <Example DisplayName="Radial Menu as Context Menu" ClassName="SDKExamples.UWP.RadialMenu.ContextMenu" />
+    <Example DisplayName="Navigate Back Command" ClassName="SDKExamples.UWP.Examples.RadialMenu.NavigateBackCommand" />
   </Control>
   <Control Name="RangeSlider">
     <Example DisplayName="Configurations" ClassName="SDKExamples.UWP.Slider.Configurations" />
@@ -128,6 +142,9 @@
   <Control Name="Rating">
     <Example DisplayName="Selection" ClassName="SDKExamples.UWP.Rating.Selection" />
     <Example DisplayName="Customizations" ClassName="SDKExamples.UWP.Rating.Customizations" />
+  </Control>
+  <Control Name="Shadow">
+    <Example DisplayName="Configurations" ClassName="SDKExamples.UWP.Shadow.Configurations"/>
   </Control>
   <Control Name="SideDrawer">
     <Example DisplayName="Animations" ClassName="SDKExamples.UWP.SideDrawer.Animations" />

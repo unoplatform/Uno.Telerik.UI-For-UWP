@@ -217,7 +217,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// <summary>
         /// Gets or sets the selector format. 
         /// This value defines which <see cref="DateTimeItem"/> parts of the selector will be visible and how they will be ordered.
-        /// For example setting "ym" will display the Year and Month items in a <see cref="RadDatePicker"/> instance.
+        /// For example setting "y" will display the Year and Month items in a <see cref="RadDatePicker"/> instance.
         /// </summary>
         /// <value>
         /// <para>
@@ -512,6 +512,8 @@ namespace Telerik.UI.Xaml.Controls.Input
                 return this.selectorUtcValue;
             }
         }
+
+        internal DateTimePickerUpdateValueTrigger UpdateValueTrigger { get; set; }
 
 #if WINDOWS_PHONE_APP
         /// <summary>
@@ -1424,7 +1426,8 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.selectorUtcValue = selectionChanger.UtcListValue;
             this.updatingSelection--;
 #if !WINDOWS_PHONE_APP
-            if (this.DisplayMode == DateTimePickerDisplayMode.Inline)
+            if (this.DisplayMode == DateTimePickerDisplayMode.Inline ||
+                this.UpdateValueTrigger == DateTimePickerUpdateValueTrigger.Immediate)
             {
                 this.Value = this.GetValueFromKind(this.selectorUtcValue);
             }

@@ -101,6 +101,12 @@ namespace Telerik.UI.Xaml.Controls.Input
 
                 if (control.IsTemplateApplied)
                 {
+                    if (selectedIndex == -1)
+                    {
+                        control.ClearSelection();
+                        return;
+                    }
+
                     var container = control.itemsControl.ContainerFromIndex(selectedIndex) as Segment;
                     if (container != null)
                     {
@@ -117,16 +123,8 @@ namespace Telerik.UI.Xaml.Controls.Input
                     }
                     else
                     {
-                        try
-                        {
-                            throw new ArgumentException("Value does not fall within the expected range.");
-                        }
-                        finally
-                        {
-                            control.isInternalChange = true;
-                            control.SelectedIndex = oldSelectedIndex;
-                            control.isInternalChange = false;
-                        }
+                        var item = control.GetItemByIndex(selectedIndex);
+                        control.UpdateSelectedValue(item.GetPropertyValue(control.SelectedValuePath));
                     }
                 }
                 else

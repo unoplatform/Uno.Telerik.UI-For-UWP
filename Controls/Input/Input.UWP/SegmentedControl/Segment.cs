@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
@@ -43,6 +45,8 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// </summary>
         public static readonly DependencyProperty DisabledForegroundProperty =
             DependencyProperty.Register(nameof(DisabledForeground), typeof(Brush), typeof(Segment), new PropertyMetadata(null));
+
+        internal RadSegmentedControl owner;
 
         private const string FocusedName = "Focused";
         private const string PointerFocusedName = "PointerFocused";
@@ -99,30 +103,30 @@ namespace Telerik.UI.Xaml.Controls.Input
         }
 
         /// <summary>
-        /// Gets or sets the background of the <see cref="SegmentedCustomEditor"/> when it gets selected.
+        /// Gets or sets the background of the SegmentedCustomEditor when it gets selected.
         /// </summary>
         public Brush SelectedBackground
         {
             get { return (Brush)GetValue(SelectedBackgroundProperty); }
-            set { SetValue(SelectedBackgroundProperty, value); }
+            set { this.SetValue(SelectedBackgroundProperty, value); }
         }
 
         /// <summary>
-        /// Gets or sets the foreground of the <see cref="SegmentedCustomEditor"/> when it gets selected.
+        /// Gets or sets the foreground of the SegmentedCustomEditor when it gets selected.
         /// </summary>
         public Brush SelectedForeground
         {
             get { return (Brush)GetValue(SelectedForegroundProperty); }
-            set { SetValue(SelectedForegroundProperty, value); }
+            set { this.SetValue(SelectedForegroundProperty, value); }
         }
 
         /// <summary>
-        /// Gets or sets the foreground of the <see cref="SegmentedCustomEditor"/> when it gets disabled.
+        /// Gets or sets the foreground of the SegmentedCustomEditor when it gets disabled.
         /// </summary>
         public Brush DisabledForeground
         {
             get { return (Brush)GetValue(DisabledForegroundProperty); }
-            set { SetValue(DisabledForegroundProperty, value); }
+            set { this.SetValue(DisabledForegroundProperty, value); }
         }
 
         /// <summary>
@@ -214,7 +218,13 @@ namespace Telerik.UI.Xaml.Controls.Input
                 this.OnAnimationContextChanged();
             }
         }
-        
+
+        /// <inheritdoc/>
+        protected override AutomationPeer OnCreateAutomationPeer()
+        {
+            return new SegmentAutomationPeer(this);
+        }
+
         /// <inheritdoc/>
         protected override void OnApplyTemplate()
         {

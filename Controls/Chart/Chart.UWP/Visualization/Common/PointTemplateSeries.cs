@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
 using Telerik.Charting;
 using Telerik.Core;
 using Windows.UI.Composition;
@@ -443,7 +443,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
                         continue;
                     }
                     
-                    if(this.drawWithComposition)
+                    if (this.drawWithComposition)
                     {
                         var containerVisual = this.GetContainerVisual(index, point);
                         this.chart.ContainerVisualsFactory.PreparePointTemplateSeriesVisual(containerVisual, point);
@@ -464,7 +464,6 @@ namespace Telerik.UI.Xaml.Controls.Chart
                     }
                 }
             }
-
 
             if (this.drawWithComposition)
             {

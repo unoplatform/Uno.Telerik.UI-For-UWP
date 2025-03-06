@@ -428,6 +428,11 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 return;
             }
 
+            if (!this.Context.IsValid(this.DrawerLocation, this.DrawerTransition))
+            {
+                this.UpdateLayout();
+            }
+
             if (this.DrawerState == DrawerState.Closed)
             {
                 this.Context.MainContentStoryBoard.Begin();
@@ -555,6 +560,11 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// </returns>
         protected override Windows.Foundation.Size MeasureOverride(Windows.Foundation.Size availableSize)
         {
+            if (this.drawer == null || this.mainContent == null)
+            {
+                return base.MeasureOverride(availableSize);
+            }
+            
             this.drawer.Measure(new Size(availableSize.Width, availableSize.Height));
 
             this.mainContent.Measure(new Size(availableSize.Width, availableSize.Height));
@@ -669,7 +679,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         private static void OnDrawerTransitionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var sideDrawer = d as RadSideDrawer;
-            if (sideDrawer.drawer != null)
+            if (sideDrawer.drawer != null && (DrawerTransition)e.NewValue != (DrawerTransition)e.OldValue)
             {
                 sideDrawer.ResetDrawer();
             }
@@ -695,7 +705,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             var sideDrawer = d as RadSideDrawer;
             var mainContent = sideDrawer.MainContent as FrameworkElement;
 
-            if (mainContent != null)
+            if (mainContent != null && sideDrawer.TapOutsideToClose)
             {
                 mainContent.IsHitTestVisible = (DrawerState)e.NewValue == DrawerState.Closed;
             }
@@ -715,7 +725,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         private static void OnDrawerLocationChagned(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var sideDrawer = d as RadSideDrawer;
-            if (sideDrawer.drawer != null)
+            if (sideDrawer.drawer != null && (DrawerLocation)e.NewValue != (DrawerLocation)e.OldValue)
             {
                 sideDrawer.ResetDrawer();
             }
@@ -732,7 +742,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
             if (sideDrawer.IsTemplateApplied)
             {
-                sideDrawer.InvalidateMeasure();
+                sideDrawer.ResetDrawer();
             }
         }
         private static void OnIsOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
