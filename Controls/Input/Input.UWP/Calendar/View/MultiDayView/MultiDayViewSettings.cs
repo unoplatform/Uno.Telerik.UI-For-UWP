@@ -6,9 +6,9 @@ using System.Linq;
 using Telerik.Core.Data;
 using Telerik.UI.Xaml.Controls.Input.Calendar;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {

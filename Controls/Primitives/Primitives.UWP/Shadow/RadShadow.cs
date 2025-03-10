@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Numerics;
 using Windows.Foundation;
+using Microsoft.UI;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Hosting;
+using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Shapes;
 using Windows.UI;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Hosting;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -17,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
     /// </summary>
     [TemplatePart(Name = "PART_Shadow", Type = typeof(Canvas))]
     [ContentProperty(Name = nameof(Content))]
-    public class RadShadow : RadControl
+    public partial class RadShadow : RadControl
     {
         /// <summary>
         /// Identifies the <see cref="Color"/> dependency property.

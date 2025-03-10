@@ -14,6 +14,7 @@ using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
+using Windows.UI.ViewManagement;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -136,7 +137,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             this.DefaultStyleKey = typeof(RadNumericBox);
 
-            this.isPreviewKeyDownPresent = ApiInformation.IsEventPresent("Windows.UI.Xaml.UIElement", "PreviewKeyDown");
+            this.isPreviewKeyDownPresent = ApiInformation.IsEventPresent("Microsoft.UI.Xaml.UIElement", "PreviewKeyDown");
             if (!this.isPreviewKeyDownPresent)
             {
                 this.textBoxKeyDownHandler = new KeyEventHandler(this.OnTextBoxPreviewKeyDown);

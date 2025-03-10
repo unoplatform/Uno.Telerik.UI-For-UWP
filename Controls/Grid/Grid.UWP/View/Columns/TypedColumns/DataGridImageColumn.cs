@@ -97,7 +97,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// </summary>
         /// <param name="editorContent">The editor itself.</param>
         /// <param name="binding">The binding set to the editor of the cell.</param>
-        public override void PrepareEditorContentVisual(FrameworkElement editorContent, Windows.UI.Xaml.Data.Binding binding)
+        public override void PrepareEditorContentVisual(FrameworkElement editorContent, Microsoft.UI.Xaml.Data.Binding binding)
         {
         }
 

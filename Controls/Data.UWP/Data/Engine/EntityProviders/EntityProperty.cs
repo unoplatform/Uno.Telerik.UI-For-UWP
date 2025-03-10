@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.Data.Core

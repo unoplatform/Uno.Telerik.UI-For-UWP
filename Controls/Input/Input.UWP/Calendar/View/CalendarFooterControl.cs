@@ -1,14 +1,14 @@
 ﻿using Telerik.UI.Xaml.Controls.Input.Calendar.AutomationPeers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
     /// <summary>
     /// Represents the footer panel of the calendar control.
     /// </summary>
-    public class CalendarFooterControl : RadControl
+    public partial class CalendarFooterControl : RadControl
     {
         /// <summary>
         /// Identifies the <c cref="ButtonStyle"/> dependency property.
@@ -84,7 +84,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             return new CalendarFooterControlAutomationPeer(this);
         }
 
-        private void CalendarFooterButtonClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void CalendarFooterButtonClick(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             this.Owner.OnCalendarButtonClicked();
         }

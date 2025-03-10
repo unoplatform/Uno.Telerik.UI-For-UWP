@@ -46,22 +46,6 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
 
-        internal static bool IsStrokeThicknessExplicitlySet(Style style)
-        {
-            if (style != null)
-            {
-                foreach (Setter setter in style.Setters)
-                {
-                    if (setter.Property == Border.BorderThicknessProperty)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
         internal static bool IsStrokeBrushExplicitlySet(Style style)
         {
             if (style != null)
@@ -109,7 +93,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
 
-        private static bool IsStrokeThicknessExplicitlySet(Style style)
+        internal static bool IsStrokeThicknessExplicitlySet(Style style)
         {
             if (style != null)
             {
