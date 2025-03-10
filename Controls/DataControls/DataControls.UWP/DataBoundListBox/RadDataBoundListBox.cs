@@ -957,8 +957,8 @@ namespace Telerik.UI.Xaml.Controls.Data
                 bool checkModeRequest = this.IsCheckModeArea(item, container, hitPoint);
                 if (checkModeRequest)
                 {
-                    await this.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
+                    this.DispatcherQueue.TryEnqueue(
+                        Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                         () =>
                         {
                             bool cancelled = this.FireCheckModeChanging(item.associatedDataItem.Value);
@@ -1949,8 +1949,8 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.dataRequestContainerCache = element;
             element.BindToDataItem(item);
             this.PrepareStyle(element, item);
-            await this.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
+            this.DispatcherQueue.TryEnqueue(
+                Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                 () =>
                 {
                     this.CheckFireDataRequested();

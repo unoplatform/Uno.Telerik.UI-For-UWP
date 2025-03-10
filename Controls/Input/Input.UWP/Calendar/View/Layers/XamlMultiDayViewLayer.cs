@@ -172,8 +172,8 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             IAppointment pendingToScrollApp = calendar.pendingScrollToAppointment;
             if (pendingToScrollApp != null)
             {
-                await Dispatcher.RunAsync(
-                    Windows.UI.Core.CoreDispatcherPriority.Normal,
+                DispatcherQueue.TryEnqueue(
+                    Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                     () =>
                     {
                         this.ScrollAppointmentIntoView(pendingToScrollApp);

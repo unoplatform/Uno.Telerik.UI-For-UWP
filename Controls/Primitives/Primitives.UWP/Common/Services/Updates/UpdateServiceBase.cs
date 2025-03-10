@@ -19,7 +19,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         private List<Update<T>> updatesQueue;
         private bool shouldExecuteSynchronously;
         private bool layoutUpdatedHooked;
-        private CoreDispatcherPriority? updatePriority;
+        private Microsoft.UI.Dispatching.DispatcherQueuePriority? updatePriority;
 
         private bool isOperational;
 
@@ -66,11 +66,11 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
         }
 
-        public void DispatchOnUIThread(bool isHighPriority, DispatchedHandler action)
+        public void DispatchOnUIThread(bool isHighPriority, Microsoft.UI.Dispatching.DispatcherQueueHandler action)
         {
             if (this.Owner != null)
             {
-                var priority = isHighPriority ? CoreDispatcherPriority.High : CoreDispatcherPriority.Normal;
+                var priority = isHighPriority ? Microsoft.UI.Dispatching.DispatcherQueuePriority.High : Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal;
                 if (this.shouldExecuteSynchronously)
                 {
                     //// TODO: How to synchronize on the UI thread at Design-time?
@@ -78,7 +78,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 }
                 else
                 {
-                    var warningSuppression = this.Dispatcher.RunAsync(priority, action);
+                    var warningSuppression = this.DispatcherQueue.TryEnqueue(priority, action);
                 }
             }
         }
@@ -228,11 +228,11 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             }
             else
             {
-                var priority = this.updatePriority.HasValue ? this.updatePriority.Value : CoreDispatcherPriority.Low;
+                var priority = this.updatePriority.HasValue ? this.updatePriority.Value : Microsoft.UI.Dispatching.DispatcherQueuePriority.Low;
                 this.updatePriority = null;
 
-                var suppressionVariable = this.Dispatcher.RunAsync(priority, this.OnUpdateCallback);
-                suppressionVariable = this.Dispatcher.RunAsync(priority, () => this.CurrentExecutingUpdate = null);
+                var suppressionVariable = this.DispatcherQueue.TryEnqueue(priority, this.OnUpdateCallback);
+                suppressionVariable = this.DispatcherQueue.TryEnqueue(priority, () => this.CurrentExecutingUpdate = null);
             }
         }
 

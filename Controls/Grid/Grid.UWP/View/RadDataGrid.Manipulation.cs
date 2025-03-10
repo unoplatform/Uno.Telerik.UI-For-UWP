@@ -349,8 +349,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
                                 : this.CurrencyService.CurrentItemInfo;
 
 #pragma warning disable CS4014 
-                            Dispatcher.RunAsync(
-                                Windows.UI.Core.CoreDispatcherPriority.Low, 
+                            DispatcherQueue.TryEnqueue(
+                                Microsoft.UI.Dispatching.DispatcherQueuePriority.Low, 
                                 () =>
                                 {
                                     var xamlVisualStateLayer = this.visualStateLayerCache as XamlVisualStateLayer;

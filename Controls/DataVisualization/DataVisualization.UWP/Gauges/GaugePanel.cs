@@ -114,8 +114,8 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
             {
                 this.isUpdateScheduled = true;
 
-                var warningSuppression = this.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
+                var warningSuppression = this.DispatcherQueue.TryEnqueue(
+                    Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                     () =>
                     {
                         this.ResetTicksAndLabels();

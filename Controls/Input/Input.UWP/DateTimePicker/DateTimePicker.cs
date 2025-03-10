@@ -97,11 +97,12 @@ namespace Telerik.UI.Xaml.Controls.Input
         public static readonly DependencyProperty CalendarLanguageProperty =
             DependencyProperty.Register(nameof(CalendarLanguage), typeof(string), typeof(DateTimePicker), new PropertyMetadata(Windows.Globalization.ApplicationLanguages.Languages[0], OnCalendarLanguageChanged));
 
-        /// <summary>
-        /// Identifies the <see cref="CalendarNumeralSystem"/> dependency property.
-        /// </summary>
-        public static readonly DependencyProperty CalendarNumeralSystemProperty =
-            DependencyProperty.Register(nameof(CalendarNumeralSystem), typeof(string), typeof(DateTimePicker), new PropertyMetadata(NumeralSystemIdentifiers.Latn, OnCalendarNumeralSystemChanged));
+        // TODO UNO: NumeralSystemIdentifiers not implemented
+        ///// <summary>
+        ///// Identifies the <see cref="CalendarNumeralSystem"/> dependency property.
+        ///// </summary>
+        //public static readonly DependencyProperty CalendarNumeralSystemProperty =
+        //    DependencyProperty.Register(nameof(CalendarNumeralSystem), typeof(string), typeof(DateTimePicker), new PropertyMetadata(NumeralSystemIdentifiers.Latn, OnCalendarNumeralSystemChanged));
 
         internal CalendarValidator calendarValidator;
 
@@ -152,21 +153,22 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
+        // TODO UNO: NumeralSystemIdentifiers not implemented
         /// <summary>
         /// Gets or sets the calendar numeral system.
         /// The default value is <see cref="Windows.Globalization.NumeralSystemIdentifiers.Latn"/>.
         /// </summary>
-        public string CalendarNumeralSystem
-        {
-            get
-            {
-                return (string)this.GetValue(CalendarNumeralSystemProperty);
-            }
-            set
-            {
-                this.SetValue(CalendarNumeralSystemProperty, value);
-            }
-        }
+        //public string CalendarNumeralSystem
+        //{
+        //    get
+        //    {
+        //        return (string)this.GetValue(CalendarNumeralSystemProperty);
+        //    }
+        //    set
+        //    {
+        //        this.SetValue(CalendarNumeralSystemProperty, value);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the calendar identifier.

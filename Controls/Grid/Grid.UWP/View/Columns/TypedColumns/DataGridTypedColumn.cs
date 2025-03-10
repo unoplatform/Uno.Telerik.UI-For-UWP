@@ -395,7 +395,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             var errors = new List<object>();
 
             // Cannot use validation control since the virtualized ones will not be validated.
-            var dataErrorInfo = item as INotifyDataErrorInfo;
+            var dataErrorInfo = item as System.ComponentModel.INotifyDataErrorInfo;
 
             if (dataErrorInfo != null)
             {

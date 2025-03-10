@@ -3322,8 +3322,8 @@ namespace Telerik.UI.Xaml.Controls.Input
 
             if (this.pendingScrollTimeRuler != null)
             {
-                await this.Dispatcher.RunAsync(
-                    Windows.UI.Core.CoreDispatcherPriority.Normal, 
+                this.DispatcherQueue.TryEnqueue(
+                    Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, 
                     () =>
                 {
                     this.pendingScrollTimeRuler?.Invoke();

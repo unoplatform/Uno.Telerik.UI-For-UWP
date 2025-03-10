@@ -567,8 +567,8 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 var cellPeer = dataGridPeer.childrenCache.FirstOrDefault(a => a.Row == gridCellModel.ParentRow.ItemInfo.Slot && a.Column == gridCellModel.Column.ItemInfo.Slot) as DataGridCellInfoAutomationPeer;
                 if (cellPeer != null && cellPeer.ChildTextBlockPeer != null)
                 {
-                    await Dispatcher.RunAsync(
-                        Windows.UI.Core.CoreDispatcherPriority.Normal,
+                    DispatcherQueue.TryEnqueue(
+                        Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                         () =>
                         {
                             cellPeer.RaiseAutomationEvent(AutomationEvents.AutomationFocusChanged);

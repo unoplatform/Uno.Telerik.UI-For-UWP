@@ -26,3 +26,4 @@ using Telerik.Core;
 [assembly: ComVisible(false)]
 
 [assembly: InternalsVisibleTo("Telerik.Grid")]
+[assembly: InternalsVisibleTo("Telerik.UI.Xaml.Controls.Data.UWP")]

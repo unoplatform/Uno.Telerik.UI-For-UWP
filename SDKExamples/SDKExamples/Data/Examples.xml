@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <Control Name="AutoCompleteBox">
+    <Example DisplayName="Filter Settings" ClassName="SDKExamples.AutoCompleteBox.FilterSettings" />
+    <Example DisplayName="Drop Down Behavior" ClassName="SDKExamples.AutoCompleteBox.DropDownBehavior" />
+    <Example DisplayName="Configurations" ClassName="SDKExamples.AutoCompleteBox.Configurations" />
+    <Example DisplayName="Binding to Complex Object" ClassName="SDKExamples.AutoCompleteBox.BindingComplexObjects" />
+  </Control>
+  <Control Name="BulletGraph">
+    <Example DisplayName="Customizations" ClassName="SDKExamples.BulletGraph.Customizations" />
+    <Example DisplayName="Custom Qualitative Indicators" ClassName="SDKExamples.BulletGraph.Custom_QualitativeIndicators" />
+  </Control>
+  <Control Name="BusyIndicator">
+    <Example DisplayName="Animation Types" ClassName="SDKExamples.BusyIndicator.AnimationTypes" />
+    <Example DisplayName="Custom Animation" ClassName="SDKExamples.BusyIndicator.CustomAnimation" />
+    <Example DisplayName="Configurations" ClassName="SDKExamples.BusyIndicator.Configurations" />
+  </Control>
+  <Control Name="Calendar">
+    <Example DisplayName="Remove Animation on Navigation" ClassName="SDKExamples.Calendar.RemoveNavigationAnimations" />
+    <Example DisplayName="Change First Day of Week and Week Rule" ClassName="SDKExamples.Calendar.FirstDayOfWeek_and_WeekRule" />
+    <Example DisplayName="Custom Event Information" ClassName="SDKExamples.Calendar.CustomEventInformation" />
+    <Example DisplayName="Selection" ClassName="SDKExamples.Calendar.Selection" />
+    <Example DisplayName="Formatting" ClassName="SDKExamples.Calendar.Formatting" />
+    <Example DisplayName="Styling" ClassName="SDKExamples.Calendar.Styling" />
+    <Example DisplayName="Blackout Cells" ClassName="SDKExamples.Calendar.BlackoutCells" />
+    <Example DisplayName="MultiDayView" ClassName="SDKExamples.Calendar.MultiDayView" />
+    <Example DisplayName="MultiDayViewAppointmentsCRUD" ClassName="SDKExamples.Calendar.MultiDayViewAppointmentsCRUD" />
+    <Example DisplayName="MultiDayViewStyling" ClassName="SDKExamples.Calendar.MultiDayViewStyling" />
+  </Control>
+  <Control Name="Chart">
+    <Example DisplayName="Unbound Mode" ClassName="SDKExamples.Chart.UnboundMode" />
+    <Example DisplayName="Pie Series" ClassName="SDKExamples.Chart.PieSeries" />
+    <Example DisplayName="Polar Series" ClassName="SDKExamples.Chart.PolarSeries" />
+    <Example DisplayName="Radar Series" ClassName="SDKExamples.Chart.RadarSeries" />
+    <Example DisplayName="Scatter Series" ClassName="SDKExamples.Chart.ScatterSeries" />
+    <Example DisplayName="Ohlc Series" ClassName="SDKExamples.Chart.OhlcSeries" />
+    <Example DisplayName="Categorical Series" ClassName="SDKExamples.Chart.CategoricalSeries" />
+    <Example DisplayName="Dynamic Series" ClassName="SDKExamples.Chart.DynamicSeries" />
+    <Example DisplayName="Selection Behavior" ClassName="SDKExamples.Chart.SelectionBehavior" />
+    <Example DisplayName="TrackBall Behavior" ClassName="SDKExamples.Chart.TrackBallBehavior" />
+    <Example DisplayName="Tooltip Behavior" ClassName="SDKExamples.Chart.TooltipBehavior" />
+    <Example DisplayName="Pan and Zoom Behavior" ClassName="SDKExamples.Chart.PanAndZoom" />
+    <Example DisplayName="Create Custom Palette" ClassName="SDKExamples.Chart.CustomPalette" />
+    <Example DisplayName="Use Multiple Axes" ClassName="SDKExamples.Chart.MultipleAxes" />
+    <Example DisplayName="Label Definitions" ClassName="SDKExamples.Chart.LabelDefinitions" />
+    <Example DisplayName="Label Strategy" ClassName="SDKExamples.Chart.LabelStrategy" />
+    <Example DisplayName="Plot Band Annotations" ClassName="SDKExamples.Chart.Annotations_PlotBand" />
+    <Example DisplayName="Grid Line Annotations" ClassName="SDKExamples.Chart.Annotations_GridLine" />
+    <Example DisplayName="Custom Annotations" ClassName="SDKExamples.Chart.Annotations_Custom" />
+    <Example DisplayName="Financial Indicators" ClassName="SDKExamples.Chart.FinancialIndicators" />
+    <Example DisplayName="Change Point template" ClassName="SDKExamples.Chart.PointTemplate" />
+    <Example DisplayName="Chart Grid" ClassName="SDKExamples.Chart.ChartGrid" />
+  </Control>
+  <Control Name="DataForm">
+    <Example DisplayName="Validation" ClassName="SDKExamples.DataForm.Validation" />
+    <Example DisplayName="Attributes Usage" ClassName="SDKExamples.DataForm.Attributes" />
+    <Example DisplayName="Create Custom Editor" ClassName="SDKExamples.DataForm.CustomEditor" />
+    <Example DisplayName="Enable Inline Icons" ClassName="SDKExamples.DataForm.InlineIcons" />
+    <Example DisplayName="Provide External Metadata" ClassName="SDKExamples.DataForm.ExternalMetadata" />
+    <Example DisplayName="Custom Arrangement of Editors" ClassName="SDKExamples.DataForm.CustomEditorArrangement" />
+    <Example DisplayName="Grouping" ClassName="SDKExamples.DataForm.Grouping" />
+  </Control>
+  <Control Name="DateTimePickers">
+    <Example DisplayName="Display Mode" ClassName="SDKExamples.DatePicker.DisplayMode" />
+    <Example DisplayName="Selector Customizations" ClassName="SDKExamples.DatePicker.SelectorCustomizations" />
+    <Example DisplayName="Picker Button Customizations" ClassName="SDKExamples.DatePicker.PickerButtonCustomizations" />
+  </Control>
+  <Control Name="Expander">
+     <Example DisplayName="Customizations" ClassName="SDKExamples.Expander.Customizations" />
+  </Control>
+  <Control Name="Gauge">
+    <Example DisplayName="Radial Gauge" ClassName="SDKExamples.Gauge.RadialGauge" />
+    <Example DisplayName="Linear Gauge" ClassName="SDKExamples.Gauge.LinearGauge" />
+    <Example DisplayName="Indicators" ClassName="SDKExamples.Gauge.Indicators" />
+    <Example DisplayName="Data Binding" ClassName="SDKExamples.Gauge.DataBinding" />
+  </Control>
+  <Control Name="HubTile">
+    <Example DisplayName="HubTile" ClassName="SDKExamples.HubTile.HubTile" />
+    <Example DisplayName="Slide HubTile" ClassName="SDKExamples.HubTile.SlideHubTile" />
+    <Example DisplayName="Mosaic HubTile" ClassName="SDKExamples.HubTile.MosaicHubTile" />
+    <Example DisplayName="PictureRotator HubTile" ClassName="SDKExamples.HubTile.PictureRotatorHubTile" />
+    <Example DisplayName="HexHubTile" ClassName="SDKExamples.HubTile.HexHubTile" />
+  </Control>
+  <Control Name="ListView">
+    <Example DisplayName="Selection" ClassName="SDKExamples.Listview.Selection" />
+    <Example DisplayName="Sorting" ClassName="SDKExamples.Listview.Sorting" />
+    <Example DisplayName="Pull to Refresh" ClassName="SDKExamples.Listview.PullToRefresh" />
+    <Example DisplayName="Grouping" ClassName="SDKExamples.Listview.Grouping" />
+    <Example DisplayName="Reorder" ClassName="SDKExamples.Listview.Reorder" />
+    <Example DisplayName="Reorder with Groups" ClassName="SDKExamples.Listview.ReorderWithGroups" />
+    <Example DisplayName="Load on Demand" ClassName="SDKExamples.Listview.LoadOnDemand" />
+    <Example DisplayName="Load on Demand Command" ClassName="SDKExamples.Listview.LoadOnDemandCommand" />
+    <Example DisplayName="Filtering" ClassName="SDKExamples.Listview.Filtering" />
+    <Example DisplayName="Item Animations" ClassName="SDKExamples.Listview.ItemAnimations" />
+    <Example DisplayName="Layouts" ClassName="SDKExamples.Listview.Layouts" />
+    <Example DisplayName="Item Swipe" ClassName="SDKExamples.Listview.ItemSwipe" />
+    <Example DisplayName="Scroll index into view" ClassName="SDKExamples.Listview.ScrollIndexIntoView" />
+    <Example DisplayName="Header/Footer" ClassName="SDKExamples.Listview.HeaderFooter" />
+  </Control>
+  <Control Name="Grid">
+    <Example DisplayName="Column DataOperations Mode" ClassName="SDKExamples.DataGrid.ColumnDataOperationsModeExample" />
+    <Example DisplayName="Change position of Group Panel" ClassName="SDKExamples.DataGrid.GroupPanelPosition" />
+    <Example DisplayName="Custom Rating Column" ClassName="SDKExamples.DataGrid.CustomRatingColumn" />
+    <Example DisplayName="Priority Columns" ClassName="SDKExamples.DataGrid.PriorityColumns" />
+    <Example DisplayName="Reorder Columns" ClassName="SDKExamples.DataGrid.ColumnReordering" />
+    <Example DisplayName="Resize Columns" ClassName="SDKExamples.DataGrid.ColumnResizing" />
+    <Example DisplayName="Adaptive Layout" ClassName="SDKExamples.DataGrid.GridAdaptiveLayout" />
+    <Example DisplayName="Edit Mode" ClassName="SDKExamples.DataGrid.EditMode" />
+    <Example DisplayName="Selection" ClassName="SDKExamples.DataGrid.GridSelection" />
+    <Example DisplayName="Frozen Columns" ClassName="SDKExamples.DataGrid.FrozenColumnsExample" />
+    <Example DisplayName="Nested PropertyName" ClassName="SDKExamples.DataGrid.NestedPropertyName" />
+    <Example DisplayName="Row Details" ClassName="SDKExamples.DataGrid.RowDetails" />
+  </Control>
+  <Control Name="LoopingList">
+    <Example DisplayName="Customizations" ClassName="SDKExamples.LoopingList.Customizations" />
+  </Control>
+  <Control Name="Map">
+    <Example DisplayName="Getting Started" ClassName="SDKExamples.Examples.Map.GettingStarted" />
+  </Control>
+  <Control Name="NumericBox">
+    <Example DisplayName="Styling" ClassName="SDKExamples.NumericBox.Styling" />
+    <Example DisplayName="Configurations" ClassName="SDKExamples.NumericBox.Configurations" />
+  </Control>
+  <Control Name="Pagination">
+    <Example DisplayName="Customizations" ClassName="SDKExamples.Pagination.Customizations" />
+  </Control>
+  <Control Name="RadialMenu">
+    <Example DisplayName="Customizations" ClassName="SDKExamples.RadialMenu.Customizations" />
+    <Example DisplayName="Tool Tip" ClassName="SDKExamples.RadialMenu.ToolTip" />
+    <Example DisplayName="Change Item Template" ClassName="SDKExamples.RadialMenu.RadialMenuItemTemplate" />
+    <Example DisplayName="Styling" ClassName="SDKExamples.RadialMenu.Styling" />
+    <Example DisplayName="Radial Menu as Context Menu" ClassName="SDKExamples.RadialMenu.ContextMenu" />
+    <Example DisplayName="Navigate Back Command" ClassName="SDKExamples.Examples.RadialMenu.NavigateBackCommand" />
+  </Control>
+  <Control Name="RangeSlider">
+    <Example DisplayName="Configurations" ClassName="SDKExamples.Slider.Configurations" />
+    <Example DisplayName="Slider with one scale" ClassName="SDKExamples.Slider.OneScaleSlider" />
+    <Example DisplayName="Slider with one thumb" ClassName="SDKExamples.Slider.OneThumbSlider" />
+    <Example DisplayName="Styling" ClassName="SDKExamples.Slider.Styling" />
+  </Control>
+  <Control Name="Rating">
+    <Example DisplayName="Selection" ClassName="SDKExamples.Rating.Selection" />
+    <Example DisplayName="Customizations" ClassName="SDKExamples.Rating.Customizations" />
+  </Control>
+  <Control Name="Shadow">
+    <Example DisplayName="Configurations" ClassName="SDKExamples.Shadow.Configurations"/>
+  </Control>
+  <Control Name="SideDrawer">
+    <Example DisplayName="Animations" ClassName="SDKExamples.SideDrawer.Animations" />
+    <Example DisplayName="Drawer State" ClassName="SDKExamples.SideDrawer.DrawerState" />
+    <Example DisplayName="Configurations" ClassName="SDKExamples.SideDrawer.Configurations" />
+  </Control>
+</Data>

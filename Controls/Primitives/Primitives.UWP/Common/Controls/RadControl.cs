@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Dispatching;
 
 namespace Telerik.UI.Xaml.Controls
 {
@@ -115,12 +116,12 @@ namespace Telerik.UI.Xaml.Controls
             }
         }
 
-        internal bool InvokeAsync(DispatchedHandler action)
+        internal bool InvokeAsync(DispatcherQueueHandler action)
         {
-            return this.InvokeAsync(CoreDispatcherPriority.Normal, action);
+            return this.InvokeAsync(DispatcherQueuePriority.Normal, action);
         }
 
-        internal bool InvokeAsync(CoreDispatcherPriority priority, DispatchedHandler action)
+        internal bool InvokeAsync(DispatcherQueuePriority priority, DispatcherQueueHandler action)
         {
             if (this.isUnloaded || !this.isTemplateApplied)
             {
@@ -133,7 +134,7 @@ namespace Telerik.UI.Xaml.Controls
                 return false;
             }
 
-            var suppressionVariable = this.Dispatcher.RunAsync(priority, action);
+            var suppressionVariable = this.DispatcherQueue.TryEnqueue(priority, action);
             return true;
         }
         

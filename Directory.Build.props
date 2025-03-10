@@ -1,5 +1,6 @@
 <Project ToolsVersion="15.0">
 
+  <Import Project="$(MSBuildThisFileDirectory)tfms.props" />
   <PropertyGroup>
     <IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
     <IsSampleProject>$(MSBuildProjectName.Contains('Sample'))</IsSampleProject>

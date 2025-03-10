@@ -14,6 +14,7 @@ using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Input;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {
@@ -407,7 +408,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
             Pointer pointer = e.Pointer;
             PointerPoint pointerPoint = e.GetCurrentPoint(this);
-            if (!this.isReordering && pointerPoint.Properties.IsLeftButtonPressed && pointer.PointerDeviceType == PointerDeviceType.Mouse
+            if (!this.isReordering && pointerPoint.Properties.IsLeftButtonPressed && pointer.PointerDeviceType == Microsoft.UI.Input.PointerDeviceType.Mouse
                 && RadListViewItem.CanCapturePointer(this, pointer))
             {
                 var source = e.OriginalSource;

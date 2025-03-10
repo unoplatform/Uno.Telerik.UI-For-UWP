@@ -9,7 +9,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         public T Flags;
         public object Context;
         public object Sender;
-        public CoreDispatcherPriority Priority = CoreDispatcherPriority.Low;
+        public Microsoft.UI.Dispatching.DispatcherQueuePriority Priority = Microsoft.UI.Dispatching.DispatcherQueuePriority.Low;
         public bool RequiresValidMeasure;
         public int ScheduleCount; // This is used to prevent potential endless loop upon waiting for valid measure.
 

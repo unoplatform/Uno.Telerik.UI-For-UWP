@@ -130,7 +130,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 })
                 {
                     Flags = UpdateFlags.AffectsContent,
-                    Priority = CoreDispatcherPriority.Low
+                    Priority = Microsoft.UI.Dispatching.DispatcherQueuePriority.Low
                 };
 
             // Focusing the grid will force the Text property of all textboxes to be pushed to the underlying ViewModel.
@@ -153,7 +153,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 })
                 {
                     RequiresValidMeasure = true,
-                    Priority = CoreDispatcherPriority.Low
+                    Priority = Microsoft.UI.Dispatching.DispatcherQueuePriority.Low
                 };          
 
             this.Owner.updateService.RegisterUpdate(update);

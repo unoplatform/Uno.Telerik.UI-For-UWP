@@ -7,10 +7,7 @@
     xmlns:telerikListBox="using:Telerik.UI.Xaml.Controls.Data.DataBoundListBox"
     xmlns:telerikPrimitives="using:Telerik.UI.Xaml.Controls.Primitives">
 
-    xmlns:telerikCore="using:Telerik.Core"
-    xmlns:theming="using:Telerik.UI.Xaml.Controls">
-
-    <ResourceDictionary.ThemeDictionaries>
+	<ResourceDictionary.ThemeDictionaries>
         <!-- UNO TODO
         <ResourceDictionary x:Key="Default">
             <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>

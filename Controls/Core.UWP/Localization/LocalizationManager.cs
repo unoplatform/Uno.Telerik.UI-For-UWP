@@ -135,7 +135,7 @@ namespace Telerik.Core
                 }
             }
 
-            Debug.Assert(false, string.Format("No entry found for key '{0}'.", key));
+            //Debug.Assert(false, string.Format("No entry found for key '{0}'.", key));
             return string.Empty;
         }
     }

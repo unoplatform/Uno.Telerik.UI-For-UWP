@@ -898,7 +898,7 @@ namespace Telerik.UI.Xaml.Controls.Input
                 this.forceSuggestionsRefreshProgrammatically = true;
                 this.Text = searchText;
                 this.InvokeAsync(
-                    Windows.UI.Core.CoreDispatcherPriority.Low,
+                    Microsoft.UI.Dispatching.DispatcherQueuePriority.Low,
                     () =>
                     {
                         // Reconsider future review

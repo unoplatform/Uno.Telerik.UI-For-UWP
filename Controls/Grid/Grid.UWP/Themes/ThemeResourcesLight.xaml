@@ -3,17 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:telerik="using:Telerik.UI.Xaml.Controls">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xaml"/>
-        <ResourceDictionary>
-            <telerik:UserThemeResources x:Key="ResourceLoaderInitializer"/>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="{CustomResource LightResourcesPath}"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </ResourceDictionary.MergedDictionaries>
-
-    <SolidColorBrush x:Key="TelerikGridBackgroundBrush" Color="#FFFFFFFF"/>
+	<SolidColorBrush x:Key="TelerikGridBackgroundBrush" Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="TelerikGridForegroundBrush" Color="#CC000000"/>
     <SolidColorBrush x:Key="TelerikGridBorderBrush" Color="#FFCCCCCC"/>
     <SolidColorBrush x:Key="TelerikGridHeaderBackgroundBrush" Color="#FFC6C6C6"/>

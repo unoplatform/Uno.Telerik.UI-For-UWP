@@ -171,10 +171,6 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.Commands
                     command = new ItemActionTapCommand();
                     break;
 
-                case CommandId.ItemHold:
-                    command = new ItemHoldCommand();
-                    break;
-
                 case CommandId.GroupHeaderTap:
                     command = new GroupHeaderTapCommand();
                     break;

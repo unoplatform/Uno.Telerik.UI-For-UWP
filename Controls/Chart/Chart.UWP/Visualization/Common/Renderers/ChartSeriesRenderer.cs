@@ -2,6 +2,7 @@
 using Telerik.Charting;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml.Media;
+using Windows.Foundation;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

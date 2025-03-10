@@ -476,8 +476,8 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             if (this.itemAddedBatchAnimationScheduled && !this.useAsyncBalance)
             {
-                var temp = this.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
+                var temp = this.DispatcherQueue.TryEnqueue(
+                    Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                     () =>
                     {
                         if (this.itemAddedBatchAnimationScheduled)

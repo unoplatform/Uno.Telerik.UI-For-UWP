@@ -371,8 +371,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 }
                 else
                 {
-                    this.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
+                    this.DispatcherQueue.TryEnqueue(
+                        Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                         () =>
                         {
                             this.SetInitialControlState(false);
@@ -487,8 +487,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 }
                 else
                 {
-                    this.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal, 
+                    this.DispatcherQueue.TryEnqueue(
+                        Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal, 
                         () =>
                         {
                             action();

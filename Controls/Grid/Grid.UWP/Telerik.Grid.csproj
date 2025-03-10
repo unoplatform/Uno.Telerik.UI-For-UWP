@@ -1,7 +1,8 @@
-<Project Sdk="Uno.Sdk">
+﻿<Project Sdk="Uno.Sdk">
   <PropertyGroup>
-		<TargetFrameworks>net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
+		<TargetFrameworks>$(NetCurrentAll)</TargetFrameworks>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
+		<OutputType>Library</OutputType>
 		<DefaultLanguage>en-US</DefaultLanguage>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
@@ -15,12 +16,4 @@
 		<ProjectReference Include="..\..\Input\Input.UWP\Telerik.Input.csproj" />
 		<ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
 	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
-		<PackageReference Include="Uno.UI">
-			<Version>1.23.1-dev.1453</Version>
-		</PackageReference>
-		<Reference Include="Microsoft.CSharp" />
-	</ItemGroup>
-
 </Project>

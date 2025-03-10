@@ -1,0 +1,15 @@
+<Project ToolsVersion="15.0">
+	<Import Project="tfm-override.props" Condition="Exists('tfm-override.props')"/>
+	
+	<PropertyGroup>
+		<NetCurrent>net9.0</NetCurrent>
+		<NetCurrentMobile>$(NetCurrent)-android;$(NetCurrent)-ios;$(NetCurrent)-maccatalyst</NetCurrentMobile>
+		<NetCurrentDesktop>$(NetCurrent)-desktop</NetCurrentDesktop>
+		<NetCurrentBrowser>$(NetCurrent)-browserwasm</NetCurrentBrowser>
+
+		<NetCurrentAll>$(NetCurrentDesktop);$(NetCurrentMobile);$(NetCurrentBrowser);$(NetCurrent)</NetCurrentAll>
+		<NetCurrentAll Condition="$([MSBuild]::IsOSPlatform('windows')) or '$(EnableWindowsTargeting)' == 'true'">$(NetCurrentAll);$(NetCurrent)-windows10.0.19041</NetCurrentAll>
+		<NetCurrentAll Condition="'$(UnoTargetFrameworkOverride)'!=''">$(UnoTargetFrameworkOverride);$(NetCurrent);</NetCurrentAll>
+	</PropertyGroup>
+
+</Project>
