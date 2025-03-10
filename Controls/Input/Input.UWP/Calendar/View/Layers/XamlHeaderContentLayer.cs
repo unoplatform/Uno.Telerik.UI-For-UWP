@@ -106,7 +106,9 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                     }
                     else
                     {
-						localPresenter.Style = this.Owner.DayNameCellStyle.ContentStyle;
+						localPresenter.Style = this.Owner.DayNameCellStyle != null 
+                            ? this.Owner.DayNameCellStyle.ContentStyle 
+                            : this.Owner.defaultDayNameCellStyle.ContentStyle;
                     }
                 }
                 else
