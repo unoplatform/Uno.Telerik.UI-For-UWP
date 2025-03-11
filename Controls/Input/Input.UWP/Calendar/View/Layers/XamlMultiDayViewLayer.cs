@@ -9,6 +9,11 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
 
+#if NETFX_CORE
+using DefaultPresenter = Microsoft.UI.Xaml.Controls.TextBlock;
+#else
+using DefaultPresenter = Microsoft.UI.Xaml.Controls.Border;
+#endif
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
     internal class XamlMultiDayViewLayer : CalendarLayer
@@ -34,7 +39,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         private int numberOfDaysToNavigateTo;
         private RadRect viewPortArea;
         private RadRect bufferedViewPortArea;
-        private TextBlock measurementPresenter;
+        private DefaultPresenter measurementPresenter;
         private Border allDayTextBorder;
         private TextBlock allDayTextBlock;
         private Border currentTimeIndicatorBorder;
@@ -44,14 +49,14 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         private Border verticalGridLineBorder;
         private Border todaySlotBorder;
 
-        private Dictionary<CalendarTimeRulerItem, TextBlock> realizedTimerRulerItemsPresenters;
+        private Dictionary<CalendarTimeRulerItem, DefaultPresenter> realizedTimerRulerItemsPresenters;
         private Dictionary<CalendarGridLine, Border> realizedTimerRulerLinePresenters;
         private Dictionary<Slot, SlotControl> realizedSlotPresenters;
         private Dictionary<Slot, SlotControl> visibleSlotPresenters;
         private Dictionary<CalendarAppointmentInfo, AppointmentControl> realizedAppointmentPresenters;
         private Dictionary<CalendarAppointmentInfo, AppointmentControl> visibleAppointmentPresenters;
 
-        private Queue<TextBlock> recycledTimeRulerItems;
+        private Queue<DefaultPresenter> recycledTimeRulerItems;
         private Queue<Border> recycledTimeRulerLines;
         private Queue<SlotControl> recycledSlots;
         private Queue<AppointmentControl> recycledAppointments;
@@ -100,7 +105,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.scrollViewer.LeftHeader = this.leftHeaderPanel;
             this.scrollViewer.TopLeftHeader = this.topLeftHeaderPanel;
 
-            this.realizedTimerRulerItemsPresenters = new Dictionary<CalendarTimeRulerItem, TextBlock>();
+            this.realizedTimerRulerItemsPresenters = new Dictionary<CalendarTimeRulerItem, DefaultPresenter>();
             this.realizedTimerRulerLinePresenters = new Dictionary<CalendarGridLine, Border>();
             this.realizedSlotPresenters = new Dictionary<Slot, SlotControl>();
             this.visibleSlotPresenters = new Dictionary<Slot, SlotControl>();
@@ -108,7 +113,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.realizedAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>();
             this.visibleAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>();
 
-            this.recycledTimeRulerItems = new Queue<TextBlock>();
+            this.recycledTimeRulerItems = new Queue<DefaultPresenter>();
             this.recycledTimeRulerLines = new Queue<Border>();
             this.recycledSlots = new Queue<SlotControl>();
             this.fullyRecycledSlots = new Queue<SlotControl>();
@@ -130,7 +135,14 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         internal RadSize MeasureContent(object content)
         {
             this.EnsureMeasurementPresenter();
-            this.measurementPresenter.Text = content.ToString();
+#if NETFX_CORE
+				var localPresenter = this.measurementPresenter;
+#else
+				// UNO TODO
+				var localPresenter = this.measurementPresenter.Child as TextBlock;
+#endif
+
+            localPresenter.Text = content.ToString();
 
             return XamlContentLayerHelper.MeasureVisual(this.measurementPresenter);
         }
@@ -249,7 +261,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             foreach (var item in timeRulerItems)
             {
-                TextBlock visual;
+                DefaultPresenter visual;
                 if (this.realizedTimerRulerItemsPresenters.TryGetValue(item, out visual))
                 {
                     this.realizedTimerRulerItemsPresenters.Remove(item);
@@ -900,7 +912,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 }
             }
 
-            foreach (TextBlock item in this.recycledTimeRulerItems)
+            foreach (DefaultPresenter item in this.recycledTimeRulerItems)
             {
                 item.Visibility = Visibility.Collapsed;
             }
@@ -953,16 +965,28 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             if (this.measurementPresenter == null)
             {
-                this.measurementPresenter = new TextBlock();
-                this.measurementPresenter.Margin = new Thickness(5, 0, 5, 0);
+                #if NETFX_CORE
+				this.measurementPresenter = new TextBlock();
                 this.measurementPresenter.Opacity = 0;
                 this.measurementPresenter.IsHitTestVisible = false;
+
+				// TODO UNO
+                // this.AddVisualChild(this.measurementPresenter);
+#else
+				// TODO UNO
+				this.measurementPresenter = new Border { Child = new TextBlock() };
+				this.measurementPresenter.Opacity = 0;
+				this.measurementPresenter.IsHitTestVisible = false;
+
+				this.AddVisualChild(this.measurementPresenter);
+#endif
             }
         }
 
         private FrameworkElement GetDefaultTimeRulerItemVisual(CalendarTimeRulerItem timeRulerItem)
         {
-            TextBlock visual;
+            DefaultPresenter visual;
+#if NETFX_CORE
             if (this.recycledTimeRulerItems.Count > 0)
             {
                 visual = this.recycledTimeRulerItems.Dequeue();
@@ -979,9 +1003,30 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
             this.realizedTimerRulerItemsPresenters.Add(timeRulerItem, visual);
             return visual;
+#else
+            if (this.recycledTimeRulerItems.Count > 0)
+			{
+				visual = this.recycledTimeRulerItems.Dequeue();
+				visual.ClearValue(Border.VisibilityProperty);
+				this.realizedTimerRulerItemsPresenters.Add(timeRulerItem, visual);
+			}
+			else
+			{
+				visual = this.CreateDefaultTimeRulerItemVisual();
+
+                if (visual.Child is TextBlock txt){
+					txt.Text = timeRulerItem.Label;
+				}
+   				this.realizedTimerRulerItemsPresenters.Add(timeRulerItem, visual);
+			}
+
+			XamlContentLayerHelper.PrepareDefaultVisualUno(visual, timeRulerItem);
+
+			return visual;
+#endif
         }
 
-        private Border GetTimerRulerLine(CalendarGridLine line)
+		private Border GetTimerRulerLine(CalendarGridLine line)
         {
             Border visual;
             if (this.recycledTimeRulerLines.Count > 0)
@@ -1045,13 +1090,25 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             return visual;
         }
 
-        private TextBlock CreateDefaultTimeRulerItemVisual()
+        private DefaultPresenter CreateDefaultTimeRulerItemVisual()
         {
-            TextBlock textBlock = new TextBlock();
+#if NETFX_CORE
+			TextBlock textBlock = new TextBlock();
             textBlock.IsHitTestVisible = false;
             this.leftHeaderPanel.Children.Add(textBlock);
 
             return textBlock;
+#else
+			// TODO UNO
+			TextBlock textBlock = new TextBlock();
+			var border = new Border { Child = textBlock };
+            border.IsHitTestVisible = false;
+
+			this.leftHeaderPanel.Children.Add(border);
+
+
+			return border;
+#endif
         }
 
         private Border CreateBorderVisual()
