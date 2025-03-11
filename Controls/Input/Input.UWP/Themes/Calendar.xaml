@@ -14,8 +14,8 @@
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
 
-        <ResourceDictionary>
-            <theming:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+		<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/Generic.xaml"/>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Dark" Source="{CustomResource DarkResourcesPath}"/>
                 <ResourceDictionary x:Key="Light" Source="{CustomResource LightResourcesPath}"/>
