@@ -33,8 +33,8 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.allDayAreaScrollViewer = new ScrollViewer();
             this.allDayAreaScrollViewer.Content = this.allDayAreaPanel;
 
-            this.realizedAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>();
-            this.visibleAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>();
+            this.realizedAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>(comparer: new AppointmentEqualityComparer());
+            this.visibleAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>(comparer: new AppointmentEqualityComparer());
             this.recycledAppointments = new Queue<AppointmentControl>();
             this.fullyRecycledAppointments = new Queue<AppointmentControl>();
         }

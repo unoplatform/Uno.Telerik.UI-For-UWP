@@ -237,6 +237,7 @@ namespace SDKExamples.Calendar
             var slot = (TimeSlotTapContext)parameter;
             ContentDialog dialog = new ContentDialog
             {
+                XamlRoot = Owner.XamlRoot,
                 Title = "SlotTapped",
                 Content = "Slot Start: " + slot.StartTime + " End: " + slot.EndTime + "Slot Exact Start: " + slot.ExactStartTime + " End Exact: " + slot.ExactEndTime + " was tapped and IsReadOnly: " + slot.IsReadOnly + ".",
                 PrimaryButtonText = "OK"
@@ -265,6 +266,7 @@ namespace SDKExamples.Calendar
             IAppointment appInfo = (IAppointment)parameter;
             ContentDialog dialog = new ContentDialog
             {
+                XamlRoot = Owner.XamlRoot,
                 Title = "AppointmentTap",
                 Content = "Appointment " + appInfo.Subject + " was tapped.",
                 PrimaryButtonText = "OK"

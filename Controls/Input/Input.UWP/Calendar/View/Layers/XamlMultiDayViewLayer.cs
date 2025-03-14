@@ -8,6 +8,8 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI;
+
 
 #if NETFX_CORE
 using DefaultPresenter = Microsoft.UI.Xaml.Controls.TextBlock;
@@ -33,6 +35,8 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         private ScrollViewer scrollViewer;
         private Canvas leftHeaderPanel;
         private Canvas topLeftHeaderPanel;
+
+        private Canvas rootCanvas;
 
         private double leftOffset;
         private bool isPointerInsideScrollViewer;
@@ -73,8 +77,11 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         public XamlMultiDayViewLayer()
         {
+            this.rootCanvas = new Canvas();
+
             this.scrollViewer = new ScrollViewer();
             this.scrollViewer.HorizontalScrollMode = ScrollMode.Disabled;
+            this.scrollViewer.VerticalScrollMode = ScrollMode.Enabled;
 
             this.translateTransform = new TranslateTransform();
 
@@ -100,18 +107,26 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.topHeader.ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System;
             Canvas.SetZIndex(this.topHeader, DefaultToptHeaderZIndex);
 
+            this.rootCanvas.Children.Add(this.topHeader);
+            this.rootCanvas.Children.Add(this.topLeftHeaderPanel);
+            this.rootCanvas.Children.Add(this.leftHeaderPanel);
+            //    this.rootCanvas.Children.Add(this.contentPanel);
             this.scrollViewer.Content = this.contentPanel;
-            this.scrollViewer.TopHeader = this.topHeader;
-            this.scrollViewer.LeftHeader = this.leftHeaderPanel;
-            this.scrollViewer.TopLeftHeader = this.topLeftHeaderPanel;
+            this.rootCanvas.Children.Add(this.scrollViewer);
+
+            //     this.rootCanvas.Children.Add(this.scrollViewer);
+
+            //this.scrollViewer.TopHeader = this.topHeader;
+            //this.scrollViewer.LeftHeader = this.leftHeaderPanel;
+            //this.scrollViewer.TopLeftHeader = this.topLeftHeaderPanel;
 
             this.realizedTimerRulerItemsPresenters = new Dictionary<CalendarTimeRulerItem, DefaultPresenter>();
             this.realizedTimerRulerLinePresenters = new Dictionary<CalendarGridLine, Border>();
             this.realizedSlotPresenters = new Dictionary<Slot, SlotControl>();
             this.visibleSlotPresenters = new Dictionary<Slot, SlotControl>();
 
-            this.realizedAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>();
-            this.visibleAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>();
+            this.realizedAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>(comparer: new AppointmentEqualityComparer());
+            this.visibleAppointmentPresenters = new Dictionary<CalendarAppointmentInfo, AppointmentControl>(comparer: new AppointmentEqualityComparer());
 
             this.recycledTimeRulerItems = new Queue<DefaultPresenter>();
             this.recycledTimeRulerLines = new Queue<Border>();
@@ -128,7 +143,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             get
             {
-                return this.scrollViewer;
+                return this.rootCanvas;
             }
         }
 
@@ -138,8 +153,8 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 #if NETFX_CORE
 				var localPresenter = this.measurementPresenter;
 #else
-				// UNO TODO
-				var localPresenter = this.measurementPresenter.Child as TextBlock;
+            // UNO TODO
+            var localPresenter = this.measurementPresenter.Child as TextBlock;
 #endif
 
             localPresenter.Text = content.ToString();
@@ -651,7 +666,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 Canvas.SetLeft(topHeaderChild, -this.leftOffset);
             }
 
-            Canvas.SetLeft(this.topHeader, -this.leftOffset);
+            // Canvas.SetLeft(this.topHeader, -this.leftOffset);
 
             this.scrollViewer.Width = availableCalendarViewSize.Width;
             this.scrollViewer.Height = availableCalendarViewSize.Height;
@@ -670,13 +685,19 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             if (multiDayViewModel.timeRulerItems != null && multiDayViewModel.timeRulerItems.Count > 0)
             {
                 RadRect lastItemSlot = multiDayViewModel.timeRulerItems[multiDayViewModel.timeRulerItems.Count - 1].layoutSlot;
-                this.contentPanel.Height = lastItemSlot.Y + lastItemSlot.Height;
-                this.contentPanel.Width = this.scrollViewer.Width;
+
 
                 this.leftHeaderPanel.Height = lastItemSlot.Y + lastItemSlot.Height;
                 this.leftHeaderPanel.Width = multiDayViewModel.timeRulerWidth;
+                this.contentPanel.Height = lastItemSlot.Y + lastItemSlot.Height;
+                this.contentPanel.Width = this.scrollViewer.Width - this.leftHeaderPanel.Width;
             }
 
+            var topLeft = Canvas.GetLeft(this.topHeader);
+            Canvas.SetTop(this.leftHeaderPanel, this.topHeader.Height);
+            Canvas.SetTop(this.contentPanel, this.topHeader.Height);
+            Canvas.SetLeft(this.topHeader, this.leftHeaderPanel.Width);
+            Canvas.SetLeft(this.scrollViewer, this.leftHeaderPanel.Width);
             this.UpdatePanelsBackground(calendar.MultiDayViewSettings.TimelineBackground);
             this.UpdateTopHeaderBackground();
         }
@@ -739,10 +760,10 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             base.AttachUI(parent);
             this.scrollViewer.ViewChanged += this.OnScrollViewerViewChanged;
 
-            this.scrollViewer.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(this.OnScrollViewerPointerPressed), true);
-            this.scrollViewer.AddHandler(UIElement.PointerMovedEvent, new PointerEventHandler(this.OnScrollViewerPointerMoved), true);
-            this.scrollViewer.AddHandler(UIElement.PointerExitedEvent, new PointerEventHandler(this.OnScrollViewerPointerExitedEvent), true);
-            this.scrollViewer.AddHandler(UIElement.PointerEnteredEvent, new PointerEventHandler(this.OnScrollViewerPointerEnteredEvent), true);
+            //this.scrollViewer.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(this.OnScrollViewerPointerPressed), true);
+            //this.scrollViewer.AddHandler(UIElement.PointerMovedEvent, new PointerEventHandler(this.OnScrollViewerPointerMoved), true);
+            //this.scrollViewer.AddHandler(UIElement.PointerExitedEvent, new PointerEventHandler(this.OnScrollViewerPointerExitedEvent), true);
+            //this.scrollViewer.AddHandler(UIElement.PointerEnteredEvent, new PointerEventHandler(this.OnScrollViewerPointerEnteredEvent), true);
 
             this.scrollViewer.ManipulationCompleted += this.OnScrollViewerManipulationCompleted;
 
@@ -965,7 +986,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             if (this.measurementPresenter == null)
             {
-                #if NETFX_CORE
+#if NETFX_CORE
 				this.measurementPresenter = new TextBlock();
                 this.measurementPresenter.Opacity = 0;
                 this.measurementPresenter.IsHitTestVisible = false;
@@ -973,12 +994,12 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 				// TODO UNO
                 // this.AddVisualChild(this.measurementPresenter);
 #else
-				// TODO UNO
-				this.measurementPresenter = new Border { Child = new TextBlock() };
-				this.measurementPresenter.Opacity = 0;
-				this.measurementPresenter.IsHitTestVisible = false;
+                // TODO UNO
+                this.measurementPresenter = new Border { Child = new TextBlock() };
+                this.measurementPresenter.Opacity = 0;
+                this.measurementPresenter.IsHitTestVisible = false;
 
-				this.AddVisualChild(this.measurementPresenter);
+                this.AddVisualChild(this.measurementPresenter);
 #endif
             }
         }
@@ -1005,28 +1026,29 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             return visual;
 #else
             if (this.recycledTimeRulerItems.Count > 0)
-			{
-				visual = this.recycledTimeRulerItems.Dequeue();
-				visual.ClearValue(Border.VisibilityProperty);
-				this.realizedTimerRulerItemsPresenters.Add(timeRulerItem, visual);
-			}
-			else
-			{
-				visual = this.CreateDefaultTimeRulerItemVisual();
+            {
+                visual = this.recycledTimeRulerItems.Dequeue();
+                visual.ClearValue(Border.VisibilityProperty);
+                this.realizedTimerRulerItemsPresenters.Add(timeRulerItem, visual);
+            }
+            else
+            {
+                visual = this.CreateDefaultTimeRulerItemVisual();
 
-                if (visual.Child is TextBlock txt){
-					txt.Text = timeRulerItem.Label;
-				}
-   				this.realizedTimerRulerItemsPresenters.Add(timeRulerItem, visual);
-			}
+                if (visual.Child is TextBlock txt)
+                {
+                    txt.Text = timeRulerItem.Label;
+                }
+                this.realizedTimerRulerItemsPresenters.Add(timeRulerItem, visual);
+            }
 
-			XamlContentLayerHelper.PrepareDefaultVisualUno(visual, timeRulerItem);
+            XamlContentLayerHelper.PrepareDefaultVisualUno(visual, timeRulerItem);
 
-			return visual;
+            return visual;
 #endif
         }
 
-		private Border GetTimerRulerLine(CalendarGridLine line)
+        private Border GetTimerRulerLine(CalendarGridLine line)
         {
             Border visual;
             if (this.recycledTimeRulerLines.Count > 0)
@@ -1099,15 +1121,15 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
             return textBlock;
 #else
-			// TODO UNO
-			TextBlock textBlock = new TextBlock();
-			var border = new Border { Child = textBlock };
+            // TODO UNO
+            TextBlock textBlock = new TextBlock();
+            var border = new Border { Child = textBlock };
             border.IsHitTestVisible = false;
 
-			this.leftHeaderPanel.Children.Add(border);
+            this.leftHeaderPanel.Children.Add(border);
 
 
-			return border;
+            return border;
 #endif
         }
 
@@ -1278,7 +1300,18 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 var style = itemStyleSelector.SelectStyle(item, container);
                 if (style != null)
                 {
-                    container.Style = style;
+#if !NETFX_CORE
+                    if (style.TargetType == typeof(TextBlock) && container is Border { Child: TextBlock childTxt } border)
+                    {
+                        childTxt.Style = style;
+                    }
+                    else
+                    {
+                        container.Style = style;
+                    }
+#else
+					container.Style = style;
+#endif
                 }
             }
         }
@@ -1295,6 +1328,18 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             {
                 this.topLeftHeaderPanel.Background = defaultCalendarBrush;
             }
+        }
+    }
+
+    internal class AppointmentEqualityComparer : IEqualityComparer<CalendarAppointmentInfo>
+    {
+        public bool Equals(CalendarAppointmentInfo x, CalendarAppointmentInfo y)
+        {
+            return object.ReferenceEquals(x.ChildAppointment, y.ChildAppointment);
+        }
+        public int GetHashCode(CalendarAppointmentInfo obj)
+        {
+            return obj.ChildAppointment.GetHashCode();
         }
     }
 }
