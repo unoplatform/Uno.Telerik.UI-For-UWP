@@ -9,6 +9,7 @@ using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
+using Microsoft.UI.Xaml.Data;
 
 namespace SDKExamples.Calendar
 {
@@ -79,8 +80,10 @@ namespace SDKExamples.Calendar
         private string subject;
         private string description;
         private bool isAllday;
-        private DateTime? startDate;
-        private DateTime? endDate;
+        private DateTimeOffset? startDate;
+        private DateTimeOffset? endDate;
+        private TimeSpan? startTime;
+        private TimeSpan? endTime;
         private bool isOpen;
         private string appointmentUIContent;
 
@@ -181,8 +184,39 @@ namespace SDKExamples.Calendar
                 }
             }
         }
+        public TimeSpan? StartTime
+        {
+            get
+            {
+                return this.startTime;
+            }
+            set
+            {
+                if (this.startTime != value)
+                {
+                    this.startTime = value;
+                    this.OnPropertyChanged(nameof(this.StartTime));
+                }
+            }
+        }
 
-        public DateTime? StartDate
+        public TimeSpan? EndTime
+        {
+            get
+            {
+                return this.endTime;
+            }
+            set
+            {
+                if (this.endTime != value)
+                {
+                    this.endTime = value;
+                    this.OnPropertyChanged(nameof(this.EndTime));
+                }
+            }
+        }
+
+        public DateTimeOffset? StartDate
         {
             get
             {
@@ -198,7 +232,7 @@ namespace SDKExamples.Calendar
             }
         }
 
-        public DateTime? EndDate
+        public DateTimeOffset? EndDate
         {
             get
             {
@@ -253,12 +287,12 @@ namespace SDKExamples.Calendar
                 this.currentTappedAppointment.Subject = this.Subject;
                 this.currentTappedAppointment.Description = this.Description;
                 this.currentTappedAppointment.IsAllDay = this.IsAllDay;
-                this.currentTappedAppointment.StartDate = this.StartDate.Value;
-                this.currentTappedAppointment.EndDate = this.EndDate.Value;
+                this.currentTappedAppointment.StartDate = this.StartDate.Value.DateTime.Date.Add(this.StartTime.Value);
+                this.currentTappedAppointment.EndDate = this.EndDate.Value.DateTime.Date.Add(this.EndTime.Value);
             }
             else
             {
-                DateTimeAppointment newAppointment = new DateTimeAppointment(this.StartDate.Value, this.EndDate.Value);
+                DateTimeAppointment newAppointment = new DateTimeAppointment(this.StartDate.Value.DateTime.Date.Add(this.StartTime.Value), this.EndDate.Value.DateTime.Date.Add(this.EndTime.Value));
                 newAppointment.Subject = this.Subject;
                 newAppointment.Description = this.Description;
                 newAppointment.IsAllDay = this.IsAllDay;
@@ -292,8 +326,10 @@ namespace SDKExamples.Calendar
                 this.Subject = this.currentTappedAppointment.Subject;
                 this.Description = this.currentTappedAppointment.Description;
                 this.IsAllDay = this.currentTappedAppointment.IsAllDay;
-                this.StartDate = this.currentTappedAppointment.StartDate;
-                this.EndDate = this.currentTappedAppointment.EndDate;
+                this.StartDate = new DateTimeOffset(this.currentTappedAppointment.StartDate);
+                this.EndDate = new DateTimeOffset(this.currentTappedAppointment.EndDate);
+                this.StartTime = this.currentTappedAppointment.StartDate.TimeOfDay;
+                this.EndTime = this.currentTappedAppointment.EndDate.TimeOfDay;
 
                 this.AppointmentUIContent = MultiDayViewAppointmentsCRUDViewModel.DefaultEditText;
                 this.IsOpen = true;

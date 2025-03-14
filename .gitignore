@@ -60,3 +60,4 @@ QSF/*
 SampleApps/*
 *VSIX*
 .vs
+/tfm-override.props
