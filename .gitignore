@@ -22,7 +22,6 @@ project.lock.json
 !UWPMap.sln
 
 Binaries/*
-Build/*
 Controls/.nuget/*
 Controls/Core/*
 Controls/Data/*
@@ -57,7 +56,6 @@ Drawing.UWP/DrawingUWP/Debug/*
 
 QA/*
 QSF/*
-SampleApps/*
 *VSIX*
 .vs
 /tfm-override.props

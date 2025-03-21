@@ -1,0 +1,15 @@
+{
+  "solution": {
+    "path": "UWPControls.sln",
+    "projects": [
+      "Chart\\Chart.UWP\\Telerik.Chart.csproj",
+      "Core.UWP\\Telerik.Core.csproj",
+      "Data.UWP\\Telerik.Data.csproj",
+      "DataControls\\DataControls.UWP\\Telerik.DataControls.csproj",
+      "DataVisualization\\DataVisualization.UWP\\Telerik.DataVisualization.csproj",
+      "Grid\\Grid.UWP\\Telerik.Grid.csproj",
+      "Input\\Input.UWP\\Telerik.Input.csproj",
+      "Primitives\\Primitives.UWP\\Telerik.Primitives.csproj"
+    ]
+  }
+}

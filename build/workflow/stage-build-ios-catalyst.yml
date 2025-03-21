@@ -1,0 +1,56 @@
+jobs:
+- job: iOS_Catalyst
+  timeoutInMinutes: 90
+  strategy:
+    maxParallel: 2
+    matrix:
+      iOS:
+        BuildTargetFramework: net9.0-ios
+        ArtifactName: iOS
+        ApplicationBuildNumberOffset: 50
+        BuildCommand: publish
+        VersionCodeOffset: 50
+      Catalyst:
+        BuildTargetFramework: net9.0-maccatalyst
+        ArtifactName: Catalyst
+        ApplicationBuildNumberOffset: 50
+        BuildCommand: build
+        VersionCodeOffset: 50
+  pool:
+    vmImage: macos-15
+
+  - template: templates/xcode-select.yml
+    parameters:
+      xCodeRoot: $(XCODE_ROOT)
+
+  - template: templates/canary-updater.yml
+  - template: templates/gitversion.yml
+  - template: templates/dotnet-install-mac.yml
+    parameters:
+      UnoCheckParameters: '--tfm net9.0-ios --tfm net9.0-maccatalyst'
+
+  - bash: |
+      cd $(build.sourcesdirectory)/SDKExamples/SDKExamples
+      echo "BUILD_SOURCEBRANCH: $BUILD_SOURCEBRANCH"
+      dotnet $(BuildCommand) -f $(BuildTargetFramework) /p:UnoTargetFrameworkOverride=$(BuildTargetFramework) -c Release /bl:$(build.artifactstagingdirectory)/build-$(BuildTargetFramework).binlog "/p:InformationalVersion=%NBGV_InformationalVersion%"
+    displayName: Build project for Release - $(BuildTargetFramework)
+
+  - task: CopyFiles@2
+    displayName: 'Publish Binaries'
+    inputs:
+      SourceFolder: $(build.sourcesdirectory)/src/Chefs/bin/Release/
+      Contents:  |
+        **/*.ipa
+        **/*.dSym/**
+        **/*.pkg
+      TargetFolder: $(build.artifactstagingdirectory)
+      CleanTargetFolder: false
+      OverWrite: false
+      flattenFolders: false
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactName: $(ArtifactName)
+      ArtifactType: Container
