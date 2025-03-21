@@ -4,12 +4,12 @@ using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
@@ -170,7 +170,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         /// Called before the PointerEntered event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerEntered(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerEntered(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.isPointerOver = true;
             this.UpdateVisualState(false);
@@ -182,7 +182,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
         /// Called before the PointerExited event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerExited(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerExited(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.isPointerOver = false;
             this.UpdateVisualState(false);

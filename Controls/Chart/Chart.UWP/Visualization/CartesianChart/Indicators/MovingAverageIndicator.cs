@@ -1,7 +1,7 @@
 ﻿namespace Telerik.UI.Xaml.Controls.Chart
 {
     /// <summary>
-    /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the Moving Average financial indicator. Its values are defined as the average value of the last points.
+    /// Visualizes a collection of DataPoints, using a <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape. This class represents the Moving Average financial indicator. Its values are defined as the average value of the last points.
     /// </summary>
     public partial class MovingAverageIndicator : ValuePeriodIndicatorBase
     {

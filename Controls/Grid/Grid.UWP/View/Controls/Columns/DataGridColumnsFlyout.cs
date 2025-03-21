@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -153,7 +153,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             base.UnapplyTemplateCore();
         }
 
-        private void CloseButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void CloseButton_Tapped(object sender, Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             this.Owner.CloseColumnsFlyout();
         }

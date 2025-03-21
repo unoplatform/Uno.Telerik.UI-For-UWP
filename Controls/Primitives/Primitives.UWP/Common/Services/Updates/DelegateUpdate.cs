@@ -10,7 +10,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         public DelegateUpdate(Action action)
         {
             this.updateAction = action;
-            this.Priority = CoreDispatcherPriority.Normal;
+            this.Priority = Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal;
         }
 
         internal override void Process()

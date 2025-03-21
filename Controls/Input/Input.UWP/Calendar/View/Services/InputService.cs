@@ -1,8 +1,9 @@
-﻿using Telerik.UI.Xaml.Controls.Primitives;
+﻿using System;
+using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.Devices.Input;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
@@ -48,6 +49,15 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
 
+        internal void AttachToTimeRulerPanel(UIElement panel)
+        {
+            if (panel != null)
+            {
+                this.contentPanel = panel;
+                this.contentPanel.Tapped += this.OnContentPanelTapped;
+            }
+        }
+
         internal void DetachFromContentPanel()
         {
             if (this.contentPanel != null)
@@ -64,6 +74,14 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
 
+        internal void DetachFromTimeRulerPanel()
+        {
+            if (this.contentPanel != null)
+            {
+                this.contentPanel.Tapped -= this.OnContentPanelTapped;
+            }
+        }
+
         internal void OnDragStarted(Point lastPoint, PointerRoutedEventArgs e)
         {
             if (this.Owner.contentLayer.VisualElement.CapturePointer(e.Pointer))
@@ -76,7 +94,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
         internal void EnsureDragStarted(Point lastPoint, PointerRoutedEventArgs e)
         {
-            if (this.Owner.CanStartDrag(lastPoint) && this.isDragInitialized && (this.isHoldingStarted || e.Pointer.PointerDeviceType == PointerDeviceType.Mouse))
+            if (this.Owner.CanStartDrag(lastPoint) && this.isDragInitialized && (this.isHoldingStarted || e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Mouse)))
             {
                 this.isDragging = true;
                 this.isDragInitialized = false;
@@ -114,11 +132,11 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
                 if (currentPoint.Y - this.initialSwipePoint.Y >= SwipeGestureThreshold)
                 {
-                    this.Owner.RaiseMoveToPreviousViewCommand();
+                    this.Owner.RaiseMoveToPreviousViewCommand(1);
                 }
                 else if (this.initialSwipePoint.Y - currentPoint.Y >= SwipeGestureThreshold)
                 {
-                    this.Owner.RaiseMoveToNextViewCommand();
+                    this.Owner.RaiseMoveToNextViewCommand(1);
                 }
             }
         }
@@ -127,7 +145,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         {
             var hitPoint = e.GetCurrentPoint(this.Owner.contentLayer.VisualElement).Position;
 
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Mouse))
             {
                 this.canSwipe = false;
             }

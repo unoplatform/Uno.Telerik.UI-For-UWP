@@ -5,13 +5,16 @@ using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Input.NumericBox;
 using Telerik.UI.Xaml.Controls.Primitives;
+using Windows.Devices.Input;
+using Windows.Foundation.Metadata;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Windows.UI.ViewManagement;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -111,6 +114,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         private const int CommaKey = 188;
         private const int DashKey = 189;
         private const int DotKey = 190;
+        private static bool IsInputPaneNumber;
 
         private CultureInfo currentCulture = CultureInfo.CurrentCulture;
         private TextBox textBox;
@@ -124,6 +128,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         private bool updatingValue;
         private bool allowNullValueCache;
         private double? valueCache;
+        private bool isPreviewKeyDownPresent;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RadNumericBox" /> class.
@@ -132,7 +137,11 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             this.DefaultStyleKey = typeof(RadNumericBox);
 
-            this.textBoxKeyDownHandler = new KeyEventHandler(this.OnTextBoxKeyDown);
+            this.isPreviewKeyDownPresent = ApiInformation.IsEventPresent("Microsoft.UI.Xaml.UIElement", "PreviewKeyDown");
+            if (!this.isPreviewKeyDownPresent)
+            {
+                this.textBoxKeyDownHandler = new KeyEventHandler(this.OnTextBoxPreviewKeyDown);
+            }
 
             this.allowNullValueCache = true;
         }
@@ -141,7 +150,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// Occurs when the current value has changed.
         /// </summary>
         public event EventHandler ValueChanged;
-        
+
         /// <summary>
         /// Gets or sets the context for input used by this RadNumericBox.
         /// </summary>
@@ -457,11 +466,21 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
+        internal NumericBoxUpdateValueTrigger UpdateValueTrigger { get; set; }
+
         private static bool IsAzertyKeyboard
         {
             get
             {
                 return Windows.Globalization.Language.CurrentInputMethodLanguageTag.StartsWith("fr-");
+            }
+        }
+
+        private static bool OnScreenKeyboardVisible
+        {
+            get
+            {
+                return InputPane.GetForCurrentView().OccludedRect.Height > 0;
             }
         }
 
@@ -474,7 +493,7 @@ namespace Telerik.UI.Xaml.Controls.Input
                 this.currentCulture = CultureInfo.CurrentCulture;
             }
         }
-        
+
         internal override void OnMaximumChanged(double oldMaximum, double newMaximum)
         {
             base.OnMaximumChanged(oldMaximum, newMaximum);
@@ -506,8 +525,6 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// </summary>
         internal void BeginEdit()
         {
-            this.isEditing = true;
-
             this.UpdateVisualState(true);
 
             var value = this.Value;
@@ -535,17 +552,13 @@ namespace Telerik.UI.Xaml.Controls.Input
             });
 
             this.Value = this.TryParseValue();
-
-            this.isEditing = false;
-
-            this.UpdateTextBoxText();
         }
 
         /// <summary>
         /// Exposed for testing purposes only.
         /// </summary>
         /// <returns>True if the key is a valid character in the numeric context.</returns>
-        internal bool PreviewKeyDown(VirtualKey key)
+        internal bool IsValidKeyDown(VirtualKey key)
         {
             if (KeyboardHelper.IsModifierKeyDown(VirtualKey.Control))
             {
@@ -683,7 +696,16 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.CoerceValue(this.Value);
 
             this.UpdateInputScope(this.InputScope);
-            this.textBox.AddHandler(TextBox.KeyDownEvent, this.textBoxKeyDownHandler, true);
+
+            if (this.isPreviewKeyDownPresent)
+            {
+                this.textBox.PreviewKeyDown += this.OnTextBoxPreviewKeyDown;
+            }
+            else
+            {
+                this.textBox.AddHandler(TextBox.KeyDownEvent, this.textBoxKeyDownHandler, true);
+            }
+
             this.textBox.TextChanged += this.OnTextBoxTextChanged;
             this.textBox.GotFocus += this.OnTextBoxGotFocus;
             this.textBox.LostFocus += this.OnTextBoxLostFocus;
@@ -699,7 +721,15 @@ namespace Telerik.UI.Xaml.Controls.Input
         {
             base.UnapplyTemplateCore();
 
-            this.textBox.RemoveHandler(TextBox.KeyDownEvent, this.textBoxKeyDownHandler);
+            if (this.isPreviewKeyDownPresent)
+            {
+                this.textBox.PreviewKeyDown -= this.OnTextBoxPreviewKeyDown;
+            }
+            else
+            {
+                this.textBox.RemoveHandler(TextBox.KeyDownEvent, this.textBoxKeyDownHandler);
+            }
+
             this.textBox.TextChanged -= this.OnTextBoxTextChanged;
             this.textBox.GotFocus -= this.OnTextBoxGotFocus;
             this.textBox.LostFocus -= this.OnTextBoxLostFocus;
@@ -715,7 +745,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         protected override void OnGotFocus(RoutedEventArgs e)
         {
             base.OnGotFocus(e);
-            
+
             this.IsTabStop = false;
         }
 
@@ -794,9 +824,38 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private static bool IsNumericKey(VirtualKey key)
         {
-            if (RadNumericBox.IsAzertyKeyboard && key == VirtualKey.Number6 && DeviceTypeHelper.GetDeviceType() != DeviceType.Phone)
+            DeviceType deviceType = DeviceTypeHelper.GetDeviceType();
+            bool isTablet = deviceType == DeviceType.Tablet;
+
+            if (isTablet && key == VirtualKey.Shift && OnScreenKeyboardVisible)
             {
+                IsInputPaneNumber = true;
                 return false;
+            }
+
+            if (RadNumericBox.IsAzertyKeyboard && key == VirtualKey.Number6 && deviceType != DeviceType.Phone)
+            {
+                bool keyModifierUsed = KeyboardHelper.IsModifierKeyDown(VirtualKey.Shift) ^ KeyboardHelper.IsModifierKeyLocked(VirtualKey.CapitalLock);
+
+                if (isTablet)
+                {
+                    if (IsInputPaneNumber)
+                    {
+                        IsInputPaneNumber = false;
+                        return true;
+                    }
+                    else if (OnScreenKeyboardVisible)
+                    {
+                        return false;
+                    }
+                }
+
+                return keyModifierUsed;
+            }
+
+            if (isTablet && key != VirtualKey.Shift)
+            {
+                IsInputPaneNumber = false;
             }
 
             if (key >= VirtualKey.Number0 && key <= VirtualKey.Number9)
@@ -868,7 +927,7 @@ namespace Telerik.UI.Xaml.Controls.Input
                 {
                     numericBox.UpdateTextBoxText();
                 }
-                
+
                 numericBox.OnValueChanged();
             }
 
@@ -949,18 +1008,21 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void OnTextBoxGotFocus(object sender, RoutedEventArgs e)
         {
+            this.isEditing = true;
             this.BeginEdit();
         }
 
         private void OnTextBoxLostFocus(object sender, RoutedEventArgs e)
         {
             this.CommitEdit();
+            this.isEditing = false;
+            this.UpdateTextBoxText();
         }
 
-        private void OnTextBoxKeyDown(object sender, KeyRoutedEventArgs e)
+        private void OnTextBoxPreviewKeyDown(object sender, KeyRoutedEventArgs e)
         {
             // marking the event as Handled will prevent the TextBox from updating its Text in case invalid character is pressed.
-            e.Handled = !this.PreviewKeyDown(e.Key);
+            e.Handled = !this.IsValidKeyDown(e.Key);
         }
 
         private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
@@ -976,6 +1038,11 @@ namespace Telerik.UI.Xaml.Controls.Input
             if (peer != null)
             {
                 peer.RaisePropertyChangedEvent(AutomationElementIdentifiers.ItemStatusProperty, string.Empty, this.TextBox.Text);
+            }
+
+            if (this.UpdateValueTrigger == NumericBoxUpdateValueTrigger.Immediate)
+            {
+                this.CommitEdit();
             }
         }
 
@@ -1052,9 +1119,11 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void KillTextBoxFocus()
         {
-            if (this.textBox.FocusState != FocusState.Unfocused)
+            if (this.isEditing)
             {
                 this.CommitEdit();
+                this.isEditing = false;
+                this.UpdateTextBoxText();
             }
 
             // kill text box focus (will commit the current edit)

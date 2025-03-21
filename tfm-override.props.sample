@@ -1,0 +1,40 @@
+<Project ToolsVersion="15.0">
+	<!--
+		This file is used to control the platforms compiled by visual studio, and
+			allow for a faster build when testing for a single platform.
+
+			Instructions:
+			1) Copy this file and remove the ".sample" name
+			2) Uncomment and adjust the properties below
+			3) Make sure to do a Rebuild, so that nuget restores the proper packages for the new target
+	-->
+
+	<PropertyGroup>
+		<!-- Uncomment each line for each platform that you want to build: -->
+
+		<!-- <UnoTargetFrameworkOverride Condition="''!='hint: WinUI'">net9.0-windows10.0.19041;$(UnoTargetFrameworkOverride)</UnoTargetFrameworkOverride> -->
+		<!-- <UnoTargetFrameworkOverride Condition="''!='hint: Browser, Skia'">net9.0-browserwasm;$(UnoTargetFrameworkOverride)</UnoTargetFrameworkOverride> -->
+		<!-- <UnoTargetFrameworkOverride Condition="''!='hint: Desktop'">net9.0-desktop;$(UnoTargetFrameworkOverride)</UnoTargetFrameworkOverride> -->
+		<!-- <UnoTargetFrameworkOverride Condition="''!='hint: iOS'">net9.0-ios;$(UnoTargetFrameworkOverride)</UnoTargetFrameworkOverride> -->
+		<!-- <UnoTargetFrameworkOverride Condition="''!='hint: Android'">net9.0-android;$(UnoTargetFrameworkOverride)</UnoTargetFrameworkOverride> -->
+		<!-- <UnoTargetFrameworkOverride Condition="''!='hint: macOS Catalyst'">net9.0-maccatalyst;$(UnoTargetFrameworkOverride)</UnoTargetFrameworkOverride> -->
+
+		<!-- DO NOT COMMENT OUT: net9.0 is a required tfm in all cases -->
+		<UnoTargetFrameworkOverride Condition="'$(UnoTargetFrameworkOverride)'!=''">$(UnoTargetFrameworkOverride)</UnoTargetFrameworkOverride>
+
+
+		<!--
+			### UnoTargetFrameworkOverride ###
+
+				Controls the platform built by Visual Studio.
+
+				*** WARNING ***
+				Note that changing this property while the solution is opened leads to
+				unstable nuget restore operations, and Visual Studio instabilities such
+				as caching issues or crashes.
+
+				Always close the solution before changing or activating this property.
+				*** WARNING ***
+		-->
+	</PropertyGroup>
+</Project>

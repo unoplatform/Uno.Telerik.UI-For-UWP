@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Telerik.Data.Core;
@@ -64,7 +65,10 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
                 task.Start();
                 await task;
 
-                isValid = !validator.GetErrors(propertyName).OfType<string>().Any();
+                EntityProperty property = this.Owner.Entity.GetEntityProperty(propertyName);
+                var errorsList = validator.GetErrors(property.PropertyName).OfType<string>();
+                SyncErrors(errorsList, property.Errors);
+                isValid = !errorsList.Any();
             }
 
             this.Owner.InvokeAsync(() => this.UpdateEntityPropertyDisplayMessage(isValid, propertyName));
@@ -105,8 +109,8 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
             var list = (sender as ISupportEntityValidation).GetErrors(propertyName).OfType<object>().ToList();
             this.errors[propertyName] = list;
 
-            var temp = this.Dispatcher.RunAsync(
-                Windows.UI.Core.CoreDispatcherPriority.Normal,
+            var temp = this.DispatcherQueue.TryEnqueue(
+                Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                 () =>
                 {
                     var errorsList = (sender as ISupportEntityValidation).GetErrors(propertyName).OfType<object>().ToArray();
@@ -164,7 +168,9 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
                     task.Wait();
                 }
 
-                isValid = !validator.GetErrors(property.PropertyName).OfType<string>().Any();
+                var errorsList = validator.GetErrors(property.PropertyName).OfType<string>();
+                SyncErrors(errorsList, property.Errors);
+                isValid = !errorsList.Any();
             }
 
             this.Owner.InvokeAsync(() => this.UpdateEntityPropertyDisplayMessage(isValid, property.PropertyName));
@@ -192,6 +198,16 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm
             else
             {
                 return isValid;
+            }
+        }
+
+        private static void SyncErrors(IEnumerable<string> source, Collection<object> destination)
+        {
+            destination.Clear();
+
+            foreach (string error in source)
+            {
+                destination.Add(error);
             }
         }
 

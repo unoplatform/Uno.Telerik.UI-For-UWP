@@ -1,14 +1,14 @@
 ﻿using Telerik.UI.Xaml.Controls.Data.DataForm;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
     /// <summary>
     /// Represents an EnumEditor control.
     /// </summary>
-    public partial class EnumEditor : ComboBox, ITypeEditor
+    public partial class EnumEditor : ComboBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EnumEditor"/> class.
@@ -17,7 +17,12 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             this.DefaultStyleKey = typeof(EnumEditor);
         }
-        
+
+        object IEditor.GetCurrentValue()
+        {
+            return this.SelectedItem;
+        }
+
         /// <summary>
         /// Method used for generating bindings for the <see cref="ITypeEditor"/> properties.
         /// </summary>
@@ -25,7 +30,9 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             Binding b = new Binding() { Mode = BindingMode.TwoWay };
             b.Path = new PropertyPath("PropertyValue");
+            EditorsHelper.AddPropertyValueConverter(b, this);
             this.SetBinding(EnumEditor.SelectedItemProperty, b);
+
             Binding b1 = new Binding();
             b1.Converter = new EnumToItemsSourceConverter();
             b1.Path = new PropertyPath("PropertyType");
@@ -47,7 +54,13 @@ namespace Telerik.UI.Xaml.Controls.Data
 			this.SetBinding(EnumEditor.SelectedIndexProperty, b4);
 		}
 
-		protected override DependencyObject GetContainerForItemOverride()
+        /// <summary>
+        /// Creates or identifies the element that is used to display the given item.
+        /// </summary>
+        /// <returns>
+        /// The element that is used to display the given item.
+        /// </returns>
+        protected override DependencyObject GetContainerForItemOverride()
         {
             return new DataFormComboBoxItem();
         }

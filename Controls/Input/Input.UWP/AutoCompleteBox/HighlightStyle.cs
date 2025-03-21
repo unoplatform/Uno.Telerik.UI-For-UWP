@@ -1,7 +1,8 @@
 ﻿using Windows.UI.Text;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
+using Windows.UI;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -33,7 +34,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// Identifies the <see cref="Foreground"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty ForegroundProperty =
-            DependencyProperty.Register(nameof(Foreground), typeof(Brush), typeof(HighlightStyle), null);
+            DependencyProperty.Register(nameof(Foreground), typeof(Brush), typeof(HighlightStyle), new PropertyMetadata(new SolidColorBrush(Color.FromArgb(0xFF, 0x26, 0xA0, 0xDA))));
 
         /// <summary>
         /// Identifies the <see cref="FontFamily"/> dependency property.

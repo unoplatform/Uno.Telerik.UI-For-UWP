@@ -2,8 +2,8 @@
 using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -47,8 +47,8 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.CleanupSwipedItem();
             if (item != null)
             {
-                var touchPoint = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical ? relativePosition.X : relativePosition.Y;
-                var itemSize = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical ? radListViewItem.arrangeRect.Width : radListViewItem.arrangeRect.Height;
+                var touchPoint = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical ? relativePosition.X : relativePosition.Y;
+                var itemSize = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical ? radListViewItem.arrangeRect.Width : radListViewItem.arrangeRect.Height;
                 bool isInArea = this.ItemCheckBoxPosition == CheckBoxPosition.BeforeItem ? touchPoint <= CheckBoxSelectionTouchTargetThreshold : itemSize - touchPoint <= CheckBoxSelectionTouchTargetThreshold;
                 if (isInArea && this.SelectionMode == DataControlsSelectionMode.MultipleWithCheckBoxes)
                 {
@@ -79,13 +79,21 @@ namespace Telerik.UI.Xaml.Controls.Data
 
         internal void OnItemHold(RadListViewItem radListViewItem, HoldingRoutedEventArgs e)
         {
-            // TODO add holdCommand.
-            DragDrop.StartDrag(radListViewItem, e, DragDropTrigger.Hold);
+            var item = radListViewItem.DataContext;
+            if (item != null)
+            {
+                this.commandService.ExecuteCommand(CommandId.ItemHold, new ItemHoldContext(item));
+            }
+
+            if (this.ReorderMode == ListViewReorderMode.Default)
+            {
+                DragDrop.StartDrag(radListViewItem, e, DragDropTrigger.Hold);
+            }
         }
 
-        internal void OnItemReorderHandlePressed(RadListViewItem radListViewItem, PointerRoutedEventArgs e, object sender)
+        internal void OnItemReorderHandlePressed(RadListViewItem radListViewItem, PointerRoutedEventArgs e, DragDropTrigger trigger, object sender = null)
         {
-            DragDrop.StartDrag(radListViewItem, e, DragDropTrigger.Drag, sender);
+            DragDrop.StartDrag(radListViewItem, e, trigger, sender);
         }
 
         internal void OnItemActionControlTap(RadListViewItem radListViewItem, double offset)

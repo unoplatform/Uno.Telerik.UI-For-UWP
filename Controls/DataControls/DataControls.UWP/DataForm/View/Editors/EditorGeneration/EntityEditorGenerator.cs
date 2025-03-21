@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.DataForm.View
 {
@@ -28,7 +28,7 @@ namespace Telerik.UI.Xaml.Controls.Data.DataForm.View
 
         internal EditorFactory EditorFactory { get; set; }
 
-        public object CreateContainer(EntityProperty entityProperty)
+        public EntityPropertyControl CreateContainer(EntityProperty entityProperty)
         {
             var element = this.EditorFactory.CreateEditor(entityProperty);
 

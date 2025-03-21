@@ -5,8 +5,8 @@ using System.Globalization;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.DataVisualization
 {
@@ -114,8 +114,8 @@ namespace Telerik.UI.Xaml.Controls.DataVisualization
             {
                 this.isUpdateScheduled = true;
 
-                var warningSuppression = this.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
+                var warningSuppression = this.DispatcherQueue.TryEnqueue(
+                    Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,
                     () =>
                     {
                         this.ResetTicksAndLabels();

@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -54,45 +54,67 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal override object GetEditorType(object item)
+        /// <summary>
+        /// Gets the type of the editor for the DataGridImageColumn that is visualized when entering in edit mode.
+        /// </summary>
+        /// <returns>The type of the editor.</returns>
+        public override object GetEditorType(object item)
         {
             return ImageType;
         }
 
-        internal override object GetContainerType(object rowItem)
+        /// <summary>
+        /// Gets the type of the control visualized when the image column is not currently edited.
+        /// </summary>
+        /// <returns>The type of the control.</returns>
+        public override object GetContainerType(object rowItem)
         {
             return ImageType;
         }
 
-        internal override object CreateContainer(object rowItem)
+        /// <summary>
+        /// Creates an instance of an Image visualized when the column is not edited.
+        /// </summary>
+        /// <returns>An instance of the control.</returns>
+        public override object CreateContainer(object rowItem)
         {
             return new Image();
         }
 
-        internal override Size MeasureCellContainer(double availableWidth, UIElement container)
+        /// <summary>
+        /// Creates an instance of an Image used by the column when entering edit mode.
+        /// </summary>
+        /// <returns>An instance of the editor.</returns>
+        public override FrameworkElement CreateEditorContentVisual()
         {
-            var size = base.MeasureCellContainer(availableWidth, container);
-
-			// UNO TODO
-            // var image = container as Image;
-            // if (image != null)
-            // {
-            //     var bitmapImage = image.Source as BitmapImage;
-            //     if (bitmapImage != null && bitmapImage.PixelWidth > 0)
-            //     {
-            //         size.Width = bitmapImage.PixelWidth;
-            //         size.Height = bitmapImage.PixelHeight;
-            //     }
-            // }
-
-            return size;
+           // UNO TODO
+			// return new Image();
+			throw new NotSupportedException();
         }
 
-        internal override void ClearCell(GridCellModel cell)
+        /// <summary>
+        /// Prepares all bindings and content set to the Image visualized when entering edit mode.
+        /// </summary>
+        /// <param name="editorContent">The editor itself.</param>
+        /// <param name="binding">The binding set to the editor of the cell.</param>
+        public override void PrepareEditorContentVisual(FrameworkElement editorContent, Microsoft.UI.Xaml.Data.Binding binding)
         {
-            base.ClearCell(cell);
+        }
 
-            Image image = cell.Container as Image;
+        /// <summary>
+        /// Clears all bindings and content set to the Image visualized when entering edit mode.
+        /// </summary>
+        /// <param name="editorContent">The editor itself.</param>
+        public override void ClearEditorContentVisual(FrameworkElement editorContent)
+        {
+        }
+
+        /// <inheritdoc/>
+        public override void ClearCell(object container)
+        {
+            base.ClearCell(container);
+
+            Image image = container as Image;
             if (image != null)
             {
                 image.ImageOpened -= this.OnImageOpened;
@@ -100,30 +122,31 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal override async void PrepareCell(GridCellModel cell)
+        /// <inheritdoc/>
+        public override async void PrepareCell(object container, object value, object item)
         {
-            base.PrepareCell(cell);
+            base.PrepareCell(container, value, item);
 
-            var image = cell.Container as Image;
+            var image = container as Image;
             if (image == null)
             {
                 return;
             }
 
-            if (cell.Value == null)
+            if (value == null)
             {
                 image.Source = null;
             }
-            else if (cell.Value is ImageSource)
+            else if (value is ImageSource)
             {
-                image.Source = cell.Value as ImageSource;
+                image.Source = value as ImageSource;
             }
-            else if (cell.Value is string)
+            else if (value is string)
             {
                 try
                 {
                     var source = image.Source as BitmapImage;
-                    var uri = new Uri((string)cell.Value, UriKind.RelativeOrAbsolute);
+                    var uri = new Uri((string)value, UriKind.RelativeOrAbsolute);
                     if (source == null)
                     {
                         source = new BitmapImage(uri);
@@ -139,9 +162,9 @@ namespace Telerik.UI.Xaml.Controls.Grid
                     // TODO: What exceptions can be caught here?
                 }
             }
-            else if (cell.Value is byte[])
+            else if (value is byte[])
             {
-                image.Source = await this.LoadImageFromBytes(cell.Value as byte[]);
+                image.Source = await this.LoadImageFromBytes(value as byte[]);
             }
 
             if (!GetIsImageOpened(image))
@@ -150,19 +173,23 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
         }
 
-        internal override FrameworkElement CreateEditorContentVisual()
+        internal override Size MeasureCellContainer(double availableWidth, UIElement container)
         {
-			// UNO TODO
-			// return new Image();
-			throw new NotSupportedException();
-        }
+            var size = base.MeasureCellContainer(availableWidth, container);
 
-        internal override void PrepareEditorContentVisual(FrameworkElement editorContent, Windows.UI.Xaml.Data.Binding binding)
-        {
-        }
+            // UNO TODO
+            //var image = container as Image;
+            //if (image != null)
+            //{
+            //    var bitmapImage = image.Source as BitmapImage;
+            //    if (bitmapImage != null && bitmapImage.PixelWidth > 0)
+            //    {
+            //        size.Width = bitmapImage.PixelWidth;
+            //        size.Height = bitmapImage.PixelHeight;
+            //    }
+            //}
 
-        internal override void ClearEditorContentVisual(FrameworkElement editorContent)
-        {
+            return size;
         }
 
         /// <summary>
@@ -198,7 +225,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             image.ImageOpened -= this.OnImageOpened;
             SetIsImageOpened(image, true);
 
-            this.OnProperyChange(UpdateFlags.AffectsContent);
+            this.OnPropertyChange(UpdateFlags.AffectsContent);
         }
     }
 }

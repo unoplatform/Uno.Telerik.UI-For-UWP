@@ -1,12 +1,9 @@
 ﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Telerik.UI.Xaml.Controls.Grid"
-    xmlns:telerik="using:Telerik.UI.Xaml.Controls"
-    xmlns:system="using:System"
-    >
+    xmlns:telerik="using:Telerik.UI.Xaml.Controls">
 
-    <SolidColorBrush x:Key="TelerikGridBackgroundBrush" Color="#FFFFFFFF"/>
+	<SolidColorBrush x:Key="TelerikGridBackgroundBrush" Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="TelerikGridForegroundBrush" Color="#CC000000"/>
     <SolidColorBrush x:Key="TelerikGridBorderBrush" Color="#FFCCCCCC"/>
     <SolidColorBrush x:Key="TelerikGridHeaderBackgroundBrush" Color="#FFC6C6C6"/>

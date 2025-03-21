@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Telerik.Core.Data;
 using Windows.Foundation.Collections;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.Core
 {

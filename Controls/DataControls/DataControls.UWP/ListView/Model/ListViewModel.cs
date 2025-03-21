@@ -11,8 +11,8 @@ using Telerik.UI.Xaml.Controls.Data.ListView;
 using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
 using Telerik.UI.Xaml.Controls.Data.ListView.Model;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -28,7 +28,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         private bool hasPendingDataRefresh;
         private LocalDataSourceProvider localDataProvider;
         private IDataProvider externalDataProvider;
-
+        private HashSet<Group> collapsedGroups;
         private object itemsSource;
         private BatchLoadingMode dataLoadingMode;
         private int dataLoadingBufferSize = 10;
@@ -43,6 +43,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             this.BufferScale = 1;
 
             this.layoutController = new LayoutController(this.View, this);
+            this.collapsedGroups = new HashSet<Group>();
 
             this.InitializeDescriptors();
         }
@@ -55,7 +56,8 @@ namespace Telerik.UI.Xaml.Controls.Data
                 {
                     if (this.DataLoadingMode == BatchLoadingMode.Explicit || this.GroupDescriptors.Count > 0)
                     {
-                        return this.View.CommandService.CanExecuteCommand(CommandId.LoadMoreData, new LoadMoreDataContext());
+                        LoadMoreDataContext context = new LoadMoreDataContext { View = this.View, DataContext = this.View.GetDataContext() };
+                        return this.View.CommandService.CanExecuteCommand(CommandId.LoadMoreData, context);
                     }
                 }
                 return false;
@@ -267,7 +269,8 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             if (this.ShouldAutoRequestItems(null))
             {
-                this.View.CommandService.ExecuteCommand(CommandId.LoadMoreData, new LoadMoreDataContext());
+                LoadMoreDataContext context = new LoadMoreDataContext { View = this.View, DataContext = this.View.GetDataContext() };
+                this.View.CommandService.ExecuteCommand(CommandId.LoadMoreData, context);
             }
 
             // NOTE: If we decide that we won't zero the length of collapsed rows then this 'TotalLineCount - 1' will be incorrect.
@@ -481,13 +484,14 @@ namespace Telerik.UI.Xaml.Controls.Data
         internal ItemInfo? FindDataItemFromIndex(int index, object dataItem = null)
         {
             var enumerator = this.layoutController.strategy.Layout.GetLines(index, true).GetEnumerator();
+            var itemType = dataItem is IDataGroup ? GroupType.Subheading : GroupType.BottomLevel;
 
             ItemInfo? info = null;
             while (enumerator.MoveNext())
             {
                 foreach (var item in enumerator.Current)
                 {
-                    if (item.ItemType == GroupType.BottomLevel)
+                    if (item.ItemType == itemType)
                     {
                         if (dataItem == null || object.Equals(item.Item, dataItem))
                         {
@@ -535,6 +539,65 @@ namespace Telerik.UI.Xaml.Controls.Data
             var scrollPosition = this.View.Orientation == Orientation.Vertical ? new RadPoint(this.View.ScrollOffset, Math.Max(0, offsetToScroll)) : new RadPoint(Math.Max(0, offsetToScroll), this.View.ScrollOffset);
 
             this.View.SetScrollPosition(scrollPosition, true, true);
+        }
+
+        private static IEnumerable<Group> EnumerataDataGroups(Group group)
+        {
+            if (!group.IsBottomLevel)
+            {
+                foreach (Group parent in group.Items)
+                {
+                    yield return parent;
+
+                    var children = EnumerataDataGroups(parent);
+
+                    foreach (var child in children)
+                    {
+                        yield return child;
+                    }
+                }
+            }
+        }
+
+        private IEnumerable<Group> EnumerataDataGroups()
+        {
+            if (this.CurrentDataProvider != null)
+            {
+                var group = this.CurrentDataProvider.Results.Root.RowGroup as Group;
+
+                if (group != null)
+                {
+                    return EnumerataDataGroups(group);
+                }
+            }
+
+            return Enumerable.Empty<Group>();
+        }
+
+        private void SaveCollapsedState()
+        {
+            this.collapsedGroups.Clear();
+
+            foreach (var group in this.EnumerataDataGroups())
+            {
+                if (this.layoutController.Layout.IsCollapsed(group))
+                {
+                    this.collapsedGroups.Add(group);
+                }
+            }
+        }
+
+        private void RestoreCollapsedState()
+        {
+            foreach (var group in this.EnumerataDataGroups())
+            {
+                if (this.collapsedGroups.Contains(group))
+                {
+                    this.layoutController.Layout.Collapse(group);
+                }
+            }
+
+            this.collapsedGroups.Clear();
         }
 
         private void UpdateProviderField(IDataProvider provider)
@@ -657,6 +720,7 @@ namespace Telerik.UI.Xaml.Controls.Data
                     }
 
                     this.SetLayoutSource();
+                    this.RestoreCollapsedState();
 
                     ListView.UpdateFlags uiUpdateflags = ListView.UpdateFlags.AffectsContent;
 
@@ -683,7 +747,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             {
                 // suspend subsequent updates since we will need a Ready notification from the data engine to resume updates
                 this.View.UpdateService.SuspendUpdates();
-
+                this.SaveCollapsedState();
                 this.isDataProviderUpdating = true;
             }
         }

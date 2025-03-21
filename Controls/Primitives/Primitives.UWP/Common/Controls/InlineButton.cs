@@ -1,11 +1,11 @@
 ﻿using System;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Common
 {
@@ -133,7 +133,8 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Common
             this.repeatTimer = new DispatcherTimer();
             this.repeatTimer.Tick += this.OnRepeatTimerTick;
 
-            this.automationPeer = new ButtonAutomationPeer(this);
+            // The peer that is associated with the Button needs to be taken. Thus when the narrator is on and Invoke of the peer is called the click will be executed as expected.
+            this.automationPeer = (ButtonAutomationPeer)FrameworkElementAutomationPeer.FromElement(this);
         }
 
         /// <summary>
@@ -495,9 +496,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Common
         {
             if (this.currentlyRepeating)
             {
-#if !WINDOWS_UWP
                 this.automationPeer.Invoke();
-#endif
             }
             else
             {

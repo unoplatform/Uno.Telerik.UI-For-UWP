@@ -2,9 +2,9 @@
 using System.Linq;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Chart;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Automation.Peers
 {

@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using Telerik.Charting;
 using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -790,7 +789,6 @@ namespace Telerik.UI.Xaml.Controls.Chart
             presenter.model.ContentFormatter = (IContentFormatter)e.NewValue;
         }
 
-
         private static void OnLabelCreatorChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             Axis presenter = sender as Axis;
@@ -935,7 +933,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
                 if (this.drawWithComposition)
                 {
-                    var containerVisual = GetContainerVisual(visibleTicks);
+                    var containerVisual = this.GetContainerVisual(visibleTicks);
                     this.chart.ContainerVisualsFactory.PrepareTickVisual(containerVisual, this.GetLayoutSlot(tick, context));
 
                     visibleTicks++;
@@ -1040,7 +1038,6 @@ namespace Telerik.UI.Xaml.Controls.Chart
             
             return containerVisual;
         }
-
 
         private RadSize MeasureLabel(AxisLabelModel label, object content)
         {

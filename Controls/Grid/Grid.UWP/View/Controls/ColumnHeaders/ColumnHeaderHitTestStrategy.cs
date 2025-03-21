@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {

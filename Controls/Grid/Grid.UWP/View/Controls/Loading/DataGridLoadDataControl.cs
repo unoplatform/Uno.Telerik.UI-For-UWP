@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Grid.Commands;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -118,7 +118,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             control.UpdateVisualState(true);
         }
 
-        private void LoadDataButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void LoadDataButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             this.Owner.CommandService.ExecuteCommand(Commands.CommandId.LoadMoreData, new LoadMoreDataContext());
 

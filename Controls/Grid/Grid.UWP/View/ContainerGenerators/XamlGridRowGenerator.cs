@@ -3,8 +3,8 @@ using System.Linq;
 using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -32,28 +32,6 @@ namespace Telerik.UI.Xaml.Controls.Grid
             this.PrepareLoadingDataControl(decorator.Container as DataGridLoadDataControl);
             this.PrepareExpandedRowDetailsControl(decorator, decorator.Container as DataGridRowDetailsControl);
             this.PrepareGroupRow(decorator, decorator.Container as DataGridGroupHeader);
-        }
-
-        private void PrepareExpandedRowDetailsControl(GridRowModel decorator, DataGridRowDetailsControl control)
-        {
-            if (control != null)
-            {
-                control.Content = decorator.ItemInfo.Item;
-
-                if (this.owner.RowDetailsTemplate != control.ContentTemplate)
-                {
-                    control.ContentTemplate = this.owner.RowDetailsTemplate;
-                }
-            }
-        }
-
-        private void PrepareLoadingDataControl(DataGridLoadDataControl control)
-        {
-            if (control != null)
-            {
-                control.Owner = this.owner;
-                this.owner.visualStateService.RegisterDataLoadingListener((IDataStatusListener)control);
-            }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
@@ -95,7 +73,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 return loadingDataControlType;
             }
 
-            //TODO: detach this if possible from the owner
+            // TODO: detach this if possible from the owner
             if (this.owner.rowDetailsService.HasExpandedRowDetails(context.Info.Item))
             {
                 return rowDetailType;
@@ -198,6 +176,28 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 container.Visibility = Visibility.Collapsed;
                 container.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            }
+        }
+
+        private void PrepareLoadingDataControl(DataGridLoadDataControl control)
+        {
+            if (control != null)
+            {
+                control.Owner = this.owner;
+                this.owner.visualStateService.RegisterDataLoadingListener((IDataStatusListener)control);
+            }
+        }
+
+        private void PrepareExpandedRowDetailsControl(GridRowModel decorator, DataGridRowDetailsControl control)
+        {
+            if (control != null)
+            {
+                control.Content = decorator.ItemInfo.Item;
+
+                if (this.owner.RowDetailsTemplate != control.ContentTemplate)
+                {
+                    control.ContentTemplate = this.owner.RowDetailsTemplate;
+                }
             }
         }
 

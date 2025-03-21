@@ -7,10 +7,10 @@ using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.RangeSlider;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -114,9 +114,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             this.trackBarPointerPressedPosition = pointerPosition;
             this.trackBarPressed = true;
 
-            double pointerPositionValue = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? pointerPosition.X : pointerPosition.Y;
+            double pointerPositionValue = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? pointerPosition.X : pointerPosition.Y;
 
-            if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+            if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
             {
                 this.HandleHorizontalTrackBarPressed(pointerPositionValue);
             }
@@ -379,7 +379,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                     return;
                 }
 
-                if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     double desiredValue = this.Minimum + Math.Abs(pointerPosition.X - selectionOffests / 2) / this.coeficient;
                     this.valueToolTip.Content = this.ReturnFormatedValue(desiredValue);
@@ -436,7 +436,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                     this.rangeToolTipContent.ShowToolTip();
                 }
 
-                if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     var selectionStartTransform = this.selectionStartThumb.TransformToVisual(this);
                     Point selectionStartLocation = selectionStartTransform.TransformPoint(new Point(0, 0));
@@ -488,7 +488,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                     this.rangeToolTipContent.ShowToolTip();
                 }
 
-                if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal)
+                if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal)
                 {
                     var selectionEndTransform = this.selectionEndThumb.TransformToVisual(this);
                     Point selectionEndLocation = selectionEndTransform.TransformPoint(new Point(0, 0));
@@ -608,7 +608,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         private void OnSelectionMiddleThumbDragDelta(object sender, DragDeltaEventArgs e)
         {
-            double offsetchange = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? e.HorizontalChange : e.VerticalChange * -1;
+            double offsetchange = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? e.HorizontalChange : e.VerticalChange * -1;
 
             this.HandleSelectionMiddleThumbDragDelta(offsetchange);
             this.rangeToolTipContent.UpdateToolTipContext();
@@ -634,7 +634,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         private void OnSelectionStartThumbDragDelta(object sender, DragDeltaEventArgs e)
         {
-            var offsetchange = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? e.HorizontalChange : e.VerticalChange * -1;
+            var offsetchange = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? e.HorizontalChange : e.VerticalChange * -1;
             this.HandleSelectionStartThumbDragDelta(offsetchange);
             this.rangeToolTipContent.UpdateToolTipContext();
             this.rangeToolTipContent.ShowToolTip();
@@ -656,7 +656,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
         private void OnSelectionEndThumbDragDelta(object sender, DragDeltaEventArgs e)
         {
-            var offsetchange = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? e.HorizontalChange : e.VerticalChange * -1;
+            var offsetchange = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? e.HorizontalChange : e.VerticalChange * -1;
             this.HandleSelectionEndThumbDragDelta(offsetchange);
             this.rangeToolTipContent.UpdateToolTipContext();
             this.rangeToolTipContent.ShowToolTip();

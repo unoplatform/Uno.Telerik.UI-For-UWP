@@ -17,7 +17,7 @@ namespace Telerik.Core
         }
 
         /// <summary>
-        /// Gets the <see cref="Windows.UI.Xaml.UIElement"/> that was animated by the animation
+        /// Gets the <see cref="Microsoft.UI.Xaml.UIElement"/> that was animated by the animation
         /// for which the <see cref="RadAnimation.Ended"/> event fires.
         /// </summary>
         public PlayAnimationInfo AnimationInfo { get; private set; }

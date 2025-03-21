@@ -3,10 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:telerik="using:Telerik.UI.Xaml.Controls">
 
-    <telerik:UserThemeResources x:Key="ResourceLoaderInitializer" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xaml"/>
+        <ResourceDictionary>
+            <telerik:UserThemeResources x:Key="ResourceLoaderInitializer"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="{CustomResource HighContrastResourcesPath}"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
 
     <!--#region SegmentedControl Brushes-->
 
+    <SolidColorBrush x:Key="TelerikCalendarBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}"/>
     <SolidColorBrush x:Key="TelerikSegmentedControlBackgroundThemeBrush" Color="Transparent" />
     <SolidColorBrush x:Key="TelerikSegmentedControlBorderThemeBrush" Color="{ThemeResource TelerikSelectedColor}" />
     <SolidColorBrush x:Key="TelerikSegmentedControlSeparatorThemeBrush" Color="{ThemeResource TelerikSelectedColor}" />
@@ -209,6 +218,7 @@
 
     <!--GridLines-->
     <SolidColorBrush x:Key="TelerikCalendarGridLinesBrush" Color="{ThemeResource SystemColorButtonTextColor}" />
+    <SolidColorBrush x:Key="TelerikSelectedBrush" Color="{ThemeResource SystemColorHighlightColor}" />
 
     <!--DayNames-->
     <SolidColorBrush x:Key="TelerikCalendarDayNamesForegroundBrush" Color="{ThemeResource SystemColorButtonTextColor}" />
@@ -241,17 +251,25 @@
     <SolidColorBrush x:Key="TelerikCalendarHeaderButtonDisabledForegroundBrush" Color="{ThemeResource SystemColorGrayTextColor}" />
     <SolidColorBrush x:Key="TelerikCalendarHeaderButtonPointerPressedForegroundBrush" Color="{ThemeResource SystemColorButtonTextColor}" />
     <SolidColorBrush x:Key="TelerikCalendarHeaderButtonPointerOverForegroundBrush" Color="{ThemeResource SystemColorHighlightTextColor}" />
+    
+    <!--FooterControl-->
+    <SolidColorBrush x:Key="TelerikCalendarFooterButtonForegroundBrush" Color="{ThemeResource SystemColorHotlightColor}" />
+    <SolidColorBrush x:Key="TelerikCalendarFooterButtonBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="TelerikCalendarFooterControlBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
 
     <!--Hover-->
     <SolidColorBrush x:Key="TelerikCalendarPointerOverBackgroundBrush" Color="{ThemeResource SystemColorHighlightColor}" />
     <SolidColorBrush x:Key="TelerikCalendarPointerOverBorderBrush" Color="{ThemeResource SystemColorHighlightTextColor}" />
 
     <SolidColorBrush x:Key="TelerikCalendarCurrentCellBorderBrush" Color="{ThemeResource SystemColorHighlightColor}" />
+    
+    <!--SpecialSlots-->
+    <SolidColorBrush x:Key="TelerikSpecialSlotBackground" Color="{ThemeResource SystemColorHotlightColor}" Opacity="0.45"/>
+    <SolidColorBrush x:Key="TelerikSpecialSlotBackgroundReadOnly" Color="{ThemeResource SystemColorGrayTextColor}" Opacity="0.35"/>
+
+    <!--Today MultiDayView-->
+    <SolidColorBrush x:Key="TelerikTodayMultiDayViewBackground" Color="{ThemeResource SystemColorHighlightColor}" Opacity="0.9"/>
+
 
     <!--#endregion-->
-
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xaml" />
-        <ResourceDictionary Source="{CustomResource HighContrastResourcesPath}" />
-    </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -3,10 +3,10 @@ using System.Diagnostics.CodeAnalysis;
 using Telerik.Charting;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -66,7 +66,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         }
 
         /// <summary>
-        /// Gets or sets the style used to draw the <see cref="Windows.UI.Xaml.Shapes.Polyline"/> shape.
+        /// Gets or sets the style used to draw the <see cref="Microsoft.UI.Xaml.Shapes.Polyline"/> shape.
         /// </summary>
         public Brush Fill
         {

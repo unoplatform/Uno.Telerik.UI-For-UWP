@@ -4,9 +4,9 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Telerik.Charting;
 using Telerik.Core;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -321,7 +321,6 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 }
             }
         }
-        
 
         private FrameworkElement GetDataPointVisual(DataPoint point, int virtualIndex)
         {

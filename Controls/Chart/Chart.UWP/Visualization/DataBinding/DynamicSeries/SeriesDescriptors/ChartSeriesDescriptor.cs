@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using Telerik.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

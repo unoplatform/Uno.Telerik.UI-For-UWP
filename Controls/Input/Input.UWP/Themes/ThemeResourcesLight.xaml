@@ -8,7 +8,7 @@
     <!--#region SegmentedControl Brushes-->
 
     <Color x:Key="TelerikSegmentedControlDisabledColor">#FFD9D9D9</Color>
-
+    <SolidColorBrush x:Key="TelerikCalendarBackgroundBrush" Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="TelerikSegmentedControlBackgroundThemeBrush" Color="Transparent" />
     <SolidColorBrush x:Key="TelerikSegmentedControlBorderThemeBrush" Color="{ThemeResource TelerikSelectedColor}" />
     <SolidColorBrush x:Key="TelerikSegmentedControlSeparatorThemeBrush" Color="{ThemeResource TelerikSelectedColor}" />
@@ -211,6 +211,7 @@
 
     <!--GridLines-->
     <SolidColorBrush x:Key="TelerikCalendarGridLinesBrush" Color="#FFCCCCCC" />
+    <SolidColorBrush x:Key="TelerikSelectedBrush" Color="#FF006AC1" />
 
     <!--DayNames-->
     <SolidColorBrush x:Key="TelerikCalendarDayNamesForegroundBrush" Color="#FF767676" />
@@ -244,16 +245,23 @@
     <SolidColorBrush x:Key="TelerikCalendarHeaderButtonPointerPressedForegroundBrush" Color="#FF3399FF" />
     <SolidColorBrush x:Key="TelerikCalendarHeaderButtonPointerOverForegroundBrush" Color="#FF3399FF" />
 
+    <!--FooterControl-->
+    <SolidColorBrush x:Key="TelerikCalendarFooterButtonForegroundBrush" Color="{ThemeResource TelerikBlackColor}" />
+    <SolidColorBrush x:Key="TelerikCalendarFooterButtonBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="TelerikCalendarFooterControlBackgroundBrush" Color="#F7F7F7" />
+
     <!--Hover-->
     <SolidColorBrush x:Key="TelerikCalendarPointerOverBackgroundBrush" Color="#193399FF" />
     <SolidColorBrush x:Key="TelerikCalendarPointerOverBorderBrush" Color="#FF3399FF" />
 
     <SolidColorBrush x:Key="TelerikCalendarCurrentCellBorderBrush" Color="#FF0066CC" />
 
-    <!--#endregion-->
+    <!--SpecialSlots-->
+    <SolidColorBrush x:Key="TelerikSpecialSlotBackground" Color="#919191" Opacity="0.27"/>
+    <SolidColorBrush x:Key="TelerikSpecialSlotBackgroundReadOnly" Color="#CCCCCC" Opacity="0.3"/>
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xaml" />
-        <ResourceDictionary Source="{CustomResource LightResourcesPath}" />
-    </ResourceDictionary.MergedDictionaries>
+    <!--Today MultiDayView-->
+    <SolidColorBrush x:Key="TelerikTodayMultiDayViewBackground" Color="#FFF5F5F5" Opacity="0.5"/>
+
+    <!--#endregion-->
 </ResourceDictionary>

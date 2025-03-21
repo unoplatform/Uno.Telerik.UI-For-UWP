@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "SDKExamples",
+  "display": "standalone",
+  "name": "SDKExamples",
+  "short_name": "SDKExamples",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

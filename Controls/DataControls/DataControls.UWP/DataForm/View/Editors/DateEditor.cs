@@ -1,17 +1,18 @@
-﻿using Telerik.UI.Xaml.Controls.Data.DataForm;
+﻿using System;
+using Telerik.UI.Xaml.Controls.Data.DataForm;
 using Telerik.UI.Xaml.Controls.Input;
 using Telerik.UI.Xaml.Controls.Input.DateTimePickers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
     /// <summary>
     /// Represents a DateEditor control.
     /// </summary>
-    public partial class DateEditor : RadDatePicker, ITypeEditor
+    public partial class DateEditor : RadDatePicker, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="LabelIconStyle"/> dependency property. 
@@ -126,13 +127,18 @@ namespace Telerik.UI.Xaml.Controls.Data
             set { this.SetValue(SelectedForegroundProperty, value); }
         }
 
+        object IEditor.GetCurrentValue()
+        {
+            return this.Value;
+        }
+
         /// <summary>
         /// Method used for generating bindings for the <see cref="ITypeEditor"/> properties.
         /// </summary>
         public void BindEditor()
         {
             Binding b = new Binding() { Mode = BindingMode.TwoWay };
-            b.Path = new Windows.UI.Xaml.PropertyPath("PropertyValue");
+            b.Path = new Microsoft.UI.Xaml.PropertyPath("PropertyValue");
             this.SetBinding(DateEditor.ValueProperty, b);
 
             Binding b1 = new Binding();

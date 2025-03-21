@@ -273,6 +273,15 @@ namespace Telerik.Data.Core.Engine
             return this.Process(index, items, true, removeFilteredItem, canUseComparer);
         }
 
+        int IDataEngine.GetFilteredItemIndex(object item)
+        {
+            Group rowRootGroup = (Group)this.Root.RowGroup;
+            IComparer<object> itemComparer = this.valueProvider.GetSortComparer();
+            int index = rowRootGroup.IndexOf(item, itemComparer);
+
+            return index;
+        }
+
         internal static Group CreateGrandTotal(IGroupFactory groupFactory)
         {
             return groupFactory.CreateGroup(Group.GrandTotalName);
@@ -1008,10 +1017,7 @@ namespace Telerik.Data.Core.Engine
 
             foreach (var groupName in valueProvider.GetRowGroupNames(item))
             {
-                if (groupName != null)
-                {
-                    rowGroupNames.Add(groupName);
-                }
+                rowGroupNames.Add(groupName);
             }
 
             if (parallelState.DataView.SourceGroups.Count > 0)

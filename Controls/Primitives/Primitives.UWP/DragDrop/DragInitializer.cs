@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.DragDrop
 {
@@ -116,7 +116,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.DragDrop
 
         private void Element_Holding(object sender, HoldingRoutedEventArgs e)
         {
-            if (e.HoldingState == Windows.UI.Input.HoldingState.Started && this.currentPointer != null)
+            if (e.HoldingState == Microsoft.UI.Input.HoldingState.Started && this.currentPointer != null)
             {
                 this.CleanUp(this.currentPointer);
             }

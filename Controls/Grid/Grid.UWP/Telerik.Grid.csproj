@@ -1,22 +1,13 @@
-<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
+﻿<Project Sdk="Uno.Sdk">
   <PropertyGroup>
-		<TargetFrameworks>uap10.0.17763;xamarinios10;monoandroid90;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>$(NetCurrentAll)</TargetFrameworks>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
+		<OutputType>Library</OutputType>
 		<DefaultLanguage>en-US</DefaultLanguage>
     <NoWarn>$(NoWarn);1998;Uno0001</NoWarn>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
     <AssemblyName>Telerik.UI.Xaml.Grid.UWP</AssemblyName>
-  </PropertyGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="Uno.UI" Version="3.0.0-dev.1262" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Page Include="Themes\Generic.xaml" />
-		<Page Include="Themes\Resources.xaml" />
-		<Page Include="Themes\ThemeResourcesLight.xaml" />
-	</ItemGroup>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Core.UWP\Telerik.Core.csproj" />
@@ -25,21 +16,4 @@
 		<ProjectReference Include="..\..\Input\Input.UWP\Telerik.Input.csproj" />
 		<ProjectReference Include="..\..\Primitives\Primitives.UWP\Telerik.Primitives.csproj" />
 	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == 'MonoAndroid' or  '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' ">
-		<Reference Include="Microsoft.CSharp" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Update="Themes\Generic.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
-	  <None Update="Themes\Resources.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
-	  <None Update="Themes\ThemeResourcesLight.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
-	</ItemGroup>
-
 </Project>

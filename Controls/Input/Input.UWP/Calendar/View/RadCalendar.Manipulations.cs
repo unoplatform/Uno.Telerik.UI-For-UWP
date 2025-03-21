@@ -3,9 +3,9 @@ using Telerik.UI.Xaml.Controls.Input.Calendar;
 using Telerik.UI.Xaml.Controls.Input.Calendar.Commands;
 using Windows.Devices.Input;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -27,7 +27,13 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// </summary>
         public void MoveToPreviousView()
         {
-            this.RaiseMoveToPreviousViewCommand();
+            int navigationStep = 1;
+            if (this.displayModeCache == CalendarDisplayMode.MultiDayView)
+            {
+                navigationStep = this.MultiDayViewSettings.VisibleDays;
+            }
+
+            this.RaiseMoveToPreviousViewCommand(navigationStep);
         }
 
         /// <summary>
@@ -36,7 +42,13 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// </summary>
         public void MoveToNextView()
         {
-            this.RaiseMoveToNextViewCommand();
+            int navigationStep = 1;
+            if (this.displayModeCache == CalendarDisplayMode.MultiDayView)
+            {
+                navigationStep = this.MultiDayViewSettings.VisibleDays;
+            }
+
+            this.RaiseMoveToNextViewCommand(navigationStep);
         }
 
         /// <summary>
@@ -79,23 +91,35 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.CommandService.ExecuteCommand(CommandId.MoveToDate, context);
         }
 
-        internal void RaiseMoveToPreviousViewCommand()
+        internal void RaiseMoveToPreviousViewCommand(int navigatioStep)
         {
-            CalendarViewChangeContext context = new CalendarViewChangeContext()
+            CalendarViewChangeContext context = new CalendarViewChangeContext();
+            if (this.displayModeCache != CalendarDisplayMode.MultiDayView)
             {
-                AnimationStoryboard = this.CreateMoveToPreviousViewAnimationStoryboard()
-            };
+                context.AnimationStoryboard = this.CreateMoveToPreviousViewAnimationStoryboard();
+            }
+            else
+            {
+                context.weekendsVisible = this.MultiDayViewSettings.WeekendsVisible;
+            }
 
+            context.navigationStep = navigatioStep;
             this.CommandService.ExecuteCommand(CommandId.MoveToPreviousView, context);
         }
 
-        internal void RaiseMoveToNextViewCommand()
+        internal void RaiseMoveToNextViewCommand(int navigatioStep)
         {
-            CalendarViewChangeContext context = new CalendarViewChangeContext()
+            CalendarViewChangeContext context = new CalendarViewChangeContext();
+            if (this.displayModeCache != CalendarDisplayMode.MultiDayView)
             {
-                AnimationStoryboard = this.CreateMoveToNextViewAnimationStoryboard()
-            };
+                context.AnimationStoryboard = this.CreateMoveToNextViewAnimationStoryboard();
+            }
+            else
+            {
+                context.weekendsVisible = this.MultiDayViewSettings.WeekendsVisible;
+            }
 
+            context.navigationStep = navigatioStep;
             this.CommandService.ExecuteCommand(CommandId.MoveToNextView, context);
         }
 
@@ -135,11 +159,11 @@ namespace Telerik.UI.Xaml.Controls.Input
             var hitPoint = e.GetCurrentPoint(this.calendarViewHost).Position;
             var cellModel = HitTestService.GetCellFromPoint(hitPoint, this.model.CalendarCells);
 
-            if (cellModel != null && e.Pointer.PointerDeviceType != PointerDeviceType.Touch)
+            if (cellModel != null && !e.Pointer.PointerDeviceType.Equals(PointerDeviceType.Touch))
             {
                 this.RaiseCellPointerOverCommand(cellModel);
             }
-            else
+            else if (this.DisplayMode != CalendarDisplayMode.MultiDayView)
             {
                 this.VisualStateService.UpdateHoverDecoration(null);
             }
@@ -166,13 +190,28 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         internal void OnContentPanelTapped(TappedRoutedEventArgs e)
         {
-            CalendarCellModel cellModel = HitTestService.GetCellFromPoint(e.GetPosition(this.contentLayer.VisualElement), this.Model.CalendarCells);
-            if (cellModel == null)
+            if (this.displayModeCache != CalendarDisplayMode.MultiDayView)
             {
-                return;
-            }
+                CalendarCellModel cellModel = HitTestService.GetCellFromPoint(e.GetPosition(this.contentLayer.VisualElement), this.Model.CalendarCells);
+                if (cellModel == null)
+                {
+                    return;
+                }
 
-            this.RaiseCellTapCommand(cellModel);
+                this.RaiseCellTapCommand(cellModel);
+            }
+            else
+            {
+                Point hitPoint = e.GetPosition(this.timeRulerLayer.contentPanel);
+                CalendarMultiDayViewModel multiDayViewModel = this.model.multiDayViewModel;
+                hitPoint.X += multiDayViewModel.timeRulerWidth;
+
+                var slotContext = this.hitTestService.GetSlotContextFromPoint(hitPoint);
+                if (slotContext != null)
+                {
+                    this.commandService.ExecuteCommand(CommandId.TimeSlotTap, slotContext);
+                }
+            }
         }
 
         internal void OnContentPanelPointerMoved(PointerRoutedEventArgs e, bool isDragging)
@@ -193,7 +232,10 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         internal void OnContentPanelPointerExited()
         {
-            this.VisualStateService.UpdateHoverDecoration(null);
+            if (this.DisplayMode != CalendarDisplayMode.MultiDayView)
+            {
+                this.VisualStateService.UpdateHoverDecoration(null);
+            }
         }
 
         internal void OnDragStarted(Point lastPointPressed)

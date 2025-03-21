@@ -1,15 +1,15 @@
 ﻿using Telerik.UI.Xaml.Controls.Data.DataForm;
 using Telerik.UI.Xaml.Controls.Input;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
     /// <summary>
     /// Represents a NumericEditor control.
     /// </summary>
-    public partial class NumericEditor : RadNumericBox, ITypeEditor
+    public partial class NumericEditor : RadNumericBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="ErrorIconStyle"/> dependency property. 
@@ -53,6 +53,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         public NumericEditor()
         {
             this.DefaultStyleKey = typeof(NumericEditor);
+            this.UpdateValueTrigger = NumericBoxUpdateValueTrigger.Immediate;
         }
 
         /// <summary>
@@ -97,7 +98,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         public Brush ButtonsBackground
         {
             get { return (Brush)GetValue(ButtonsBackgroundProperty); }
-            set { SetValue(ButtonsBackgroundProperty, value); }
+            set { this.SetValue(ButtonsBackgroundProperty, value); }
         }
 
         /// <summary>
@@ -106,7 +107,12 @@ namespace Telerik.UI.Xaml.Controls.Data
         public Brush ButtonsPointerOverBackgroundBrush
         {
             get { return (Brush)GetValue(ButtonsPointerOverBackgroundBrushProperty); }
-            set { SetValue(ButtonsPointerOverBackgroundBrushProperty, value); }
+            set { this.SetValue(ButtonsPointerOverBackgroundBrushProperty, value); }
+        }
+
+        object IEditor.GetCurrentValue()
+        {
+            return this.Value;
         }
 
         /// <summary>
@@ -115,6 +121,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         public void BindEditor()
         {
             Binding b = new Binding() { Mode = BindingMode.TwoWay };
+            EditorsHelper.AddPropertyValueConverter(b, this);
             b.Path = new PropertyPath("PropertyValue");
             this.SetBinding(NumericEditor.ValueProperty, b);
 
@@ -135,10 +142,12 @@ namespace Telerik.UI.Xaml.Controls.Data
 
             Binding rangeB = new Binding();
             rangeB.Path = new PropertyPath("Range.Min");
+            rangeB.FallbackValue = double.MinValue;
             this.SetBinding(NumericEditor.MinimumProperty, rangeB);
 
             rangeB = new Binding();
             rangeB.Path = new PropertyPath("Range.Max");
+            rangeB.FallbackValue = double.MaxValue;
             this.SetBinding(NumericEditor.MaximumProperty, rangeB);
         }
     }

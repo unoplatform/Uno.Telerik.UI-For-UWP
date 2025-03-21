@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Telerik.Core.Data;
 using Windows.Foundation;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {

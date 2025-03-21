@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Telerik.Charting;
 using Telerik.Core;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -135,11 +135,11 @@ namespace Telerik.UI.Xaml.Controls.Chart
             
             this.signalRenderer.Render(this.drawWithComposition);
 
-            if (this.drawWithComposition && this.signalRenderer.renderPoints.Count > 2)
+            if (this.drawWithComposition && this.signalRenderer.renderPoints.Count >= 2)
             {
                 foreach (DataPointSegment dataSegment in ChartSeriesRenderer.GetDataSegments(this.signalRenderer.renderPoints))
                 {
-                    this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(signalRendererVisual, this.signalRenderer.GetPoints(dataSegment), this.SignalStroke, this.StrokeThickness);
+                    this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(this.signalRendererVisual, this.signalRenderer.GetPoints(dataSegment), this.SignalStroke, this.StrokeThickness);
                 }
             }
         }
@@ -199,7 +199,6 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 this.signalRendererVisual = this.chart.ContainerVisualsFactory.CreateContainerVisual(this.Compositor, this.GetType());
                 this.ContainerVisualRoot.Children.InsertAtBottom(this.signalRendererVisual);
             }
-
 
             return applied;
         }

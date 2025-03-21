@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Telerik.UI.Xaml.Controls.Primitives.LoopingList;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -96,7 +96,7 @@ namespace Telerik.UI.Automation.Peers
         /// </summary>
         public void Expand()
         {
-            this.LoopingList.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+            this.LoopingList.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
             if (!this.LoopingList.IsExpanded)
             {
                 this.LoopingList.IsExpanded = true;

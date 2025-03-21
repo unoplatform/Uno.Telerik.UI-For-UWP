@@ -2,8 +2,6 @@
 
 ## Before You Start
 
-Anyone wishing to contribute to the UI for Universal Windows Platform project MUST read & sign the [UI For Universal Windows Platform Contribution License Agreement](https://docs.google.com/forms/d/e/1FAIpQLSfQAzVxnnfwRQmtJCVmB41_ig1gYow--Gr8qLvaDxJRNHPtUQ/viewform). The UI for UWP team cannot accept pull requests from users who have not signed the CLA first.
-
 This project has adopted the code of conduct defined by the Contributor Covenant to clarify expected behavior in our community.
 For more information see the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct). 
 
@@ -27,7 +25,7 @@ Every contribution has to come with:
 * A good documentation should be provided for every added API - do not expect that your API is so well designed that it needs no documentation. The documentation has a separate repository that could be found [here](https://github.com/telerik/uwp-docs). Once validated your documentation will be visible [here](http://docs.telerik.com/devtools/universal-windows-platform/introduction-uwp)
 * Adding a sample application in the [SDKExamples app](https://github.com/telerik/UI-For-UWP/tree/master/SDKExamples.UWP) that demonstrates new functionality is a sign for good pull request as well. The sample should be applicable and to demonstrate a real case scenarios.
 * Test your code at least with SDK 10586, SDK 14393 and SDK 15063.
-* PR has to target master branch. However, the work you are doing for your pull request should not be done in the master branch of your forked repository. Create a topic branch for your work - always create a branch for your work from the "master" branch. This allows you to isolate the work you are doing from other changes that may be happening.
+* PR has to target development branch. However, the work you are doing for your pull request should not be done in the development branch of your forked repository. Create a topic branch for your work - always create a branch for your work from the "development" branch. This allows you to isolate the work you are doing from other changes that may be happening.
 * It is very important to provide a meaningful description with your pull requests that alter any code. A good format for these descriptions will include:
 	* Why: The problem you are facing (in as much detail as is necessary to describe the problem to someone who doesn't know anything about the system you're building)
 	* What: A summary of the proposed solution

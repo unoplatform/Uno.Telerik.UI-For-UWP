@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Telerik.Charting;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {

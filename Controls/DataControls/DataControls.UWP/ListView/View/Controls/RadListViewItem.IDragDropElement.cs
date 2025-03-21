@@ -1,8 +1,9 @@
 ﻿using System;
+using Telerik.Data.Core;
 using Telerik.UI.Xaml.Controls.Data.ListView.Commands;
 using Telerik.UI.Xaml.Controls.Data.ListView.View.Controls;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {
@@ -24,15 +25,20 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
         bool IDragDropElement.CanStartDrag(DragDropTrigger trigger, object initializeContext)
         {
+            if (trigger == DragDropTrigger.MouseDrag && !this.IsHandleEnabled)
+            {
+                return this.ListView.IsItemReorderEnabled;
+            }
+
             if (trigger == DragDropTrigger.Hold)
             {
-                return this.ListView.IsItemReorderEnabled && this.ListView.GroupDescriptors.Count == 0 && !this.IsHandleEnabled;
+                return this.ListView.IsItemReorderEnabled && !this.IsHandleEnabled;
             }
             else
             {
                 if (this.isHandleEnabled && initializeContext == this.reorderHandle)
                 {
-                    return this.ListView.IsItemReorderEnabled && this.ListView.GroupDescriptors.Count == 0 && this.IsHandleEnabled;
+                    return this.ListView.IsItemReorderEnabled && this.IsHandleEnabled;
                 }
 
                 return this.ListView.IsActionOnSwipeEnabled && !(this.ListView.ReorderMode == ListViewReorderMode.Handle && this.ListView.IsItemReorderEnabled == true);
@@ -88,20 +94,18 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
                         isExecuted = this.ListView.commandService.ExecuteCommand(CommandId.ItemDragStarting, new ItemDragStartingContext(dataItem, DragAction.ItemAction, this));
                         dragAction = DragAction.ItemAction;
-
-                        this.PrepareDragVisual(dragAction.Value);
                     }
                 }
                 else
                 {
                     isExecuted = this.ListView.commandService.ExecuteCommand(CommandId.ItemDragStarting, new ItemDragStartingContext(dataItem, DragAction.Reorder, this));
                     dragAction = DragAction.Reorder;
-
-                    this.PrepareDragVisual(dragAction.Value);
                 }
 
                 if (isExecuted && dragAction.HasValue)
                 {
+                    this.PrepareDragVisual(dragAction.Value);
+
                     this.CancelDirectManipulations();
 
                     if (dragAction.Value == DragAction.Reorder)
@@ -115,9 +119,12 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
                         this.UpdateActionContentClipping(0);
 
+                        CanvasDragSurface dragSurface = new CanvasDragSurface(this.ListView.childrenPanel, this.ListView.childrenPanel as Canvas, false);
+                        dragSurface.MaxPositionOffset = this.listView.ItemSwipeOffset;
+
                         context = new DragStartingContext
                         {
-                            DragSurface = new CanvasDragSurface(this.ListView.childrenPanel, this.ListView.childrenPanel as Canvas, false),
+                            DragSurface = dragSurface,
                             DragVisual = this.dragVisual,
                             HitTestStrategy = new ListViewItemHittestStrategy(this, this),
                             Payload = DragAction.ItemAction
@@ -163,7 +170,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 this.dragX = currentPoint.X - startPoint.X;
                 this.dragY = currentPoint.Y - startPoint.Y;
 
-                this.UpdateActionContentClipping(this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX);
+                this.UpdateActionContentClipping(this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX);
             }
         }
 
@@ -183,7 +190,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
                 }
                 else
                 {
-                    if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+                    if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
                     {
                         switch (this.SwipeDirection)
                         {
@@ -248,7 +255,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
 
             if (dragContext.PayloadData is DragAction && (DragAction)dragContext.PayloadData == DragAction.ItemAction)
             {
-                var offset = this.ListView.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX;
+                var offset = this.ListView.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? this.dragY : this.dragX;
                 var swipeContext = new ItemSwipingContext(this.DataContext, this, offset);
                 this.ListView.swipedItem = this;
                 this.ListView.commandService.ExecuteCommand(CommandId.ItemSwiping, swipeContext);
@@ -258,13 +265,69 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         void IDragDropElement.OnDragDropComplete(DragCompleteContext context)
         {
             var data = context.PayloadData as ReorderItemsDragOperation;
-
             if (data != null)
             {
                 this.FinalizeReorder(context);
 
-                object destinationDataItem = this.GetDestinationDataItem(data);
-                bool isExecuted = this.ListView.commandService.ExecuteCommand(CommandId.ItemReorderComplete, new ItemReorderCompleteContext(data.Data, destinationDataItem, this));
+                var isExecuted = false;
+                RadListViewItem destinationItem = null;
+                ItemReorderPlacement placement = 0;
+
+                if (data.InitialSourceIndex < data.CurrentSourceReorderIndex)
+                {
+                    destinationItem = this.reorderCoordinator.Host.ElementAt(data.CurrentSourceReorderIndex - 1) as RadListViewItem;
+                    placement = ItemReorderPlacement.After;
+
+                    if (destinationItem == null)
+                    {
+                        destinationItem = this.reorderCoordinator.Host.ElementAt(data.CurrentSourceReorderIndex + 1) as RadListViewItem;
+                        placement = ItemReorderPlacement.Before;
+                    }
+                }
+                else if (data.InitialSourceIndex > data.CurrentSourceReorderIndex)
+                {
+                    destinationItem = this.reorderCoordinator.Host.ElementAt(data.CurrentSourceReorderIndex + 1) as RadListViewItem;
+                    placement = ItemReorderPlacement.Before;
+
+                    if (destinationItem == null)
+                    {
+                        destinationItem = this.reorderCoordinator.Host.ElementAt(data.CurrentSourceReorderIndex - 1) as RadListViewItem;
+                        placement = ItemReorderPlacement.After;
+                    }
+                }
+
+                if (destinationItem != null)
+                {
+                    var dataItem = data.Data;
+                    var destinationDataItem = destinationItem.DataContext;
+
+                    IDataGroup dataGroup = null;
+                    IDataGroup destinationDataGroup = null;
+
+                    if (this.listView.GroupDescriptors.Count > 0)
+                    {
+                        dataGroup = this.listView.Model.FindItemParentGroup(dataItem);
+                        destinationDataGroup = this.listView.Model.FindItemParentGroup(destinationDataItem);
+                    }
+
+                    var commandContext = new ItemReorderCompleteContext(dataItem, dataGroup, destinationDataItem, destinationDataGroup, placement);
+
+                    isExecuted = this.ListView.commandService.ExecuteCommand(CommandId.ItemReorderComplete, commandContext);
+                }
+
+                if (isExecuted)
+                {
+                    // TODO: Data provider does not handle well reordering of items in groups.
+                    // Remove this workaround once we fix the reordering in the data provider.
+                    if (this.listView.GroupDescriptors.Count > 0)
+                    {
+                        this.listView.updateService.RegisterUpdate((int)UpdateFlags.AffectsData);
+                    }
+                }
+                else
+                {
+                    this.reorderCoordinator.CancelReorderOperation(this, data.InitialSourceIndex);
+                }
             }
             else
             {

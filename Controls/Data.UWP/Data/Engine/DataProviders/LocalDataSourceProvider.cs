@@ -591,7 +591,6 @@ namespace Telerik.Data.Core
 
         private void ProcessPendingChanges()
         {
-
             while (this.pendingCollectionChanges.Count > 0)
             {
                 var pch = this.pendingCollectionChanges[0];
@@ -679,7 +678,7 @@ namespace Telerik.Data.Core
                 }
                 else
                 {
-                    itemIndex = this.DataView.InternalList.IndexOf(sender);
+                    itemIndex = this.engine.GetFilteredItemIndex(sender);
                 }
 
                 List<object> items = new List<object>(1) { sender };

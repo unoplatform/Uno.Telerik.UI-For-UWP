@@ -2,8 +2,8 @@
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Grid;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -25,7 +25,7 @@ namespace Telerik.UI.Automation.Peers
         /// <summary>
         /// Initializes a new instance of the DataGridCellsPanelAutomationPeer class.
         /// </summary>
-        public DataGridCellsPanelAutomationPeer(DataGridCellsPanel owner, RadDataGrid dataGrid) 
+        public DataGridCellsPanelAutomationPeer(DataGridCellsPanel owner, RadDataGrid dataGrid)
             : this(owner)
         {
             this.dataGrid = dataGrid;
@@ -77,10 +77,10 @@ namespace Telerik.UI.Automation.Peers
 
             var dataGridCellsPanelAutomationPeerChildren = base.GetChildrenCore();
 
-	        if (dataGridCellsPanelAutomationPeerChildren.Count > 0)
+            if (dataGridCellsPanelAutomationPeerChildren.Count > 0)
             {
-	            var dataGridContentLayerPanelPeer = dataGridCellsPanelAutomationPeerChildren.FirstOrDefault(a => a.GetName() == nameof(DataGridContentLayerPanel)) as DataGridContentLayerPanelAutomationPeer;
-	            if (dataGridContentLayerPanelPeer != null)
+                var dataGridContentLayerPanelPeer = dataGridCellsPanelAutomationPeerChildren.FirstOrDefault(a => a.GetName() == nameof(DataGridContentLayerPanel)) as DataGridContentLayerPanelAutomationPeer;
+                if (dataGridContentLayerPanelPeer != null)
                 {
                     dataGridContentLayerPanelChildren = dataGridContentLayerPanelPeer.GetChildren().ToList();
                 }
@@ -126,7 +126,7 @@ namespace Telerik.UI.Automation.Peers
 
             if (dataGridContentLayerPanelChildren.Count > 0)
             {
-                dataGridContentLayerPanelChildren.RemoveAll(a => a.GetClassName() == nameof(Windows.UI.Xaml.Controls.TextBlock));
+                dataGridContentLayerPanelChildren.RemoveAll(a => a.GetClassName() == nameof(Microsoft.UI.Xaml.Controls.TextBlock));
                 children.AddRange(dataGridContentLayerPanelChildren);
             }
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using Telerik.UI.Xaml.Controls.Data.DataBoundListBox;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -28,7 +28,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 		internal Popup itemReorderPopup;
 #else
 		// UNO TODO
-		internal Windows.UI.Xaml.Controls.Popup itemReorderPopup;
+		internal Microsoft.UI.Xaml.Controls.Primitives.Popup itemReorderPopup;
 #endif
 
 		/// <summary>

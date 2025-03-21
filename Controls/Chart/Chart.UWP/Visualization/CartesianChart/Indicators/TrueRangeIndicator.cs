@@ -1,7 +1,7 @@
 ﻿namespace Telerik.UI.Xaml.Controls.Chart
 {
     /// <summary>
-    /// Visualizes a collection of DataPoints, using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape. This class represents the True Range oscillator.
+    /// Visualizes a collection of DataPoints, using a <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape. This class represents the True Range oscillator.
     /// </summary>
     public partial class TrueRangeIndicator : HighLowCloseIndicatorBase
     {

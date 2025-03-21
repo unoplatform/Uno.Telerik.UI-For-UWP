@@ -7,14 +7,14 @@ using Telerik.UI.Xaml.Controls.Input.AutoCompleteBox;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -27,7 +27,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 	[TemplatePart(Name = "PART_Popup", Type = typeof(Popup))]
 #else
 	// UNO TODO
-	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Windows.UI.Xaml.Controls.Popup))]
+	[TemplatePart(Name = "PART_Popup", Type = typeof(/* UNO TODO */Microsoft.UI.Xaml.Controls.Primitives.Popup))]
 #endif
 	[TemplatePart(Name = "PART_SuggestionsControl", Type = typeof(SuggestionItemsControl))]
     [TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
@@ -124,7 +124,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// Identifies the RadAutoCompleteBox.TextMatchHighlightStyle attached property.
         /// </summary>
         public static readonly DependencyProperty TextMatchHighlightStyleProperty =
-            DependencyProperty.RegisterAttached("TextMatchHighlightStyle", typeof(HighlightStyle), typeof(RadAutoCompleteBox), new PropertyMetadata(new HighlightStyle() { Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0x26, 0xA0, 0xDA)) }));
+            DependencyProperty.RegisterAttached("TextMatchHighlightStyle", typeof(HighlightStyle), typeof(RadAutoCompleteBox), new PropertyMetadata(new HighlightStyle()));
 
         /// <summary>
         /// Identifies the RadAutoCompleteBox.IsTextMatchHighlightEnabled attached property.
@@ -174,13 +174,19 @@ namespace Telerik.UI.Xaml.Controls.Input
         public static readonly DependencyProperty IsClearButtonVisibleProperty =
             DependencyProperty.Register(nameof(IsClearButtonVisible), typeof(bool), typeof(RadAutoCompleteBox), new PropertyMetadata(true, OnIsClearButtonVisibleChanted));
 
+        /// <summary>
+        /// Identifies the <see cref="SelectAllOnKeyboardFocus"/> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty SelectAllOnKeyboardFocusProperty =
+            DependencyProperty.Register(nameof(SelectAllOnKeyboardFocus), typeof(bool), typeof(RadAutoCompleteBox), new PropertyMetadata(true, OnSelectAllOnKeyboardFocusChanged));
+
         internal const double PopupOffsetFromTextBox = 2.0;
 
 #if NETFX_CORE
 		internal Popup suggestionsPopup;
 #else
 		// UNO TODO
-		internal Windows.UI.Xaml.Controls.Popup suggestionsPopup;
+		internal Microsoft.UI.Xaml.Controls.Primitives.Popup suggestionsPopup;
 #endif
 		internal SuggestionItemsControl suggestionsControl;
         internal TextBox textbox;
@@ -548,8 +554,8 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// length of their string representation.
         /// </para>
         /// <para>
-        /// First, create a custom class that inherits the <see cref="Windows.UI.Xaml.Controls.DataTemplateSelector"/>
-        /// class and override its <see cref="Windows.UI.Xaml.Controls.DataTemplateSelector.SelectTemplateCore(object, Windows.UI.Xaml.DependencyObject)"/>
+        /// First, create a custom class that inherits the <see cref="Microsoft.UI.Xaml.Controls.DataTemplateSelector"/>
+        /// class and override its <see cref="Microsoft.UI.Xaml.Controls.DataTemplateSelector.SelectTemplateCore(object, Microsoft.UI.Xaml.DependencyObject)"/>
         /// method.
         /// </para>
         /// <code language="c#">
@@ -559,7 +565,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// 
         ///     public DataTemplate Template2;
         /// 
-        ///     protected override Windows.UI.Xaml.DataTemplate SelectTemplateCore(object item, Windows.UI.Xaml.DependencyObject container)
+        ///     protected override Microsoft.UI.Xaml.DataTemplate SelectTemplateCore(object item, Microsoft.UI.Xaml.DependencyObject container)
         ///     {
         ///         var suggestionItem = item as string;
         ///         if (suggestionItem.Length > 5)
@@ -784,12 +790,27 @@ namespace Telerik.UI.Xaml.Controls.Input
         }
 
         /// <summary>
-        /// Gets or sets a value indicating if the clear button should be visualized.
+        /// Gets or sets a value indicating whether if the clear button should be visualized.
         /// </summary>
         public bool IsClearButtonVisible
         {
             get { return (bool)GetValue(IsClearButtonVisibleProperty); }
             set { this.SetValue(IsClearButtonVisibleProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the control should select all of the text when it gets the focus.
+        /// </summary>
+        public bool SelectAllOnKeyboardFocus
+        {
+            get
+            {
+                return (bool)this.GetValue(SelectAllOnKeyboardFocusProperty);
+            }
+            set
+            {
+                this.SetValue(SelectAllOnKeyboardFocusProperty, value);
+            }
         }
 
         private double DropDownClampedHeight
@@ -877,7 +898,7 @@ namespace Telerik.UI.Xaml.Controls.Input
                 this.forceSuggestionsRefreshProgrammatically = true;
                 this.Text = searchText;
                 this.InvokeAsync(
-                    Windows.UI.Core.CoreDispatcherPriority.Low,
+                    Microsoft.UI.Dispatching.DispatcherQueuePriority.Low,
                     () =>
                     {
                         // Reconsider future review
@@ -1036,7 +1057,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 			this.suggestionsPopup = this.GetTemplatePartField<Popup>(SuggestionsPopupPartName);
 #else
 			 // UNO TODO
-			this.suggestionsPopup = this.GetTemplatePartField<Windows.UI.Xaml.Controls.Popup>(SuggestionsPopupPartName);
+			this.suggestionsPopup = this.GetTemplatePartField<Microsoft.UI.Xaml.Controls.Primitives.Popup>(SuggestionsPopupPartName);
 #endif
 			applied = applied && this.suggestionsPopup != null;
 
@@ -1061,6 +1082,10 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.textbox.LostFocus += this.OnTextBoxLostFocus;
 
             this.textbox.Text = this.textCache ?? string.Empty;
+            if (!this.SelectAllOnKeyboardFocus)
+            {
+                this.ClearTextSelection();
+            }
 
             this.suggestionsControl.owner = this;
             this.suggestionsControl.MaxHeight = this.DropDownMaxHeight;
@@ -1341,6 +1366,15 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
+        private static void OnSelectAllOnKeyboardFocusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!(bool)e.NewValue)
+            {
+                var autoComplete = d as RadAutoCompleteBox;
+                autoComplete.ClearTextSelection();
+            }
+        }
+
         private ITextSearchProvider GetTextSearchProvider()
         {
             switch (this.FilterMode)
@@ -1490,7 +1524,7 @@ namespace Telerik.UI.Xaml.Controls.Input
 
         private void PositionPopup()
         {
-            Point originLocation = this.textbox.TransformToVisual(/* UNO TODO*/Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
+            Point originLocation = this.textbox.TransformToVisual(/* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
 
             this.AdjustPopupHorizontalOffset(originLocation);
             this.AdjustPopupVerticalOffset(originLocation);
@@ -1512,12 +1546,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             if (this.FlowDirection == FlowDirection.LeftToRight)
             {
                 availableOffsetWidth = originLocation.X;
-                availablePopupWidth = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width - availableOffsetWidth;
+                availablePopupWidth = /* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Width - availableOffsetWidth;
             }
             else
             {
                 availablePopupWidth = originLocation.X;
-                availableOffsetWidth = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width - availablePopupWidth;
+                availableOffsetWidth = /* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Width - availablePopupWidth;
             }
 
             double horizontalOffset = child.Width - availablePopupWidth;
@@ -1537,7 +1571,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             FrameworkElement child = this.noResultsFound ? (FrameworkElement)this.noResultsControl : this.suggestionsControl;
 
             Rect occludedRect = Windows.UI.ViewManagement.InputPane.GetForCurrentView().OccludedRect;
-            double occludedRectStartY = /* UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Bottom;
+            double occludedRectStartY = /* UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Bottom;
             if (occludedRect.Y > 0)
             {
                 occludedRectStartY = occludedRect.Y;
@@ -1605,12 +1639,12 @@ namespace Telerik.UI.Xaml.Controls.Input
             {
                 this.shouldMarkText = false;
             }
-            else if (this.lastFocusState == Windows.UI.Xaml.FocusState.Unfocused)
+            else if (this.lastFocusState == Microsoft.UI.Xaml.FocusState.Unfocused)
             {
                 this.lastFocusState = textBox.FocusState;
             }
 
-            if (textBox.FocusState != Windows.UI.Xaml.FocusState.Pointer)
+            if (textBox.FocusState != Microsoft.UI.Xaml.FocusState.Pointer)
             {
                 this.setProgrammaticFocus = false;
             }
@@ -1618,7 +1652,11 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.isUserTyping = true;
 
             this.UpdateWatermarkVisibility();
-            this.UpdateCaretPosition();
+
+            if (this.SelectAllOnKeyboardFocus)
+            {
+                this.UpdateCaretPosition();
+            }
         }
 
         private void OnTextBoxLostFocus(object sender, RoutedEventArgs args)
@@ -1634,6 +1672,22 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.IsDropDownOpen = false;
 
             this.UpdateWatermarkVisibility();
+
+            if (!this.SelectAllOnKeyboardFocus)
+            {
+                this.ClearTextSelection();
+            }
+        }
+
+        private void ClearTextSelection()
+        {
+            if (this.textbox == null)
+            {
+                return;
+            }
+
+            this.textbox.SelectionStart = this.textbox.Text.Length;
+            this.textbox.SelectionLength = 0;
         }
 
         private void UpdateWatermarkVisibility()
@@ -1657,8 +1711,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
             else if (this.setProgrammaticFocus || (this.textbox.FocusState == FocusState.Keyboard && !this.shouldMarkText))
             {
-                this.textbox.SelectionStart = this.textbox.Text.Length;
-                this.textbox.SelectionLength = 0;
+                this.ClearTextSelection();
             }
         }
 

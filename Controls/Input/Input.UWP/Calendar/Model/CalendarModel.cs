@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Primitives;
@@ -12,6 +13,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         internal const string DefaultDecadeViewCellFormatString = "{0:yyyy}";
         internal const string DefaultCenturyViewCellFormatString = "{0:yyyy} ~ {1:yyyy}";
         internal const string DefaultWeekNumberFormatString = "{0}";
+        internal const string DefaultTimeFormatString = "{0:hh:mm}";
 
         internal static readonly int GridLinesVisibilityPropertyKey = PropertyKeys.Register(typeof(GridLinesVisibility), "GridLinesVisibility", CalendarInvalidateFlags.All);
         internal static readonly int GridLinesThicknessPropertyKey = PropertyKeys.Register(typeof(double), "GridLinesThickness", CalendarInvalidateFlags.All);
@@ -27,6 +29,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         internal static readonly int CulturePropertyKey = PropertyKeys.Register(typeof(CultureInfo), "Culture", CalendarInvalidateFlags.InvalidateContent);
         internal static readonly int DayNameFormatPropertyKey = PropertyKeys.Register(typeof(CalendarDayNameFormat), "DayNameFormat", CalendarInvalidateFlags.InvalidateContent);
         internal static readonly int WeekNumberFormatPropertyKey = PropertyKeys.Register(typeof(string), "WeekNumberFormat", CalendarInvalidateFlags.All);
+        internal static readonly int TimeFormatPropertyKey = PropertyKeys.Register(typeof(string), "TimeFormat", CalendarInvalidateFlags.All);
 
         internal static readonly int AreDayNamesVisiblePropertyKey = PropertyKeys.Register(typeof(bool), "AreDayNamesVisible", CalendarInvalidateFlags.All);
         internal static readonly int AreWeekNumbersVisiblePropertyKey = PropertyKeys.Register(typeof(bool), "AreWeekNumbersVisible", CalendarInvalidateFlags.All);
@@ -35,8 +38,12 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
         internal CalendarYearViewModel yearViewModel;
         internal CalendarDecadeViewModel decadeViewModel;
         internal CalendarCenturyViewModel centuryViewModel;
+        internal CalendarMultiDayViewModel multiDayViewModel;
 
         internal CalendarViewModel currentViewModel;
+
+        internal AppointmentSource appointmentSource;
+        internal MultiDayViewSettings multiDayViewSettings;
 
         public CalendarModel(IView calendar)
         {
@@ -45,6 +52,9 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.TrackPropertyChanged = true;
 
             this.View = calendar;
+
+            this.multiDayViewModel = new CalendarMultiDayViewModel();
+            this.children.Add(this.multiDayViewModel);
 
             this.monthViewModel = new CalendarMonthViewModel();
             this.children.Add(this.monthViewModel);
@@ -112,6 +122,18 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             set
             {
                 this.SetValue(WeekNumberFormatPropertyKey, value);
+            }
+        }
+
+        public string TimeFormat
+        {
+            get
+            {
+                return this.GetTypedValue<string>(TimeFormatPropertyKey, DefaultTimeFormatString);
+            }
+            set
+            {
+                this.SetValue(TimeFormatPropertyKey, value);
             }
         }
 
@@ -255,6 +277,19 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
         }
 
+        public CalendarGridLine CurrentTimeIndicator
+        {
+            get
+            {
+                if (this.DisplayMode == CalendarDisplayMode.MultiDayView && this.multiDayViewSettings.ShowCurrentTimeIndicator)
+                {
+                    return this.multiDayViewModel.currentTimeIndicator;
+                }
+
+                return null;
+            }
+        }
+
         public ElementCollection<CalendarHeaderCellModel> CalendarHeaderCells
         {
             get
@@ -262,6 +297,11 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 if (this.DisplayMode == CalendarDisplayMode.MonthView)
                 {
                     return this.monthViewModel.CalendarHeaderCells;
+                }
+
+                if (this.DisplayMode == CalendarDisplayMode.MultiDayView)
+                {
+                    return this.multiDayViewModel.CalendarHeaderCells;
                 }
 
                 return null;
@@ -378,6 +418,60 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             return this.View.MeasureContent(owner, content);
         }
 
+        internal DateTime GetFirstDateToRenderForDisplayMode(DateTime date, CalendarDisplayMode displayMode)
+        {
+            date = date.Date;
+            DateTime firstDateToRender = date;
+
+            if (displayMode == CalendarDisplayMode.MultiDayView)
+            {
+                DayOfWeek firstDayOfWeek = this.GetFirstDayOfWeek();
+                DateTime firstDateOfCurrentWeek = CalendarMathHelper.GetFirstDayOfCurrentWeek(date, firstDayOfWeek);
+
+                if (!(firstDateOfCurrentWeek.Date <= date.Date && firstDateOfCurrentWeek.AddDays(7).Date >= date.Date))
+                {
+                    firstDateToRender = firstDateOfCurrentWeek;
+                }
+
+                if (!this.multiDayViewSettings.WeekendsVisible)
+                {
+                    firstDateToRender = CalendarMathHelper.AddBusinessDays(date, -this.multiDayViewSettings.VisibleDays);
+                }
+                else
+                {
+                    firstDateToRender = date.AddDays(-this.multiDayViewSettings.VisibleDays);
+                }
+            }
+            else if (displayMode == CalendarDisplayMode.MonthView)
+            {
+                DayOfWeek firstDayOfWeekToUse = this.GetFirstDayOfWeek();
+
+                DateTime monthStartDate = CalendarMathHelper.GetFirstDateOfMonth(date);
+
+                int daysToSubtract = (int)monthStartDate.DayOfWeek - (int)firstDayOfWeekToUse;
+                if (daysToSubtract <= 0)
+                {
+                    daysToSubtract += 7;
+                }
+
+                firstDateToRender = monthStartDate.Date == DateTime.MinValue.Date ? monthStartDate : monthStartDate.AddDays(-daysToSubtract);
+            }
+            else if (displayMode == CalendarDisplayMode.YearView)
+            {
+                firstDateToRender = CalendarMathHelper.GetFirstDateOfYear(date);
+            }
+            else if (displayMode == CalendarDisplayMode.DecadeView)
+            {
+                firstDateToRender = CalendarMathHelper.GetFirstDateOfDecade(date);
+            }
+            else if (displayMode == CalendarDisplayMode.CenturyView)
+            {
+                firstDateToRender = CalendarMathHelper.GetFirstDateOfCentury(date);
+            }
+
+            return firstDateToRender;
+        }
+
         private void UpdateCurrentView()
         {
             switch (this.DisplayMode)
@@ -390,6 +484,9 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                     break;
                 case CalendarDisplayMode.CenturyView:
                     this.currentViewModel = this.centuryViewModel;
+                    break;
+                case CalendarDisplayMode.MultiDayView:
+                    this.currentViewModel = this.multiDayViewModel;
                     break;
                 default:
                     this.currentViewModel = this.monthViewModel;

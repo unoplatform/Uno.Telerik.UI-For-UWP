@@ -2,7 +2,7 @@
 using Telerik.Charting;
 using Windows.Devices.Input;
 using Windows.Foundation;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -173,7 +173,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 throw new ArgumentNullException(nameof(args));
             }
 
-            if (args.Pointer.PointerDeviceType != PointerDeviceType.Mouse)
+            if (!args.Pointer.PointerDeviceType.Equals(PointerDeviceType.Mouse))
             {
                 return;
             }

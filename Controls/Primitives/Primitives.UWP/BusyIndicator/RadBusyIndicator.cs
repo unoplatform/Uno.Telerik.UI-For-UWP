@@ -5,11 +5,11 @@ using System.Reflection;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.BusyIndicator;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -206,7 +206,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         }
 
         /// <summary>
-        /// Occurs when a <see cref="Windows.UI.Xaml.FrameworkElement"/> has been constructed and added to the object tree.
+        /// Occurs when a <see cref="Microsoft.UI.Xaml.FrameworkElement"/> has been constructed and added to the object tree.
         /// </summary>
         protected override void OnLoaded(object sender, RoutedEventArgs e)
         {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Reflection;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.Data.Core
 {
@@ -56,7 +56,7 @@ namespace Telerik.Data.Core
         {
             if (this.SetMethod != null)
             {
-                var value = this.PropertyConverter != null ? this.PropertyConverter.ConvertBack(this.PropertyValue) : this.PropertyValue;
+                var value = this.PropertyValue;
                 var type = this.PropertyType;
 
                 if (value != null && value.GetType() != type)

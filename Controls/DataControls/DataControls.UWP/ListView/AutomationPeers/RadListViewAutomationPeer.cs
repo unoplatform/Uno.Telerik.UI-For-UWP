@@ -3,8 +3,8 @@ using Telerik.Data.Core.Layouts;
 using Telerik.UI.Xaml.Controls.Data;
 using Telerik.UI.Xaml.Controls.Data.ContainerGeneration;
 using Telerik.UI.Xaml.Controls.Data.ListView;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
 
 namespace Telerik.UI.Automation.Peers
 {

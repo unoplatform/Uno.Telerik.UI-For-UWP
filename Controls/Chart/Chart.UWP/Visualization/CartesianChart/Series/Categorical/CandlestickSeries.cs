@@ -4,10 +4,10 @@ using System.Linq;
 using Telerik.Charting;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
