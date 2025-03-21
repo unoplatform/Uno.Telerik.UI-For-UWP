@@ -760,10 +760,10 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             base.AttachUI(parent);
             this.scrollViewer.ViewChanged += this.OnScrollViewerViewChanged;
 
-            //this.scrollViewer.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(this.OnScrollViewerPointerPressed), true);
-            //this.scrollViewer.AddHandler(UIElement.PointerMovedEvent, new PointerEventHandler(this.OnScrollViewerPointerMoved), true);
-            //this.scrollViewer.AddHandler(UIElement.PointerExitedEvent, new PointerEventHandler(this.OnScrollViewerPointerExitedEvent), true);
-            //this.scrollViewer.AddHandler(UIElement.PointerEnteredEvent, new PointerEventHandler(this.OnScrollViewerPointerEnteredEvent), true);
+            this.scrollViewer.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(this.OnScrollViewerPointerPressed), true);
+            this.scrollViewer.AddHandler(UIElement.PointerMovedEvent, new PointerEventHandler(this.OnScrollViewerPointerMoved), true);
+            this.scrollViewer.AddHandler(UIElement.PointerExitedEvent, new PointerEventHandler(this.OnScrollViewerPointerExitedEvent), true);
+            this.scrollViewer.AddHandler(UIElement.PointerEnteredEvent, new PointerEventHandler(this.OnScrollViewerPointerEnteredEvent), true);
 
             this.scrollViewer.ManipulationCompleted += this.OnScrollViewerManipulationCompleted;
 

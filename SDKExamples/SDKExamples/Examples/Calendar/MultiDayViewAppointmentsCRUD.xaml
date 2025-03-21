@@ -113,8 +113,7 @@
 				</input:CalendarCellStyle>
 			</input:RadCalendar.HighlightedCellStyle>
 		</input:RadCalendar>
-		<Grid Grid.Row="2"
-			  Background="#EBEBEB">
+		<Grid Grid.Row="2">
 			<StackPanel Orientation="Horizontal"
 						HorizontalAlignment="Right">
 				<StackPanel.Resources>
