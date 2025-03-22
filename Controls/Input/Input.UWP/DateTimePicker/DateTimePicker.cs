@@ -6,9 +6,9 @@ using Telerik.UI.Xaml.Controls.Primitives.LoopingList;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Globalization;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -59,7 +59,7 @@ namespace Telerik.UI.Xaml.Controls.Input
         /// Identifies the <see cref="Value"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register(nameof(Value), typeof(object), typeof(DateTimePicker), new PropertyMetadata(null, OnValueChanged));
+            DependencyProperty.Register(nameof(Value), typeof(DateTime?), typeof(DateTimePicker), new PropertyMetadata(null, OnValueChanged));
 
         /// <summary>
         /// Identifies the <see cref="DisplayValueFormat"/> dependency property.
@@ -97,11 +97,12 @@ namespace Telerik.UI.Xaml.Controls.Input
         public static readonly DependencyProperty CalendarLanguageProperty =
             DependencyProperty.Register(nameof(CalendarLanguage), typeof(string), typeof(DateTimePicker), new PropertyMetadata(Windows.Globalization.ApplicationLanguages.Languages[0], OnCalendarLanguageChanged));
 
-        /// <summary>
-        /// Identifies the <see cref="CalendarNumeralSystem"/> dependency property.
-        /// </summary>
-        public static readonly DependencyProperty CalendarNumeralSystemProperty =
-            DependencyProperty.Register(nameof(CalendarNumeralSystem), typeof(string), typeof(DateTimePicker), new PropertyMetadata(NumeralSystemIdentifiers.Latn, OnCalendarNumeralSystemChanged));
+        // TODO UNO: NumeralSystemIdentifiers not implemented
+        ///// <summary>
+        ///// Identifies the <see cref="CalendarNumeralSystem"/> dependency property.
+        ///// </summary>
+        //public static readonly DependencyProperty CalendarNumeralSystemProperty =
+        //    DependencyProperty.Register(nameof(CalendarNumeralSystem), typeof(string), typeof(DateTimePicker), new PropertyMetadata(NumeralSystemIdentifiers.Latn, OnCalendarNumeralSystemChanged));
 
         internal CalendarValidator calendarValidator;
 
@@ -119,7 +120,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             this.selectorUtcValue = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             this.utcValue = this.selectorUtcValue;
 			// TODO UNO
-			Windows.UI.Xaml.Window.Current.SizeChanged += this.Current_SizeChanged;
+			Microsoft.UI.Xaml.Window.Current.SizeChanged += this.Current_SizeChanged;
         }
 
         /// <summary>
@@ -152,21 +153,22 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
+        // TODO UNO: NumeralSystemIdentifiers not implemented
         /// <summary>
         /// Gets or sets the calendar numeral system.
         /// The default value is <see cref="Windows.Globalization.NumeralSystemIdentifiers.Latn"/>.
         /// </summary>
-        public string CalendarNumeralSystem
-        {
-            get
-            {
-                return (string)this.GetValue(CalendarNumeralSystemProperty);
-            }
-            set
-            {
-                this.SetValue(CalendarNumeralSystemProperty, value);
-            }
-        }
+        //public string CalendarNumeralSystem
+        //{
+        //    get
+        //    {
+        //        return (string)this.GetValue(CalendarNumeralSystemProperty);
+        //    }
+        //    set
+        //    {
+        //        this.SetValue(CalendarNumeralSystemProperty, value);
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the calendar identifier.
@@ -751,7 +753,7 @@ namespace Telerik.UI.Xaml.Controls.Input
             }
         }
 
-        private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        private void Current_SizeChanged(object sender, Microsoft.UI.Xaml.WindowSizeChangedEventArgs e)
         {
             this.IsOpen = false;
         }

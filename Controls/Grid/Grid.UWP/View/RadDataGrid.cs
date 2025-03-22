@@ -12,12 +12,12 @@ using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -129,6 +129,12 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// </summary>
         public static readonly DependencyProperty GroupPanelPositionProperty =
             DependencyProperty.Register(nameof(GroupPanelPosition), typeof(GroupPanelPosition), typeof(RadDataGrid), new PropertyMetadata(GroupPanelPosition.Left, OnGroupPanelPositionChanged));
+
+        /// <summary>
+        /// Identifies the <see cref="ListenForNestedPropertyChange"/> dependency property. 
+        /// </summary>
+        public static readonly DependencyProperty ListenForNestedPropertyChangeProperty =
+            DependencyProperty.Register(nameof(ListenForNestedPropertyChange), typeof(bool), typeof(RadDataGrid), new PropertyMetadata(false, OnListenForNestedPropertyChangePropertyChanged));
 
         private DataGridColumnHeaderPanel columnHeadersPanel;
         private DataGridCellsPanel cellsPanel;
@@ -451,7 +457,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// {
         ///    public DataTemplate ExpandedTemplate { get; set; }
         ///    public DataTemplate CollapsedTemplate { get; set; }
-        ///    protected override DataTemplate SelectTemplateCore(object item, Windows.UI.Xaml.DependencyObject container)
+        ///    protected override DataTemplate SelectTemplateCore(object item, Microsoft.UI.Xaml.DependencyObject container)
         ///    {
         ///        if ((item as GroupHeaderContext).IsExpanded == true) { return this.ExpandedTemplate; } else { return this.CollapsedTemplate; }
         ///    }
@@ -571,6 +577,21 @@ namespace Telerik.UI.Xaml.Controls.Grid
             set
             {
                 this.SetValue(DragBehaviorProperty, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the DataGrid should be updated if INotifyPropertyChanged item from its source is changed.
+        /// </summary>
+        public bool ListenForNestedPropertyChange
+        {
+            get
+            {
+                return (bool)this.GetValue(ListenForNestedPropertyChangeProperty);
+            }
+            set
+            {
+                this.SetValue(ListenForNestedPropertyChangeProperty, value);
             }
         }
 
@@ -979,6 +1000,12 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 grid.updateService.RegisterUpdate((int)UpdateFlags.AffectsContent);
             }
+        }
+
+        private static void OnListenForNestedPropertyChangePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            RadDataGrid grid = d as RadDataGrid;
+            grid.model.ListenForNestedPropertyChange = (bool)e.NewValue;
         }
 
         private static void OnColumnResizeModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

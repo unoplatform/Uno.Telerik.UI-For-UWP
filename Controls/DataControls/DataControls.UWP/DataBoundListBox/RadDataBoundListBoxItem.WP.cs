@@ -1,8 +1,8 @@
 ﻿using System;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -45,7 +45,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
             base.OnPointerPressed(e);
 
-            if (this.typedOwner != null && e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
+            if (this.typedOwner != null && e.Pointer.PointerDeviceType.Equals(Windows.Devices.Input.PointerDeviceType.Mouse))
             {
                 this.startPoint = e.GetCurrentPoint(this).Position;
 
@@ -96,7 +96,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         }
 
         /// <summary>
-        /// Called when the <see cref="E:System.Windows.Controls.Control.ManipulationStarted"/> event occurs. This member overrides <see cref="M:System.Windows.UIElement.OnManipulationStarted(System.Object,System.Windows.Input.ManipulationStartedEventArgs)"/>.
+        /// Called when the <see cref="E:System.Windows.Controls.Control.ManipulationStarted"/> event occurs. This member overrides <see cref="M:System.Microsoft.UIElement.OnManipulationStarted(System.Object,System.Windows.Input.ManipulationStartedEventArgs)"/>.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
         protected override void OnManipulationStarted(ManipulationStartedRoutedEventArgs e)
@@ -114,7 +114,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         }
 
         /// <summary>
-        /// Called when the <see cref="E:System.Windows.Controls.Control.ManipulationDelta"/> event occurs. This member overrides <see cref="M:System.Windows.UIElement.OnManipulationDelta(System.Object,System.Windows.Input.ManipulationDeltaEventArgs)"/>.
+        /// Called when the <see cref="E:System.Windows.Controls.Control.ManipulationDelta"/> event occurs. This member overrides <see cref="M:System.Microsoft.UIElement.OnManipulationDelta(System.Object,System.Windows.Input.ManipulationDeltaEventArgs)"/>.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
         protected override void OnManipulationDelta(ManipulationDeltaRoutedEventArgs e)
@@ -135,7 +135,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         }
 
         /// <summary>
-        /// Called before the <see cref="E:System.Windows.UIElement.Tap" /> event
+        /// Called before the <see cref="E:System.Microsoft.UIElement.Tap" /> event
         /// occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>

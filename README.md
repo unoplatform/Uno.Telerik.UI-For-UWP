@@ -1,4 +1,30 @@
+# Progress Telerik UI for Uno Platform
+
+[![Azure DevOps](https://img.shields.io/azure-devops/build/uno-platform/1dd81cbd-cb35-41de-a570-b0df3571a196/20/uno?label=uno)](https://uno-platform.visualstudio.com/Uno%20Platform/_build?definitionId=20)
+[![Azure DevOps](https://img.shields.io/azure-devops/build/uno-platform/1dd81cbd-cb35-41de-a570-b0df3571a196/74/canaries/dev?label=canaries)](https://uno-platform.visualstudio.com/Uno%20Platform/_build?definitionId=74)
+[![Uno Platform Discord](https://img.shields.io/discord/1182775715242967050?label=Discord&color=f85977)](https://platform.uno/discord)
+
+This is a fork of the open-source version of Telerik UI for Universal Windows Platform (UWP) by Progress. This fork adds modern support for WinUI and Uno Platform to the original project.
+
+## Getting started with Visual Studio
+
+* Clone a copy of the repository code
+* Make sure you are using the latest [`uno`](https://github.com/unoplatform/Uno.Telerik.UI-For-UWP/tree/uno) branch for this repository
+* Open UWPControls.sln located in Controls folder and build it
+* The solution contains a sample application, SDKExamples.
+* Set the SDKExamples project as the Startup project and run it for any platform.
+
+### Running SDKExamples directly using Rider/VS Code
+
+* Follow the above steps to clone and ensure you are on the latest `uno` branch.
+* For VS Code, you can open the `SDKExamples\SDKExamples\` folder directly in Code and select SDKExamples.csproj as the startup project.
+* For Rider, open the `SDKExamples\SDKExamples\SDKExamples.sln` directly and select your desired platform to run.
+
+> NOTE: Everything below is the original README from the Telerik UI for UWP project.
+
 # Progress Telerik UI for UWP
+
+<a href="https://www.telerik.com/universal-windows-platform-ui" target="_blank"><img src="telerik-ui-for-uwp-is-retired.png" /></a>
 
 This is an open-source version of Telerik UI for Universal Windows Platform (UWP) by Progress. The project is community-supported on [Stack Overflow](https://stackoverflow.com/questions/tagged/telerik+uwp). Commercial support is available at [telerik.com/uwp](http://www.telerik.com/uwp) where you'll find a supported commercial trial and pricing options. Please visit [telerik.com](http://www.telerik.com/) for UI tools for ASP.NET, WPF, WinForms, or JavaScript.
 
@@ -43,7 +69,10 @@ UI for UWP is built to target UWP Windows 10 application development and deliver
 The official documentation for UI for UWP is available [here](http://docs.telerik.com/devtools/universal-windows-platform/Introduction-uwp) and here is the git repo for it [Telerik UI for UWP documentaton repo](https://github.com/telerik/uwp-docs)
 
 ## Demos
-Currently, you can take a look at the [Customers Orders Database sample](https://github.com/Microsoft/Windows-appsample-customers-orders-database) developed by Microsoft, which showcases the usage of the RadDataGrid control.
+
+The [UI for UWP Demos application](https://github.com/telerik/UI-For-UWP-Demos) demonstrates a great number of user case scenarios using Telerik UI for UWP.
+
+Also, you can take a look at the [Customers Orders Database sample](https://github.com/Microsoft/Windows-appsample-customers-orders-database) developed by Microsoft, which showcases the usage of the RadDataGrid control.
 
 **********************************************************************************************************************************
 
@@ -66,8 +95,7 @@ UI for UWP is free and open-source. We encourage and support an active, healthy 
 
 Before contributing to UI for UWP, please:
 
-1. Read and sign the [Telerik UI for UWP Contribution License Agreement](https://docs.google.com/forms/d/e/1FAIpQLSfQAzVxnnfwRQmtJCVmB41_ig1gYow--Gr8qLvaDxJRNHPtUQ/viewform), to confirm you've read and acknowledged the legal aspects of your contributions, and
-2. Read our [contribution guide](CONTRIBUTING.md), which houses all of the necessary info to:
+Read our [contribution guide](CONTRIBUTING.md), which houses all of the necessary info to:
   * submit bugs,
   * request new features, and,
   * walk you through the entire process of preparing your code for a Pull Request.
@@ -91,11 +119,13 @@ This project is supported by the [.NET Foundation](https://dotnetfoundation.org)
 
 ## Recent news
 
-* [Getting Started with Telerik UI for UWP](http://www.telerik.com/blogs/getting-started-with-telerik-ui-for-uwp)
-* [Telerik UI for UWP joins the .NET Foundation](http://www.telerik.com/blogs/progress-telerik-ui-for-uwp-joins-net-foundation)
-* [Telerik UI for UWP in Windows Template Studio](https://developer.telerik.com/topics/net/announcing-windows-template-studio/)
-* [Telerik UI for UWP toolbox support with NuGet package](http://www.telerik.com/blogs/telerik-ui-for-uwp-free-and-updated-xaml-controls) ([alternative link](https://blogs.msdn.microsoft.com/visualstudio/2017/05/30/telerik-ui-for-uwp-free-and-updated-xaml-controls/))
-* [Building Windows Apps with Adaptive UI om Channel9](http://www.telerik.com/blogs/ui-controls-for-uwp-building-windows-apps-with-adaptive-ui) ([alternative link](https://channel9.msdn.com/Blogs/DevRadio/DR1734))
+* [Blog: Getting Started with Telerik UI for UWP](http://www.telerik.com/blogs/getting-started-with-telerik-ui-for-uwp)
+* [Video on CH9: Getting Started with Telerik UI for UWP](https://channel9.msdn.com/Blogs/vsppstories/Getting-Started-with-Telerik-UI-for-UWP)
+* [Blog: Telerik UI for UWP joins the .NET Foundation](http://www.telerik.com/blogs/progress-telerik-ui-for-uwp-joins-net-foundation)
+* [Blog: Telerik UI for UWP in Windows Template Studio](https://developer.telerik.com/topics/net/announcing-windows-template-studio/)
+* [Blog: Telerik UI for UWP toolbox support with NuGet package](http://www.telerik.com/blogs/telerik-ui-for-uwp-free-and-updated-xaml-controls) ([alternative link](https://blogs.msdn.microsoft.com/visualstudio/2017/05/30/telerik-ui-for-uwp-free-and-updated-xaml-controls/))
+* [Video: Building Windows Apps with Adaptive UI om Channel9](http://www.telerik.com/blogs/ui-controls-for-uwp-building-windows-apps-with-adaptive-ui) ([alternative link](https://channel9.msdn.com/Blogs/DevRadio/DR1734))
+* [Blog: Analyzing NEOs with Telerik UI for UWP](https://www.telerik.com/blogs/analyzing-neos-with-telerik-ui-for-uwp)
 
 ## Like what you see?
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -79,7 +79,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                     {
                         if (info.IsFrozen)
                         {
-                            this.owner.FrozenEditRowLayer.AddVisualChild(pair.Item2);
+                            this.owner.FrozenEditRowLayer.AddVisualChild(element);
                         }
                         else
                         {

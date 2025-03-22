@@ -6,10 +6,10 @@ using System.Linq;
 using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.HubTile;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -249,7 +249,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 
             this.firstContentContainer.LayoutUpdated += this.OnFirstContentLayoutUpdated;
 
-            if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+            if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
             {
                 Canvas.SetTop(this.panel, 0);
                 Canvas.SetTop(this.firstContentContainer, 0);
@@ -309,7 +309,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 this.localContentAnimation.SkipToFill();
             }
 
-            if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+            if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
             {
                 this.moveUpGlobalAnimation.To = -this.Height;
             }

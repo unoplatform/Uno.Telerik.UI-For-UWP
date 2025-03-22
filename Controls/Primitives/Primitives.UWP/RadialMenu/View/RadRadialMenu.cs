@@ -7,13 +7,13 @@ using Telerik.UI.Xaml.Controls.Primitives.Menu.Commands;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -247,7 +247,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Gets or sets the <see cref="Style"/> value that defines the appearance of the menu items panel.
         /// </summary>
         /// <remarks>
-        /// The <see cref="Style"/> should target the <see cref="Windows.UI.Xaml.Shapes.Rectangle"/> type.
+        /// The <see cref="Style"/> should target the <see cref="Microsoft.UI.Xaml.Shapes.Rectangle"/> type.
         /// </remarks>
         /// <example>
         /// <code language="xaml">
@@ -276,7 +276,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Gets or sets the <see cref="Style"/> value that defines the appearance of the navigation buttons panel.
         /// </summary>
         /// <remarks>
-        /// The <see cref="Style"/> should target the <see cref="Windows.UI.Xaml.Shapes.Rectangle"/> type.
+        /// The <see cref="Style"/> should target the <see cref="Microsoft.UI.Xaml.Shapes.Rectangle"/> type.
         /// </remarks>
         /// <example>
         /// <code language="xaml">
@@ -491,7 +491,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             var adjustedPosition = new Point(position.X, position.Y - this.DesiredSize.Height / 2);
 
 			// UNO TODO
-            var windowBounds = Windows.UI.Xaml.Window.Current.Bounds;
+            var windowBounds = Microsoft.UI.Xaml.Window.Current.Bounds;
 
             var x = Math.Min(adjustedPosition.X + this.DesiredSize.Width, windowBounds.Width) - this.DesiredSize.Width;
 
@@ -504,31 +504,6 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             var calculatedPosition = new Point(x, y);
 
             return calculatedPosition;
-        }
-
-        /// <summary>
-        /// Exposed for testing purposes.
-        /// </summary>
-        internal void HandleOnBackButtonPressed()
-        {
-            var menuLevels = this.model.viewState.MenuLevels;
-
-            if (menuLevels.Count > 0)
-            {
-                var sourceItem = menuLevels.Pop();
-                var targetLevel = menuLevels.FirstOrDefault();
-                var startAngleLevels = this.model.viewState.StartAngleLevels;
-
-                startAngleLevels.RemoveAt(startAngleLevels.Count - 1);
-                var startAngle = startAngleLevels.LastOrDefault();
-
-                this.RaiseNavigateCommand(targetLevel, sourceItem, startAngle, true);
-
-                if (targetLevel == null)
-                {
-                    this.menuButton.TransformToNormal();
-                }
-            }
         }
 
         /// <summary>
@@ -590,7 +565,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Called before the PointerMoved event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerMoved(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerMoved(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerMoved(e);
 
@@ -604,7 +579,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Called before the PointerExited event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerExited(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerExited(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerExited(e);
 
@@ -618,7 +593,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
         /// Called before the Tapped event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnTapped(Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        protected override void OnTapped(Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             base.OnTapped(e);
 
@@ -868,7 +843,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
                 }
                 else
                 {
-                    this.HandleOnBackButtonPressed();
+                    this.CommandService.ExecuteCommand(CommandId.NavigateBack, null);
                 }
             }
         }

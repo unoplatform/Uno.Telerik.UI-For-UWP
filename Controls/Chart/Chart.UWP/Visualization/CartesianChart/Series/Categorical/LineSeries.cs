@@ -2,13 +2,13 @@
 using Telerik.Charting;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
     /// <summary>
-    /// Visualizes a collection of data points using a <see cref="Windows.UI.Xaml.Shapes.Line"/> shape.
+    /// Visualizes a collection of data points using a <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape.
     /// </summary>
     public partial class LineSeries : CategoricalStrokedSeries
     {
@@ -31,7 +31,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
             }
         }
 
-        internal override Windows.UI.Xaml.FrameworkElement SeriesVisual
+        internal override Microsoft.UI.Xaml.FrameworkElement SeriesVisual
         {
             get
             {

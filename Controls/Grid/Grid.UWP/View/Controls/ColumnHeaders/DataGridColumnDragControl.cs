@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -39,6 +39,13 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             {
                 this.SetValue(FilterGlyphVisibilityProperty, value);
             }
+        }
+
+        /// <inheritdoc />
+        protected override void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            base.OnUnloaded(sender, e);
+            this.Content = null;
         }
     }
 }

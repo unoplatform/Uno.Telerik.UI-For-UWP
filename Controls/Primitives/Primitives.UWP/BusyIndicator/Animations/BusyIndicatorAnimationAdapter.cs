@@ -1,13 +1,13 @@
 ﻿using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.BusyIndicator
 {
     /// <summary>
     /// A utility class that is used to adapt an animation in arbitrary ways.
     /// </summary>
-   [Windows.UI.Xaml.Data.Bindable]
+   [Microsoft.UI.Xaml.Data.Bindable]
     public partial class BusyIndicatorAnimationAdapter : FrameworkElement
     {
         /// <summary>

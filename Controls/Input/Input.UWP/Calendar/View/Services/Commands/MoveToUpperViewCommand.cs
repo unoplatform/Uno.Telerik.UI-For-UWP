@@ -1,5 +1,5 @@
 ﻿using System;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar.Commands
 {
@@ -31,6 +31,9 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar.Commands
 
             switch (this.Owner.DisplayMode)
             {
+                case CalendarDisplayMode.MultiDayView:
+                    this.Owner.DisplayMode = CalendarDisplayMode.MonthView;
+                    break;
                 case CalendarDisplayMode.MonthView:
                     this.Owner.DisplayMode = CalendarDisplayMode.YearView;
                     break;

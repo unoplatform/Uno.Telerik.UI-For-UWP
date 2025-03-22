@@ -1,11 +1,11 @@
 ﻿using System;
 using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -48,7 +48,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 		private Popup popup = new Popup() { ChildTransitions = new TransitionCollection(), IsLightDismissEnabled = false };
 #else
 		// UNO TODO
-		private Windows.UI.Xaml.Controls.Popup popup = new Windows.UI.Xaml.Controls.Popup() { /*ChildTransitions = new TransitionCollection(),*/ IsLightDismissEnabled = false };
+		private Microsoft.UI.Xaml.Controls.Primitives.Popup popup = new Microsoft.UI.Xaml.Controls.Primitives.Popup() { /*ChildTransitions = new TransitionCollection(),*/ IsLightDismissEnabled = false };
 #endif
 		private Border content;
         private Storyboard opacityAnimationStoryboard = new Storyboard();
@@ -357,7 +357,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             this.Hide(DataGridFlyoutId.All);
         }
 
-        private void Child_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void Child_PointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.Child.PointerExited -= this.Child_PointerExited;
             this.cellFlyoutHideTimeOutAnimationBoard.Completed += this.CellTimeOutAnimationCompleted;
@@ -435,15 +435,15 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 
             if (this.popup.IsOpen)
             {
-                var currentOffsetX = this.Owner.TransformToVisual(/*UNO TODO*/Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0)).X + this.HorizontalOffset;
+                var currentOffsetX = this.Owner.TransformToVisual(/*UNO TODO*/Microsoft.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0)).X + this.HorizontalOffset;
 
                 if (currentOffsetX < 0)
                 {
                     this.HorizontalOffset += -currentOffsetX;
                 }
-                else if (currentOffsetX + this.Child.ActualWidth > /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width)
+                else if (currentOffsetX + this.Child.ActualWidth > /*UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Width)
                 {
-                    this.HorizontalOffset -= currentOffsetX + this.Child.ActualWidth - /*UNO TODO*/Windows.UI.Xaml.Window.Current.Bounds.Width;
+                    this.HorizontalOffset -= currentOffsetX + this.Child.ActualWidth - /*UNO TODO*/Microsoft.UI.Xaml.Window.Current.Bounds.Width;
                 }
 
                 if (this.HorizontalOffset + this.Child.ActualWidth > this.Owner.ActualWidth)

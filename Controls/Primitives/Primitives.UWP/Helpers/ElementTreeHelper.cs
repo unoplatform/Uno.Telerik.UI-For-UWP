@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls
 {
@@ -114,7 +114,7 @@ namespace Telerik.UI.Xaml.Controls
 		/// </returns>
 		// UNO TODO
 		public static IEnumerable<T> EnumVisualDescendants<T>(DependencyObject parent) where T :
-#if !NETFX_CORE
+#if HAS_UNO
 			class, 
 #endif
 			DependencyObject

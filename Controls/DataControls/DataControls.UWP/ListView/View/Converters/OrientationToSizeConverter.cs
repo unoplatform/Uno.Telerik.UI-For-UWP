@@ -1,6 +1,6 @@
 ﻿using System;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Data.ListView
 {
@@ -17,7 +17,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView
         private const string Height = "Height";
 
         /// <summary>
-        /// Takes <see cref="Windows.UI.Xaml.Controls.Orientation"/> value and returns <see cref="System.Double"/> value that
+        /// Takes <see cref="Microsoft.UI.Xaml.Controls.Orientation"/> value and returns <see cref="System.Double"/> value that
         /// specifies the height/width of the corresponding action content depending on the <paramref name="parameter"/> value.
         /// </summary>
         /// <param name="value">The orientation of the control.</param>

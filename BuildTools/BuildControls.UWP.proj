@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
 
   <Import Project="$(MSBuildProjectDirectory)\Config.UWP.proj" />
 
@@ -12,6 +12,7 @@
       BuildMapX86Platform;
       BuildMapX64Platform;
       BuildMapArmPlatform;
+      BuildMapArm64Platform;
     </BuildDependsOn>
   </PropertyGroup>
 
@@ -38,8 +39,8 @@
   </Target>
 
   <Target Name="RestoreMapSolutionNuGetPackages">
-
-    <Exec Command="$(Nuget32ToolPath) restore $(UWPMapSolutionPath) -NonInteractive -Source https://api.nuget.org/v3/index.json" />
+  
+	<MSBuild Projects="$(UWPMapSolutionPath)" Targets="Restore" />
 
   </Target>
 
@@ -62,6 +63,14 @@
 
     <MSBuild Projects="$(UWPMapSolutionPath)"
              Properties="Configuration=$(Configuration);Platform=$(ArmPlatform)"
+             Targets="Rebuild" />
+
+  </Target>
+
+  <Target Name="BuildMapArm64Platform">
+
+    <MSBuild Projects="$(UWPMapSolutionPath)"
+             Properties="Configuration=$(Configuration);Platform=$(Arm64Platform)"
              Targets="Rebuild" />
 
   </Target>

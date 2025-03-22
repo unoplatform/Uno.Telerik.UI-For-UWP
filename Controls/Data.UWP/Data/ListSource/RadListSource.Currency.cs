@@ -198,7 +198,7 @@ namespace Telerik.Core.Data
         }
 
         /// <summary>
-        /// Syncs the current item with an external change (if the source collection implements the <see cref="Windows.UI.Xaml.Data.ICollectionView"/> interface.
+        /// Syncs the current item with an external change (if the source collection implements the <see cref="Microsoft.UI.Xaml.Data.ICollectionView"/> interface.
         /// </summary>
         protected virtual void SynchronizeCurrent()
         {
@@ -222,7 +222,7 @@ namespace Telerik.Core.Data
         /// Performs the core logic of updating the current item.
         /// </summary>
         /// <param name="item">The item that needs to be set as current.</param>
-        /// <param name="synchronizeOriginal">True to apply the change to the original <see cref="Windows.UI.Xaml.Data.ICollectionView"/> instance (if any), false otherwise.</param>
+        /// <param name="synchronizeOriginal">True to apply the change to the original <see cref="Microsoft.UI.Xaml.Data.ICollectionView"/> instance (if any), false otherwise.</param>
         /// <returns>True if operation was successful, false otherwise.</returns>
         protected virtual bool SetCurrentItemCore(IDataSourceItem item, bool synchronizeOriginal)
         {

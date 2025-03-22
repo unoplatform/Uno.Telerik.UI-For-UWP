@@ -1,5 +1,6 @@
 ﻿using Telerik.UI.Xaml.Controls.Grid.Primitives;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -165,7 +166,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 if (this.LastSelectedColumn.HeaderControl != null && this.ColumnDataOperationsMode == ColumnDataOperationsMode.Flyout)
                 {
-                    var context = this.GenerateColumnHeaderTapContext(this.LastSelectedColumn, Windows.Devices.Input.PointerDeviceType.Mouse);
+                    var context = this.GenerateColumnHeaderTapContext(this.LastSelectedColumn, PointerDeviceType.Mouse);
 
                     this.CommandService.ExecuteDefaultCommand(Grid.Commands.CommandId.ColumnHeaderTap, context);
                 }

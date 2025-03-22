@@ -5,7 +5,7 @@ using System.Linq;
 using Telerik.Core;
 using Telerik.Core.Data;
 using Windows.Foundation;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -339,7 +339,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
 
             // Extend the length with the new diff, although the extension could be less
-            var prevLength = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Horizontal ? oldSize.Height : oldSize.Width;
+            var prevLength = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Horizontal ? oldSize.Height : oldSize.Width;
 
             var sizeChange = this.GetItemLength(container) - prevLength;
 

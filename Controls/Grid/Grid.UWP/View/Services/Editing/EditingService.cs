@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Telerik.UI.Xaml.Controls.Grid.Primitives;
 using Telerik.UI.Xaml.Controls.Primitives;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -85,7 +85,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                         this.Owner.EditRowLayer.ScheduleFirstEditorForFocus();
                     }
 
-                    this.Owner.Model.CurrentDataProvider.CommitEditOperation(this.EditItem);
+                    this.Owner.Model.CurrentDataProvider.BeginEditOperation(this.EditItem);
 
                     // hide the CurrentItem decoration
                     this.Owner.visualStateService.UpdateCurrentDecoration(-1); 
@@ -130,7 +130,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 })
                 {
                     Flags = UpdateFlags.AffectsContent,
-                    Priority = CoreDispatcherPriority.Low
+                    Priority = Microsoft.UI.Dispatching.DispatcherQueuePriority.Low
                 };
 
             // Focusing the grid will force the Text property of all textboxes to be pushed to the underlying ViewModel.
@@ -153,7 +153,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
                 })
                 {
                     RequiresValidMeasure = true,
-                    Priority = CoreDispatcherPriority.Low
+                    Priority = Microsoft.UI.Dispatching.DispatcherQueuePriority.Low
                 };          
 
             this.Owner.updateService.RegisterUpdate(update);
@@ -189,18 +189,18 @@ namespace Telerik.UI.Xaml.Controls.Grid
                     this.Owner.EditRowLayer.EditorLayoutSlots.Clear();
                 }
 
-                this.Owner.Model.CurrentDataProvider.CommitEditOperation(this.EditItem);
+                this.Owner.Model.CurrentDataProvider.CancelEditOperation(this.EditItem);
             })
             {
                 Flags = UpdateFlags.AffectsContent
             };
 
-            this.Owner.updateService.RegisterUpdate(update);
-
             foreach (var pair in this.operation.OriginalValues)
             {
                 pair.Key.SetValueForInstance(this.operation.EditItemInfo.Item, pair.Value);
             }
+
+            this.Owner.updateService.RegisterUpdate(update);
 
             if (this.operation.EditMode == DataGridUserEditMode.Inline)
             {

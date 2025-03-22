@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="container">The RadCalendar container.</param>
-        public Windows.UI.Xaml.Style SelectStyle(object context, RadCalendar container)
+        public Microsoft.UI.Xaml.Style SelectStyle(object context, RadCalendar container)
         {
             return this.SelectStyleCore(context, container);
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="container">The RadCalendar container.</param>
-        protected virtual Windows.UI.Xaml.Style SelectStyleCore(object context, RadCalendar container)
+        protected virtual Microsoft.UI.Xaml.Style SelectStyleCore(object context, RadCalendar container)
         {
             return null;
         }

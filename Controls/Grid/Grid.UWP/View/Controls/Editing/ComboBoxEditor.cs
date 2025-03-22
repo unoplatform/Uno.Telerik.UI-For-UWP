@@ -1,9 +1,9 @@
 ﻿using System;
 using Telerik.UI.Xaml.Controls.Data.DataForm;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -30,7 +30,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             b1.Path = new PropertyPath("ValueOptions");
             this.SetBinding(ComboBoxEditor.ItemsSourceProperty, b1);
 
-            Binding b2 = new Windows.UI.Xaml.Data.Binding();
+            Binding b2 = new Microsoft.UI.Xaml.Data.Binding();
             b2.Path = new PropertyPath("Watermark");
             this.SetBinding(ComboBoxEditor.PlaceholderTextProperty, b2);
 

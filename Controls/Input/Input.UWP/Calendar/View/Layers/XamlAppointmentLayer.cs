@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using Telerik.Core;
 using Windows.Foundation;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar
 {
@@ -22,7 +22,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             this.realizedCalendarCellDefaultPresenters = new List<AppointmentControl>();
         }
 
-        protected internal override Windows.UI.Xaml.UIElement VisualElement
+        protected internal override Microsoft.UI.Xaml.UIElement VisualElement
         {
             get
             {
@@ -42,7 +42,7 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             }
 
             int index = 0;
-
+            RadCalendar calendar = this.Owner;
             foreach (CalendarCellModel cell in cellsToUpdate)
             {
                 CalendarAppointmentInfo info = new CalendarAppointmentInfo();
@@ -54,35 +54,20 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
 
                 if (info.Appointments.Count > 0)
                 {
-                    AppointmentControl element = new AppointmentControl();
-
                     foreach (var appointment in info.Appointments)
                     {
-                        info.DetailText += (info.DetailText != null ? Environment.NewLine : string.Empty) + appointment.Subject;
+                        info.Subject += (info.Subject != null ? Environment.NewLine : string.Empty) + appointment.Subject;
                     }
 
-                    element = this.GetDefaultVisual(index);
+                    var element = this.GetDefaultVisual(index);
                     element.Clip = new RectangleGeometry() { Rect = new Rect(0, 0, cell.LayoutSlot.Width, cell.LayoutSlot.Height) };
-                    element.Content = info;
+                    element.appointmentInfo = info;
+                    calendar.PrepareContainerForAppointment(element, info);
 
-                    XamlContentLayerHelper.MeasureVisual(element);
-                    if (element != null)
-                    {
-                        if (this.Owner.AppointmentTemplateSelector != null)
-                        {
-                            var template = this.Owner.AppointmentTemplateSelector.SelectTemplate(info, cell);
-                            if (template != null)
-                            {
-                                element.ContentTemplate = template;
-                            }
-                        }
-
-                        RadRect layoutSlot = cell.layoutSlot;
-                        layoutSlot = XamlContentLayerHelper.ApplyLayoutSlotAlignment(element, layoutSlot);
-                        XamlContentLayer.ArrangeUIElement(element, layoutSlot, false);
-
-                        index++;
-                    }
+                    RadRect layoutSlot = cell.layoutSlot;
+                    layoutSlot = XamlContentLayerHelper.ApplyLayoutSlotAlignment(element, layoutSlot);
+                    XamlContentLayer.ArrangeUIElement(element, layoutSlot, false);
+                    index++;
                 }
             }
 
@@ -118,6 +103,10 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
                 visual = this.realizedCalendarCellDefaultPresenters[virtualIndex];
                 visual.ClearValue(AppointmentControl.VisibilityProperty);
                 visual.ClearValue(AppointmentControl.ContentTemplateProperty);
+                visual.ClearValue(AppointmentControl.HeaderTemplateProperty);
+                visual.ClearValue(AppointmentControl.HeaderProperty);
+                visual.ClearValue(AppointmentControl.ContentProperty);
+                visual.ClearValue(AppointmentControl.StyleProperty);
             }
             else
             {
@@ -132,7 +121,6 @@ namespace Telerik.UI.Xaml.Controls.Input.Calendar
             AppointmentControl appointmentControl = new AppointmentControl();
 
             this.realizedCalendarCellDefaultPresenters.Add(appointmentControl);
-
             this.AddVisualChild(appointmentControl);
 
             return appointmentControl;

@@ -2,7 +2,7 @@
 using Telerik.UI.Xaml.Controls.Data.ListView;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop.Reorder;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
@@ -68,7 +68,7 @@ namespace Telerik.UI.Xaml.Controls.Data
         {
         }
 
-        internal void PrepareReorderItem(RadListViewItem reorderItem)
+        internal void PrepareReorderItem(DependencyObject reorderItem)
         {
             if (reorderItem != null)
             {
@@ -77,7 +77,7 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
         }
 
-        internal void CleanupReorderItem(RadListViewItem reorderItem)
+        internal void CleanupReorderItem(DependencyObject reorderItem)
         {
             if (reorderItem != null)
             {
@@ -106,7 +106,7 @@ namespace Telerik.UI.Xaml.Controls.Data
 
         private void InitializeReorder()
         {
-            this.reorderCoordinator = new ReorderItemsCoordinator(this);
+            this.reorderCoordinator = new ListViewReorderItemsCoordinator(this);
         }
     }
 }

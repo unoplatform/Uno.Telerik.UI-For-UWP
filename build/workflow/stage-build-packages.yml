@@ -1,0 +1,29 @@
+jobs:
+- job: Packages
+  timeoutInMinutes: 90
+  pool:
+    vmImage: 'windows-2022'
+
+  steps:
+  - checkout: self
+    fetchDepth: 0
+
+  - template: templates/canary-updater.yml
+  # - template: templates/gitversion.yml
+  - template: templates/dotnet-install-windows.yml
+
+  - task: MSBuild@1
+    inputs:
+      solution: $(build.sourcesdirectory)/Uno.Telerik.UI-For-UWP/Controls/UWPControls-packages.slnf
+      configuration: Release
+      msbuildLocationMethod: version
+      msbuildVersion: latest
+      maximumCpuCount: true
+      msbuildArguments: /m /v:m /r /p:GeneratePackageOnBuild=true /detailedsummary "/p:PackageOutputPath=$(build.artifactstagingdirectory)" /bl:$(build.artifactstagingdirectory)/telerik-build-packages.binlog
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactName: telerik-drop
+      ArtifactType: Container

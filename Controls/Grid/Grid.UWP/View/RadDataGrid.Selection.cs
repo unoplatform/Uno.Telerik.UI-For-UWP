@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using Telerik.UI.Automation.Peers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Grid
 {
@@ -128,6 +127,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// </remarks>
         public void SelectItem(object item)
         {
+            this.UpdateItemToSelectFrom(item);
             this.selectionService.SelectItem(item, true, false);
         }
 
@@ -147,6 +147,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
 
             this.selectionService.SelectItem(item, false, false);
+            this.itemToSelectFrom = item;
         }
 
         /// <summary>
@@ -157,6 +158,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
         /// </remarks>
         public void SelectCell(DataGridCellInfo item)
         {
+            this.UpdateItemToSelectFrom(item);
             this.selectionService.SelectCellInfo(item, true, false);
         }
 
@@ -176,6 +178,7 @@ namespace Telerik.UI.Xaml.Controls.Grid
             }
 
             this.selectionService.SelectCellInfo(item, false, false);
+            this.itemToSelectFrom = item;
         }
 
         /// <summary>
@@ -225,7 +228,19 @@ namespace Telerik.UI.Xaml.Controls.Grid
             {
                 grid.selectionService.OnSelectedItemChanged(e.OldValue, e.NewValue);
             }
+
             grid.CurrencyService.OnSelectedItemChanged(e.NewValue);
+            grid.itemToSelectFrom = e.NewValue ?? grid.CurrentItem;
+        }
+
+        private void UpdateItemToSelectFrom(object item)
+        {
+            if (this.SelectionMode == DataGridSelectionMode.Extended)
+            {
+                this.selectionService.ClearSelection();
+            }
+
+            this.itemToSelectFrom = item;
         }
     }
 }

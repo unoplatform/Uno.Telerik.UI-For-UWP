@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Input.Calendar.Commands
 {

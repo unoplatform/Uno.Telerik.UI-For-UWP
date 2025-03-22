@@ -1,9 +1,9 @@
 ﻿using System;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.DragDrop
 {
@@ -130,9 +130,12 @@ namespace Telerik.UI.Xaml.Controls.Primitives.DragDrop
                 this.OnDrop();
             }
 
-            this.dragVisualContext.DragVisualCleared += this.DragSurface_DragVisualCleared;
-            this.dragSurface.CompleteDrag(this.dragVisualContext, this.dragCompleteContext.DragSuccessful);
-            this.OnDragDropComplete();
+            if (this.dragCompleteContext != null)
+            {
+                this.dragVisualContext.DragVisualCleared += this.DragSurface_DragVisualCleared;
+                this.dragSurface.CompleteDrag(this.dragVisualContext, this.dragCompleteContext.DragSuccessful);
+                this.OnDragDropComplete();
+            }
 
             if (this.originalFocusedElement != null)
             {
@@ -158,7 +161,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.DragDrop
 
         private void DragVisualHost_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
         {
-            if (e.Pointer.PointerId == this.capturedPointer.PointerId)
+            if (this.capturedPointer != null && e.Pointer.PointerId == this.capturedPointer.PointerId)
             {
                 this.EndDrag();
             }
@@ -293,7 +296,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.DragDrop
                 this.targetElement.OnDrop(this.dragContext);
             }
         }
-   
+
         private void DragSurface_DragVisualCleared(object sender, EventArgs e)
         {
             this.dragVisualContext.DragVisualCleared -= this.DragSurface_DragVisualCleared;

@@ -10,8 +10,8 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.Model
 {
     internal class WrapLayoutStrategy : BaseLayoutStrategy
     {
-        private WrapLayout layout;
         private readonly HashSet<object> generatedContainerItems = new HashSet<object>();
+        private WrapLayout layout;
 
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", Justification = "These virtual calls do not rely on uninitialized base state.")]
         public WrapLayoutStrategy(ItemModelGenerator generator, IOrientedParentView owner, double defaultItemLength, double defaultItemOppositeLength) : base(generator, owner)
@@ -56,7 +56,7 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.Model
             }
         }
 
-        public override void ArrangeContent(RadSize adjustedfinalSize, double topOffset)
+        public override void ArrangeContent(RadSize adjustedfinalSize, double initialOffset)
         {
             bool initialized = false;
             var topLeft = new RadPoint(0, 0);
@@ -79,11 +79,11 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.Model
 
                         if (this.IsHorizontal)
                         {
-                            topLeft.X = offset;
+                            topLeft.X = offset + initialOffset;
                         }
                         else
                         {
-                            topLeft.Y = offset + topOffset;
+                            topLeft.Y = offset + initialOffset;
                         }
                     }
 
@@ -94,12 +94,12 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.Model
                     if (this.IsHorizontal)
                     {
                         var arrangeHeight = shouldStretch ? oppositAvalilableLength : this.ItemWidth;
-                        arrangeRect = new RadRect(topLeft.X, topLeft.Y, itemEnd - topLeft.X, arrangeHeight);
+                        arrangeRect = new RadRect(topLeft.X, topLeft.Y, itemEnd - topLeft.X + initialOffset, arrangeHeight);
                     }
                     else
                     {
                         var arrangeWidth = shouldStretch ? oppositAvalilableLength : this.ItemWidth;
-                        arrangeRect = new RadRect(topLeft.X, topLeft.Y, arrangeWidth, itemEnd - topLeft.Y + topOffset);
+                        arrangeRect = new RadRect(topLeft.X, topLeft.Y, arrangeWidth, itemEnd - topLeft.Y + initialOffset);
                     }
 
                     decorator.LayoutSlot = arrangeRect;
@@ -136,7 +136,9 @@ namespace Telerik.UI.Xaml.Controls.Data.ListView.Model
         {
             List<GeneratedItemModel> containers;
             if (this.generatedContainers.TryGetValue(slot, out containers))
+            {
                 return containers.FirstOrDefault(model => model.ItemInfo.Id == id);
+            }
 
             return null;
         }

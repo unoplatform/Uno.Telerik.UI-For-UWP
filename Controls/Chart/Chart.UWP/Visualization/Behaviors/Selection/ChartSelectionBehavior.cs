@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Telerik.Charting;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -64,7 +64,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         }
 
         /// <summary>
-        /// Gets or sets the <see cref=" Windows.UI.Xaml.Thickness(double)"/> struct that will be used when calculating the touch rect.
+        /// Gets or sets the <see cref=" Microsoft.UI.Xaml.Thickness(double)"/> struct that will be used when calculating the touch rect.
         /// </summary>
         public Thickness TouchTargetOverhang
         {
@@ -160,6 +160,8 @@ namespace Telerik.UI.Xaml.Controls.Chart
                     }
                 }
             }
+
+            this.RaiseSelectionChanged();
         }
 
         internal bool HandleTap(Point position)

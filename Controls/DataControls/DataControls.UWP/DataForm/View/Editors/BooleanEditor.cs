@@ -1,15 +1,15 @@
 ﻿using Telerik.UI.Xaml.Controls.Data.DataForm;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {
     /// <summary>
     /// Represents a BooleanEditor control.
     /// </summary>
-    public partial class BooleanEditor : CheckBox, ITypeEditor
+    public partial class BooleanEditor : CheckBox, ITypeEditor, IEditor
     {
         /// <summary>
         /// Identifies the <see cref="CheckedStateBackgroundBrush"/> dependency property. 
@@ -26,21 +26,6 @@ namespace Telerik.UI.Xaml.Controls.Data
         }
 
         /// <summary>
-        /// Method used for generating bindings for the <see cref="ITypeEditor"/> properties.
-        /// </summary>
-        public void BindEditor()
-        {
-            Binding b = new Binding() { Mode = BindingMode.TwoWay };
-            b.Path = new PropertyPath("PropertyValue");
-            this.SetBinding(BooleanEditor.IsCheckedProperty, b);
-
-            Binding b3 = new Binding();
-            b3.Converter = new IsEnabledEditorConvetrer();
-            b3.Path = new PropertyPath(string.Empty);
-            this.SetBinding(BooleanEditor.IsEnabledProperty, b3);
-        }
-
-        /// <summary>
         /// Gets or sets the Background of the rectangle area of the <see cref="CheckBox"/> when the control is checked.
         /// </summary>
         public Brush CheckedStateBackgroundBrush
@@ -51,8 +36,29 @@ namespace Telerik.UI.Xaml.Controls.Data
             }
             set
             {
-                SetValue(CheckedStateBackgroundBrushProperty, value);
+                this.SetValue(CheckedStateBackgroundBrushProperty, value);
             }
+        }
+
+        object IEditor.GetCurrentValue()
+        {
+            return this.IsChecked;
+        }
+
+        /// <summary>
+        /// Method used for generating bindings for the <see cref="ITypeEditor"/> properties.
+        /// </summary>
+        public void BindEditor()
+        {
+            Binding b = new Binding() { Mode = BindingMode.TwoWay };
+            b.Path = new PropertyPath("PropertyValue");
+            EditorsHelper.AddPropertyValueConverter(b, this);
+            this.SetBinding(BooleanEditor.IsCheckedProperty, b);
+
+            Binding b3 = new Binding();
+            b3.Converter = new IsEnabledEditorConvetrer();
+            b3.Path = new PropertyPath(string.Empty);
+            this.SetBinding(BooleanEditor.IsEnabledProperty, b3);
         }
     }
 }

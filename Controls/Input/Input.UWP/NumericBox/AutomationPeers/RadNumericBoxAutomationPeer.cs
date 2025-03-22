@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using Telerik.UI.Xaml.Controls.Input;
 using Windows.Foundation;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -36,10 +36,10 @@ namespace Telerik.UI.Automation.Peers
         }
 
         /// <summary>
-        /// Gets the value that is added to or subtracted from the <see cref="P:Windows.UI.Xaml.Automation.Provider.IRangeValueProvider.Value"/> property when a large change is made, such as with the PAGE DOWN key.
+        /// Gets the value that is added to or subtracted from the <see cref="P:Microsoft.UI.Xaml.Automation.Provider.IRangeValueProvider.Value"/> property when a large change is made, such as with the PAGE DOWN key.
         /// </summary>
         /// <returns>
-        /// The large-change value supported by the control or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Windows.UI.Xaml.Automation.Provider.IRangeValueProvider.LargeChange"/>.
+        /// The large-change value supported by the control or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Microsoft.UI.Xaml.Automation.Provider.IRangeValueProvider.LargeChange"/>.
         /// </returns>
         public double LargeChange
         {
@@ -53,7 +53,7 @@ namespace Telerik.UI.Automation.Peers
         /// Gets the maximum range value supported by the control.
         /// </summary>
         /// <returns>
-        /// The maximum value supported by the control or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Windows.UI.Xaml.Automation.Provider.IRangeValueProvider.Maximum"/>.
+        /// The maximum value supported by the control or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Microsoft.UI.Xaml.Automation.Provider.IRangeValueProvider.Maximum"/>.
         /// </returns>
         public double Maximum
         {
@@ -78,10 +78,10 @@ namespace Telerik.UI.Automation.Peers
         }
         
         /// <summary>
-        /// Gets the value that is added to or subtracted from the <see cref="P:Windows.UI.Xaml.Automation.Provider.IRangeValueProvider.Value"/> property when a small change is made, such as with an arrow key.
+        /// Gets the value that is added to or subtracted from the <see cref="P:Microsoft.UI.Xaml.Automation.Provider.IRangeValueProvider.Value"/> property when a small change is made, such as with an arrow key.
         /// </summary>
         /// <returns>
-        /// The small-change value or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Windows.UI.Xaml.Automation.Provider.IRangeValueProvider.SmallChange"/>.
+        /// The small-change value or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Microsoft.UI.Xaml.Automation.Provider.IRangeValueProvider.SmallChange"/>.
         /// </returns>
         public double SmallChange
         {
@@ -95,7 +95,7 @@ namespace Telerik.UI.Automation.Peers
         /// Gets the value of the control.
         /// </summary>
         /// <returns>
-        /// The value of the control or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Windows.UI.Xaml.Automation.Provider.IRangeValueProvider.Value"/>.
+        /// The value of the control or null (Nothing in Microsoft Visual Basic .NET) if the control does not support <see cref="P:Microsoft.UI.Xaml.Automation.Provider.IRangeValueProvider.Value"/>.
         /// </returns>
         public double Value
         {

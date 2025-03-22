@@ -1,69 +1,55 @@
+trigger:
+  branches:
+    include:
+      - uno
+      - beta
+      - release/beta/*
+      - stable
+      - release/stable/*
+
+  paths:
+    include:
+    - '/'
+    exclude:
+    - .dependabot/
+    - .github/
+    # don't trigger the CI if only docs files are changed
+    - doc/*
+    - '**/*.md'
+    - '*.md'
+
+pr: 
+  branches:
+    include:
+      - uno
+      - beta
+      - release/beta/*
+      - stable
+      - release/stable/*
+
+  paths:
+    include:
+    - '/'
+    exclude:
+    - .dependabot/
+    - .github/
+    # don't trigger the CI if only docs files are changed
+    - doc/*
+    - '**/*.md'
+    - '*.md'
+
+variables:
+  # Path where packages (nuget or app packages) will be copied to.
+  PackageOutputPath: $(build.artifactstagingdirectory)
+
+  IsCanaryBranch: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries/')]
+  IsReleaseBranch: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
+  XCODE_ROOT: '/Applications/Xcode_16.1.app'
+
 jobs:
-- job: Packages
-
-  pool:
-    vmImage: 'windows-2019'
-
-  steps:
-  - checkout: self
-    clean: true
-
-  - task: GitVersion@5
-    inputs:
-      updateAssemblyInfo: false
-
-  - task: UseDotNet@2
-    displayName: 'Use .Net Core runtime 2.2.x'
-    inputs:
-      packageType: runtime
-      version: 2.2.x
-      installationPath: '$(DotnetRuntimePath)'
-
-  - task: nventiveCanaryUpdater@5
-    displayName: 'Canary Update'
-    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries')
-    inputs:
-      solution: Controls/UWPControls.sln
-      branchToMerge: uno
-      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
-      resultFile: '$(Build.ArtifactStagingDirectory)/result.json'
-      nugetUpdaterVersion: 2.0.6
-      packageAuthor: nventive
-
-  - task: MSBuild@1
-    inputs:
-      solution: Controls/UWPControls.sln
-      msbuildLocationMethod: version
-      msbuildVersion: latest
-      msbuildArchitecture: x86
-      msbuildArguments: /r /p:Configuration=Release "/p:Platform=Any CPU" /detailedsummary "/p:PackageVersion=$(GITVERSION.FullSemVer)" "/p:InformationalVersion=$(GITVERSION.InformationalVersion)" "/p:PackageOutputPath=$(build.artifactstagingdirectory)" # /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
-      clean: false
-      maximumCpuCount: true
-      restoreNugetPackages: false
-      logProjectEvents: false
-      createLogFile: false
-
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: $(Build.SourcesDirectory)\SDKExamples.iOS\bin
-      Contents: '**\*.ipa'
-      TargetFolder: $(build.artifactstagingdirectory)\ios
-
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Droid\bin
-      Contents: '**\*.apk'
-      TargetFolder: $(build.artifactstagingdirectory)\android
-
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: $(Build.SourcesDirectory)\SDKExamples.Wasm\bin\Release\netstandard2.0\dist
-      Contents: '**\*.*'
-      TargetFolder: $(build.artifactstagingdirectory)\wasm
-
-  - task: PublishBuildArtifacts@1
-    condition: always()
-    inputs:
-      PathtoPublish: $(build.artifactstagingdirectory)
-      ArtifactName: TelerikUWP-drop
-      ArtifactType: Container
+- template: build/workflow/stage-build-packages.yml
+- template: build/workflow/stage-build-windows.yml
+- template: build/workflow/stage-build-android.yml
+- template: build/workflow/stage-build-ios-catalyst.yml
+- template: build/workflow/stage-build-wasm.yml
+- template: build/workflow/stage-build-skia-desktop.yml

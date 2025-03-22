@@ -8,12 +8,15 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
     /// </summary>
     public class GridFormEntityProperty : RuntimeEntityProperty
     {
+        private DataGridColumn column;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GridFormEntityProperty"/> class.
         /// </summary>
-        public GridFormEntityProperty(PropertyInfo property, object item)
+        public GridFormEntityProperty(PropertyInfo property, object item, DataGridColumn column)
         : base(property, item)
         {
+            this.column = column;
         }
 
         /// <summary>
@@ -40,6 +43,17 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             }
 
             return label;
+        }
+
+        /// <inheritdoc/>
+        protected override bool GetIsReadOnly(object property)
+        {
+            if (this.column != null && !this.column.CanEdit)
+            {
+                return true;
+            }
+
+            return base.GetIsReadOnly(property);
         }
     }
 }

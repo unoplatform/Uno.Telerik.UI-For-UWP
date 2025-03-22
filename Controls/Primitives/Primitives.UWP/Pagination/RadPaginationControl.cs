@@ -1,10 +1,10 @@
 ﻿using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.Pagination;
 using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {

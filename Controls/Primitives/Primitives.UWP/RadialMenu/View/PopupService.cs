@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 {
@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 		private static Popup popup;
 #else
 		//TODO UNO
-		private static Windows.UI.Xaml.Controls.Popup popup;
+		private static Microsoft.UI.Xaml.Controls.Primitives.Popup popup;
 #endif
 
 		private static Panel overlay;
@@ -39,7 +39,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 				popup = new Popup();
 #else
 				//TODO UNO
-				popup = new Windows.UI.Xaml.Controls.Popup();
+				popup = new Microsoft.UI.Xaml.Controls.Primitives.Popup();
 #endif
 
 				overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
@@ -68,7 +68,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
 				popup = new Popup();
 #else
 				//TODO UNO
-				popup = new Windows.UI.Xaml.Controls.Popup();
+				popup = new Microsoft.UI.Xaml.Controls.Primitives.Popup();
 #endif
 
 				overlay = new Canvas() { Width = Window.Current.Bounds.Width, Height = Window.Current.Bounds.Height };
@@ -108,7 +108,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.Menu
             }
         }
 
-        private static void Overlay_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private static void Overlay_PointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (CurrentAttachedMenu == null || !CurrentAttachedMenu.hitTestService.HitTest(e.GetCurrentPoint(CurrentAttachedMenu).Position).Any())
             {

@@ -2,10 +2,10 @@ using System.Diagnostics.CodeAnalysis;
 using Telerik.Charting;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -66,7 +66,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="Brush"/> instance that defines the stroke of the <see cref="Windows.UI.Xaml.Shapes.Line"/> shape.
+        /// Gets or sets the <see cref="Brush"/> instance that defines the stroke of the <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape.
         /// </summary>
         public Brush Stroke
         {
@@ -168,11 +168,11 @@ namespace Telerik.UI.Xaml.Controls.Chart
             {
                 this.renderer.Render(this.drawWithComposition);
 
-                if (this.drawWithComposition && this.renderer.renderPoints.Count > 2)
+                if (this.drawWithComposition && this.renderer.renderPoints.Count >= 2)
                 {
                     foreach (DataPointSegment dataSegment in ChartSeriesRenderer.GetDataSegments(this.renderer.renderPoints))
                     {
-                        this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(lineRendererVisual, this.renderer.GetPoints(dataSegment), this.Stroke, this.StrokeThickness);
+                        this.chart.ContainerVisualsFactory.PrepareLineRenderVisual(this.lineRendererVisual, this.renderer.GetPoints(dataSegment), this.Stroke, this.StrokeThickness);
                     }
                 }
             }

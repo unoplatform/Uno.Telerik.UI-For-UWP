@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {

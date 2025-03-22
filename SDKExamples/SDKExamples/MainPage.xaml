@@ -1,0 +1,71 @@
+﻿<Page x:Class="SDKExamples.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:SDKExamples"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <Page.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="UnoPlatformShell.xaml"/>
+      </ResourceDictionary.MergedDictionaries>
+
+      <!-- ListViewItem Style -->
+      <Style x:Key="ListViewItemStyle"
+             TargetType="ListViewItem">
+
+        <Setter Property="Padding"
+                Value="16,0,0,0"/>
+        <Setter Property="HorizontalAlignment"
+                Value="Stretch"/>
+        <Setter Property="HorizontalContentAlignment"
+                Value="Stretch"/>
+        <Setter Property="Width"
+                Value="300"/>
+      </Style>
+    </ResourceDictionary>
+  </Page.Resources>
+
+  <!-- UnoPlatformShell -->
+  <local:UnoPlatformShell x:Name="UnoShell"
+                          AppName="UWPControl"
+                          AppAuthor="Telerik"
+                          LinkToOriginalApp="https://github.com/telerik/UI-For-UWP"
+                          LinkToAppAuthor="https://github.com/telerik"
+                          LinkToUnoPlatformApp="https://github.com/unoplatform/Uno.Telerik.UI-For-UWP"
+                          VersionNumber="buildVersion">
+
+    <!-- About Content -->
+    <local:UnoPlatformShell.AboutContent>
+      <StackPanel>
+
+        <!-- About Content Line 1 -->
+        <TextBlock TextWrapping="Wrap"
+                   Foreground="{StaticResource Color02Brush}"
+                   FontStyle="Italic"
+                   FontSize="14">
+						
+					This application is running 
+					<Bold>
+						entirely locally
+					</Bold> 
+					on your machine, no data is being sent out to the wire.
+        </TextBlock>
+      </StackPanel>
+    </local:UnoPlatformShell.AboutContent>
+
+    <!-- App Content -->
+    <local:UnoPlatformShell.AppContent>
+
+      <NavigationView x:Name="NavigationViewControl"
+                      ItemInvoked="OnNavigationViewItemInvoked"
+                      AlwaysShowHeader="False"
+                      IsSettingsVisible="False"
+                      IsTabStop="False"
+                      Canvas.ZIndex="0">
+
+        <!-- rootFrame -->
+        <Frame x:Name="rootFrame"/>
+      </NavigationView>
+    </local:UnoPlatformShell.AppContent>
+  </local:UnoPlatformShell>
+</Page>

@@ -2,11 +2,11 @@
 using System.ComponentModel;
 using System.Globalization;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 {
@@ -50,7 +50,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 			var parent = this.Parent as Popup;
 #else
 			//TODO UNO
-			var parent = this.Parent as Windows.UI.Xaml.Controls.Popup;
+			var parent = this.Parent as Microsoft.UI.Xaml.Controls.Primitives.Popup;
 #endif
 
 			if (this.Owner == null || this.Parent == null || parent == null || !this.Owner.ShowRangeToolTip)
@@ -116,7 +116,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 		Popup parent
 #else
 		//UNO TODO
-		Windows.UI.Xaml.Controls.Popup parent
+		Microsoft.UI.Xaml.Controls.Primitives.Popup parent
 #endif
 	
 			
@@ -135,9 +135,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             {
                 parent.VerticalOffset = -this.Owner.sliderPrimitivePosition.Y;
             }
-            else if (position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y > /* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Height)
+            else if (position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y > /* TODO UNO */ Microsoft.UI.Xaml.Window.Current.Bounds.Height)
             {
-                double newOffset = position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y - /* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Height;
+                double newOffset = position.Y + this.DesiredSize.Height + this.Owner.sliderPrimitivePosition.Y - /* TODO UNO */ Microsoft.UI.Xaml.Window.Current.Bounds.Height;
                 parent.VerticalOffset = position.Y - newOffset;
             }
             else
@@ -151,7 +151,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
 			Popup parent
 #else
 			//UNO TODO
-			Windows.UI.Xaml.Controls.Popup parent
+			Microsoft.UI.Xaml.Controls.Primitives.Popup parent
 #endif
 			, Point position)
         {
@@ -168,9 +168,9 @@ namespace Telerik.UI.Xaml.Controls.Primitives.RangeSlider
             {
                 parent.HorizontalOffset = -this.Owner.sliderPrimitivePosition.X;
             }
-            else if (position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X > /* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Width)
+            else if (position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X > /* TODO UNO */ Microsoft.UI.Xaml.Window.Current.Bounds.Width)
             {
-                double newOffset = position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X -/* TODO UNO */ Windows.UI.Xaml.Window.Current.Bounds.Width;
+                double newOffset = position.X + this.DesiredSize.Width + this.Owner.sliderPrimitivePosition.X -/* TODO UNO */ Microsoft.UI.Xaml.Window.Current.Bounds.Width;
                 parent.HorizontalOffset = position.X - newOffset;
             }
             else

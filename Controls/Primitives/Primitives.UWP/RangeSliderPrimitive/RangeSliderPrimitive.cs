@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Primitives.RangeSlider;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Telerik.UI.Xaml.Controls.Primitives
 {
@@ -45,7 +45,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 		internal Popup rangeToolTip;
 #else
 		//UNO TODO
-		internal Windows.UI.Xaml.Controls.Popup rangeToolTip;
+		internal Microsoft.UI.Xaml.Controls.Primitives.Popup rangeToolTip;
 #endif
 
 
@@ -80,7 +80,7 @@ namespace Telerik.UI.Xaml.Controls.Primitives
 			this.rangeToolTip = new Popup();
 #else
 			//TODO UNO
-			this.rangeToolTip = new Windows.UI.Xaml.Controls.Popup();
+			this.rangeToolTip = new Microsoft.UI.Xaml.Controls.Primitives.Popup();
 #endif
 
             this.rangeToolTipContent = new RangeToolTip();
@@ -349,14 +349,14 @@ namespace Telerik.UI.Xaml.Controls.Primitives
             {
                 this.shouldSwapValues = true;
                 this.SwapWidthHeightProperties();
-                this.valueToolTip.Placement = Windows.UI.Xaml.Controls.Primitives.PlacementMode.Top;
+                this.valueToolTip.Placement = Microsoft.UI.Xaml.Controls.Primitives.PlacementMode.Top;
             }
 
             if (newOrientation == Orientation.Vertical && oldOrientation == Orientation.Horizontal)
             {
                 this.shouldSwapValues = true;
                 this.SwapWidthHeightProperties();
-                this.valueToolTip.Placement = Windows.UI.Xaml.Controls.Primitives.PlacementMode.Left;
+                this.valueToolTip.Placement = Microsoft.UI.Xaml.Controls.Primitives.PlacementMode.Left;
             }
         }
 

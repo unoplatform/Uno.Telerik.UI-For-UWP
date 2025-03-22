@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Telerik.Data.Core;
 
@@ -69,6 +70,18 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
         }
 
         /// <inheritdoc/>
+        protected override EntityProperty GenerateEntityProperty(object property)
+        {
+            var column = this.Columns.FirstOrDefault(a => a is DataGridTypedColumn 
+            && ((DataGridTypedColumn)a).PropertyName.Equals(((PropertyInfo)property).Name));
+
+            var entityProperty = new GridFormEntityProperty((PropertyInfo)property, this.Context, column);
+            entityProperty.PopulatePropertyMetadata();
+
+            return entityProperty;
+        }
+
+        /// <inheritdoc/>
         protected override Type GetEntityPropertyType(object property)
         {
             return typeof(GridFormEntityProperty); 
@@ -83,7 +96,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             {
                 var typedColumn = column as DataGridTypedColumn;
 
-                if (typedColumn.PropertyName.Equals(propertyInfo.Name))
+                if (typedColumn != null && typedColumn.PropertyName.Equals(propertyInfo.Name))
                 {
                     return true;
                 }

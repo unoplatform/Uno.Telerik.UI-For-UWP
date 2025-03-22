@@ -1,11 +1,11 @@
 ﻿using System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.Core
 {
     /// <summary>
-    /// Converts boolean values to <see cref="Windows.UI.Xaml.Visibility"/>.
+    /// Converts boolean values to <see cref="Microsoft.UI.Xaml.Visibility"/>.
     /// </summary>
     public class BoolToVisibilityConverter : IValueConverter
     {

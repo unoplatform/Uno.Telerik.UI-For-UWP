@@ -1,9 +1,9 @@
 ﻿using System;
 using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Grid.View;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {

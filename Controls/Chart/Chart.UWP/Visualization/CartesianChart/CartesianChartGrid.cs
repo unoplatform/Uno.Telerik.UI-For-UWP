@@ -1,19 +1,17 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Telerik.Charting;
 using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI;
-using Windows.UI.Composition;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -455,11 +453,11 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
                 if (visibility == GridLineVisibility.X)
                 {
-                    this.Orientation = Windows.UI.Xaml.Controls.Orientation.Vertical;
+                    this.Orientation = Microsoft.UI.Xaml.Controls.Orientation.Vertical;
                 }
                 else
                 {
-                    this.Orientation = Windows.UI.Xaml.Controls.Orientation.Horizontal;
+                    this.Orientation = Microsoft.UI.Xaml.Controls.Orientation.Horizontal;
                 }
             }
 
@@ -475,16 +473,16 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 // hide not used lines
                 while (arrangedLines < this.Lines.Count)
                 {
-                    this.Lines[arrangedLines].Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    this.Lines[arrangedLines].Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                     arrangedLines++;
                 }
             }
 
             public void UpdateVisuals()
             {
-                if (dashArray == null)
+                if (this.dashArray == null)
                 {
-                    this.dashArray = new DoubleCollection() { 4, 2};
+                    this.dashArray = new DoubleCollection() { 4, 2 };
                 }
 
                 int arrangedVisuals = this.ArrangeLines(true);
@@ -517,7 +515,6 @@ namespace Telerik.UI.Xaml.Controls.Chart
                 {
                     return 0;
                 }
-
 
                 object line;
                 int lineCount = 0;
@@ -561,7 +558,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
                     lineCount++;
                 }
 
-                //draw the last line
+                // draw the last line
                 if (count > 0 && (this.RenderMode & GridLineRenderMode.Last) == GridLineRenderMode.Last)
                 {
                     stripe = this.Stripes[count - 1];
@@ -570,7 +567,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
                         AxisTickModel nextTick = stripe.AssociatedTick.NextMajorTick;
                         if (nextTick.isVisible)
                         {
-                            RadRect lastRect = this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical ?
+                            RadRect lastRect = this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical ?
                                     new RadRect(stripe.BorderRect.Right, stripe.BorderRect.Y, 1, stripe.BorderRect.Height) :
                                     new RadRect(stripe.BorderRect.X, stripe.BorderRect.Y - 1, stripe.BorderRect.Width, 1);
 
@@ -651,7 +648,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
             private void ArrangeLine(RadRect rect, Line line)
             {
                 double offset = line.StrokeThickness % 2 == 0 ? 0 : 0.5;
-                if (this.Orientation == Windows.UI.Xaml.Controls.Orientation.Vertical)
+                if (this.Orientation == Microsoft.UI.Xaml.Controls.Orientation.Vertical)
                 {
                     line.X1 = rect.X + offset;
                     line.X2 = rect.X + offset;

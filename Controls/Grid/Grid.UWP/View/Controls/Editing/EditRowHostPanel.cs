@@ -3,14 +3,14 @@ using System.Linq;
 using Telerik.Core;
 using Telerik.UI.Automation.Peers;
 using Windows.Foundation;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
     /// <summary>
     /// Represents the panel that hosts the editing UI of the <see cref="RadDataGrid"/> control.
     /// </summary>
-    public partial class EditRowHostPanel : Windows.UI.Xaml.Controls.Grid
+    public partial class EditRowHostPanel : Microsoft.UI.Xaml.Controls.Grid
     {
 		public EditRowHostPanel()
 		{

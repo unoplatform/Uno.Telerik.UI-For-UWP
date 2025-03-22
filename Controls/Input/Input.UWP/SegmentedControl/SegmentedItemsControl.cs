@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Input
 {
@@ -197,7 +197,9 @@ namespace Telerik.UI.Xaml.Controls.Input
         ///
         protected override DependencyObject GetContainerForItemOverride()
         {
-            return new Segment(true);
+            Segment segment = new Segment(true);
+            segment.owner = this.Owner;
+            return segment;
         }
 
         /// <inheritdoc />

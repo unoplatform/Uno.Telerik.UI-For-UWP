@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 
 namespace Telerik.Core
 {
@@ -115,8 +115,8 @@ namespace Telerik.Core
             context.EnsureDefaultTransforms();
             ScaleTransform transform = context.Target.GetScaleTransform();
 
-            double fromX = StartScaleX ?? transform.ScaleX;
-            double toX = EndScaleX ?? transform.ScaleX;
+            double fromX = this.StartScaleX ?? transform.ScaleX;
+            double toX = this.EndScaleX ?? transform.ScaleX;
 
             double duration = this.Duration.TimeSpan.TotalSeconds;
 

@@ -6,11 +6,11 @@ using Telerik.UI.Xaml.Controls.Grid.Commands;
 using Telerik.UI.Xaml.Controls.Primitives.Common;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Primitives
 {
@@ -238,6 +238,9 @@ namespace Telerik.UI.Xaml.Controls.Grid.Primitives
             // Overcome the differences in the DesiredSize of the header and the ArrangeSize, coming from the NodePool.
             if (!this.AllowArrange)
             {
+                // We need to call the base implementation in order to resolve an issue
+                // where the headers disappear when the DataGrid in visualized initially and the Alt key gets pressed.
+                base.ArrangeOverride(this.ArrangeRestriction);
                 return new Size(0, 0);
             }
 

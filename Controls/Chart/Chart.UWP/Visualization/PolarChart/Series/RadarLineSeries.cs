@@ -2,10 +2,10 @@
 using System.Diagnostics.CodeAnalysis;
 using Telerik.Charting;
 using Telerik.UI.Automation.Peers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace Telerik.UI.Xaml.Controls.Chart
 {
@@ -83,7 +83,7 @@ namespace Telerik.UI.Xaml.Controls.Chart
 
         /// <summary>
         /// Gets or sets the <see cref="Brush"/> instance that defines the stroke of 
-        /// the <see cref="Windows.UI.Xaml.Shapes.Line"/> shape.
+        /// the <see cref="Microsoft.UI.Xaml.Shapes.Line"/> shape.
         /// </summary>
         public Brush Stroke
         {

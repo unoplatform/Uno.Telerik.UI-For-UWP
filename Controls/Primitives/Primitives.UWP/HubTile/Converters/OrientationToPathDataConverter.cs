@@ -1,10 +1,10 @@
 ﻿using System;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Data;
 
 namespace Telerik.UI.Xaml.Controls.Primitives.HubTile
 {
     /// <summary>
-    /// Depending on the provided <see cref="HexOrientation"/> value, returns a string that corresponds to a hexagonal <see cref="Windows.UI.Xaml.Shapes.Path.Data"/>.
+    /// Depending on the provided <see cref="HexOrientation"/> value, returns a string that corresponds to a hexagonal <see cref="Microsoft.UI.Xaml.Shapes.Path.Data"/>.
     /// </summary>
     public class OrientationToPathDataConverter : IValueConverter
     {

@@ -1,6 +1,6 @@
 ﻿using Telerik.UI.Automation.Peers;
 using Telerik.UI.Xaml.Controls.Input;
-using Windows.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Peers;
 
 namespace Telerik.UI.Xaml.Controls.Data.DataForm
 {

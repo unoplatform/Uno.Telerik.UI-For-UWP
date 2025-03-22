@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Telerik.Core;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Telerik.UI.Xaml.Controls.Data
 {

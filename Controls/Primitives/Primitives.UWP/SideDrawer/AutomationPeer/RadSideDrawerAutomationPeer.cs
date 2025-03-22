@@ -1,8 +1,8 @@
 ﻿using Telerik.Core;
 using Telerik.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
 
 namespace Telerik.UI.Automation.Peers
 {
@@ -64,7 +64,7 @@ namespace Telerik.UI.Automation.Peers
         {
             if (this.SideDrawerOwner.MainContent != null)
             {
-                var textBlock = ElementTreeHelper.FindVisualDescendant<Windows.UI.Xaml.Controls.TextBlock>(this.SideDrawerOwner);
+                var textBlock = ElementTreeHelper.FindVisualDescendant<Microsoft.UI.Xaml.Controls.TextBlock>(this.SideDrawerOwner);
                 if (textBlock != null)
                 {
                     return textBlock.Text;

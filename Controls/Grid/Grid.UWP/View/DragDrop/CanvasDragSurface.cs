@@ -2,8 +2,8 @@
 using System.Linq;
 using Telerik.UI.Xaml.Controls.Primitives.DragDrop;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Telerik.UI.Xaml.Controls.Grid.Drag
 {
@@ -18,7 +18,7 @@ namespace Telerik.UI.Xaml.Controls.Grid.Drag
             this.adorner = adorner;
         }
 
-        public override Windows.UI.Xaml.FrameworkElement RootElement
+        public override Microsoft.UI.Xaml.FrameworkElement RootElement
         {
             get { return this.owner; }
         }
