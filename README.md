@@ -20,7 +20,10 @@ This is a fork of the open-source version of Telerik UI for Universal Windows Pl
 * For VS Code, you can open the `SDKExamples\SDKExamples\` folder directly in Code and select SDKExamples.csproj as the startup project.
 * For Rider, open the `SDKExamples\SDKExamples\SDKExamples.sln` directly and select your desired platform to run.
 
-> NOTE: Everything below is the original README from the Telerik UI for UWP project.
+> [!NOTE]
+> Everything below is the original README from the Telerik UI for UWP project.
+
+---
 
 # Progress Telerik UI for UWP
 
